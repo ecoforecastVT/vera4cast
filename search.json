@@ -4,7 +4,7 @@
     "href": "daily.html#leaderboard",
     "title": "Submitted forecasts",
     "section": "Leaderboard",
-    "text": "Leaderboard\nAverage skill scores of each model across all sites.\n\nScores are shown by reference date and forecast horizon (in days).\n\nScores are averaged across all submissions of the model with a given horizon or a given reference_datetime using submissions made since 2023-08-28.\n\n\nChla_ugLtemp_C\n\n\n\n\n\n\n\n\n\n\n\n\nNULL"
+    "text": "Leaderboard\nAverage skill scores of each model across all sites.\n\nScores are shown by reference date and forecast horizon (in days).\n\nScores are averaged across all submissions of the model with a given horizon or a given reference_datetime using submissions made since 2023-08-30.\n\n\nChla_ugLtemp_C\n\n\n\n\n\n\n\n\n\n\n\n\nNULL"
   },
   {
     "objectID": "catalog.html",
@@ -25,7 +25,7 @@
     "href": "index.html",
     "title": "Home",
     "section": "",
-    "text": "Welcome the Virginia Ecoforecasting Reservoir Analysis (VERA) Forecasting Challenge dashboard, hosted by the Ecological Forecasting Project (EFP)\nThis site provides instructions for participation, visualizations of forecast submissions, and a catalog of all submitted forecasts. It is rendered daily using GitHub Actions.\nPage last updated on 2023-09-27"
+    "text": "Welcome the Virginia Ecoforecasting Reservoir Analysis (VERA) Forecasting Challenge dashboard, hosted by the Ecological Forecasting Project (EFP)\nThis site provides instructions for participation, visualizations of forecast submissions, and a catalog of all submitted forecasts. It is rendered daily using GitHub Actions.\nPage last updated on 2023-09-29"
   },
   {
     "objectID": "index.html#submit-a-forecast",
