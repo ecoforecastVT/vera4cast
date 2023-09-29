@@ -4,7 +4,7 @@
     "href": "daily.html#leaderboard",
     "title": "Submitted forecasts",
     "section": "Leaderboard",
-    "text": "Leaderboard\nAverage skill scores of each model across all sites.\n\nScores are shown by reference date and forecast horizon (in days).\n\nScores are averaged across all submissions of the model with a given horizon or a given reference_datetime using submissions made since 2023-08-30.\n\n\nChla_ugLtemp_C\n\n\n\n\n\n\n\n\n\n\n\n\nNULL"
+    "text": "Leaderboard\nAverage skill scores of each model across all sites.\n\nScores are shown by reference date and forecast horizon (in days).\n\nScores are averaged across all submissions of the model with a given horizon or a given reference_datetime using submissions made since 2023-08-30.\n\n\nChla_ugLtemp_C\n\n\n\n\nNULL\n\n\n\n\n\n\nNULL"
   },
   {
     "objectID": "catalog.html",
