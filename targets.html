@@ -199,7 +199,6 @@ background-size: cover;
   <ul class="collapse">
   <li><a href="#targets-file" id="toc-targets-file" class="nav-link" data-scroll-target="#targets-file">Targets file</a></li>
   <li><a href="#variable-list" id="toc-variable-list" class="nav-link" data-scroll-target="#variable-list">Variable list</a></li>
-  <li><a href="#definitions-of-variables" id="toc-definitions-of-variables" class="nav-link" data-scroll-target="#definitions-of-variables">Definitions of variables</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/LTREB-reservoirs/vera4cast/edit/main/targets.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/LTREB-reservoirs/vera4cast/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -242,33 +241,13 @@ $ project_id  &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast", "v
 <section id="variable-list" class="level3">
 <h3 class="anchored" data-anchor-id="variable-list">Variable list</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>targets <span class="sc">|&gt;</span> <span class="fu">distinct</span>(variable, duration)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 9 × 2
-  variable           duration
-  &lt;chr&gt;              &lt;chr&gt;   
-1 Temp_C_mean        P1D     
-2 Cond_uScm_mean     P1D     
-3 SpCond_uScm_mean   P1D     
-4 DOsat_percent_mean P1D     
-5 DO_mgL_mean        P1D     
-6 Chla_ugL_mean      P1D     
-7 fDOM_QSU_mean      P1D     
-8 Turbidity_FNU_mean P1D     
-9 Bloom_binary_mean  P1D     </code></pre>
-</div>
-</div>
-</section>
-<section id="definitions-of-variables" class="level3">
-<h3 class="anchored" data-anchor-id="definitions-of-variables">Definitions of variables</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>target_metadata <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../vera4cast_target_metadata.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>target_metadata <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../vera4cast_target_metadata.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>targets <span class="sc">|&gt;</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(variable, duration) <span class="sc">|&gt;</span> </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(target_metadata, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"variable"</span>,<span class="st">"duration"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>targets <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(variable, duration) <span class="sc">|&gt;</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(target_metadata, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"variable"</span>,<span class="st">"duration"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
