@@ -199,7 +199,7 @@ background-size: cover;
   <ul class="collapse">
   <li><a href="#targets-file" id="toc-targets-file" class="nav-link" data-scroll-target="#targets-file">Targets file</a></li>
   <li><a href="#variable-list" id="toc-variable-list" class="nav-link" data-scroll-target="#variable-list">Variable list</a></li>
-  <li><a href="#definations-of-variables" id="toc-definations-of-variables" class="nav-link" data-scroll-target="#definations-of-variables">Definations of variables</a></li>
+  <li><a href="#definitions-of-variables" id="toc-definitions-of-variables" class="nav-link" data-scroll-target="#definitions-of-variables">Definitions of variables</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/LTREB-reservoirs/vera4cast/edit/main/targets.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/LTREB-reservoirs/vera4cast/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -259,8 +259,91 @@ $ project_id  &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast", "v
 </div>
 </div>
 </section>
-<section id="definations-of-variables" class="level3">
-<h3 class="anchored" data-anchor-id="definations-of-variables">Definations of variables</h3>
+<section id="definitions-of-variables" class="level3">
+<h3 class="anchored" data-anchor-id="definitions-of-variables">Definitions of variables</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>target_metadata <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../vera4cast_target_metadata.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>targets <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(variable, duration) <span class="sc">|&gt;</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(target_metadata, <span class="at">by =</span> <span class="st">"variable"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 54%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">duration.x</th>
+<th style="text-align: left;">duration.y</th>
+<th style="text-align: left;">definitation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Temp_C_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">daily mean water temperature</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cond_uScm_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SpCond_uScm_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DOsat_percent_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DO_mgL_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Chla_ugL_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">daily mean chlroypll-a as measured by XXX sensor.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">fDOM_QSU_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Turbidity_FNU_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bloom_binary_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 
 
 </section>
