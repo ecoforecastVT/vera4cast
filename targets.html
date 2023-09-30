@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>VERA Forecast Challenge - Instructions</title>
+<title>VERA Forecast Challenge - Targets</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -144,12 +110,12 @@ background-size: cover;
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./instructions.html" rel="" target="" aria-current="page"><i class="bi bi-info-square" role="img">
+    <a class="nav-link" href="./instructions.html" rel="" target=""><i class="bi bi-info-square" role="img">
 </i> 
  <span class="menu-text">Instructions</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./targets.html" rel="" target=""><i class="bi bi-bullseye" role="img">
+    <a class="nav-link active" href="./targets.html" rel="" target="" aria-current="page"><i class="bi bi-bullseye" role="img">
 </i> 
  <span class="menu-text">Targets</span></a>
   </li>  
@@ -174,7 +140,7 @@ background-size: cover;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page-left">
-      <h1 class="title">Instructions</h1>
+      <h1 class="title">Targets</h1>
                       </div>
   </div>
     
@@ -195,13 +161,9 @@ background-size: cover;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#how-to-submit-a-forecast" id="toc-how-to-submit-a-forecast" class="nav-link active" data-scroll-target="#how-to-submit-a-forecast">How to submit a forecast</a>
-  <ul class="collapse">
-  <li><a href="#forecast-file-format" id="toc-forecast-file-format" class="nav-link" data-scroll-target="#forecast-file-format">Forecast file format</a></li>
-  <li><a href="#submission-process" id="toc-submission-process" class="nav-link" data-scroll-target="#submission-process">Submission process</a></li>
-  </ul></li>
+  <li><a href="#targets" id="toc-targets" class="nav-link active" data-scroll-target="#targets">Targets</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/LTREB-reservoirs/vera4cast/edit/main/instructions.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/LTREB-reservoirs/vera4cast/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/LTREB-reservoirs/vera4cast/edit/main/targets.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/LTREB-reservoirs/vera4cast/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
@@ -209,101 +171,10 @@ background-size: cover;
 
 
 
-<section id="how-to-submit-a-forecast" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-submit-a-forecast">How to submit a forecast</h2>
-<p>We provide an overview of the steps for submitting with the details below:</p>
-<ol type="1">
-<li>Register at <a href="https://forms.gle/kg2Vkpho9BoMXSy57" class="uri">https://forms.gle/kg2Vkpho9BoMXSy57</a>. You are not required to register if your forecast submission uses the word “example” in your model_id”. Any forecasts with “example” in the model_id will not be used in analyses.</li>
-<li>Generate forecast with required columns</li>
-<li>Write the forecast to a file that follows the standardized naming format.</li>
-<li>Submit forecast using a provided function</li>
-</ol>
-<section id="forecast-file-format" class="level3">
-<h3 class="anchored" data-anchor-id="forecast-file-format">Forecast file format</h3>
-<p>The file is a csv format with the following columns:</p>
-<ul>
-<li><p><code>project_id</code>: use <code>vera4cast</code></p></li>
-<li><p><code>model_id</code>: the short name of the model defined as the model_id in the file name (see below) and in your metadata. The model_id should have no spaces.</p></li>
-<li><p><code>datetime</code>: forecast timestamp. Format <code>%Y-%m-%d %H:%M:%S</code> with UTC as the time zone.</p></li>
-<li><p><code>reference_datetime</code>: The start of the forecast; this should be 0 times steps in the future. There should only be one value of <code>reference_datetime</code> in the file. Format is <code>%Y-%m-%d %H:%M:%S</code> with UTC as the time zone</p></li>
-<li><p><code>duration</code>: the time-step of the forecast. Use the value of <code>P1D</code> for a daily forecast and <code>PT1H</code> for an hourly forecast. This value should match the duration of the target variable that you are forecasting.</p></li>
-<li><p><code>site_id</code>: code for site (<code>bvre</code> or <code>fcre</code>) - <code>depth_m</code>: the depth (meters) for the forecasted variable. Use <code>NA</code> for variables without a specified depth.</p></li>
-<li><p><code>family</code> name of the probability distribution that is described by the parameter values in the parameter column (see list below for accepted distribution). An ensemble forecast as a family of <code>ensemble</code>. See note below about family</p></li>
-<li><p><code>parameter</code> the parameters for the distribution (see note below about parameter column) or the number of the ensemble member. For example the parameters for normal are <code>mu</code> and <code>sigma</code>.</p></li>
-<li><p><code>variable</code>: standardized variable name</p></li>
-<li><p><code>prediction</code>: forecasted value for the parameter in the parameter column</p></li>
-</ul>
-<section id="family---parameter-columns" class="level4">
-<h4 class="anchored" data-anchor-id="family---parameter-columns">Family - Parameter Columns</h4>
-<p>For example, For a parametric forecast with the normal distribution, the <code>family</code> column uses the word <code>normal</code> to designate a normal distribution and the parameter column must have values of <code>mu</code> and <code>sigma</code> for each forecasted variable, site_id, depth and time combination.</p>
-<p>Parameteric forecasts for binary variables should use <code>bernoulli</code> as the distribution.</p>
-<p>If you are submitting a forecast that is not in the supported list we recommend using the ensemble format and sampling from your distribution to generate a set of ensemble members that represents your distribution.</p>
-<section id="supported-distributions" class="level5">
-<h5 class="anchored" data-anchor-id="supported-distributions">Supported distributions</h5>
-<p>The following names and parameterization of the distribution are supported (family: parameters):</p>
-<ul>
-<li><code>lognormal</code>: <code>mu</code>, <code>sigma</code></li>
-<li><code>normal</code>: <code>mu</code>,<code>sigma</code></li>
-<li><code>bernoulli</code>: <code>prob</code></li>
-<li><code>beta</code>: <code>shape1</code>, <code>shape2</code></li>
-<li><code>uniform</code>: <code>min</code>, <code>max</code></li>
-<li><code>gamma</code>: <code>shape</code>, <code>rate</code></li>
-<li><code>logistic</code>: <code>location</code>, <code>scale</code></li>
-<li><code>exponential</code>: <code>rate</code></li>
-<li><code>poisson</code>: <code>lambda</code></li>
-</ul>
-</section>
-</section>
-<section id="example-forecasts" class="level4">
-<h4 class="anchored" data-anchor-id="example-forecasts">Example forecasts</h4>
-<p>Here is an example of a forecast that uses a normal distribution:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/forecasts/raw/20230929203557_daily-2023-09-29-persistenceRW.csv.gz"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 0 × 1
-# ℹ 1 variable: daily-2023-09-29-persistenceRW.csv.gz &lt;chr&gt;</code></pre>
-</div>
-</div>
-<p>For an ensemble (or sample) forecast, the <code>family</code> column uses the word <code>ensemble</code> to design that it is a ensemble forecast and the parameter column is the ensemble member number (<code>1</code>, <code>2</code>, <code>3</code> …)</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/forecasts/raw/20230929203552_daily-2023-09-29-climatology.csv.gz"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 0 Columns: 1
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr (1): daily-2023-09-29-climatology.csv.gz
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 0 × 1
-# ℹ 1 variable: daily-2023-09-29-climatology.csv.gz &lt;chr&gt;</code></pre>
-</div>
-</div>
-</section>
-</section>
-<section id="submission-process" class="level3">
-<h3 class="anchored" data-anchor-id="submission-process">Submission process</h3>
-<p>Individual forecast files can be uploaded any time.</p>
-<p>Teams will submit their forecast csv files through an R function.</p>
-<p>The function is available using the following code</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"LTREB-reservoirs/vera4castHelpers"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>The submit function is</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vera4castHelpers)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">submit</span>(<span class="at">forecast_file =</span> <span class="st">"your_file.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>If you will be submitting multiple forecasts using the same model_id, use the following</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>vera4castHelpers<span class="sc">::</span><span class="fu">submit</span>(<span class="at">forecast_file =</span> <span class="st">"your_file.csv"</span>,</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">first_submission =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="targets" class="level2">
+<h2 class="anchored" data-anchor-id="targets">Targets</h2>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
