@@ -139,14 +139,19 @@ background-size: cover;
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="http://ltreb-reservoirs.org/" rel="" target=""><i class="bi bi-cpu" role="img">
+    <a class="nav-link" href="http://ltreb-reservoirs.org/" rel="" target=""><i class="bi bi-house-door" role="img">
 </i> 
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./instructions.html" rel="" target="" aria-current="page"><i class="bi bi-info-square" role="img">
+    <a class="nav-link active" href="./instructions.html" rel="" target="" aria-current="page"><i class="bi bi-bullseye" role="img">
 </i> 
  <span class="menu-text">Instructions</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="./targets.qmd" rel="" target=""><i class="bi bi-info-square" role="img">
+</i> 
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./daily.html" rel="" target=""><i class="bi bi-droplet" role="img">
@@ -208,7 +213,7 @@ background-size: cover;
 <h2 class="anchored" data-anchor-id="how-to-submit-a-forecast">How to submit a forecast</h2>
 <p>We provide an overview of the steps for submitting with the details below:</p>
 <ol type="1">
-<li>Register</li>
+<li>Register at <a href="https://forms.gle/kg2Vkpho9BoMXSy57" class="uri">https://forms.gle/kg2Vkpho9BoMXSy57</a>. You are not required to register if your forecast submission uses the word “example” in your model_id”. Any forecasts with “example” in the model_id will not be used in analyses.</li>
 <li>Generate forecast with required columns</li>
 <li>Write the forecast to a file that follows the standardized naming format.</li>
 <li>Submit forecast using a provided function</li>
@@ -217,14 +222,16 @@ background-size: cover;
 <h3 class="anchored" data-anchor-id="forecast-file-format">Forecast file format</h3>
 <p>The file is a csv format with the following columns:</p>
 <ul>
+<li><p><code>project_id</code>: use <code>vera4cast</code></p></li>
 <li><p><code>model_id</code>: the short name of the model defined as the model_id in the file name (see below) and in your metadata. The model_id should have no spaces.</p></li>
 <li><p><code>datetime</code>: forecast timestamp. Format <code>%Y-%m-%d %H:%M:%S</code> with UTC as the time zone.</p></li>
 <li><p><code>reference_datetime</code>: The start of the forecast; this should be 0 times steps in the future. There should only be one value of <code>reference_datetime</code> in the file. Format is <code>%Y-%m-%d %H:%M:%S</code> with UTC as the time zone</p></li>
-<li><p><code>duration</code>: the time-step of the forecast. A daily forecast is <code>P1D</code> and an hourly forecast is <code>PT1H</code>.</p></li>
+<li><p><code>duration</code>: the time-step of the forecast. Use the value of <code>P1D</code> for a daily forecast and <code>PT1H</code> for an hourly forecast. This value should match the duration of the target variable that you are forecasting.</p></li>
 <li><p><code>site_id</code>: code for site (<code>bvre</code> or <code>fcre</code>) - <code>depth_m</code>: the depth (meters) for the forecasted variable. Use <code>NA</code> for variables without a specified depth.</p></li>
-<li><p><code>family</code> name of the probability distribution that is described by the parameter values in the parameter column (see list below for accepted distribution). An ensemble forecast as a family of <code>ensemble</code>.</p></li>
+<li><p><code>family</code> name of the probability distribution that is described by the parameter values in the parameter column (see list below for accepted distribution). An ensemble forecast as a family of <code>ensemble</code>. See note below about family</p></li>
 <li><p><code>parameter</code> the parameters for the distribution (see note below about parameter column) or the number of the ensemble member. For example the parameters for normal are <code>mu</code> and <code>sigma</code>.</p></li>
-<li><p><code>variable</code>: standardized variable name - <code>prediction</code>: forecasted value for the parameter in the parameter column</p></li>
+<li><p><code>variable</code>: standardized variable name</p></li>
+<li><p><code>prediction</code>: forecasted value for the parameter in the parameter column</p></li>
 </ul>
 <section id="family---parameter-columns" class="level4">
 <h4 class="anchored" data-anchor-id="family---parameter-columns">Family - Parameter Columns</h4>
@@ -233,7 +240,7 @@ background-size: cover;
 <p>If you are submitting a forecast that is not in the supported list we recommend using the ensemble format and sampling from your distribution to generate a set of ensemble members that represents your distribution.</p>
 <section id="supported-distributions" class="level5">
 <h5 class="anchored" data-anchor-id="supported-distributions">Supported distributions</h5>
-<p>The following names and parameterization of the distribution are supported</p>
+<p>The following names and parameterization of the distribution are supported (family: parameters):</p>
 <ul>
 <li><code>lognormal</code>: <code>mu</code>, <code>sigma</code></li>
 <li><code>normal</code>: <code>mu</code>,<code>sigma</code></li>
