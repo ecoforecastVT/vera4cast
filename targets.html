@@ -267,21 +267,19 @@ $ project_id  &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast", "v
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>targets <span class="sc">|&gt;</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(variable, duration) <span class="sc">|&gt;</span> </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(target_metadata, <span class="at">by =</span> <span class="st">"variable"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(target_metadata, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"variable"</span>,<span class="st">"duration"</span>)) <span class="sc">|&gt;</span> </span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 54%">
+<col style="width: 24%">
+<col style="width: 11%">
+<col style="width: 64%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">variable</th>
-<th style="text-align: left;">duration.x</th>
-<th style="text-align: left;">duration.y</th>
+<th style="text-align: left;">duration</th>
 <th style="text-align: left;">definitation</th>
 </tr>
 </thead>
@@ -289,36 +287,30 @@ $ project_id  &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast", "v
 <tr class="odd">
 <td style="text-align: left;">Temp_C_mean</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily mean water temperature</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Cond_uScm_mean</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">SpCond_uScm_mean</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">NA</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">DOsat_percent_mean</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">DO_mgL_mean</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Chla_ugL_mean</td>
-<td style="text-align: left;">P1D</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily mean chlroypll-a as measured by XXX sensor.</td>
 </tr>
@@ -326,18 +318,15 @@ $ project_id  &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast", "v
 <td style="text-align: left;">fDOM_QSU_mean</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Turbidity_FNU_mean</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Bloom_binary_mean</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">NA</td>
 <td style="text-align: left;">NA</td>
 </tr>
 </tbody>
