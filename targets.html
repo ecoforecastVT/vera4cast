@@ -244,23 +244,16 @@ $ project_id  &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast", "v
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>target_metadata <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../vera4cast_target_metadata.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<section id="physical-variables" class="level4">
+<h4 class="anchored" data-anchor-id="physical-variables">Physical variables</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>targets <span class="sc">|&gt;</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(variable, duration) <span class="sc">|&gt;</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(target_metadata, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"variable"</span>,<span class="st">"duration"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 24%">
-<col style="width: 11%">
-<col style="width: 64%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">variable</th>
 <th style="text-align: left;">duration</th>
-<th style="text-align: left;">definitation</th>
+<th style="text-align: left;">definition</th>
 </tr>
 </thead>
 <tbody>
@@ -269,45 +262,46 @@ $ project_id  &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast", "v
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily mean water temperature</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Cond_uScm_mean</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">NA</td>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="chemical-variables" class="level4">
+<h4 class="anchored" data-anchor-id="chemical-variables">Chemical variables</h4>
+<div class="cell">
+<div class="cell-output-display">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">duration</th>
+<th style="text-align: left;">definition</th>
 </tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="biological-variables" class="level4">
+<h4 class="anchored" data-anchor-id="biological-variables">Biological variables</h4>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">duration</th>
+<th style="text-align: left;">definition</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td style="text-align: left;">SpCond_uScm_mean</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">DOsat_percent_mean</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">DO_mgL_mean</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">Chla_ugL_mean</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">daily mean chlroypll-a as measured by XXX sensor.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">fDOM_QSU_mean</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Turbidity_FNU_mean</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Bloom_binary_mean</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">NA</td>
+<td style="text-align: left;">daily mean chlorophyll-a</td>
 </tr>
 </tbody>
 </table>
@@ -315,13 +309,13 @@ $ project_id  &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast", "v
 </div>
 </section>
 </section>
+</section>
 <section id="site" class="level2">
 <h2 class="anchored" data-anchor-id="site">Site</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>site_list <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/vera4cast_field_site_metadata.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>site_list <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/vera4cast_field_site_metadata.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>site_list <span class="sc">|&gt;</span> knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
