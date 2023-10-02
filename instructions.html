@@ -195,15 +195,15 @@ background-size: cover;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#how-to-submit-a-forecast" id="toc-how-to-submit-a-forecast" class="nav-link active" data-scroll-target="#how-to-submit-a-forecast">How to submit a forecast</a></li>
-  <li><a href="#forecast-file-format" id="toc-forecast-file-format" class="nav-link" data-scroll-target="#forecast-file-format">Forecast file format</a>
+  <li><a href="#how-to-submit-a-forecast" id="toc-how-to-submit-a-forecast" class="nav-link active" data-scroll-target="#how-to-submit-a-forecast"><span class="header-section-number">1</span> How to submit a forecast</a></li>
+  <li><a href="#forecast-file-format" id="toc-forecast-file-format" class="nav-link" data-scroll-target="#forecast-file-format"><span class="header-section-number">2</span> Forecast file format</a>
   <ul class="collapse">
-  <li><a href="#family---parameter-columns" id="toc-family---parameter-columns" class="nav-link" data-scroll-target="#family---parameter-columns">Family - Parameter Columns</a></li>
-  <li><a href="#supported-distributions" id="toc-supported-distributions" class="nav-link" data-scroll-target="#supported-distributions">Supported distributions</a></li>
-  <li><a href="#example-forecasts" id="toc-example-forecasts" class="nav-link" data-scroll-target="#example-forecasts">Example forecasts</a></li>
+  <li><a href="#family---parameter-columns" id="toc-family---parameter-columns" class="nav-link" data-scroll-target="#family---parameter-columns"><span class="header-section-number">2.1</span> Family - Parameter Columns</a></li>
+  <li><a href="#supported-distributions" id="toc-supported-distributions" class="nav-link" data-scroll-target="#supported-distributions"><span class="header-section-number">2.2</span> Supported distributions</a></li>
+  <li><a href="#example-forecasts" id="toc-example-forecasts" class="nav-link" data-scroll-target="#example-forecasts"><span class="header-section-number">2.3</span> Example forecasts</a></li>
   </ul></li>
-  <li><a href="#submission-process" id="toc-submission-process" class="nav-link" data-scroll-target="#submission-process">Submission process</a></li>
-  <li><a href="#post-submission" id="toc-post-submission" class="nav-link" data-scroll-target="#post-submission">Post submission</a></li>
+  <li><a href="#submission-process" id="toc-submission-process" class="nav-link" data-scroll-target="#submission-process"><span class="header-section-number">3</span> Submission process</a></li>
+  <li><a href="#post-submission" id="toc-post-submission" class="nav-link" data-scroll-target="#post-submission"><span class="header-section-number">4</span> Post submission</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/LTREB-reservoirs/vera4cast/edit/main/instructions.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/LTREB-reservoirs/vera4cast/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -213,8 +213,8 @@ background-size: cover;
 
 
 
-<section id="how-to-submit-a-forecast" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-submit-a-forecast">How to submit a forecast</h2>
+<section id="how-to-submit-a-forecast" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="how-to-submit-a-forecast"><span class="header-section-number">1</span> How to submit a forecast</h2>
 <p>We provide an overview of the steps for submitting with the details below:</p>
 <ol type="1">
 <li>Register at <a href="https://forms.gle/kg2Vkpho9BoMXSy57" class="uri">https://forms.gle/kg2Vkpho9BoMXSy57</a>. You are not required to register if your forecast submission uses the word “example” in your model_id”. Any forecasts with “example” in the model_id will not be used in analyses.</li>
@@ -223,8 +223,8 @@ background-size: cover;
 <li>Submit forecast using a provided function</li>
 </ol>
 </section>
-<section id="forecast-file-format" class="level2">
-<h2 class="anchored" data-anchor-id="forecast-file-format">Forecast file format</h2>
+<section id="forecast-file-format" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="forecast-file-format"><span class="header-section-number">2</span> Forecast file format</h2>
 <p>The file is a csv format with the following columns:</p>
 <ul>
 <li><p><code>project_id</code>: use <code>vera4cast</code></p></li>
@@ -239,14 +239,14 @@ background-size: cover;
 <li><p><code>variable</code>: standardized variable name</p></li>
 <li><p><code>prediction</code>: forecasted value for the parameter in the parameter column</p></li>
 </ul>
-<section id="family---parameter-columns" class="level3">
-<h3 class="anchored" data-anchor-id="family---parameter-columns">Family - Parameter Columns</h3>
+<section id="family---parameter-columns" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="family---parameter-columns"><span class="header-section-number">2.1</span> Family - Parameter Columns</h3>
 <p>For example, For a parametric forecast with the normal distribution, the <code>family</code> column uses the word <code>normal</code> to designate a normal distribution and the parameter column must have values of <code>mu</code> and <code>sigma</code> for each forecasted variable, site_id, depth and time combination.</p>
 <p>Parameteric forecasts for binary variables should use <code>bernoulli</code> as the distribution.</p>
 <p>If you are submitting a forecast that is not in the supported list we recommend using the ensemble format and sampling from your distribution to generate a set of ensemble members that represents your distribution.</p>
 </section>
-<section id="supported-distributions" class="level3">
-<h3 class="anchored" data-anchor-id="supported-distributions">Supported distributions</h3>
+<section id="supported-distributions" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="supported-distributions"><span class="header-section-number">2.2</span> Supported distributions</h3>
 <p>The following names and parameterization of the distribution are supported (family: parameters):</p>
 <ul>
 <li><code>lognormal</code>: <code>mu</code>, <code>sigma</code></li>
@@ -260,8 +260,8 @@ background-size: cover;
 <li><code>poisson</code>: <code>lambda</code></li>
 </ul>
 </section>
-<section id="example-forecasts" class="level3">
-<h3 class="anchored" data-anchor-id="example-forecasts">Example forecasts</h3>
+<section id="example-forecasts" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="example-forecasts"><span class="header-section-number">2.3</span> Example forecasts</h3>
 <p>Here is an example of a forecast that uses a normal distribution:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/forecasts/raw/T20231001231345_daily-2023-10-01-climatology.csv.gz"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
@@ -304,8 +304,8 @@ $ duration           &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D"
 </div>
 </section>
 </section>
-<section id="submission-process" class="level2">
-<h2 class="anchored" data-anchor-id="submission-process">Submission process</h2>
+<section id="submission-process" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="submission-process"><span class="header-section-number">3</span> Submission process</h2>
 <p>Individual forecast files can be uploaded any time.</p>
 <p>Teams will submit their forecast csv files through an R function.</p>
 <p>The function is available using the following code</p>
@@ -323,8 +323,8 @@ $ duration           &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D"
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">first_submission =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="post-submission" class="level2">
-<h2 class="anchored" data-anchor-id="post-submission">Post submission</h2>
+<section id="post-submission" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="post-submission"><span class="header-section-number">4</span> Post submission</h2>
 <p>After submission, our servers will process uploaded files by converting to a parquet on our public s3 storage. A <code>pub_datetime</code> column will be added that denotes when a forecast was submitted.</p>
 <p>All forecasts are scored daily using new data until the full horizon of the forecast has been scored.</p>
 <p>Information for accessing the forecasts and scores can be found on our <strong>?@sec-stac</strong>.</p>
