@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "daily.html#forecast-analysis",
+    "href": "daily.html#forecast-analysis",
+    "title": "How are forecasts performing",
+    "section": "Forecast analysis",
+    "text": "Forecast analysis\nBelow are forecasts submitted 30 days ago and include the observations used to evaluate them. Mouse over to see the team id, scroll to zoom.\n\nChrophyll-aTemperature"
+  },
+  {
     "objectID": "daily.html#leaderboard",
     "href": "daily.html#leaderboard",
     "title": "How are forecasts performing",
@@ -11,7 +18,14 @@
     "href": "catalog.html",
     "title": "What has been forecasted",
     "section": "",
-    "text": "What has been forecasted\nThe catalog of submitted forecasts and the evaluation of the forecasts (“scores”) is available through the SpatioTemporal Asset Catalogs browser"
+    "text": "The catalog of submitted forecasts and the evaluation of the forecasts (“scores”) is available through the SpatioTemporal Asset Catalogs browser"
+  },
+  {
+    "objectID": "catalog.html#sec-spatiotemporal-asset-catalog",
+    "href": "catalog.html#sec-spatiotemporal-asset-catalog",
+    "title": "What has been forecasted",
+    "section": "",
+    "text": "The catalog of submitted forecasts and the evaluation of the forecasts (“scores”) is available through the SpatioTemporal Asset Catalogs browser"
   },
   {
     "objectID": "instructions.html",
@@ -53,20 +67,41 @@
     "href": "targets.html",
     "title": "What to forecast",
     "section": "",
-    "text": "library(tidyverse)\n\n\n\nThe targets file is at\n\nurl &lt;- \"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/duration=P1D/P1D-targets.csv.gz\"\n\n\ntargets &lt;- read_csv(url, show_col_types = FALSE)\n\n\nglimpse(targets)\n\nRows: 28,008\nColumns: 7\n$ datetime    &lt;dttm&gt; 2018-07-05, 2018-07-05, 2018-07-05, 2018-07-05, 2018-07-0…\n$ site_id     &lt;chr&gt; \"fcre\", \"fcre\", \"fcre\", \"fcre\", \"fcre\", \"fcre\", \"fcre\", \"f…\n$ depth_m     &lt;dbl&gt; 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6…\n$ observation &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ variable    &lt;chr&gt; \"Temp_C_mean\", \"Cond_uScm_mean\", \"SpCond_uScm_mean\", \"DOsa…\n$ duration    &lt;chr&gt; \"P1D\", \"P1D\", \"P1D\", \"P1D\", \"P1D\", \"P1D\", \"P1D\", \"P1D\", \"P…\n$ project_id  &lt;chr&gt; \"vera4cast\", \"vera4cast\", \"vera4cast\", \"vera4cast\", \"vera4…\n\n\n\n\n\n\ntarget_metadata &lt;- read_csv(\"../vera4cast_target_metadata.csv\", show_col_types = FALSE)\n\n\n\n\n\n\n\n\nvariable\nduration\ndefinition\n\n\n\n\nTemp_C_mean\nP1D\ndaily mean water temperature\n\n\n\n\n\n\n\n\n\n\n\n\n\nvariable\nduration\ndefinition\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvariable\nduration\ndefinition\n\n\n\n\nChla_ugL_mean\nP1D\ndaily mean chlorophyll-a\n\n\n\n\n\n\n\n\n\n\nsite_list &lt;- read_csv(\"https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/vera4cast_field_site_metadata.csv\", show_col_types = FALSE)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsite\nsite_id\nmax_depth_m\nsurface_area_km2\nlatitude\nlongtitude\n\n\n\n\nBeaver Dam Reservoir\nbvre\n11.0\n0.39\n37.31291\n-79.81594\n\n\nFalling Creek Reservoir\nfcre\n9.3\n0.12\n37.30315\n-79.83722"
+    "text": "The targets file is at\n\nurl &lt;- \"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/duration=P1D/P1D-targets.csv.gz\"\n\n\nlibrary(tidyverse)\ntargets &lt;- read_csv(url, show_col_types = FALSE)\n\n\nglimpse(targets)\n\nRows: 28,008\nColumns: 7\n$ datetime    &lt;dttm&gt; 2018-07-05, 2018-07-05, 2018-07-05, 2018-07-05, 2018-07-0…\n$ site_id     &lt;chr&gt; \"fcre\", \"fcre\", \"fcre\", \"fcre\", \"fcre\", \"fcre\", \"fcre\", \"f…\n$ depth_m     &lt;dbl&gt; 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6…\n$ observation &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ variable    &lt;chr&gt; \"Temp_C_mean\", \"Cond_uScm_mean\", \"SpCond_uScm_mean\", \"DOsa…\n$ duration    &lt;chr&gt; \"P1D\", \"P1D\", \"P1D\", \"P1D\", \"P1D\", \"P1D\", \"P1D\", \"P1D\", \"P…\n$ project_id  &lt;chr&gt; \"vera4cast\", \"vera4cast\", \"vera4cast\", \"vera4cast\", \"vera4…\n\n\n\n\n\ntarget_metadata &lt;- read_csv(\"../vera4cast_target_metadata.csv\", show_col_types = FALSE)\n\n\n\n\n\n\n\n\nvariable\nduration\ndefinition\n\n\n\n\nTemp_C_mean\nP1D\ndaily mean water temperature\n\n\n\n\n\n\n\n\n\n\n\n\n\nvariable\nduration\ndefinition\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvariable\nduration\ndefinition\n\n\n\n\nChla_ugL_mean\nP1D\ndaily mean chlorophyll-a"
+  },
+  {
+    "objectID": "targets.html#targets-file",
+    "href": "targets.html#targets-file",
+    "title": "What to forecast",
+    "section": "",
+    "text": "The targets file is at\n\nurl &lt;- \"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/duration=P1D/P1D-targets.csv.gz\"\n\n\nlibrary(tidyverse)\ntargets &lt;- read_csv(url, show_col_types = FALSE)\n\n\nglimpse(targets)\n\nRows: 28,008\nColumns: 7\n$ datetime    &lt;dttm&gt; 2018-07-05, 2018-07-05, 2018-07-05, 2018-07-05, 2018-07-0…\n$ site_id     &lt;chr&gt; \"fcre\", \"fcre\", \"fcre\", \"fcre\", \"fcre\", \"fcre\", \"fcre\", \"f…\n$ depth_m     &lt;dbl&gt; 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6…\n$ observation &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…\n$ variable    &lt;chr&gt; \"Temp_C_mean\", \"Cond_uScm_mean\", \"SpCond_uScm_mean\", \"DOsa…\n$ duration    &lt;chr&gt; \"P1D\", \"P1D\", \"P1D\", \"P1D\", \"P1D\", \"P1D\", \"P1D\", \"P1D\", \"P…\n$ project_id  &lt;chr&gt; \"vera4cast\", \"vera4cast\", \"vera4cast\", \"vera4cast\", \"vera4…\n\n\n\n\n\ntarget_metadata &lt;- read_csv(\"../vera4cast_target_metadata.csv\", show_col_types = FALSE)\n\n\n\n\n\n\n\n\nvariable\nduration\ndefinition\n\n\n\n\nTemp_C_mean\nP1D\ndaily mean water temperature\n\n\n\n\n\n\n\n\n\n\n\n\n\nvariable\nduration\ndefinition\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvariable\nduration\ndefinition\n\n\n\n\nChla_ugL_mean\nP1D\ndaily mean chlorophyll-a"
   },
   {
     "objectID": "targets.html#site",
     "href": "targets.html#site",
     "title": "What to forecast",
-    "section": "",
-    "text": "site_list &lt;- read_csv(\"https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/vera4cast_field_site_metadata.csv\", show_col_types = FALSE)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsite\nsite_id\nmax_depth_m\nsurface_area_km2\nlatitude\nlongtitude\n\n\n\n\nBeaver Dam Reservoir\nbvre\n11.0\n0.39\n37.31291\n-79.81594\n\n\nFalling Creek Reservoir\nfcre\n9.3\n0.12\n37.30315\n-79.83722"
+    "section": "Site",
+    "text": "Site\n\nsite_list &lt;- read_csv(\"https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/vera4cast_field_site_metadata.csv\", show_col_types = FALSE)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsite\nsite_id\nmax_depth_m\nsurface_area_km2\nlatitude\nlongtitude\n\n\n\n\nBeaver Dam Reservoir\nbvre\n11.0\n0.39\n37.31291\n-79.81594\n\n\nFalling Creek Reservoir\nfcre\n9.3\n0.12\n37.30315\n-79.83722"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Forecasting Challenge",
     "section": "",
-    "text": "Forecasting Challenge\nWelcome the Virginia Ecoforecast Reservoir Analysis (VERA) Forecasting Challenge, hosted by the Ecological Forecasting Project (EFP)\nWe are using forecasts to compare the predictability of different ecosystem variables, in different ecosystem conditions to identify the fundamental predictability of freshwater ecosystems.\nThis site provides instructions for participation, visualizations of forecast submissions, and a catalog of all submitted forecasts. It is rendered daily using GitHub Actions.  \n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\nTotal forecasts submitted to the VERA Challenge\n25\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUnique models submitted to the VERA Challenge\n5\n\n\n\n\n\n\n\n\n\n\n  Page last updated on 2023-10-02\nData was sourced from EFP infrastructure, which is enabled by Virginia Tech and the National Science Foundation (NSF).\nThis material is based upon work supported by the National Science Foundation under Grant DEB-1926388. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation."
+    "text": "Welcome the Virginia Ecoforecast Reservoir Analysis (VERA) Forecasting Challenge, hosted by the Ecological Forecasting Project (EFP)\nThis site provides instructions for participation, visualizations of forecast submissions, and a catalog of all submitted forecasts. It is rendered daily using GitHub Actions."
+  },
+  {
+    "objectID": "index.html#forecasting-challenge",
+    "href": "index.html#forecasting-challenge",
+    "title": "Forecasting Challenge",
+    "section": "",
+    "text": "Welcome the Virginia Ecoforecast Reservoir Analysis (VERA) Forecasting Challenge, hosted by the Ecological Forecasting Project (EFP)\nThis site provides instructions for participation, visualizations of forecast submissions, and a catalog of all submitted forecasts. It is rendered daily using GitHub Actions."
+  },
+  {
+    "objectID": "index.html#why-a-forecasting-challenge",
+    "href": "index.html#why-a-forecasting-challenge",
+    "title": "Forecasting Challenge",
+    "section": "Why a forecasting challenge?",
+    "text": "Why a forecasting challenge?\nWe are using forecasts to compare the predictability of different ecosystem variables, in different ecosystem conditions to identify the fundamental predictability of freshwater ecosystems.\n \n\n\n\n\n\n\n \n\n\n\n\n\n\n\n\n\n\n\n\nTotal forecasts submitted to the VERA Challenge\n25\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUnique models submitted to the VERA Challenge\n5\n\n\n\n\n\n\n\n\n\n\n  Page last updated on 2023-10-02\nData was sourced from EFP infrastructure, which is enabled by Virginia Tech and the National Science Foundation (NSF).\nThis material is based upon work supported by the National Science Foundation under Grant DEB-1926388. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation."
   }
 ]
