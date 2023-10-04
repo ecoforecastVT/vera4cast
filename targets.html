@@ -237,10 +237,7 @@ $ project_id  &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast", "v
 <h3 class="anchored" data-anchor-id="variable-list">Variable list</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>googlesheets4<span class="sc">::</span><span class="fu">gs4_deauth</span>()</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>target_metadata <span class="ot">&lt;-</span> <span class="fu">suppressMessages</span>(googlesheets4<span class="sc">::</span><span class="fu">read_sheet</span>(<span class="st">"https://docs.google.com/spreadsheets/d/1fOWo6zlcWA8F6PmRS9AD6n1pf-dTWSsmGKNpaX3yHNE/edit?usp=sharing"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">variable =</span> <span class="st">`</span><span class="at">"official" targets name</span><span class="st">`</span>,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">|&gt;</span> </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(variable, duration, class, <span class="st">`</span><span class="at">Variable name</span><span class="st">`</span>, Description)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>target_metadata <span class="ot">&lt;-</span> googlesheets4<span class="sc">::</span><span class="fu">read_sheet</span>(<span class="st">"https://docs.google.com/spreadsheets/d/1fOWo6zlcWA8F6PmRS9AD6n1pf-dTWSsmGKNpaX3yHNE/edit?usp=sharing"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="physical-variables" class="level4">
 <h4 class="anchored" data-anchor-id="physical-variables">Physical variables</h4>
