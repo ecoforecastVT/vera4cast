@@ -11,7 +11,7 @@
     "href": "daily.html#leaderboard",
     "title": "Forecast performance",
     "section": "Leaderboard",
-    "text": "Leaderboard\nAverage skill scores of each model across all sites.\n\nScores are shown by reference date and forecast horizon (in days).\n\nScores are averaged across all submissions of the model with a given horizon or a given reference_datetime using submissions made since 2023-09-05.\n\n\nChla_ugL_meanTemp_C_mean\n\n\n\n\nNULL\n\n\n\n\n\n\nNULL"
+    "text": "Leaderboard\nAverage skill scores of each model across all sites.\n\nScores are shown by reference date and forecast horizon (in days).\n\nScores are averaged across all submissions of the model with a given horizon or a given reference_datetime using submissions made since 2023-09-05.\n\n\nChla_ugL_meanTemp_C_mean"
   },
   {
     "objectID": "catalog.html",
@@ -81,7 +81,7 @@
     "href": "targets.html#site",
     "title": "What to forecast",
     "section": "Site",
-    "text": "Site\n\nsite_list &lt;- read_csv(\"https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/vera4cast_field_site_metadata.csv\", show_col_types = FALSE)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsite\nsite_id\nmax_depth_m\nsurface_area_km2\nlatitude\nlongtitude\n\n\n\n\nBeaver Dam Reservoir\nbvre\n11.0\n0.39\n37.31291\n-79.81594\n\n\nFalling Creek Reservoir\nfcre\n9.3\n0.12\n37.30315\n-79.83722"
+    "text": "Site\n\nsite_list &lt;- read_csv(\"https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/vera4cast_field_site_metadata.csv\", show_col_types = FALSE)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsite\nsite_id\nmax_depth_m\nsurface_area_km2\nlatitude\nlongtitude\n\n\n\n\nBeaver Dam Reservoir\nbvre\n11.0\n0.39\n37.31291\n-79.81594\n\n\nFalling Creek Reservoir\nfcre\n9.3\n0.12\n37.30315\n-79.83722\n\n\nTunnel Branch\ntubr\nNA\nNA\n37.30782\n-79.83568"
   },
   {
     "objectID": "index.html",
