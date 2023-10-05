@@ -4,14 +4,14 @@
     "href": "daily.html#forecast-analysis",
     "title": "Forecast performance",
     "section": "Forecast analysis",
-    "text": "Forecast analysis\nBelow are forecasts submitted 30 days ago and include the observations used to evaluate them. Mouse over to see the team id, scroll to zoom.\n\nChrophyll-aTemperature"
+    "text": "Forecast analysis\nBelow are forecasts submitted 30 days ago and include the observations used to evaluate them. Mouse over to see the team id, scroll to zoom.\n\nChla_ugL_meanTemp_C_mean"
   },
   {
     "objectID": "daily.html#leaderboard",
     "href": "daily.html#leaderboard",
     "title": "Forecast performance",
     "section": "Leaderboard",
-    "text": "Leaderboard\nAverage skill scores of each model across all sites.\n\nScores are shown by reference date and forecast horizon (in days).\n\nScores are averaged across all submissions of the model with a given horizon or a given reference_datetime using submissions made since 2023-09-05.\n\n\nChla_ugL_meantemp_C_mean"
+    "text": "Leaderboard\nAverage skill scores of each model across all sites.\n\nScores are shown by reference date and forecast horizon (in days).\n\nScores are averaged across all submissions of the model with a given horizon or a given reference_datetime using submissions made since 2023-09-05.\n\n\nChla_ugL_meanTemp_C_mean"
   },
   {
     "objectID": "catalog.html",
