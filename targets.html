@@ -264,15 +264,21 @@ $ observation &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 <td style="text-align: left;">Temp_C_mean</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">EXO temp</td>
-<td style="text-align: left;">daily mean temperature in degrees C from the Exo Sonde</td>
+<td style="text-align: left;">daily mean water temperature in degrees C</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">Temp_C_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">mean inflow temp</td>
+<td style="text-align: left;">daily mean inflow stream temperature Celcius</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">SpCond_uScm_mean</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">EXO specific conductance</td>
 <td style="text-align: left;">daily mean specific conductance in microsiemens per centimeter from EXO</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Turbidity_FNU_mean</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">EXO turbidity FNU</td>
@@ -344,10 +350,10 @@ $ observation &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
-<col style="width: 15%">
-<col style="width: 7%">
-<col style="width: 11%">
-<col style="width: 64%">
+<col style="width: 19%">
+<col style="width: 5%">
+<col style="width: 27%">
+<col style="width: 47%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -369,6 +375,36 @@ $ observation &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">bloom binary</td>
 <td style="text-align: left;">phytoplankton bloom 1 or 0 based on whether daily mean is &gt;= 20 ug/L or not</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">GreenAlgae_ugL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">green algae biomass at depth of EXO sonde</td>
+<td style="text-align: left;">the total biomass of green algae in micrograms per liter at 1.6 m</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bluegreens_ugL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">cyanobacteria biomass at depth of EXO sonde</td>
+<td style="text-align: left;">the total biomass of cyanobacteria in micrograms per liter at 1.6 m</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BrownAlgae_ugL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">brown algae biomass at depth of EXO sonde</td>
+<td style="text-align: left;">the total biomass of brown algae in micrograms per liter at 1.6 m</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MixedAlgae_ugL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">cryptophyte biomass at depth of EXO sonde</td>
+<td style="text-align: left;">the total biomass of cryptophytes in micrograms per liter at 1.6 m</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ChlorophyllMaximum_depth_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">Cmax depth</td>
+<td style="text-align: left;">the depth of the maximum chlorophyll concentration</td>
 </tr>
 </tbody>
 </table>
@@ -461,12 +497,12 @@ $ observation &lt;dbl&gt; 0.01586670, 15.73166667, 0.01491445, 15.34822917, 49.9
 <pre><code>Rows: 28,610
 Columns: 7
 $ project_id  &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast", "vera4…
-$ site_id     &lt;chr&gt; "tubr", "tubr", "tubr", "tubr", "tubr", "tubr", "tubr", "t…
+$ site_id     &lt;chr&gt; "fcre", "fcre", "fcre", "fcre", "fcre", "fcre", "fcre", "f…
 $ datetime    &lt;dttm&gt; 2023-01-01, 2023-01-01, 2023-01-01, 2023-01-01, 2023-01-0…
 $ duration    &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P…
 $ depth_m     &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
 $ variable    &lt;chr&gt; "PAR_umolm2s_mean", "BP_kPa_mean", "AirTemp_C_mean", "RH_p…
-$ observation &lt;dbl&gt; 2.072734e+02, 1.015933e+02, 1.187341e+01, 8.357613e+01, 1.…</code></pre>
+$ observation &lt;dbl&gt; 207.273384, 101.593324, 11.873408, 83.576127, 2.051438, 17…</code></pre>
 </div>
 </div>
 <p>Hourly time-step variables measured at the meteorology station (located on the dam at Falling Creek Reservoir)</p>
@@ -475,7 +511,7 @@ $ observation &lt;dbl&gt; 2.072734e+02, 1.015933e+02, 1.187341e+01, 8.357613e+01
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>met_targets <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url3, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(met_targets)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 684,950
+<pre><code>Rows: 685,030
 Columns: 7
 $ project_id  &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast", "vera4…
 $ site_id     &lt;chr&gt; "fcre", "fcre", "fcre", "fcre", "fcre", "fcre", "fcre", "f…
@@ -483,7 +519,7 @@ $ datetime    &lt;dttm&gt; 2023-01-01 05:00:00, 2023-01-01 05:00:00, 2023-01-01 
 $ duration    &lt;chr&gt; "PT1H", "PT1H", "PT1H", "PT1H", "PT1H", "PT1H", "PT1H", "P…
 $ depth_m     &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
 $ variable    &lt;chr&gt; "PAR_umolm2s_mean", "BP_kPa_mean", "AirTemp_C_mean", "RH_p…
-$ observation &lt;dbl&gt; 0.1348448, 101.4000000, 11.8243103, 91.1948276, 0.0000000,…</code></pre>
+$ observation &lt;dbl&gt; 0.1348448, 101.4000000, 11.8243103, 91.1948276, 2.3717241,…</code></pre>
 </div>
 </div>
 
