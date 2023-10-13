@@ -200,7 +200,11 @@ background-size: cover;
   <li><a href="#variable-list" id="toc-variable-list" class="nav-link" data-scroll-target="#variable-list">Variable list</a></li>
   </ul></li>
   <li><a href="#site" id="toc-site" class="nav-link" data-scroll-target="#site">Site</a></li>
-  <li><a href="#additional-target-variables" id="toc-additional-target-variables" class="nav-link" data-scroll-target="#additional-target-variables">Additional target variables</a></li>
+  <li><a href="#additional-target-variables" id="toc-additional-target-variables" class="nav-link" data-scroll-target="#additional-target-variables">Additional target variables</a>
+  <ul class="collapse">
+  <li><a href="#stream-inflow-to-falling-creek-reservoir" id="toc-stream-inflow-to-falling-creek-reservoir" class="nav-link" data-scroll-target="#stream-inflow-to-falling-creek-reservoir">Stream inflow to Falling Creek Reservoir</a></li>
+  <li><a href="#falling-creek-reservoir-meteorology" id="toc-falling-creek-reservoir-meteorology" class="nav-link" data-scroll-target="#falling-creek-reservoir-meteorology">Falling Creek Reservoir meteorology</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/LTREB-reservoirs/vera4cast/blob/main/targets.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/LTREB-reservoirs/vera4cast/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -267,18 +271,12 @@ $ observation &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 <td style="text-align: left;">daily mean water temperature in degrees C</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Temp_C_mean</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">mean inflow temp</td>
-<td style="text-align: left;">daily mean inflow stream temperature Celcius</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">SpCond_uScm_mean</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">EXO specific conductance</td>
 <td style="text-align: left;">daily mean specific conductance in microsiemens per centimeter from EXO</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Turbidity_FNU_mean</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">EXO turbidity FNU</td>
@@ -471,6 +469,8 @@ $ observation &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 </section>
 <section id="additional-target-variables" class="level2">
 <h2 class="anchored" data-anchor-id="additional-target-variables">Additional target variables</h2>
+<section id="stream-inflow-to-falling-creek-reservoir" class="level3">
+<h3 class="anchored" data-anchor-id="stream-inflow-to-falling-creek-reservoir">Stream inflow to Falling Creek Reservoir</h3>
 <p>Daily time-step variables measured in the monitored stream (Tunnel Branch; site_id = tubr)</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>url2 <span class="ot">&lt;-</span> <span class="st">"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/duration=P1D/daily-inflow-targets.csv.gz"</span></span>
@@ -488,6 +488,109 @@ $ variable    &lt;chr&gt; "Flow_cms_mean", "Temp_C_mean", "Flow_cms_mean", "Temp
 $ observation &lt;dbl&gt; 0.01586670, 15.73166667, 0.01491445, 15.34822917, 49.90000…</code></pre>
 </div>
 </div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 8%">
+<col style="width: 20%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">duration</th>
+<th style="text-align: left;">Variable name</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Flow_cms_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">mean inflow discharge</td>
+<td style="text-align: left;">daily discharge from inflow stream cubic meters per second</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Temp_C_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">EXO temp</td>
+<td style="text-align: left;">daily mean water temperature in degrees C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TP_ugL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">TP</td>
+<td style="text-align: left;">daily sample total phosphorus concentration in mg/L</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NH4_ugL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">NH4</td>
+<td style="text-align: left;">daily mean ammonium concentration in ug/L</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NO3NO2_ugL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">NO3</td>
+<td style="text-align: left;">daily mean nitrate concentration in ug/L</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SRP_ugL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">SRP</td>
+<td style="text-align: left;">daily mean soluble reactive phosphorus concentration ug/L</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DOC_mgL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">DOC</td>
+<td style="text-align: left;">daily mean dissolved organic carbon concentration in mg/L</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DRSI_mgL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TN_ugL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">TN</td>
+<td style="text-align: left;">daily sample total nitrogen concentration mg/L</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CH4_umolL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DIC_mgL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">DIC</td>
+<td style="text-align: left;">daily sample dissolved organic carbon concentration in mg/L</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DC_mgL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">DC</td>
+<td style="text-align: left;">daily sample dissoved carbon concentration in mg/L</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DN_mgL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">DN</td>
+<td style="text-align: left;">daily sample dissolved nitrogen concentration in mg/L</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="falling-creek-reservoir-meteorology" class="level3">
+<h3 class="anchored" data-anchor-id="falling-creek-reservoir-meteorology">Falling Creek Reservoir meteorology</h3>
 <p>Daily time-step variables measured at the meteorology station (located on the dam at Falling Creek Reservoir)</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>url3 <span class="ot">&lt;-</span> <span class="st">"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/duration=P1D/daily-met-targets.csv.gz"</span></span>
@@ -505,25 +608,95 @@ $ variable    &lt;chr&gt; "PAR_umolm2s_mean", "BP_kPa_mean", "AirTemp_C_mean", "
 $ observation &lt;dbl&gt; 207.273384, 101.593324, 11.873408, 83.576127, 2.051438, 17…</code></pre>
 </div>
 </div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 10%">
+<col style="width: 40%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">duration</th>
+<th style="text-align: left;">Variable name</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">PAR_umolm2s_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">PAR_umolm2s_Average</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BP_kPa_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">BP_Average_kPa</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AirTemp_C_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">AirTemp_C_Average</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RH_percent_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">RH_percent</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">WindSpeed_ms_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">WindSpeed_Average_m_s</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">WindDir_degrees_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">WindDir_degrees</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ShortwaveRadiationUp_Wm2_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">ShortwaveRadiationUp_Average_W_m2</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">InfraredRadiationUp_Wm2_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Albedo_Wm2_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rain_mm_sum</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">Rain_Total_mm</td>
+<td style="text-align: left;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Hourly time-step variables measured at the meteorology station (located on the dam at Falling Creek Reservoir)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>url3 <span class="ot">&lt;-</span> <span class="st">"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/duration=PT1H/hourly-met-targets.csv.gz"</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>met_targets <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url3, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(met_targets)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 685,030
-Columns: 7
-$ project_id  &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast", "vera4…
-$ site_id     &lt;chr&gt; "fcre", "fcre", "fcre", "fcre", "fcre", "fcre", "fcre", "f…
-$ datetime    &lt;dttm&gt; 2023-01-01 05:00:00, 2023-01-01 05:00:00, 2023-01-01 05:0…
-$ duration    &lt;chr&gt; "PT1H", "PT1H", "PT1H", "PT1H", "PT1H", "PT1H", "PT1H", "P…
-$ depth_m     &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
-$ variable    &lt;chr&gt; "PAR_umolm2s_mean", "BP_kPa_mean", "AirTemp_C_mean", "RH_p…
-$ observation &lt;dbl&gt; 0.1348448, 101.4000000, 11.8243103, 91.1948276, 2.3717241,…</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>url3 <span class="ot">&lt;-</span> <span class="st">"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/duration=PT1H/hourly-met-targets.csv.gz"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
