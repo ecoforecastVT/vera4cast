@@ -2,46 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
       <loc>https://LTREB-reservoirs.github.io/vera4cast/catalog.html</loc>
-      <lastmod>2023-10-13</lastmod>
+      <lastmod>2023-10-14</lastmod>
    </url>
    <url>
       <loc>https://LTREB-reservoirs.github.io/vera4cast/instructions.html</loc>
-      <lastmod>2023-10-13</lastmod>
+      <lastmod>2023-10-14</lastmod>
    </url>
    <url>
       <loc>https://LTREB-reservoirs.github.io/vera4cast/daily.html</loc>
-      <lastmod>2023-10-13</lastmod>
+      <lastmod>2023-10-14</lastmod>
    </url>
    <url>
       <loc>https://LTREB-reservoirs.github.io/vera4cast/index.html</loc>
-      <lastmod>2023-10-13</lastmod>
+      <lastmod>2023-10-14</lastmod>
    </url>
    <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/catalog.json</loc>
-      <lastmod>2023-10-05</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/cfs.json</loc>
-      <lastmod>2023-10-05</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/climatology.json</loc>
-      <lastmod>2023-10-05</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/climatology2.json</loc>
-      <lastmod>2023-10-05</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/fableARIMA.json</loc>
-      <lastmod>2023-10-05</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/fableETS.json</loc>
-      <lastmod>2023-10-05</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/fableNNETAR.json</loc>
       <lastmod>2023-10-05</lastmod>
    </url>
    <url>
@@ -110,22 +86,6 @@
    </url>
    <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/models/model_items/persistenceRW.json</loc>
-      <lastmod>2023-10-05</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/gfs_seamless.json</loc>
-      <lastmod>2023-10-05</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/inflow_gefsClimAED.json</loc>
-      <lastmod>2023-10-05</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/persistenceFO.json</loc>
-      <lastmod>2023-10-05</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/persistenceRW.json</loc>
       <lastmod>2023-10-05</lastmod>
    </url>
    <url>
