@@ -1,5 +1,19 @@
 [
   {
+    "objectID": "daily.html",
+    "href": "daily.html",
+    "title": "Forecast performance",
+    "section": "",
+    "text": "Forecasts submitted on 2023-10-13"
+  },
+  {
+    "objectID": "daily.html#most-recent-forecasts",
+    "href": "daily.html#most-recent-forecasts",
+    "title": "Forecast performance",
+    "section": "",
+    "text": "Forecasts submitted on 2023-10-13"
+  },
+  {
     "objectID": "daily.html#forecast-analysis",
     "href": "daily.html#forecast-analysis",
     "title": "Forecast performance",
@@ -11,7 +25,7 @@
     "href": "daily.html#leaderboard",
     "title": "Forecast performance",
     "section": "Leaderboard",
-    "text": "Leaderboard\nAverage skill scores of each model across all sites.\n\nScores are shown by reference date and forecast horizon (in days).\n\nScores are averaged across all submissions of the model with a given horizon or a given reference_datetime using submissions made since 2023-09-13.\n\n\nChla_ugL_meanTemp_C_mean"
+    "text": "Leaderboard\nAverage skill scores of each model across all sites.\n\nScores are shown by reference date and forecast horizon (in days).\n\nScores are averaged across all submissions of the model with a given horizon or a given reference_datetime using submissions made since 2023-09-14.\n\n\nChla_ugL_meanTemp_C_mean"
   },
   {
     "objectID": "catalog.html",
@@ -109,6 +123,6 @@
     "href": "index.html#what-sites-are-being-forecasted",
     "title": "Forecasting Challenge",
     "section": "What sites are being forecasted?",
-    "text": "What sites are being forecasted?\n\n\n\n\n\n\n  This material is based upon work supported by the National Science Foundation under Grant DEB-2327030. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.   Page last updated on 2023-10-13"
+    "text": "What sites are being forecasted?\n\n\n\n\n\n\n  This material is based upon work supported by the National Science Foundation under Grant DEB-2327030. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.   Page last updated on 2023-10-14"
   }
 ]
