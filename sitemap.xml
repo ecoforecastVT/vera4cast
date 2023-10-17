@@ -85,6 +85,10 @@
       <lastmod>2023-10-05</lastmod>
    </url>
    <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/models/model_items/glm_aed_v1.json</loc>
+      <lastmod>2023-10-05</lastmod>
+   </url>
+   <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/models/model_items/icon_seamless.json</loc>
       <lastmod>2023-10-05</lastmod>
    </url>
@@ -162,6 +166,10 @@
    </url>
    <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/models/model_items/gfs_seamless.json</loc>
+      <lastmod>2023-10-05</lastmod>
+   </url>
+   <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/models/model_items/glm_aed_v1.json</loc>
       <lastmod>2023-10-05</lastmod>
    </url>
    <url>
