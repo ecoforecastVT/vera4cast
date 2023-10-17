@@ -227,11 +227,11 @@ background-size: cover;
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(targets)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 57,882
+<pre><code>Rows: 57,758
 Columns: 7
 $ project_id  &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast", "vera4…
 $ site_id     &lt;chr&gt; "fcre", "fcre", "fcre", "fcre", "fcre", "fcre", "fcre", "f…
-$ datetime    &lt;dttm&gt; 2018-07-05, 2018-07-05, 2018-07-05, 2018-07-05, 2018-07-0…
+$ datetime    &lt;dttm&gt; 2018-07-06, 2018-07-06, 2018-07-06, 2018-07-06, 2018-07-0…
 $ duration    &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P…
 $ depth_m     &lt;dbl&gt; 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6…
 $ variable    &lt;chr&gt; "Temp_C_mean", "SpCond_uScm_mean", "Chla_ugL_mean", "fDOM_…
@@ -357,36 +357,30 @@ $ observation &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 <td style="text-align: left;">daily mean chlorophyll a in micrograms per liter from Exo; focal depths bvre = 1.5 m, fcre = 1.6 m</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Bloom_binary_mean</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Presence of chl-a bloom</td>
-<td style="text-align: left;">phytoplankton bloom 1 or 0 based on whether daily Chla_ugL_mean is &gt;= 20 ug/L or not</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">GreenAlgae_ugL_sample</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">Green algae biomass at depth of EXO sonde</td>
 <td style="text-align: left;">the total biomass of green algae in micrograms per liter at 1.6 m</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Bluegreens_ugL_sample</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">Cyanobacteria biomass at depth of EXO sonde</td>
 <td style="text-align: left;">the total biomass of cyanobacteria in micrograms per liter at 1.6 m</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">BrownAlgae_ugL_sample</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">Brown algae biomass at depth of EXO sonde</td>
 <td style="text-align: left;">the total biomass of brown algae in micrograms per liter at 1.6 m</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">MixedAlgae_ugL_sample</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">Cryptophyte biomass at depth of EXO sonde</td>
 <td style="text-align: left;">the total biomass of cryptophytes in micrograms per liter at 1.6 m</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">ChlorophyllMaximum_depth_sample</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">Depth of the maximum chlorophyll concentration</td>
@@ -482,8 +476,8 @@ $ observation &lt;dbl&gt; 0.01586670, 15.73000000, 0.01491445, 15.35000000, 49.9
 <colgroup>
 <col style="width: 9%">
 <col style="width: 4%">
-<col style="width: 21%">
-<col style="width: 64%">
+<col style="width: 24%">
+<col style="width: 61%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -509,32 +503,32 @@ $ observation &lt;dbl&gt; 0.01586670, 15.73000000, 0.01491445, 15.35000000, 49.9
 <tr class="odd">
 <td style="text-align: left;">TP_ugL_sample</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Total phosphorus concentration</td>
+<td style="text-align: left;">daily mean total phosphorus concentration in mg/L</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NH4_ugL_sample</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
+<td style="text-align: left;">ammonium concentration</td>
+<td style="text-align: left;">daily mean ammonium concentration in ug/L</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NO3NO2_ugL_sample</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Nitrate concentration</td>
+<td style="text-align: left;">daily mean nitrate concentration in ug/L</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">SRP_ugL_sample</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Total soluble reactive phosphorus concentration</td>
+<td style="text-align: left;">daily mean soluble reactive phosphorus concentration ug/L</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">DOC_mgL_sample</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
+<td style="text-align: left;">dissolved organic carbon concentration</td>
+<td style="text-align: left;">daily mean dissolved organic carbon concentration in mg/L</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">DRSI_mgL_sample</td>
@@ -545,14 +539,14 @@ $ observation &lt;dbl&gt; 0.01586670, 15.73000000, 0.01491445, 15.35000000, 49.9
 <tr class="odd">
 <td style="text-align: left;">TN_ugL_sample</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Total nitrogen conentration</td>
+<td style="text-align: left;">daily mean total nitrogen concentration mg/L</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">CH4_umolL_sample</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Dissolved methane</td>
+<td style="text-align: left;">daily mean dissolved methane in umol/L</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">DIC_mgL_sample</td>
