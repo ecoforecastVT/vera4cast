@@ -204,6 +204,7 @@ background-size: cover;
   <ul class="collapse">
   <li><a href="#stream-inflow-to-falling-creek-reservoir" id="toc-stream-inflow-to-falling-creek-reservoir" class="nav-link" data-scroll-target="#stream-inflow-to-falling-creek-reservoir">Stream inflow to Falling Creek Reservoir</a></li>
   <li><a href="#falling-creek-reservoir-meteorology" id="toc-falling-creek-reservoir-meteorology" class="nav-link" data-scroll-target="#falling-creek-reservoir-meteorology">Falling Creek Reservoir meteorology</a></li>
+  <li><a href="#other-variables-measured-in-the-reservoirs" id="toc-other-variables-measured-in-the-reservoirs" class="nav-link" data-scroll-target="#other-variables-measured-in-the-reservoirs">Other variables measured in the reservoirs</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/LTREB-reservoirs/vera4cast/blob/main/targets.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/LTREB-reservoirs/vera4cast/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -227,7 +228,7 @@ background-size: cover;
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(targets)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 70,060
+<pre><code>Rows: 70,605
 Columns: 7
 $ project_id  &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast", "vera4…
 $ site_id     &lt;chr&gt; "fcre", "fcre", "fcre", "fcre", "fcre", "fcre", "fcre", "f…
@@ -251,15 +252,13 @@ $ observation &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 <table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 11%">
-<col style="width: 5%">
-<col style="width: 12%">
-<col style="width: 70%">
+<col style="width: 6%">
+<col style="width: 82%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">variable</th>
 <th style="text-align: left;">duration</th>
-<th style="text-align: left;">Variable name</th>
 <th style="text-align: left;">Description</th>
 </tr>
 </thead>
@@ -267,23 +266,20 @@ $ observation &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 <tr class="odd">
 <td style="text-align: left;">Temp_C_mean</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Water temperature</td>
 <td style="text-align: left;">daily mean water temperature in degrees C, focal depths bvre = 1.5 m, fcre = 1.6 m, measured using EXO and thermistor</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">SpCond_uScm_mean</td>
+<td style="text-align: left;">Secchi_m_sample</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Specific conductance</td>
-<td style="text-align: left;">daily mean specific conductance in microsiemens per centimeter from EXO</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Turbidity_FNU_mean</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Turbidity</td>
-<td style="text-align: left;">daily mean turbidity in Formazin Nephelometric Units from EXO</td>
+<td style="text-align: left;">Secchi depth in meters</td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="targets_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -293,16 +289,14 @@ $ observation &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
-<col style="width: 10%">
-<col style="width: 4%">
-<col style="width: 19%">
-<col style="width: 65%">
+<col style="width: 9%">
+<col style="width: 6%">
+<col style="width: 84%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">variable</th>
 <th style="text-align: left;">duration</th>
-<th style="text-align: left;">Variable name</th>
 <th style="text-align: left;">Description</th>
 </tr>
 </thead>
@@ -310,23 +304,20 @@ $ observation &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 <tr class="odd">
 <td style="text-align: left;">fDOM_QSU_mean</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">fluorescent dissolved organic matter</td>
 <td style="text-align: left;">daily mean fluorescent dissolved organic matter (quinine sulfate units) from EXO; focal depths bvre = 1.5 m, fcre = 1.6 m</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">DO_mgL_mean</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">oxygen concentration</td>
 <td style="text-align: left;">daily mean oxygen in milligrams per liter from EXO; focal depths bvre = 1.5 m, fcre = 1.6 m, measured using EXO and RDO</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">DOsat_percent_mean</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">oxygen % sat</td>
-<td style="text-align: left;">daily mean oxygen percent saturation from EXO</td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="targets_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -336,16 +327,14 @@ $ observation &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
-<col style="width: 17%">
-<col style="width: 4%">
-<col style="width: 25%">
-<col style="width: 53%">
+<col style="width: 14%">
+<col style="width: 7%">
+<col style="width: 78%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">variable</th>
 <th style="text-align: left;">duration</th>
-<th style="text-align: left;">Variable name</th>
 <th style="text-align: left;">Description</th>
 </tr>
 </thead>
@@ -353,41 +342,20 @@ $ observation &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 <tr class="odd">
 <td style="text-align: left;">Chla_ugL_mean</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Chlorophyll-a</td>
 <td style="text-align: left;">daily mean chlorophyll a in micrograms per liter from Exo; focal depths bvre = 1.5 m, fcre = 1.6 m</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">GreenAlgae_ugL_sample</td>
+<td style="text-align: left;">Bloom_binary_mean</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Green algae biomass at depth of EXO sonde</td>
-<td style="text-align: left;">the total biomass of green algae in micrograms per liter at 1.6 m</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Bluegreens_ugL_sample</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Cyanobacteria biomass at depth of EXO sonde</td>
-<td style="text-align: left;">the total biomass of cyanobacteria in micrograms per liter at 1.6 m</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">BrownAlgae_ugL_sample</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Brown algae biomass at depth of EXO sonde</td>
-<td style="text-align: left;">the total biomass of brown algae in micrograms per liter at 1.6 m</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">MixedAlgae_ugL_sample</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Cryptophyte biomass at depth of EXO sonde</td>
-<td style="text-align: left;">the total biomass of cryptophytes in micrograms per liter at 1.6 m</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ChlorophyllMaximum_depth_sample</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Depth of the maximum chlorophyll concentration</td>
-<td style="text-align: left;">the depth of the maximum chlorophyll concentration</td>
+<td style="text-align: left;">binary indicator of bloom occurrence (Chla_ugL_mean &gt; 20 ugL)</td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="targets_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -474,97 +442,97 @@ $ observation &lt;dbl&gt; 0.01586670, 15.73000000, 0.01491445, 15.35000000, 49.9
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
-<col style="width: 9%">
-<col style="width: 4%">
-<col style="width: 24%">
-<col style="width: 61%">
+<col style="width: 11%">
+<col style="width: 5%">
+<col style="width: 76%">
+<col style="width: 5%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">variable</th>
 <th style="text-align: left;">duration</th>
-<th style="text-align: left;">Variable name</th>
 <th style="text-align: left;">Description</th>
+<th style="text-align: left;">priority</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Flow_cms_mean</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Inflow discharge</td>
 <td style="text-align: left;">daily discharge from inflow stream cubic meters per second</td>
+<td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Temp_C_mean</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Water temperature</td>
 <td style="text-align: left;">daily mean water temperature in degrees C, focal depths bvre = 1.5 m, fcre = 1.6 m, measured using EXO and thermistor</td>
+<td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">TP_ugL_sample</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Total phosphorus concentration</td>
 <td style="text-align: left;">daily sampled total phosphorus concentration in mg/L</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NH4_ugL_sample</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">ammonium concentration</td>
 <td style="text-align: left;">daily sampled ammonium concentration in ug/L</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NO3NO2_ugL_sample</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Nitrate concentration</td>
 <td style="text-align: left;">daily sampled nitrate concentration in ug/L</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">SRP_ugL_sample</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Total soluble reactive phosphorus concentration</td>
 <td style="text-align: left;">daily sampled soluble reactive phosphorus concentration ug/L</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">DOC_mgL_sample</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">dissolved organic carbon concentration</td>
 <td style="text-align: left;">daily sampled dissolved organic carbon concentration in mg/L</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">DRSI_mgL_sample</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Dissolved silica concentration</td>
 <td style="text-align: left;">daily sampled silica concentration in mg/L</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">TN_ugL_sample</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Total nitrogen conentration</td>
 <td style="text-align: left;">daily sampled total nitrogen concentration mg/L</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">CH4_umolL_sample</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Dissolved methane</td>
 <td style="text-align: left;">daily sampled dissolved methane in umol/L</td>
+<td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">DIC_mgL_sample</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Dissolved organic carbon concentration</td>
 <td style="text-align: left;">daily sample dissolved organic carbon concentration in mg/L</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">DC_mgL_sample</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Dissolved carbon concentration</td>
 <td style="text-align: left;">daily sample dissolved carbon concentration in mg/L</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">DN_mgL_sample</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Dissolved nitrogen concentration</td>
 <td style="text-align: left;">daily sample dissolved nitrogen concentration in mg/L</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 </tbody>
 </table>
@@ -594,79 +562,79 @@ $ observation &lt;dbl&gt; 207.27, 101.59, 11.87, 83.58, 2.05, 174.72, NA, 341.03
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
-<col style="width: 28%">
-<col style="width: 8%">
-<col style="width: 33%">
-<col style="width: 29%">
+<col style="width: 37%">
+<col style="width: 11%">
+<col style="width: 39%">
+<col style="width: 11%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">variable</th>
 <th style="text-align: left;">duration</th>
-<th style="text-align: left;">Variable name</th>
 <th style="text-align: left;">Description</th>
+<th style="text-align: left;">priority</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">PAR_umolm2s_mean</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Photosynthetically Active Radiation</td>
 <td style="text-align: left;">Daily mean PAR</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">BP_kPa_mean</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">surface pressure</td>
 <td style="text-align: left;">Daily mean surface pressure</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">AirTemp_C_mean</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Air temperature</td>
 <td style="text-align: left;">Daily mean air temperature</td>
+<td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">RH_percent_mean</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Relative humdity</td>
 <td style="text-align: left;">Daily mean relative humidity</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">WindSpeed_ms_mean</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Wind speed</td>
 <td style="text-align: left;">Daily mean wind speed</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">WindDir_degrees_mean</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Wind direction</td>
 <td style="text-align: left;">Daily mean wind direction</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">ShortwaveRadiationUp_Wm2_mean</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Shortwave radiation</td>
 <td style="text-align: left;">Daily mean shortwave radiation</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">InfraredRadiationUp_Wm2_mean</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Longwave radiation</td>
 <td style="text-align: left;">Daily mean longwave radiation</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Albedo_Wm2_mean</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Albedo</td>
 <td style="text-align: left;">Daily mean surface albedo</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Rain_mm_sum</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Precipitation</td>
 <td style="text-align: left;">Daily sum of precipitation</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 </tbody>
 </table>
@@ -675,6 +643,69 @@ $ observation &lt;dbl&gt; 207.27, 101.59, 11.87, 83.58, 2.05, 174.72, NA, 341.03
 <p>Hourly time-step variables measured at the meteorology station (located on the dam at Falling Creek Reservoir)</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>url3 <span class="ot">&lt;-</span> <span class="st">"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/duration=PT1H/hourly-met-targets.csv.gz"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="other-variables-measured-in-the-reservoirs" class="level3">
+<h3 class="anchored" data-anchor-id="other-variables-measured-in-the-reservoirs">Other variables measured in the reservoirs</h3>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 7%">
+<col style="width: 63%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">duration</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">SpCond_uScm_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">daily mean specific conductance in microsiemens per centimeter from EXO</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Turbidity_FNU_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">daily mean turbidity in Formazin Nephelometric Units from EXO</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DOsat_percent_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">daily mean oxygen percent saturation from EXO</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GreenAlgae_ugL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">the total biomass of green algae in micrograms per liter at 1.6 m</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bluegreens_ugL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">the total biomass of cyanobacteria in micrograms per liter at 1.6 m</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BrownAlgae_ugL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">the total biomass of brown algae in micrograms per liter at 1.6 m</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MixedAlgae_ugL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">the total biomass of cryptophytes in micrograms per liter at 1.6 m</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ChlorophyllMaximum_depth_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">the depth of the maximum chlorophyll concentration</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 
 
