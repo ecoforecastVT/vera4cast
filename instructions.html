@@ -154,7 +154,7 @@ background-size: cover;
  <span class="menu-text">How to forecast</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./daily.html" rel="" target=""><i class="bi bi-droplet" role="img">
+    <a class="nav-link" href="./performance.html" rel="" target=""><i class="bi bi-droplet" role="img">
 </i> 
  <span class="menu-text">Forecast performance</span></a>
   </li>  
@@ -198,7 +198,7 @@ background-size: cover;
   <li><a href="#tldr-how-to-submit-a-forecast" id="toc-tldr-how-to-submit-a-forecast" class="nav-link active" data-scroll-target="#tldr-how-to-submit-a-forecast"><span class="header-section-number">1</span> tl;dr: How to submit a forecast</a></li>
   <li><a href="#generating-a-forecast" id="toc-generating-a-forecast" class="nav-link" data-scroll-target="#generating-a-forecast"><span class="header-section-number">2</span> Generating a forecast</a>
   <ul class="collapse">
-  <li><a href="#any-approach-allowed" id="toc-any-approach-allowed" class="nav-link" data-scroll-target="#any-approach-allowed"><span class="header-section-number">2.1</span> Any approach allowed</a></li>
+  <li><a href="#any-approach-is-allowed" id="toc-any-approach-is-allowed" class="nav-link" data-scroll-target="#any-approach-is-allowed"><span class="header-section-number">2.1</span> Any approach is allowed</a></li>
   <li><a href="#must-include-uncertainty" id="toc-must-include-uncertainty" class="nav-link" data-scroll-target="#must-include-uncertainty"><span class="header-section-number">2.2</span> Must include uncertainty</a></li>
   <li><a href="#any-model-driverscovariatesfeatures-are-welcome" id="toc-any-model-driverscovariatesfeatures-are-welcome" class="nav-link" data-scroll-target="#any-model-driverscovariatesfeatures-are-welcome"><span class="header-section-number">2.3</span> Any model drivers/covariates/features are welcome</a></li>
   <li><a href="#forecasts-can-be-for-a-range-of-horizons" id="toc-forecasts-can-be-for-a-range-of-horizons" class="nav-link" data-scroll-target="#forecasts-can-be-for-a-range-of-horizons"><span class="header-section-number">2.4</span> Forecasts can be for a range of horizons</a></li>
@@ -240,8 +240,8 @@ background-size: cover;
 </section>
 <section id="generating-a-forecast" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="generating-a-forecast"><span class="header-section-number">2</span> Generating a forecast</h2>
-<section id="any-approach-allowed" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="any-approach-allowed"><span class="header-section-number">2.1</span> Any approach allowed</h3>
+<section id="any-approach-is-allowed" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="any-approach-is-allowed"><span class="header-section-number">2.1</span> Any approach is allowed</h3>
 <p>You can use any approach to make a prediction about the future conditions at the two reservoirs or the stream.</p>
 </section>
 <section id="must-include-uncertainty" class="level3" data-number="2.2">
@@ -250,12 +250,12 @@ background-size: cover;
 </section>
 <section id="any-model-driverscovariatesfeatures-are-welcome" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="any-model-driverscovariatesfeatures-are-welcome"><span class="header-section-number">2.3</span> Any model drivers/covariates/features are welcome</h3>
-<p>You can use any data as inputs. This includes all the targets data available to date. All sensor-based target data is avaialable in near-real time (1 day latency). You may want to use the updated target data to re-train a model or use in data assimilation.</p>
-<p>As this is a geninue forecasting challenge, you will need forecasted drivers if your model uses drivers as inputs. If you are interested in using forecasted meteorology, we have developed an R package (<a href="https://github.com/FLARE-forecast/RopenMeteo">https://github.com/FLARE-forecast/RopenMeteo</a>) that can be used to access ensemble weather forecasts or seasonal forecasts for the sites. The R package is a wrapper around the open-meteo.com API. The README in the R package repo provides instructions for use.</p>
+<p>You can use any data as inputs. This includes all the targets data available to date. All sensor-based target data is available in near-real time (1 day latency). You may want to use the updated target data to re-train a model or use in data assimilation.</p>
+<p>As this is a genuine forecasting challenge, you will need forecasted drivers if your model uses drivers as inputs. If you are interested in using forecasted meteorology, we have developed an R package (<a href="https://github.com/FLARE-forecast/RopenMeteo">https://github.com/FLARE-forecast/RopenMeteo</a>) that can be used to access ensemble weather forecasts or seasonal forecasts for the sites. The R package is a wrapper around the open-meteo.com API. The README in the R package repo provides instructions for use.</p>
 </section>
 <section id="forecasts-can-be-for-a-range-of-horizons" class="level3" data-number="2.4">
 <h3 data-number="2.4" class="anchored" data-anchor-id="forecasts-can-be-for-a-range-of-horizons"><span class="header-section-number">2.4</span> Forecasts can be for a range of horizons</h3>
-<p>Forecasts can be submitted at the daily time step 1 to 10 years ahead</p>
+<p>Forecasts can be submitted at the daily time step 1 day to 10 years ahead</p>
 </section>
 <section id="forecasts-can-be-submitted-everyday" class="level3" data-number="2.5">
 <h3 data-number="2.5" class="anchored" data-anchor-id="forecasts-can-be-submitted-everyday"><span class="header-section-number">2.5</span> Forecasts can be submitted everyday</h3>
@@ -399,7 +399,7 @@ $ duration           &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D"
 <li><code>climatology</code>: the normal distribution (mean and standard deviation) of that day-of-year in the historical observations</li>
 <li><code>persistenceRW</code>: a random walk model that assumes no change in the mean behavior. The random walk is initialized using the most resent observation.</li>
 </ul>
-<p>Our <a href="./daily.html#performance">forecast performance</a> page includes evaluations of all submitted models.</p>
+<p>Our <a href="./performance.html#performance">forecast performance</a> page includes evaluations of all submitted models.</p>
 </section>
 <section id="catalog" class="level3" data-number="6.4">
 <h3 data-number="6.4" class="anchored" data-anchor-id="catalog"><span class="header-section-number">6.4</span> Catalog</h3>
