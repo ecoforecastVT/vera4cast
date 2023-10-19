@@ -53,7 +53,7 @@
     "href": "instructions.html#generating-a-forecast",
     "title": "How to forecast",
     "section": "2 Generating a forecast",
-    "text": "2 Generating a forecast\n\n2.1 Any approach allow\nYou can use any approach to make a prediction about the future conditions at the two reservoirs or the stream.\n\n\n2.2 Must include uncertainty\nForecasts require you to make a access of confidence in the prediction of the future. You can represent your confidence (i.e., uncertainty in forecast) using a distribution or numerically using an ensemble (or sample) of predictions.\n\n\n2.3 Any model drivers/covariates/features are welcome\nYou can use any data as inputs. This includes all the targets data available to date. All sensor-based target data is avaialable in near-real time (1 day latency). You may want to use the updated target data to re-train a model or use in data assimilation.\nAs this is a geninue forecasting challenge, you will need forecasted drivers if your model uses drivers as inputs. If you are interested in using forecasted meteorology, we have developed an R package (https://github.com/FLARE-forecast/RopenMeteo) that can be used to access ensemble weather forecasts or seasonal forecasts for the sites. The R package is a wrapper around the open-meteo.com API. The README in the R package repo provides instructions for use.\n\n\n2.4 Forecasts can be for a range of horizons\nForecasts can be submitted at the daily time step 1 to 10 years ahead\n\n\n2.5 Forecasts can be submitted everyday\nSince forecasts can be submitted everyday, automation is important. We provide an example GitHub repository that can be used to automate your forecast with GitHub Actions. It also includes the use of a custom Docker Container rqthomas/vera4cast:latest that has many of the packages and functions needed to generate and submit forecasts."
+    "text": "2 Generating a forecast\n\n2.1 Any approach allowed\nYou can use any approach to make a prediction about the future conditions at the two reservoirs or the stream.\n\n\n2.2 Must include uncertainty\nForecasts require you to make a access of confidence in the prediction of the future. You can represent your confidence (i.e., uncertainty in forecast) using a distribution or numerically using an ensemble (or sample) of predictions.\n\n\n2.3 Any model drivers/covariates/features are welcome\nYou can use any data as inputs. This includes all the targets data available to date. All sensor-based target data is avaialable in near-real time (1 day latency). You may want to use the updated target data to re-train a model or use in data assimilation.\nAs this is a geninue forecasting challenge, you will need forecasted drivers if your model uses drivers as inputs. If you are interested in using forecasted meteorology, we have developed an R package (https://github.com/FLARE-forecast/RopenMeteo) that can be used to access ensemble weather forecasts or seasonal forecasts for the sites. The R package is a wrapper around the open-meteo.com API. The README in the R package repo provides instructions for use.\n\n\n2.4 Forecasts can be for a range of horizons\nForecasts can be submitted at the daily time step 1 to 10 years ahead\n\n\n2.5 Forecasts can be submitted everyday\nSince forecasts can be submitted everyday, automation is important. We provide an example GitHub repository that can be used to automate your forecast with GitHub Actions. It also includes the use of a custom Docker Container rqthomas/vera4cast:latest that has many of the packages and functions needed to generate and submit forecasts."
   },
   {
     "objectID": "instructions.html#forecast-file-format",
@@ -88,21 +88,21 @@
     "href": "daily.html",
     "title": "Forecast performance",
     "section": "",
-    "text": "Forecasts submitted on 2023-10-19\n\nChlorophyll-aChlorophyll-a bloom probabilityWater temperatureAir temperaturefDOM_QSU_meanSecchi_m_meanIceCover_binary_sumDissolved methaneInflow discharge\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNULL\n\n\n\n\n\n\nNULL"
+    "text": "Forecasts submitted on 2023-10-19\n\nChlorophyll-aChlorophyll-a bloom probabilityWater temperatureAir temperaturefDOM QSUSecchi depthIce Cover ProbabilityDissolved methaneInflow discharge\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNULL"
   },
   {
     "objectID": "daily.html#sec-performance",
     "href": "daily.html#sec-performance",
     "title": "Forecast performance",
     "section": "",
-    "text": "Forecasts submitted on 2023-10-19\n\nChlorophyll-aChlorophyll-a bloom probabilityWater temperatureAir temperaturefDOM_QSU_meanSecchi_m_meanIceCover_binary_sumDissolved methaneInflow discharge\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNULL\n\n\n\n\n\n\nNULL"
+    "text": "Forecasts submitted on 2023-10-19\n\nChlorophyll-aChlorophyll-a bloom probabilityWater temperatureAir temperaturefDOM QSUSecchi depthIce Cover ProbabilityDissolved methaneInflow discharge\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNULL"
   },
   {
     "objectID": "daily.html#forecast-analysis",
     "href": "daily.html#forecast-analysis",
     "title": "Forecast performance",
     "section": "Forecast analysis",
-    "text": "Forecast analysis\nBelow are forecasts submitted 30 days ago and include the observations used to evaluate them. Mouse over to see the team id, scroll to zoom.\n\nChla_ugL_meanTemp_C_meanAirTemp_C_mean"
+    "text": "Forecast analysis\nBelow are forecasts submitted 30 days ago and include the observations used to evaluate them. Mouse over to see the team id, scroll to zoom.\n\nChlorophyll-aWater temperatureSecchi depthAir Temperature"
   },
   {
     "objectID": "daily.html#leaderboard",
