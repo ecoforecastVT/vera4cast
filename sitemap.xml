@@ -2,26 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
       <loc>https://www.ltreb-reservoirs.org/vera4cast//catalog.html</loc>
-      <lastmod>2023-10-24</lastmod>
+      <lastmod>2023-10-25</lastmod>
    </url>
    <url>
       <loc>https://www.ltreb-reservoirs.org/vera4cast//instructions.html</loc>
-      <lastmod>2023-10-24</lastmod>
+      <lastmod>2023-10-25</lastmod>
    </url>
    <url>
       <loc>https://www.ltreb-reservoirs.org/vera4cast//performance.html</loc>
-      <lastmod>2023-10-24</lastmod>
+      <lastmod>2023-10-25</lastmod>
    </url>
    <url>
       <loc>https://www.ltreb-reservoirs.org/vera4cast//index.html</loc>
-      <lastmod>2023-10-24</lastmod>
+      <lastmod>2023-10-25</lastmod>
    </url>
    <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/catalog.json</loc>
       <lastmod>2023-10-18</lastmod>
    </url>
    <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Chla_ugL_mean/collection.json</loc>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Bloom_binary_mean_daily/collection.json</loc>
+      <lastmod>2023-10-18</lastmod>
+   </url>
+   <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Chla_ugL_mean_daily/collection.json</loc>
       <lastmod>2023-10-18</lastmod>
    </url>
    <url>
@@ -29,7 +33,11 @@
       <lastmod>2023-10-18</lastmod>
    </url>
    <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Physical/Temp_C_mean/collection.json</loc>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Physical/Secchi_m_sample_daily/collection.json</loc>
+      <lastmod>2023-10-18</lastmod>
+   </url>
+   <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Physical/Temp_C_mean_daily/collection.json</loc>
       <lastmod>2023-10-18</lastmod>
    </url>
    <url>
@@ -105,7 +113,15 @@
       <lastmod>2023-10-18</lastmod>
    </url>
    <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Biological/Bloom_binary_mean_daily/collection.json</loc>
+      <lastmod>2023-10-18</lastmod>
+   </url>
+   <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Biological/Chla_ugL_mean/collection.json</loc>
+      <lastmod>2023-10-18</lastmod>
+   </url>
+   <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Biological/Chla_ugL_mean_daily/collection.json</loc>
       <lastmod>2023-10-18</lastmod>
    </url>
    <url>
@@ -113,7 +129,15 @@
       <lastmod>2023-10-18</lastmod>
    </url>
    <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Physical/Secchi_m_sample_daily/collection.json</loc>
+      <lastmod>2023-10-18</lastmod>
+   </url>
+   <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Physical/Temp_C_mean/collection.json</loc>
+      <lastmod>2023-10-18</lastmod>
+   </url>
+   <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Physical/Temp_C_mean_daily/collection.json</loc>
       <lastmod>2023-10-18</lastmod>
    </url>
    <url>
