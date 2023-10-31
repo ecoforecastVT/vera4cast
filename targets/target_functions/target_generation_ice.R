@@ -107,6 +107,8 @@ target_IceCover_binary <- function(current_file, historic_file){
   # for hourly
 
   final_df$depth_m <- NA
+  final_df$duration <- 'P1D'
+  final_df$project_id <- 'vera4cast'
 
   ## return dataframe formatted to match FLARE targets
   return(final_df)
