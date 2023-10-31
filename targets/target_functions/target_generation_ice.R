@@ -1,3 +1,6 @@
+# fcr_current <- "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv"
+# bvr_current <- "https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-platform-data-qaqc/bvre-waterquality_L1.csv"
+# historic_ice <- "https://pasta.lternet.edu/package/data/eml/edi/456/4/8454a757d0203bd8913d8adc8607f6c4"
 
 target_IceCover_binary <- function(current_file, historic_file){
 
@@ -103,6 +106,10 @@ target_IceCover_binary <- function(current_file, historic_file){
   # for time specific - use midnight UTC values for daily
   # for hourly
 
+  final_df$depth_m <- NA
+
   ## return dataframe formatted to match FLARE targets
   return(final_df)
 }
+
+#test_ice <- target_IceCover_binary(current_file = fcr_current, historic_file = historic_ice)
