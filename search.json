@@ -18,14 +18,14 @@
     "href": "index.html#why-a-forecasting-challenge",
     "title": "Forecasting Challenge",
     "section": "Why a forecasting challenge?",
-    "text": "Why a forecasting challenge?\nWe are using forecasts to compare the predictability of different ecosystem variables, in different ecosystem conditions to identify the fundamental predictability of freshwater ecosystems.\nThe forecasting challenge is one component of the Virginia Reservoirs LTREB project that is monitoring the reservoirs to broadly advance our understanding of freshwater ecosystem processes in two neighboring reservoirs with contrasting dissolved oxygen conditions.\n \n\n\n\n\n\n\n\n\n\n\n\n\nTotal forecasts submitted to the VERA Challenge\n266\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMost recent data for model training\n2023-10-29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of years of data for model training\n10.46\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of variables being forecasted\n22"
+    "text": "Why a forecasting challenge?\nWe are using forecasts to compare the predictability of different ecosystem variables, in different ecosystem conditions to identify the fundamental predictability of freshwater ecosystems.\nThe forecasting challenge is one component of the Virginia Reservoirs LTREB project that is monitoring the reservoirs to broadly advance our understanding of freshwater ecosystem processes in two neighboring reservoirs with contrasting dissolved oxygen conditions.\n \n\n\n\n\n\n\n\n\n\n\n\n\nTotal forecasts submitted to the VERA Challenge\n277\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMost recent data for model training\n2023-10-29\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of years of data for model training\n10.46\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of variables being forecasted\n22"
   },
   {
     "objectID": "index.html#what-sites-are-being-forecasted",
     "href": "index.html#what-sites-are-being-forecasted",
     "title": "Forecasting Challenge",
     "section": "What sites are being forecasted?",
-    "text": "What sites are being forecasted?\n\n\n\n\n\n\n  This material is based upon work supported by the National Science Foundation under Grant DEB-2327030. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.   Page last updated on 2023-11-01"
+    "text": "What sites are being forecasted?\n\n\n\n\n\n\n  This material is based upon work supported by the National Science Foundation under Grant DEB-2327030. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.   Page last updated on 2023-11-02"
   },
   {
     "objectID": "performance.html",
@@ -39,7 +39,7 @@
     "href": "performance.html#sec-performance",
     "title": "Forecast performance",
     "section": "Most recent forecasts",
-    "text": "Most recent forecasts\nForecasts submitted on 2023-11-01\n\nChlorophyll-aChlorophyll-a bloom probabilityWater temperatureAir temperaturefDOM QSUSecchi depthIce Cover ProbabilityDissolved methaneInflow discharge\n\n\n\n\nNULL\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNULL\n\n\n\n\n\n\nNULL"
+    "text": "Most recent forecasts\nForecasts submitted on 2023-11-02\n\nChlorophyll-aChlorophyll-a bloom probabilityWater temperatureAir temperaturefDOM QSUSecchi depthIce Cover ProbabilityDissolved methaneInflow discharge\n\n\n\n\nNULL\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNULL\n\n\n\n\n\n\nNULL"
   },
   {
     "objectID": "performance.html#forecast-analysis",
@@ -53,7 +53,7 @@
     "href": "performance.html#aggregated-scores",
     "title": "Forecast performance",
     "section": "Aggregated scores",
-    "text": "Aggregated scores\nAverage skill scores of each model across all sites.\n\nScores are shown by reference date and forecast horizon (in days).\n\nScores are averaged across all submissions of the model with a given horizon or a given reference_datetime using submissions made since 2023-10-02.\n\n\nChlorophyll-aWater temperatureAir temperature"
+    "text": "Aggregated scores\nAverage skill scores of each model across all sites.\n\nScores are shown by reference date and forecast horizon (in days).\n\nScores are averaged across all submissions of the model with a given horizon or a given reference_datetime using submissions made since 2023-10-03.\n\n\nChlorophyll-aWater temperatureAir temperature"
   },
   {
     "objectID": "targets.html",
