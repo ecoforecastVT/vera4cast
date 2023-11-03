@@ -12,6 +12,29 @@ The following elements of a forecasting challenge workflow are included in this 
 9) Creation of Docker containers with supporting software
 10) Creation of archive/snapshots of challenge submissions and targets.
 
+## vera4castHelpers
+
+Tools for validating file formats and submitting to the VERA forecasting challenge
+
+### Installation
+
+```
+remotes::install_github("LTREB-reservoirs/vera4cast/vera4castHelpers")
+```
+
+#### Usage
+
+```
+vera4castHelpers::submit(forecast_file = "test.csv")
+```
+
+If you will be submitting multiple forecasts using the same model_id, use the following
+
+```
+vera4castHelpers::submit(forecast_file = "test.csv",
+                         first_submission = FALSE)
+```
+
 See [https://doi.org/10.1002/fee.2616](https://doi.org/10.1002/fee.2616) for more information on the structure of a forecasting challenge.
 
 Supported by the U.S. National Science Foundation Long Term Research in Environmental Biology program (DEB-2327030)
