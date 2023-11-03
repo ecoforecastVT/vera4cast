@@ -1,7 +1,7 @@
 ## FO
 
-# fcr_files <- c("https://pasta.lternet.edu/package/data/eml/edi/271/7/71e6b946b751aa1b966ab5653b01077f",
-#                "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv")
+fcr_files <- c("https://pasta.lternet.edu/package/data/eml/edi/271/7/71e6b946b751aa1b966ab5653b01077f",
+               "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv")
 
 #latest <- "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv"
 #edi <- "https://pasta.lternet.edu/package/data/eml/edi/271/7/71e6b946b751aa1b966ab5653b01077f"
@@ -10,7 +10,7 @@
 #                "https://pasta.lternet.edu/package/data/eml/edi/725/3/a9a7ff6fe8dc20f7a8f89447d4dc2038")
 
 generate_schmidt.stability <- function(current_file, historic_file) {
-  
+
   source('R/find_depths.R')
   ## read in current data file
   # Github, Googlesheet, etc.
@@ -18,7 +18,7 @@ generate_schmidt.stability <- function(current_file, historic_file) {
     dplyr::filter(Site == 50) |>
     dplyr::select(Reservoir, DateTime,
                   dplyr::starts_with('ThermistorTemp'))
-  
+
   if (current_df$Reservoir[1] == 'BVR') {
     bvr_depths <- find_depths(data_file = current_file,
                               depth_offset = "https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-platform-data-qaqc/BVR_Depth_offsets.csv",
@@ -27,11 +27,11 @@ generate_schmidt.stability <- function(current_file, historic_file) {
                               offset_column1 = "Offset_before_05APR21",
                               offset_column2 = "Offset_after_05APR21") |>
       dplyr::filter(variable == 'ThermistorTemp') |>
-      dplyr::select(Reservoir, DateTime, Depth_m, variable, depth_bin, Position) |> 
+      dplyr::select(Reservoir, DateTime, Depth_m, variable, depth_bin, Position) |>
       dplyr::rename(WaterLevel = Depth_m,
-                    depth = depth_bin) |> 
-      dplyr::mutate(date = lubridate::as_date(DateTime)) 
-    
+                    depth = depth_bin) |>
+      dplyr::mutate(date = lubridate::as_date(DateTime))
+
     current_df_1 <- current_df  |>
       tidyr::pivot_longer(cols = starts_with('ThermistorTemp'),
                           names_to = c('variable','Position'),
@@ -49,9 +49,9 @@ generate_schmidt.stability <- function(current_file, historic_file) {
                        .groups = 'drop') |>
       dplyr::mutate(observation = ifelse(n < 144/3, NA, observation)) |> # 144 = 24(hrs) * 6(10 minute intervals/hr)
       na.omit()
-    
+
   }
-  
+
   # read in differently for FCR
   if (current_df$Reservoir[1] == 'FCR') {
     current_df_1 <- current_df |>
@@ -60,7 +60,7 @@ generate_schmidt.stability <- function(current_file, historic_file) {
                           names_prefix = 'ThermistorTemp_C_',
                           values_to = 'observation') |>
       na.omit()|>
-      dplyr::mutate(date = lubridate::as_date(DateTime), 
+      dplyr::mutate(date = lubridate::as_date(DateTime),
                     depth = ifelse(depth == 'surface', 0.1, depth)) |>
       na.omit() |>
       dplyr::group_by(date, Reservoir, depth) |>
@@ -69,13 +69,13 @@ generate_schmidt.stability <- function(current_file, historic_file) {
                        .groups = 'drop') |>
       dplyr::mutate(observation = ifelse(n < 144/3, NA, observation)) |> # 144 = 24(hrs) * 6(10 minute intervals/hr)
       na.omit()
-    
+
   }
-  
+
   message('Current file ready')
-  
-  
-  
+
+
+
   # read in historical data file
   # EDI
   infile <- tempfile()
@@ -85,7 +85,7 @@ generate_schmidt.stability <- function(current_file, historic_file) {
     dplyr::filter(Site == 50) |>
     dplyr::select(Reservoir, DateTime,
                   dplyr::starts_with('ThermistorTemp'))
-  
+
   if (historic_df$Reservoir[1] == 'BVR') {
     bvr_depths <- find_depths(data_file = historic_file,
                               depth_offset = "https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-platform-data-qaqc/BVR_Depth_offsets.csv",
@@ -94,11 +94,11 @@ generate_schmidt.stability <- function(current_file, historic_file) {
                               offset_column1 = "Offset_before_05APR21",
                               offset_column2 = "Offset_after_05APR21") |>
       dplyr::filter(variable == 'ThermistorTemp') |>
-      dplyr::select(Reservoir, DateTime, Depth_m, variable, depth_bin, Position) |> 
+      dplyr::select(Reservoir, DateTime, Depth_m, variable, depth_bin, Position) |>
       dplyr::rename(WaterLevel = Depth_m,
-                    depth = depth_bin) |> 
-      dplyr::mutate(date = lubridate::as_date(DateTime)) 
-    
+                    depth = depth_bin) |>
+      dplyr::mutate(date = lubridate::as_date(DateTime))
+
     historic_df_1 <- historic_df  |>
       tidyr::pivot_longer(cols = starts_with('ThermistorTemp'),
                           names_to = c('variable','Position'),
@@ -116,9 +116,9 @@ generate_schmidt.stability <- function(current_file, historic_file) {
                        .groups = 'drop') |>
       dplyr::mutate(observation = ifelse(n < 144/3, NA, observation)) |> # 144 = 24(hrs) * 6(10 minute intervals/hr)
       na.omit()
-    
+
   }
-  
+
   # read in differently for FCR
   if (historic_df$Reservoir[1] == 'FCR') {
     historic_df_1 <- historic_df |>
@@ -127,7 +127,7 @@ generate_schmidt.stability <- function(current_file, historic_file) {
                           names_prefix = 'ThermistorTemp_C_',
                           values_to = 'observation') |>
       na.omit()|>
-      dplyr::mutate(date = lubridate::as_date(DateTime), 
+      dplyr::mutate(date = lubridate::as_date(DateTime),
                     depth = ifelse(depth == 'surface', 0.1, depth)) |>
       na.omit() |>
       dplyr::group_by(date, Reservoir, depth) |>
@@ -136,76 +136,76 @@ generate_schmidt.stability <- function(current_file, historic_file) {
                        .groups = 'drop') |>
       dplyr::mutate(observation = ifelse(n < 144/3, NA, observation)) |> # 144 = 24(hrs) * 6(10 minute intervals/hr)
       na.omit()
-    
+
   }
   message('EDI file ready')
-  
+
   #combine the current and historic dataframes
-  final_df <- dplyr::bind_rows(historic_df_1, current_df_1) |> 
+  final_df <- dplyr::bind_rows(historic_df_1, current_df_1) |>
     dplyr::select(any_of(c('date', 'Reservoir', 'depth', 'observation', 'WaterLevel')))
-  
+
   # Need bathymetry
   infile <- tempfile()
   try(download.file("https://pasta.lternet.edu/package/data/eml/edi/1254/1/f7fa2a06e1229ee75ea39eb586577184",
                     infile, method="curl"))
   if (is.na(file.size(infile))) download.file(historic_file,infile,method="auto")
-  
+
   bathymetry <- readr::read_csv(infile, show_col_types = F)  |>
     dplyr::select(Reservoir, Depth_m, SA_m2) |>
     # dplyr::rename(depths = Depth_m,
-    #               areas = SA_m2) |> 
-    dplyr::filter(Reservoir == unique(final_df$Reservoir)) 
-  
+    #               areas = SA_m2) |>
+    dplyr::filter(Reservoir == unique(final_df$Reservoir))
+
   # BVR requires flexible bathymetry to generate schmidt stability
   if (final_df$Reservoir[1] == 'BVR') {
-    
+
     #Create a dataframe with bathymetry at each date
     flexible_bathy <- final_df |> # takes the depth at each day
-      dplyr::distinct(date, WaterLevel, Reservoir) |> 
+      dplyr::distinct(date, WaterLevel, Reservoir) |>
       dplyr::full_join(bathymetry, multiple = 'all', by = 'Reservoir') |>
       dplyr::group_by(date) |>
       dplyr::mutate(Depth_m = Depth_m - (max(Depth_m) - mean(unique(WaterLevel))),
                     WaterLevel = mean(WaterLevel)) |>
-      dplyr::filter(Depth_m>=0) |> 
+      dplyr::filter(Depth_m>=0) |>
       dplyr::distinct()
-    
+
   }
-  
+
   if (final_df$Reservoir[1] == 'FCR') {
-    flexible_bathy <- final_df|> 
+    flexible_bathy <- final_df|>
       dplyr::full_join(bathymetry, multiple = 'all', by = 'Reservoir')
   }
-  
-  
+
+
   #Calculate schmidt stability each day
   schmidts <- numeric(length(unique(final_df$date)))
   dates <- unique(final_df$date)
-  
+
   for(i in 1:length(dates)) {
     baths <- flexible_bathy |>
       dplyr::filter(date==dates[i])
-    
+
     temps <- final_df |>
-      dplyr::filter(date == dates[i], 
-                    # cannot have an observation at a depth shallower than the 
+      dplyr::filter(date == dates[i],
+                    # cannot have an observation at a depth shallower than the
                     # shallowest bathymetry (returns NA below) so these are filtered out
                     depth >= min(baths$Depth_m))
-    
-    
-    
-    schmidts[i] <- rLakeAnalyzer::schmidt.stability(wtr = temps$observation, 
-                                                    depths = temps$depth, 
-                                                    bthA = baths$SA_m2, 
-                                                    bthD = baths$Depth_m, 
+
+
+
+    schmidts[i] <- rLakeAnalyzer::schmidt.stability(wtr = temps$observation,
+                                                    depths = temps$depth,
+                                                    bthA = baths$SA_m2,
+                                                    bthD = baths$Depth_m,
                                                     sal = rep(0,length(temps$observation)))
-    
+
     # print(i)
-    
+
   }
-  
-  final_ss <- data.frame(datetime = unique(final_df$date), 
+
+  final_ss <- data.frame(datetime = unique(final_df$date),
                          site_id = current_df$Reservoir[1],
-                         depth = NA,
+                         depth_m = NA,
                          observation = schmidts,
                          variable = 'schmidt.stability')
   ## Match data to flare targets file
