@@ -13,8 +13,8 @@ minioclient::mc_alias_set("osn",
                           Sys.getenv("OSN_SECRET"))
 
 googlesheets4::gs4_deauth()
-registered_models <- googlesheets4::read_sheet(config$model_metadata_gsheet)
-
+registered_models <- googlesheets4::read_sheet(config$model_metadata_gsheet) |>
+  dplyr::filter(`What forecasting challenge are you registering for?` == config$project_id)
 for(i in 1:nrow(registered_models)){
 
   #Need to get from forecast output
