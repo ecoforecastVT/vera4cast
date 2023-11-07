@@ -21,9 +21,9 @@
     ]
   },
   "properties": {
-    "description": "\nmodel info: Random walk from the fable package with ensembles used to represent uncertainty\n\nSites: bvre, fcre\n\nVariables: Chla_ugL_mean, Temp_C_mean",
+    "description": ["\nmodel info: Random walk from the fable package with ensembles used to represent uncertainty\n\nSites: bvre, fcre\n\nVariables: Chla_ugL_mean, Temp_C_mean", "\nmodel info: Random walk from the fable package with ensembles used to represent uncertainty\n\nSites: bvre, fcre\n\nVariables: Chla_ugL_mean, Temp_C_mean"],
     "start_datetime": "2023-09-21",
-    "end_datetime": "2023-12-11",
+    "end_datetime": "2023-12-12",
     "providers": [
       {
         "url": "pending",
