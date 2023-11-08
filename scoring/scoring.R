@@ -116,10 +116,14 @@ furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, con
       reference_dates <- unlist(stringr::str_split(group$reference_date, ","))
 
       fc <- arrow::open_dataset(paste0("s3://anonymous@",group$path,"/model_id=",group$model_id,"?endpoint_override=",group$endpoint)) |>
-        dplyr::filter(reference_date %in% reference_dates) |>
-        dplyr::collect() |>
-        dplyr::filter(lubridate::as_date(datetime) >= ref,
+        dplyr::filter(reference_date %in% reference_dates,
+                      lubridate::as_date(datetime) >= ref,
                       lubridate::as_date(datetime) < ref+lubridate::days(1))
+        dplyr::collect()
+
+     if(j == 36){
+     print(fc)
+     }
 
       fc |>
         dplyr::mutate(depth_m = ifelse(!is.na(depth_m), round(depth_m, 2), depth_m)) |> #project_specific
