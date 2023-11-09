@@ -18,12 +18,12 @@
     {
       "rel": "child",
       "type": "application/json",
-      "href": "Daily Chlorophyll-a/collection.json"
+      "href": "Daily Bloom binary/collection.json"
     },
     {
       "rel": "child",
       "type": "application/json",
-      "href": "Daily Bloom binary/collection.json"
+      "href": "Hourly Chlorophyll-a/collection.json"
     },
     {
       "rel": "parent",

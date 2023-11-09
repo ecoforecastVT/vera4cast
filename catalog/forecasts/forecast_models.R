@@ -175,9 +175,16 @@ for (i in 1:length(config$variable_groups)){ ## organize variable groups
 
     duration_name <- config$variable_groups[[i]]$duration[j]
 
+    # # match variable with full name in gsheet
+    # #var_name_full <- variable_gsheet[which(variable_gsheet$`"official" targets name` == var_values),1][[1]]
+    # var_name_full <- variable_gsheet[which(variable_gsheet$`"official" targets name` %in% var_values),1][[1]]
+
     # match variable with full name in gsheet
-    #var_name_full <- variable_gsheet[which(variable_gsheet$`"official" targets name` == var_values),1][[1]]
-    var_name_full <- variable_gsheet[which(variable_gsheet$`"official" targets name` %in% var_values),1][[1]]
+    var_gsheet_arrange <- variable_gsheet |>
+      arrange(duration)
+
+    var_name_full <- var_gsheet_arrange[which(var_gsheet_arrange$`"official" targets name` %in% var_values),1][[1]]
+
 
     ## create new vector to store duration names
     duration_values <- config$variable_groups[[i]]$duration
@@ -222,9 +229,12 @@ for (i in 1:length(config$variable_groups)){ ## organize variable groups
       dir.create(paste0(catalog_config$forecast_path,names(config$variable_groups)[i],'/',var_name_combined_list[j]))
     }
 
-    var_data <- forecast_data_df |>
-      filter(variable == var_name,
-             duration == duration_name)
+    # var_data <- forecast_data_df |>
+    #   filter(variable == var_name,
+    #          duration == duration_name)
+    var_data <- scores_data_df |>
+      filter(variable == var_name)
+    #duration == duration_name)
 
     var_date_range <- var_data |> dplyr::summarise(min(date),max(date))
     var_min_date <- var_date_range$`min(date)`
