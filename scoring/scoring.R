@@ -111,19 +111,19 @@ furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, con
     id <- rlang::hash(list(group[, c("model_id","reference_date","date","duration")],  tg))
 
     if (!(score4cast:::prov_has(id, prov_df, "new_id"))){
-      print(paste0("s3://anonymous@",group$path,"/model_id=",group$model_id,"?endpoint_override=",group$endpoint))
+
 
       reference_dates <- unlist(stringr::str_split(group$reference_date, ","))
+
+      print(paste0("s3://anonymous@",group$path,"/model_id=",group$model_id,"?endpoint_override=",group$endpoint))
+      print(reference_dates)
+      print(ref)
 
       fc <- arrow::open_dataset(paste0("s3://anonymous@",group$path,"/model_id=",group$model_id,"?endpoint_override=",group$endpoint)) |>
         dplyr::filter(reference_date %in% reference_dates,
                       lubridate::as_date(datetime) >= ref,
                       lubridate::as_date(datetime) < ref+lubridate::days(1))
         dplyr::collect()
-
-     if(j == 36){
-     print(fc)
-     }
 
       fc |>
         dplyr::mutate(depth_m = ifelse(!is.na(depth_m), round(depth_m, 2), depth_m)) |> #project_specific
