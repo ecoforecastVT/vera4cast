@@ -20,9 +20,13 @@ variable_groups:
   Biological:
     variable: ['Chla_ugL_mean','Bloom_binary_mean']
     duration: ['P1D','P1D']
+    thumbnail_link: 'https://projects.ecoforecast.org/neon4cast-catalog/img/neon_buoy.jpg'
+    thumbnail_title: 'NEON Aquatics Buoy'
   Physical:
     variable: ['Temp_C_mean', 'Secchi_m_sample']
     duration: ['P1D','P1D']
+    thumbnail_link: 'https://projects.ecoforecast.org/neon4cast-catalog/img/neon_buoy.jpg'
+    thumbnail_title: 'NEON Aquatics Buoy'
 catalog_config:
   about_string: 'www.ltreb-reservoirs.org/vera4cast'
   about_title: 'VERA Forecasting Challenge Documentation'
