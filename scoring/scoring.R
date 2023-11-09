@@ -112,17 +112,13 @@ furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, con
 
     if (!(score4cast:::prov_has(id, prov_df, "new_id"))){
 
-
       reference_dates <- unlist(stringr::str_split(group$reference_date, ","))
 
-      print(paste0("s3://anonymous@",group$path,"/model_id=",group$model_id,"?endpoint_override=",group$endpoint))
-      print(reference_dates)
-      print(ref)
-
+      ref_upper <- (lubridate::as_date(ref)+lubridate::days(1))
       fc <- arrow::open_dataset(paste0("s3://anonymous@",group$path,"/model_id=",group$model_id,"?endpoint_override=",group$endpoint)) |>
         dplyr::filter(reference_date %in% reference_dates,
                       lubridate::as_date(datetime) >= ref,
-                      lubridate::as_date(datetime) < ref+lubridate::days(1))
+                      lubridate::as_date(datetime) < ref_upper) |>
         dplyr::collect()
 
       fc |>
