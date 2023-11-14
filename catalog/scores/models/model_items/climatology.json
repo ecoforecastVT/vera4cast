@@ -24,7 +24,7 @@
   "properties": {
     "description": "\nmodel info: Historical DOY mean and sd.  Assumes normal distribution\n\nSites: bvre, fcre, tubr\n\nVariables: Daily Chlorophyll-a, Daily Water temperature, Daily Inflow discharge, Daily Air temperature",
     "start_datetime": "2023-09-21",
-    "end_datetime": "2023-12-15",
+    "end_datetime": "2023-12-20",
     "providers": [
       {
         "url": "pending",
@@ -185,6 +185,12 @@
       "href": "climatology.json",
       "type": "application/json",
       "title": "Model Forecast"
+    },
+    {
+      "rel": "item",
+      "href": "pending",
+      "type": "text/html",
+      "title": "Link for Model Code"
     }
   ],
   "assets": {

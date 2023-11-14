@@ -180,6 +180,12 @@
       "href": "TempC_mean_example_forecast.json",
       "type": "application/json",
       "title": "Model Forecast"
+    },
+    {
+      "rel": "item",
+      "href": "pending",
+      "type": "text/html",
+      "title": "Link for Model Code"
     }
   ],
   "assets": {
