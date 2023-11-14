@@ -184,7 +184,7 @@
     },
     {
       "rel": "item",
-      "href": [],
+      "href": "pending",
       "type": "text/html",
       "title": "Link for Model Code"
     }
