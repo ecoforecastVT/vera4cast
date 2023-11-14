@@ -6,6 +6,7 @@ scores_bucket: bio230121-bucket01/vera4cast/scores
 forecasts_bucket: bio230121-bucket01/vera4cast/forecasts
 submissions_bucket: vera4cast-submissions
 inventory_bucket: bio230121-bucket01/vera4cast/inventory
+#inventory_bucket: bio230014-bucket01/challenges/inventory
 prov_bucket: bio230121-bucket01/vera4cast/prov
 targets_bucket: bio230121-bucket01/vera4cast/targets
 archive_bucket: bio230121-bucket01/vera4cast/archive
@@ -36,6 +37,7 @@ catalog_config:
   forecasts_thumbnail_title: "Falling Creek Reservoir"
   forecast_path: 'catalog/forecasts/'
   scores_path: 'catalog/scores/'
+  inventory_path: 'catalog/inventory'
   aws_download_path: 'bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D'
   host_url: "https://www.ecoforecastprojectvt.org"
   host_name: "Ecoforecast Challenge"
