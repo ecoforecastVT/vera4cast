@@ -16,11 +16,11 @@
   "geometry": {
     "type": "MultiPoint",
     "coordinates": [
-      [37.3129, -79.8159]
+      [-79.8159, 37.3129]
     ]
   },
   "properties": {
-    "description": "\nmodel info: another persistence forecast\n\nSites: bvre\n\nVariables: Temp_C_mean",
+    "description": "\nmodel info: another persistence forecast\n\nSites: bvre\n\nVariables: Daily Water temperature",
     "start_datetime": "2023-09-27",
     "end_datetime": "2023-10-30",
     "providers": [
@@ -45,7 +45,7 @@
     "keywords": [
       "Forecasting",
       "vera4cast",
-      "Temp_C_mean"
+      "Daily Water temperature"
     ],
     "table:columns": [
       {
@@ -140,6 +140,12 @@
       "href": "persistenceFO.json",
       "type": "application/json",
       "title": "Model Forecast"
+    },
+    {
+      "rel": "item",
+      "href": "pending",
+      "type": "text/html",
+      "title": "Link for Model Code"
     }
   ],
   "assets": {
@@ -151,7 +157,7 @@
     },
     "2": {
       "type": "application/x-parquet",
-      "title": "Database Access for Temp_C_mean daily",
+      "title": "Database Access for Daily Water temperature",
       "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=Temp_C_mean/model_id=persistenceFO?endpoint_override=renc.osn.xsede.org",
       "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=Temp_C_mean/model_id=persistenceFO?endpoint_override=renc.osn.xsede.org)\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     }
