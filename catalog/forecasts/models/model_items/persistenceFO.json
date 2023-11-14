@@ -143,7 +143,7 @@
     },
     {
       "rel": "item",
-      "href": "pending",
+      "href": null,
       "type": "text/html",
       "title": "Link for Model Code"
     }
@@ -156,6 +156,12 @@
       "description": "Use `jsonlite::fromJSON()` to download the model metadata JSON file. This R code will return metadata provided during the model registration.\n      \n\n### R\n\n```{r}\n# Use code below\n\nmodel_metadata <- jsonlite::fromJSON(\"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/metadata/model_id/persistenceFO.json\")\n\n"
     },
     "2": {
+      "type": "text/html",
+      "title": "Link for Model Code",
+      "href": null,
+      "description": "Here is the link to the model code provided during the model submission team: NA"
+    },
+    "3": {
       "type": "application/x-parquet",
       "title": "Database Access for Daily Water temperature",
       "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=Temp_C_mean/model_id=persistenceFO?endpoint_override=renc.osn.xsede.org",

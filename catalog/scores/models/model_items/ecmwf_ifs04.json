@@ -22,7 +22,7 @@
   "properties": {
     "description": "\nmodel info: ECMWF IFS Ensemble weather model downloaded from open-meteo.com.  Since ECMWF IFS Ensemble does output solar radiation on open-meteo.com,  the solar radiation from GFS seamless is used.\n\nSites: fcre\n\nVariables: Daily Air temperature, Daily Relative humdity, Daily Precipitation, Daily surface pressure, Daily Wind speed",
     "start_datetime": "2023-10-14",
-    "end_datetime": "2023-11-18",
+    "end_datetime": "2023-11-23",
     "providers": [
       {
         "url": "pending",
@@ -184,6 +184,12 @@
       "href": "ecmwf_ifs04.json",
       "type": "application/json",
       "title": "Model Forecast"
+    },
+    {
+      "rel": "item",
+      "href": "https://github.com/LTREB-reservoirs/vera4cast/blob/main/drivers/ensemble_forecasts.R",
+      "type": "text/html",
+      "title": "Link for Model Code"
     }
   ],
   "assets": {
@@ -194,30 +200,36 @@
       "description": "Use `jsonlite::fromJSON()` to download the model metadata JSON file. This R code will return metadata provided during the model registration.\n      \n\n### R\n\n```{r}\n# Use code below\n\nmodel_metadata <- jsonlite::fromJSON(\"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/metadata/model_id/ecmwf_ifs04.json\")\n\n"
     },
     "2": {
+      "type": "text/html",
+      "title": "Link for Model Code",
+      "href": "https://github.com/LTREB-reservoirs/vera4cast/blob/main/drivers/ensemble_forecasts.R",
+      "description": "Here is the link to the model code provided during the model submission team: https://github.com/LTREB-reservoirs/vera4cast/blob/main/drivers/ensemble_forecasts.R"
+    },
+    "3": {
       "type": "application/x-parquet",
       "title": "Database Access for Daily Air temperature",
       "href": "s3://anonymous@bio230121-bucket01/vera4cast/scores/parquet/duration=P1D/variable=AirTemp_C_mean/model_id=ecmwf_ifs04?endpoint_override=renc.osn.xsede.org",
       "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(s3://anonymous@bio230121-bucket01/vera4cast/scores/parquet/duration=P1D/variable=AirTemp_C_mean/model_id=ecmwf_ifs04?endpoint_override=renc.osn.xsede.org)\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     },
-    "3": {
+    "4": {
       "type": "application/x-parquet",
       "title": "Database Access for Daily Relative humdity",
       "href": "s3://anonymous@bio230121-bucket01/vera4cast/scores/parquet/duration=P1D/variable=RH_percent_mean/model_id=ecmwf_ifs04?endpoint_override=renc.osn.xsede.org",
       "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(s3://anonymous@bio230121-bucket01/vera4cast/scores/parquet/duration=P1D/variable=RH_percent_mean/model_id=ecmwf_ifs04?endpoint_override=renc.osn.xsede.org)\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     },
-    "4": {
+    "5": {
       "type": "application/x-parquet",
       "title": "Database Access for Daily Precipitation",
       "href": "s3://anonymous@bio230121-bucket01/vera4cast/scores/parquet/duration=P1D/variable=Rain_mm_sum/model_id=ecmwf_ifs04?endpoint_override=renc.osn.xsede.org",
       "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(s3://anonymous@bio230121-bucket01/vera4cast/scores/parquet/duration=P1D/variable=Rain_mm_sum/model_id=ecmwf_ifs04?endpoint_override=renc.osn.xsede.org)\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     },
-    "5": {
+    "6": {
       "type": "application/x-parquet",
       "title": "Database Access for Daily surface pressure",
       "href": "s3://anonymous@bio230121-bucket01/vera4cast/scores/parquet/duration=P1D/variable=BP_kPa_mean/model_id=ecmwf_ifs04?endpoint_override=renc.osn.xsede.org",
       "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(s3://anonymous@bio230121-bucket01/vera4cast/scores/parquet/duration=P1D/variable=BP_kPa_mean/model_id=ecmwf_ifs04?endpoint_override=renc.osn.xsede.org)\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     },
-    "6": {
+    "7": {
       "type": "application/x-parquet",
       "title": "Database Access for Daily Wind speed",
       "href": "s3://anonymous@bio230121-bucket01/vera4cast/scores/parquet/duration=P1D/variable=WindSpeed_ms_mean/model_id=ecmwf_ifs04?endpoint_override=renc.osn.xsede.org",

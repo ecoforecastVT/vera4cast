@@ -155,8 +155,8 @@ for (m in theme_models$model_id){
               table_schema = forecast_theme_df,
               table_description = forecast_description_create,
               full_var_df = model_vars,
-              #code_web_link = registered_model_id$`Web link to model code`[idx],
-              code_web_link = 'pending')
+              code_web_link = registered_model_id$`Web link to model code`[idx])
+              #code_web_link = 'pending')
 }
 
 
