@@ -60,12 +60,12 @@ target_generation_FluoroProbe <- function(current_file, historic_file){
 
   biomass_exo <- fp %>%
     mutate(Date = date(DateTime)) %>%
-    group_by(Date) %>%
-    slice(which.min(abs(Depth_m - 1.6))) %>%
+    group_by(Reservoir, Date) %>%
+    slice(ifelse(Reservoir == "FCR",which.min(abs(Depth_m - 1.6)),which.min(abs(Depth_m - 1.5)))) %>%
     pivot_longer(GreenAlgae_ugL_sample:TotalConc_ugL_sample, names_to = "variable", values_to = "observation") %>%
     rename(datetime = DateTime, depth_m = Depth_m) %>%
     mutate(site_id = ifelse(Reservoir == "FCR","fcre","bvre"),
-           depth_m = 1.6) %>%
+           depth_m = ifelse(Reservoir == "fcre",1.6,1.5)) %>%
     ungroup() %>%
     select(datetime, site_id, depth_m, observation, variable)
 
@@ -73,11 +73,12 @@ target_generation_FluoroProbe <- function(current_file, historic_file){
     mutate(Date = date(DateTime)) %>%
     group_by(Date) %>%
     slice(which.max(TotalConc_ugL_sample)) %>%
+    ungroup() %>%
     pivot_longer(GreenAlgae_ugL_sample:TotalConc_ugL_sample, names_to = "variable", values_to = "observation") %>%
     rename(datetime = DateTime, depth_m = Depth_m) %>%
+    separate_wider_delim(variable,"_",names = c("spectral_group","unit","measurement_type")) %>%
     mutate(site_id = ifelse(Reservoir == "FCR","fcre","bvre"),
-           variable = paste0(variable, "_CM")) %>%
-    ungroup() %>%
+           variable = paste0(spectral_group,"CM_ugL_sample")) %>%
     select(datetime, site_id, depth_m, observation, variable)
 
   cmax_depth <- fp %>%
