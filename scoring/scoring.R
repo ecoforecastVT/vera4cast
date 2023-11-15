@@ -27,7 +27,7 @@ s3$CreateDir("scores")
 Sys.setenv("AWS_EC2_METADATA_DISABLED"="TRUE")
 Sys.unsetenv("AWS_DEFAULT_REGION")
 
-s3_inv <- arrow::s3_bucket(paste0(config$inventory_bucket,"/catalog/forecasts/", config$project_id), endpoint_override = endpoint)
+s3_inv <- arrow::s3_bucket(paste0(config$inventory_bucket,"/catalog/forecasts/project_id=", config$project_id), endpoint_override = endpoint)
 
 variable_duration <- arrow::open_dataset(s3_inv) |>
   dplyr::distinct(variable, duration, project_id) |>
