@@ -5,8 +5,8 @@ submissions_endpoint: submit.ltreb-reservoirs.org
 scores_bucket: bio230121-bucket01/vera4cast/scores
 forecasts_bucket: bio230121-bucket01/vera4cast/forecasts
 submissions_bucket: vera4cast-submissions
-inventory_bucket: bio230121-bucket01/vera4cast/inventory
-#inventory_bucket: bio230014-bucket01/challenges/inventory
+#inventory_bucket: bio230121-bucket01/vera4cast/inventory
+inventory_bucket: bio230014-bucket01/challenges/inventory
 prov_bucket: bio230121-bucket01/vera4cast/prov
 targets_bucket: bio230121-bucket01/vera4cast/targets
 archive_bucket: bio230121-bucket01/vera4cast/archive
