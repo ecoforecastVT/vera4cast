@@ -2,7 +2,7 @@ library(score4cast)
 library(arrow)
 
 past_days <- 365
-n_cores <- 2
+n_cores <- 8
 
 setwd(here::here())
 
@@ -27,13 +27,13 @@ s3$CreateDir("scores")
 Sys.setenv("AWS_EC2_METADATA_DISABLED"="TRUE")
 Sys.unsetenv("AWS_DEFAULT_REGION")
 
-s3_inv <- arrow::s3_bucket(paste0(config$inventory_bucket,"/catalog"), endpoint_override = endpoint)
+s3_inv <- arrow::s3_bucket(paste0(config$inventory_bucket,"/catalog/forecasts/", config$project_id), endpoint_override = endpoint)
 
 variable_duration <- arrow::open_dataset(s3_inv) |>
   dplyr::distinct(variable, duration, project_id) |>
   dplyr::collect()
 
-future::plan("future::multisession", workers = n_cores)
+future::plan("future::sequential", workers = n_cores)
 
 furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, config, endpoint){
 
@@ -49,7 +49,7 @@ furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, con
   s3_targets <- arrow::s3_bucket(glue::glue(config$targets_bucket,"/project_id={project_id}"), endpoint_override = endpoint)
   s3_scores <- arrow::s3_bucket(config$scores_bucket, endpoint_override = endpoint)
   s3_prov <- arrow::s3_bucket(config$prov_bucket, endpoint_override = endpoint)
-  s3_inv <- arrow::s3_bucket(paste0(config$inventory_bucket,"/catalog"), endpoint_override = endpoint)
+  s3_inv <- arrow::s3_bucket(paste0(config$inventory_bucket,"/catalog/forecasts"), endpoint_override = endpoint)
 
   local_prov <- paste0(project_id,"-",duration,"-",variable, "-scoring_provenance.csv")
 
@@ -91,60 +91,67 @@ furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, con
     dplyr::select(-site_id) |>
     dplyr::collect() |>
     dplyr::distinct() |>
-    dplyr::filter(date > Sys.Date() - lubridate::days(past_days)) |>
+    dplyr::filter(date > Sys.Date() - lubridate::days(past_days),
+                  date <= lubridate::as_date(max(target$datetime))) |>
     dplyr::group_by(model_id, date, duration, path, endpoint) |>
     dplyr::summarise(reference_date =
-                       paste(reference_date, collapse=","),
+                       paste(unique(reference_date), collapse=","),
                      .groups = "drop")
 
+  if(nrow(groupings) > 0){
 
-  new_prov <- purrr::map_dfr(1:nrow(groupings), function(j, groupings, prov_df, s3_scores_path, curr_variable){
+    new_prov <- purrr::map_dfr(1:nrow(groupings), function(j, groupings, prov_df, s3_scores_path, curr_variable){
 
-    group <- groupings[j,]
-    ref <- group$date
+      group <- groupings[j,]
+      ref <- group$date
 
-    tg <- target |>
-      dplyr::filter(lubridate::as_date(datetime) >= ref,
-                    lubridate::as_date(datetime) < ref+lubridate::days(1)) |>
-      dplyr::mutate(depth_m = ifelse(!is.na(depth_m), round(depth_m, 2), depth_m)) #project_specific
+      tg <- target |>
+        dplyr::mutate(depth_m = ifelse(!is.na(depth_m), round(depth_m, 2), depth_m)) |>  #project_specific
+        dplyr::filter(lubridate::as_date(datetime) >= ref,
+                      lubridate::as_date(datetime) < ref+lubridate::days(1))
 
-    id <- rlang::hash(list(group[, c("model_id","reference_date","date","duration")],  tg))
+      id <- rlang::hash(list(group[, c("model_id","reference_date","date","duration")],  tg))
 
-    if (!(score4cast:::prov_has(id, prov_df, "new_id"))){
+      if (!(score4cast:::prov_has(id, prov_df, "new_id"))){
 
-      reference_dates <- unlist(stringr::str_split(group$reference_date, ","))
+        print(group)
 
-      ref_upper <- (lubridate::as_date(ref)+lubridate::days(1))
-      fc <- arrow::open_dataset(paste0("s3://anonymous@",group$path,"/model_id=",group$model_id,"?endpoint_override=",group$endpoint)) |>
-        dplyr::filter(reference_date %in% reference_dates,
-                      lubridate::as_date(datetime) >= ref,
-                      lubridate::as_date(datetime) < ref_upper) |>
-        dplyr::collect()
+        reference_dates <- unlist(stringr::str_split(group$reference_date, ","))
 
-      fc |>
-        dplyr::mutate(depth_m = ifelse(!is.na(depth_m), round(depth_m, 2), depth_m)) |> #project_specific
-        dplyr::mutate(variable = curr_variable,
-                      project_id = curr_project_id) |>
-        dplyr::mutate(datetime = lubridate::as_datetime(datetime)) |>
-        dplyr::summarise(prediction = mean(prediction), .by = dplyr::any_of(c("site_id", "datetime", "reference_datetime", "family", "depth_m",
-                                                                "parameter", "pub_datetime", "reference_date", "variable", "project_id"))) |>
-        score4cast::crps_logs_score(tg, extra_groups = c("depth_m","project_id")) |> #project_specific
-        dplyr::mutate(date = group$date,
-                      model_id = group$model_id) |>
-        dplyr::select(-variable,-project_id) |>
-        arrow::write_dataset(s3_scores_path,
-                             partitioning = c("model_id", "date"))
+        ref_upper <- (lubridate::as_date(ref)+lubridate::days(1))
+        fc <- arrow::open_dataset(paste0("s3://anonymous@",group$path,"/model_id=",group$model_id,"?endpoint_override=",group$endpoint)) |>
+          dplyr::filter(reference_date %in% reference_dates,
+                        lubridate::as_date(datetime) >= ref,
+                        lubridate::as_date(datetime) < ref_upper) |>
+          dplyr::collect()
 
-      curr_prov <- dplyr::tibble(new_id = id)
-    }else{
-      curr_prov <- NULL
-    }
-  },
-  groupings, prov_df, s3_scores_path,curr_variable
-  )
+        fc |>
+          dplyr::mutate(depth_m = ifelse(!is.na(depth_m), round(depth_m, 2), depth_m)) |> #project_specific
+          dplyr::mutate(variable = curr_variable,
+                        project_id = curr_project_id) |>
+          #If for some reason, a forecast has multiple values for a parameter from a specific forecast, then average
+          dplyr::summarise(prediction = mean(prediction), .by = dplyr::any_of(c("site_id", "datetime", "reference_datetime", "family", "depth_m",
+                                                                                "parameter", "pub_datetime", "reference_date", "variable", "project_id"))) |>
+          score4cast::crps_logs_score(tg, extra_groups = c("depth_m","project_id")) |> #project_specific
+          #score4cast::crps_logs_score(tg, extra_groups = c("project_id")) |> #project_specific
+          dplyr::mutate(date = group$date,
+                        model_id = group$model_id) |>
+          dplyr::select(-variable,-project_id) |>
+          arrow::write_dataset(s3_scores_path,
+                               partitioning = c("model_id", "date"))
 
-  prov_df <- dplyr::bind_rows(prov_df, new_prov)
-  arrow::write_csv_arrow(prov_df, s3_prov$path(local_prov))
+        curr_prov <- dplyr::tibble(new_id = id)
+      }else{
+        curr_prov <- NULL
+      }
+    },
+    groupings, prov_df, s3_scores_path,curr_variable
+    )
+
+    prov_df <- dplyr::bind_rows(prov_df, new_prov)
+    arrow::write_csv_arrow(prov_df, s3_prov$path(local_prov))
+  }
+  print("finished")
 
 },
 variable_duration,  config, endpoint

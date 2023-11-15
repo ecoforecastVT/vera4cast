@@ -1,18 +1,17 @@
 library(tidyverse)
 config <- yaml::read_yaml("challenge_configuration.yaml")
 
-s3 <- arrow::s3_bucket(paste0(config$forecasts_bucket, "/parquet"), endpoint_override = config$endpoint, anonymous = TRUE)
+s3 <- arrow::s3_bucket(paste0(config$scores_bucket, "/parquet"), endpoint_override = config$endpoint, anonymous = TRUE)
 
-bucket <- config$forecasts_bucket
+bucket <- config$scores_bucket
 inventory_df <- arrow::open_dataset(s3) |>
   mutate(reference_date = lubridate::as_date(reference_datetime),
          date = lubridate::as_date(datetime)) |>
   distinct(duration, model_id, site_id, reference_date, variable, date, project_id) |>
   collect() |>
   mutate(path = glue::glue("{bucket}/parquet/project_id={project_id}/duration={duration}/variable={variable}"),
-         path_full = glue::glue("{bucket}/parquet/project_id={project_id}/duration={duration}/variable={variable}/model_id={model_id}/reference_date={reference_date}/part-0.parquet"),
+         path_full = glue::glue("{bucket}/parquet/project_id={project_id}/duration={duration}/variable={variable}/model_id={model_id}/date={date}/part-0.parquet"),
          endpoint =config$endpoint)
-
 
 sites <- readr::read_csv(config$site_table,show_col_types = FALSE) |>
   select(site_id, latitude, longitude)
@@ -24,12 +23,4 @@ s3_inventory <- arrow::s3_bucket(config$inventory_bucket,
                                  access_key = Sys.getenv("OSN_KEY"),
                                  secret_key = Sys.getenv("OSN_SECRET"))
 
-arrow::write_dataset(inventory_df, path = s3_inventory$path(glue::glue("catalog/forecasts/project_id={config$project_id}")))
-
-s3_inventory <- arrow::s3_bucket(config$inventory_bucket,
-                                 endpoint_override = config$endpoint,
-                                 access_key = Sys.getenv("OSN_KEY"),
-                                 secret_key = Sys.getenv("OSN_SECRET"))
-
-inventory_df |> distinct(model_id, project_id) |>
-  arrow::write_csv_arrow(s3_inventory$path("model_id/model_id-project_id-inventory.csv"))
+arrow::write_dataset(inventory_df, path = s3_inventory$path(glue::glue("catalog/scores/project_id={config$project_id}")))

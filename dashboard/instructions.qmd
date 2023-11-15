@@ -110,20 +110,6 @@ Ensemble (or sample) forecasts use the `family` value of `ensemble` and the `par
 
 When forecasts using the ensemble family are scored, we assume that the ensemble is a set of equally likely realizations that are sampled from a distribution is comparable to that of the observations (i.e., no broad adjustments are required to make the ensemble more consistent with observations). This is referred to as a "perfect ensemble" in Bröcker and Smith (2007). Ensemble (or sample) forecasts are transformed to a probability distribution function (e.g., dressed) using the default methods in the `scoringRules` R package (empirical version of the quantile decomposition for the `crps` and kernel density estimation using a Gaussian kernel for the `logs`). Kernel density estimation uses the default bandwidth produced by the `bw.nrd` function in the R `stats` package.
 
-### Supported distributions
-
-The following names and parameterization of the distribution are supported (family: parameters):
-
--   `lognormal`: `mu`, `sigma`
--   `normal`: `mu`,`sigma`
--   `bernoulli`: `prob`
--   `beta`: `shape1`, `shape2`
--   `uniform`: `min`, `max`
--   `gamma`: `shape`, `rate`
--   `logistic`: `location`, `scale`
--   `exponential`: `rate`
--   `poisson`: `lambda`
-
 ### Example forecasts
 
 Here is an example of a forecast that uses a normal distribution:
