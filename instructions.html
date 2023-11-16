@@ -207,8 +207,7 @@ background-size: cover;
   <li><a href="#forecast-file-format" id="toc-forecast-file-format" class="nav-link" data-scroll-target="#forecast-file-format"><span class="header-section-number">3</span> Forecast file format</a></li>
   <li><a href="#representing-uncertainity" id="toc-representing-uncertainity" class="nav-link" data-scroll-target="#representing-uncertainity"><span class="header-section-number">4</span> Representing uncertainity</a>
   <ul class="collapse">
-  <li><a href="#supported-distributions" id="toc-supported-distributions" class="nav-link" data-scroll-target="#supported-distributions"><span class="header-section-number">4.1</span> Supported distributions</a></li>
-  <li><a href="#example-forecasts" id="toc-example-forecasts" class="nav-link" data-scroll-target="#example-forecasts"><span class="header-section-number">4.2</span> Example forecasts</a></li>
+  <li><a href="#example-forecasts" id="toc-example-forecasts" class="nav-link" data-scroll-target="#example-forecasts"><span class="header-section-number">4.1</span> Example forecasts</a></li>
   </ul></li>
   <li><a href="#submission-process" id="toc-submission-process" class="nav-link" data-scroll-target="#submission-process"><span class="header-section-number">5</span> Submission process</a></li>
   <li><a href="#post-submission" id="toc-post-submission" class="nav-link" data-scroll-target="#post-submission"><span class="header-section-number">6</span> Post submission</a>
@@ -305,23 +304,8 @@ background-size: cover;
 <p>Ensemble (or sample) forecasts use the <code>family</code> value of <code>ensemble</code> and the <code>parameter</code> values are the ensemble index.</p>
 <p>When forecasts using the ensemble family are scored, we assume that the ensemble is a set of equally likely realizations that are sampled from a distribution is comparable to that of the observations (i.e., no broad adjustments are required to make the ensemble more consistent with observations). This is referred to as a “perfect ensemble” in Bröcker and Smith (2007). Ensemble (or sample) forecasts are transformed to a probability distribution function (e.g., dressed) using the default methods in the <code>scoringRules</code> R package (empirical version of the quantile decomposition for the <code>crps</code> and kernel density estimation using a Gaussian kernel for the <code>logs</code>). Kernel density estimation uses the default bandwidth produced by the <code>bw.nrd</code> function in the R <code>stats</code> package.</p>
 </section>
-<section id="supported-distributions" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="supported-distributions"><span class="header-section-number">4.1</span> Supported distributions</h3>
-<p>The following names and parameterization of the distribution are supported (family: parameters):</p>
-<ul>
-<li><code>lognormal</code>: <code>mu</code>, <code>sigma</code></li>
-<li><code>normal</code>: <code>mu</code>,<code>sigma</code></li>
-<li><code>bernoulli</code>: <code>prob</code></li>
-<li><code>beta</code>: <code>shape1</code>, <code>shape2</code></li>
-<li><code>uniform</code>: <code>min</code>, <code>max</code></li>
-<li><code>gamma</code>: <code>shape</code>, <code>rate</code></li>
-<li><code>logistic</code>: <code>location</code>, <code>scale</code></li>
-<li><code>exponential</code>: <code>rate</code></li>
-<li><code>poisson</code>: <code>lambda</code></li>
-</ul>
-</section>
-<section id="example-forecasts" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="example-forecasts"><span class="header-section-number">4.2</span> Example forecasts</h3>
+<section id="example-forecasts" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="example-forecasts"><span class="header-section-number">4.1</span> Example forecasts</h3>
 <p>Here is an example of a forecast that uses a normal distribution:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/forecasts/raw/T20231001231345_daily-2023-10-01-climatology.csv.gz"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
