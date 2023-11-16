@@ -34,11 +34,11 @@ As VERA is a genuine forecasting challenge, you will need forecasted drivers if 
 
 ### Forecasts can be for a range of horizons
 
-Forecasts can be submitted at the daily time step for 1 day to 10 years ahead.
+Forecasts can be submitted at the daily time step for 1 day to 10 years ahead into the future.
 
 ### Forecasts can be submitted everyday
 
-Since forecasts can be submitted every day, automation is important. We provide an example GitHub repository that can be used to automate your forecast with GitHub Actions.  It also includes the use of a custom Docker Container [rqthomas/vera4cast:latest](https://github.com/LTREB-reservoirs/vera4cast/blob/main/Dockerfile) that has many of the packages and functions needed to generate and submit forecasts. 
+Since forecasts can be submitted every day, automation is important. We provide an example GitHub repository that can be used to automate your forecast with GitHub Actions. It also includes the use of a custom Docker Container [rqthomas/vera4cast:latest](https://github.com/LTREB-reservoirs/vera4cast/blob/main/Dockerfile) that has many of the R packages and functions needed to generate and submit forecasts. 
 
 ## Forecast file format
 
