@@ -18,11 +18,7 @@
     {
       "rel": "child",
       "type": "application/json",
-<<<<<<< HEAD
       "href": "Daily_Bloom_binary/collection.json"
-=======
-      "href": "Daily Bloom_binary/collection.json"
->>>>>>> 8507b94f7d109f3144e228d483d0c173f306860d
     },
     {
       "rel": "child",
