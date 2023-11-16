@@ -94,8 +94,8 @@ furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, con
     dplyr::filter(date > Sys.Date() - lubridate::days(past_days)) |>
                   #date <= lubridate::as_date(max(target$datetime))) |>
     dplyr::group_by(model_id, date, duration, path, endpoint) |>
-    dplyr::summarise(reference_date =
-                       paste(unique(reference_date), collapse=","),
+    dplyr::summarise(reference_date = paste(unique(reference_date), collapse=","),
+                     pub_date = paste(unique(pub_date), collapse=","),
                      .groups = "drop")
 
   if(nrow(groupings) > 0){
