@@ -10,35 +10,35 @@ editor:
 
 We provide an overview of the steps for submitting with the details below:
 
-1)  Register at <https://forms.gle/kg2Vkpho9BoMXSy57>. You are not required to register if your forecast submission uses the word "example" in your model_id". Any forecasts with "example" in the model_id will not be used in analyses.
-2)  Generate forecast with required columns.
-3)  Write the forecast to a file that follows the standardized naming format.
-4)  Submit forecast using a provided function.
-5)  Watch forecast be evaluated as new data is collected. 
+1)  Register at <https://forms.gle/kg2Vkpho9BoMXSy57>. You are not required to register if your forecast submission uses the word "example" in your model_id". Any forecasts with "example" in the model_id will not be used in forecast evaluation analyses.
+2)  Generate a forecast!
+3)  Write the forecast output to a file that follows our standardized format (described below).
+4)  Submit your forecast using an R function (provided below).
+5)  Watch your forecast be evaluated as new data are collected. 
 
 ## Generating a forecast
 
-### Any approach is allowed
+### All forecasting approaches are welcome
 
-You can use any approach to make a prediction about the future conditions at the two reservoirs or the stream.  
+We encourage you to use any modeling approach to make a prediction about the future conditions at the two LTREB reservoirs or the stream that connects them.  
 
 ### Must include uncertainty
 
-Forecasts require you to make a access of confidence in the prediction of the future.  You can represent your confidence (i.e., uncertainty in forecast) using a distribution or numerically using an ensemble (or sample) of predictions. 
+Forecasts require you to make an assessment of the confidence in your prediction of the future. You can represent your confidence (i.e., uncertainty in the forecast) using a distribution or numerically using an ensemble (or sample) of predictions. 
 
 ### Any model drivers/covariates/features are welcome
 
-You can use any data as inputs.  This includes all the targets data available to date.  All sensor-based target data is available in near-real time (1 day latency).  You may want to use the updated target data to re-train a model or use in data assimilation.
+You can use any data as model inputs (including all of the forecast target data available to date). All sensor-based target data are available in near-real time (1-day latency). You may want to use the updated target data to re-train a model or for use in data assimilation.
 
-As this is a genuine forecasting challenge, you will need forecasted drivers if your model uses drivers as inputs.  If you are interested in using forecasted meteorology, we have developed an R package ([https://github.com/FLARE-forecast/RopenMeteo](https://github.com/FLARE-forecast/RopenMeteo)) that can be used to access ensemble weather forecasts or seasonal forecasts for the sites.  The R package is a wrapper around the open-meteo.com API.  The README in the R package repo provides instructions for use.
+As VERA is a genuine forecasting challenge, you will need forecasted drivers if your model uses drivers as inputs. If you are interested in using forecasted meteorology for the VERA sites, we have developed an R package ([https://github.com/FLARE-forecast/RopenMeteo](https://github.com/FLARE-forecast/RopenMeteo)) that can be used to access ensemble weather forecasts or seasonal forecasts for the sites. The R package is a wrapper around the open-meteo.com API. The README in the R package repo provides instructions for use.
 
 ### Forecasts can be for a range of horizons
 
-Forecasts can be submitted at the daily time step 1 day to 10 years ahead
+Forecasts can be submitted at the daily time step for 1 day to 10 years ahead.
 
 ### Forecasts can be submitted everyday
 
-Since forecasts can be submitted everyday, automation is important.  We provide an example GitHub repository that can be used to automate your forecast with GitHub Actions.  It also includes the use of a custom Docker Container [rqthomas/vera4cast:latest](https://github.com/LTREB-reservoirs/vera4cast/blob/main/Dockerfile) that has many of the packages and functions needed to generate and submit forecasts. 
+Since forecasts can be submitted every day, automation is important. We provide an example GitHub repository that can be used to automate your forecast with GitHub Actions.  It also includes the use of a custom Docker Container [rqthomas/vera4cast:latest](https://github.com/LTREB-reservoirs/vera4cast/blob/main/Dockerfile) that has many of the packages and functions needed to generate and submit forecasts. 
 
 ## Forecast file format
 
