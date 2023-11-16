@@ -1,6 +1,6 @@
 {
-  "id": "Temp_C_mean",
-  "description": "This page includes all models for the Temp_C_mean variable.",
+  "id": "Daily_Water_temperature",
+  "description": "This page includes all models for the Daily_Water_temperature variable.",
   "stac_version": "1.0.0",
   "license": "CC0-1.0",
   "stac_extensions": [
@@ -18,17 +18,17 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "../../models/model_items/inflow_gefsClimAED.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "../../models/model_items/persistenceRW.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/climatology2.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/TESTclimatology.json"
+      "href": "../../models/model_items/TempC_mean_example_forecast.json"
     },
     {
       "rel": "item",
@@ -38,7 +38,22 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/inflow_gefsClimAED.json"
+      "href": "../../models/model_items/glm_aed_v1.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/climatology2.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/example_forecast.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/TESTclimatology.json"
     },
     {
       "rel": "parent",
@@ -67,23 +82,23 @@
     },
     {
       "rel": "describedby",
-      "href": "https://ltreb-reservoirs.github.io/vera4cast/",
+      "href": "https://www.ltreb-reservoirs.org/vera4cast",
       "title": "VERA Forecast Challenge Dashboard",
       "type": "text/html"
     }
   ],
-  "title": "Temp_C_mean",
+  "title": "Daily_Water_temperature",
   "extent": {
     "spatial": {
       "bbox": [
-        [-80.0471, 37.2706, -79.7958, 37.4374]
+        [-79.8372, 37.3032, -79.8159, 37.3129]
       ]
     },
     "temporal": {
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2023-11-20T00:00:00Z"
+          "2023-12-21T00:00:00Z"
         ]
       ]
     }
@@ -111,7 +126,7 @@
     },
     {
       "name": "pub_datetime",
-      "type": "string",
+      "type": "timestamp[us, tz=UTC]",
       "description": "datetime that forecast was submitted"
     },
     {
@@ -170,6 +185,11 @@
       "description": "upper 10 percentile value of forecast"
     },
     {
+      "name": "project_id",
+      "type": "string",
+      "description": "unique project identifier"
+    },
+    {
       "name": "duration",
       "type": "string",
       "description": "temporal duration of forecast (hourly = PT1H, daily = P1D, etc.); follows ISO 8601 duration convention"
@@ -192,13 +212,21 @@
   ],
   "assets": {
     "data": {
-      "href": "s3://anonymous@bio230014-bucket01/bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=Temp_C_mean?endpoint_override=sdsc.osn.xsede.org",
+      "href": "s3://anonymous@bio230121-bucket01/vera4cast/scores/parquet/project_id=vera4cast/duration=P1D/variable=Temp_C_mean?endpoint_override=renc.osn.xsede.org",
       "type": "application/x-parquet",
       "title": "Database Access",
       "roles": [
         "data"
       ],
-      "description": "Use `arrow` for remote access to the database. This R code will return results for the NEON Ecological Forecasting Aquatics theme.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(s3://anonymous@bio230014-bucket01/bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=Temp_C_mean?endpoint_override=sdsc.osn.xsede.org)\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+      "description": "Use `arrow` for remote access to the database. This R code will return results for forecasts of the variable by the specific model .\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(s3://anonymous@bio230121-bucket01/vera4cast/scores/parquet/project_id=vera4cast/duration=P1D/variable=Temp_C_mean?endpoint_override=renc.osn.xsede.org)\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+    },
+    "thumbnail": {
+      "href": "pending",
+      "type": "image/JPEG",
+      "roles": [
+        "thumbnail"
+      ],
+      "title": "pending"
     }
   }
 }

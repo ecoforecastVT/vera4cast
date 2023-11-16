@@ -13,17 +13,17 @@
     {
       "rel": "child",
       "type": "application/json",
-      "href": "Daily Water_temperature/collection.json"
+      "href": "Daily_Water_temperature/collection.json"
     },
     {
       "rel": "child",
       "type": "application/json",
-      "href": "Daily Secchi/collection.json"
+      "href": "Daily_Secchi/collection.json"
     },
     {
       "rel": "child",
       "type": "application/json",
-      "href": "Hourly Water_temperature/collection.json"
+      "href": "Hourly_Water_temperature/collection.json"
     },
     {
       "rel": "parent",
