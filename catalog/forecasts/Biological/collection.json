@@ -13,17 +13,17 @@
     {
       "rel": "child",
       "type": "application/json",
-      "href": "Daily Chlorophyll-a/collection.json"
+      "href": "Daily_Chlorophyll-a/collection.json"
     },
     {
       "rel": "child",
       "type": "application/json",
-      "href": "Daily Bloom binary/collection.json"
+      "href": "Daily_Bloom_binary/collection.json"
     },
     {
       "rel": "child",
       "type": "application/json",
-      "href": "Hourly Chlorophyll-a/collection.json"
+      "href": "Hourly_Chlorophyll-a/collection.json"
     },
     {
       "rel": "parent",
