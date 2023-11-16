@@ -13,7 +13,11 @@
     {
       "rel": "child",
       "type": "application/json",
+<<<<<<< HEAD
       "href": "Daily_Water_temperature/collection.json"
+=======
+      "href": "Daily Water_temperature/collection.json"
+>>>>>>> 8507b94f7d109f3144e228d483d0c173f306860d
     },
     {
       "rel": "child",
@@ -23,7 +27,11 @@
     {
       "rel": "child",
       "type": "application/json",
+<<<<<<< HEAD
       "href": "Hourly_Water_temperature/collection.json"
+=======
+      "href": "Hourly Water_temperature/collection.json"
+>>>>>>> 8507b94f7d109f3144e228d483d0c173f306860d
     },
     {
       "rel": "parent",

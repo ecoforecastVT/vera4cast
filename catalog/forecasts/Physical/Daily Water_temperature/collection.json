@@ -1,6 +1,6 @@
 {
-  "id": "Physical",
-  "description": "This page includes variables for the Physical group.",
+  "id": "Daily Water_temperature",
+  "description": "This page includes all models for the Daily Water_temperature variable.",
   "stac_version": "1.0.0",
   "license": "CC0-1.0",
   "stac_extensions": [
@@ -11,27 +11,49 @@
   "type": "Collection",
   "links": [
     {
-      "rel": "child",
+      "rel": "item",
       "type": "application/json",
-<<<<<<< HEAD
-      "href": "Daily_Water_temperature/collection.json"
-=======
-      "href": "Daily Water_temperature/collection.json"
->>>>>>> 8507b94f7d109f3144e228d483d0c173f306860d
+      "href": "../../models/model_items/climatology.json"
     },
     {
-      "rel": "child",
+      "rel": "item",
       "type": "application/json",
-      "href": "Daily_Secchi/collection.json"
+      "href": "../../models/model_items/inflow_gefsClimAED.json"
     },
     {
-      "rel": "child",
+      "rel": "item",
       "type": "application/json",
-<<<<<<< HEAD
-      "href": "Hourly_Water_temperature/collection.json"
-=======
-      "href": "Hourly Water_temperature/collection.json"
->>>>>>> 8507b94f7d109f3144e228d483d0c173f306860d
+      "href": "../../models/model_items/persistenceRW.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/TempC_mean_example_forecast.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/persistenceFO.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/glm_aed_v1.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/climatology2.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/example_forecast.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/TESTclimatology.json"
     },
     {
       "rel": "parent",
@@ -65,7 +87,7 @@
       "type": "text/html"
     }
   ],
-  "title": "Physical",
+  "title": "Daily Water_temperature",
   "extent": {
     "spatial": {
       "bbox": [
@@ -76,7 +98,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-03-01T00:00:00Z"
+          "2023-12-21T00:00:00Z"
         ]
       ]
     }
@@ -150,21 +172,21 @@
   ],
   "assets": {
     "data": {
-      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D?endpoint_override=renc.osn.xsede.org",
+      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Temp_C_mean?endpoint_override=renc.osn.xsede.org",
       "type": "application/x-parquet",
       "title": "Database Access",
       "roles": [
         "data"
       ],
-      "description": "Use `arrow` for remote access to the database. This R code will return results for the NEON Ecological Forecasting Aquatics theme.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D?endpoint_override=renc.osn.xsede.org)\ndf <- all_results |>\n dplyr::filter(variable %in% c(\"Temp_C_mean\", \"Secchi_m_sample\")) |>\n dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+      "description": "Use `arrow` for remote access to the database. This R code will return results for forecasts of the variable by the specific model .\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Temp_C_mean?endpoint_override=renc.osn.xsede.org)\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     },
     "thumbnail": {
-      "href": "https://projects.ecoforecast.org/neon4cast-catalog/img/neon_buoy.jpg",
+      "href": "pending",
       "type": "image/JPEG",
       "roles": [
         "thumbnail"
       ],
-      "title": "NEON Aquatics Buoy"
+      "title": "pending"
     }
   }
 }
