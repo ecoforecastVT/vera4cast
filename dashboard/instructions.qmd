@@ -152,7 +152,7 @@ vera4castHelpers::submit(forecast_file = "your_file.csv",
                          first_submission = FALSE)
 ```
 
-## Post submission
+## Post-submission
 
 ### Processing
 
@@ -162,7 +162,7 @@ After submission, our servers will process uploaded files by converting them to 
 
 All forecasts are scored daily using new data until the full horizon of the forecast has been scored. Forecasts are scored using the `crps` and `logs` functions in the [`scoringRules`](https://cran.r-project.org/web/packages/scoringRules/index.html) R package. 
 
-### Comparsion
+### Comparison
 
 Forecast performance can be compared to the performance of baseline models.  We are automatically submitting the following baseline models:
 
@@ -177,4 +177,4 @@ Information for accessing the forecasts and scores can be found on our [forecast
 
 ## Questions?
 
-Thanks for reading this doucment! If you still have questions about how to submit your forecast to the VERA Forecasting Challenge, we encourage you to email 
+Thanks for reading this document! If you still have questions about how to submit your forecast to the VERA Forecasting Challenge, we encourage you to email Dr. Quinn Thomas (rqthomas{at}vt.edu).
