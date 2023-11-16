@@ -13,7 +13,7 @@
     {
       "rel": "child",
       "type": "application/json",
-      "href": "Daily Water temperature/collection.json"
+      "href": "Daily Water_temperature/collection.json"
     },
     {
       "rel": "child",
@@ -23,7 +23,7 @@
     {
       "rel": "child",
       "type": "application/json",
-      "href": "Hourly Water temperature/collection.json"
+      "href": "Hourly Water_temperature/collection.json"
     },
     {
       "rel": "parent",

@@ -18,7 +18,7 @@
     {
       "rel": "child",
       "type": "application/json",
-      "href": "Daily Bloom binary/collection.json"
+      "href": "Daily Bloom_binary/collection.json"
     },
     {
       "rel": "child",

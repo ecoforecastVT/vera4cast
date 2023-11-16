@@ -13,6 +13,36 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "model_items/fableETS.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/climatology.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/fableARIMA.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/fableNNETAR.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/persistenceRW.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/inflow_gefsClimAED.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "model_items/cfs.json"
     },
     {
@@ -23,37 +53,7 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/icon_seamless.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/fableNNETAR.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/climatology.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/fableETS.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/persistenceRW.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/glm_aed_v1.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/inflow_gefsClimAED.json"
+      "href": "model_items/gem_global.json"
     },
     {
       "rel": "item",
@@ -63,22 +63,17 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/gem_global.json"
+      "href": "model_items/icon_seamless.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/fableARIMA.json"
+      "href": "model_items/glm_aed_v1.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/climatology2.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/TESTclimatology.json"
+      "href": "model_items/TempC_mean_example_forecast.json"
     },
     {
       "rel": "item",
@@ -88,12 +83,17 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "model_items/climatology2.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "model_items/example_forecast.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/TempC_mean_example_forecast.json"
+      "href": "model_items/TESTclimatology.json"
     },
     {
       "rel": "parent",
