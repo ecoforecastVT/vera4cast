@@ -337,6 +337,9 @@ unlink(forecast_file)
 
 source('R/fablePersistenceModelFunction.R')
 
+targets <- readr::read_csv(paste0("https://", config$endpoint, "/", config$targets_bucket, "/project_id=vera4cast/duration=P1D/daily-insitu-targets.csv.gz"), guess_max = 10000)
+
+
 targets <- targets |> mutate(datetime = lubridate::as_date(datetime)) |>
   filter(variable %in% c("Chla_ugL_mean","Temp_C_mean"),
          ((depth_m == 1.6 & site_id == "fcre") | (depth_m == 1.5 & site_id == "bvre")))
@@ -387,10 +390,9 @@ forecast_file <- paste("daily", file_date, "persistenceRW.csv.gz", sep = "-")
 write_csv(RW_forecasts_EFI, forecast_file)
 
 RW_forecasts_EFI %>%
-  filter(variable == "Chla_ugL_mean") |>
   ggplot(aes(x = datetime, y = prediction, group = parameter)) +
   geom_line() +
-  facet_wrap(~site_id)
+  facet_grid(variable~site_id)
 
 vera4castHelpers::submit(forecast_file = forecast_file,
                          ask = FALSE,
