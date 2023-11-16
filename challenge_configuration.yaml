@@ -37,7 +37,7 @@ catalog_config:
   forecasts_thumbnail_title: "Falling Creek Reservoir"
   forecast_path: 'catalog/forecasts/'
   scores_path: 'catalog/scores/'
-  inventory_path: 'catalog/inventory'
+  inventory_path: 'catalog/inventory/forecasts/project_id=vera4cast'
   aws_download_path: 'bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D'
   host_url: "https://www.ecoforecastprojectvt.org"
   host_name: "Ecoforecast Challenge"
