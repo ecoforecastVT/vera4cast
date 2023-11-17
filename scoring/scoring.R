@@ -37,8 +37,9 @@ future::plan("future::multisession", workers = n_cores)
 
 #future::plan("future::sequential", workers = n_cores)
 
+#furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, config, endpoint){
 
-furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, config, endpoint){
+  for(k in 1:nrow(variable_duration)){
 
   Sys.setenv(AWS_ACCESS_KEY_ID=Sys.getenv("OSN_KEY"),
              AWS_SECRET_ACCESS_KEY=Sys.getenv("OSN_SECRET"))
@@ -118,6 +119,8 @@ furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, con
 
       if (!(score4cast:::prov_has(id, prov_df, "new_id"))){
 
+        print(group)
+
         reference_dates <- unlist(stringr::str_split(group$reference_date, ","))
 
         ref_upper <- (lubridate::as_date(ref)+lubridate::days(1))
@@ -147,14 +150,13 @@ furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, con
         curr_prov <- NULL
       }
     },
-    groupings, prov_df, s3_scores_path,curr_variable
-    )
+    groupings, prov_df, s3_scores_path,curr_variable)
 
     prov_df <- dplyr::bind_rows(prov_df, new_prov)
     arrow::write_csv_arrow(prov_df, s3_prov$path(local_prov))
   }
   print("finished")
-
-},
-variable_duration,  config, endpoint
-)
+}
+#},
+#variable_duration,  config, endpoint
+#)
