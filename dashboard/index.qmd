@@ -47,7 +47,7 @@ most_recent_targets <- arrow::open_csv_dataset(s3_targets,
            min = lubridate::as_date(min)) |> 
     dplyr::collect()
 
-unique_forecasted_targets <- arrow::open_dataset("../cache/duration=P1D") |> 
+unique_forecasted_targets <- arrow::open_dataset("../cache/summaries/duration=P1D") |> 
   dplyr::distinct(variable) |> count() |> 
     dplyr::collect() |> 
     pull(n)
