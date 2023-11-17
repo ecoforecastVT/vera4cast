@@ -2,7 +2,7 @@ library(score4cast)
 library(arrow)
 
 past_days <- 365
-n_cores <- 4
+n_cores <- 8
 
 setwd(here::here())
 
@@ -37,9 +37,7 @@ future::plan("future::multisession", workers = n_cores)
 
 #future::plan("future::sequential", workers = n_cores)
 
-#furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, config, endpoint){
-
-  for(k in 1:nrow(variable_duration)){
+furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, config, endpoint){
 
   Sys.setenv(AWS_ACCESS_KEY_ID=Sys.getenv("OSN_KEY"),
              AWS_SECRET_ACCESS_KEY=Sys.getenv("OSN_SECRET"))
@@ -58,15 +56,15 @@ future::plan("future::multisession", workers = n_cores)
   local_prov <- paste0(project_id,"-",duration,"-",variable, "-scoring_provenance.csv")
 
   if (!(local_prov %in% s3_prov$ls())) {
-    arrow::write_csv_arrow(dplyr::tibble(date = Sys.Date(), new_id = "start") |> dplyr::mutate(new_id = as.character(new_id)),
-                           local_prov)
+    prov_df <- dplyr::tibble(date = Sys.Date(),
+                             new_id = "start",
+                             model_id = "start",
+                             reference_date = "start",
+                             pub_date = "start")
   }else{
-    path <- s3_prov$path(paste0(local_prov))
-    prov <- arrow::read_csv_arrow(path)
-    arrow::write_csv_arrow(prov, local_prov)
+    path <- s3_prov$path(local_prov)
+    prov_df <- arrow::read_csv_arrow(path)
   }
-
-  prov_df <- readr::read_csv(local_prov, show_col_types = FALSE)
 
   s3_scores_path <- s3_scores$path(glue::glue("parquet/project_id={project_id}/duration={duration}/variable={variable}"))
 
@@ -99,6 +97,7 @@ future::plan("future::multisession", workers = n_cores)
     dplyr::filter(date > Sys.Date() - lubridate::days(past_days),
                   date <= lubridate::as_date(max(target$datetime))) |>
     dplyr::group_by(model_id, date, duration, path, endpoint) |>
+    dplyr::arrange(reference_date, pub_date) |>
     dplyr::summarise(reference_date = paste(unique(reference_date), collapse=","),
                      pub_date = paste(unique(pub_date), collapse=","),
                      .groups = "drop")
@@ -115,11 +114,9 @@ future::plan("future::multisession", workers = n_cores)
         dplyr::filter(lubridate::as_date(datetime) >= ref,
                       lubridate::as_date(datetime) < ref+lubridate::days(1))
 
-      id <- rlang::hash(list(group[, c("model_id","reference_date","date","duration")],  tg))
+      id <- rlang::hash(list(group[, c("model_id","reference_date","date","pub_date")],  tg))
 
       if (!(score4cast:::prov_has(id, prov_df, "new_id"))){
-
-        print(group)
 
         reference_dates <- unlist(stringr::str_split(group$reference_date, ","))
 
@@ -145,7 +142,11 @@ future::plan("future::multisession", workers = n_cores)
           arrow::write_dataset(s3_scores_path,
                                partitioning = c("model_id", "date"))
 
-        curr_prov <- dplyr::tibble(date = Sys.Date(), new_id = id)
+        curr_prov <- dplyr::tibble(date = Sys.Date(),
+                                   new_id = id,
+                                   model_id = group$model_id,
+                                   reference_date = group$reference_date,
+                                   pub_date = group$pub_date)
       }else{
         curr_prov <- NULL
       }
@@ -155,8 +156,6 @@ future::plan("future::multisession", workers = n_cores)
     prov_df <- dplyr::bind_rows(prov_df, new_prov)
     arrow::write_csv_arrow(prov_df, s3_prov$path(local_prov))
   }
-  print("finished")
-}
-#},
-#variable_duration,  config, endpoint
-#)
+},
+variable_duration,  config, endpoint
+)
