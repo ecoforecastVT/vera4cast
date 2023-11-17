@@ -67,7 +67,8 @@ stac4cast::build_forecast_scores(table_schema = forecast_theme_df,
                       aws_download_path = catalog_config$aws_download_path,
                       link_items = stac4cast::generate_group_values(group_values = names(config$variable_groups)),
                       thumbnail_link = catalog_config$forecasts_thumbnail,
-                      thumbnail_title = catalog_config$forecasts_thumbnail_title)
+                      thumbnail_title = catalog_config$forecasts_thumbnail_title,
+                      model_child = TRUE)
 
 ## create separate JSON for model landing page
 

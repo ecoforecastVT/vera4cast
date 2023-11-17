@@ -41,12 +41,6 @@
       "title": "Stage3"
     },
     {
-      "rel": "child",
-      "type": "application/json",
-      "href": "models/collection.json",
-      "title": "group item"
-    },
-    {
       "rel": "parent",
       "type": "application/json",
       "href": "../catalog.json"

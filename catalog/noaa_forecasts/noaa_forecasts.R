@@ -62,10 +62,14 @@ stac4cast::build_forecast_scores(table_schema = noaa_theme_df,
                                  aws_download_path = config$noaa_forecast_bucket,
                                  link_items = stac4cast::generate_group_values(group_values = config$noaa_forecast_groups),
                                  thumbnail_link = catalog_config$forecasts_thumbnail,
-                                 thumbnail_title = catalog_config$forecasts_thumbnail_title)
+                                 thumbnail_title = catalog_config$forecasts_thumbnail_title,
+                                 model_child = FALSE)
 
 
 ## BUILD VARIABLE GROUPS
+## find group sites
+find_noaa_sites <- read_csv(config$site_table) |>
+  distinct(site_id)
 
 for (i in 1:length(config$noaa_forecast_groups)){ ## organize variable groups
   print(config$noaa_forecast_groups[i])
@@ -78,10 +82,6 @@ for (i in 1:length(config$noaa_forecast_groups)){ ## organize variable groups
 
     ## CREATE NOAA GROUP JSONS
     group_description <- paste0('This page includes information for NOAA forecasts ', config$noaa_forecast_groups[i])
-
-    ## find group sites
-    find_noaa_sites <- read_csv(config$site_table) |>
-      distinct(site_id)
 
     stac4cast::build_noaa_forecast(table_schema = noaa_theme_df,
                                    table_description = noaa_description_create,
