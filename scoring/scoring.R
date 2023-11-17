@@ -54,7 +54,8 @@ furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, con
   local_prov <- paste0(project_id,"-",duration,"-",variable, "-scoring_provenance.csv")
 
   if (!(local_prov %in% s3_prov$ls())) {
-    arrow::write_csv_arrow(dplyr::tibble(new_id = "start") |> dplyr::mutate(new_id = as.character(new_id)), local_prov)
+    arrow::write_csv_arrow(dplyr::tibble(date = Sys.Date(), new_id = "start") |> dplyr::mutate(new_id = as.character(new_id)),
+                           local_prov)
   }else{
     path <- s3_prov$path(paste0(local_prov))
     prov <- arrow::read_csv_arrow(path)
@@ -91,8 +92,8 @@ furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, con
     dplyr::select(-site_id) |>
     dplyr::collect() |>
     dplyr::distinct() |>
-    dplyr::filter(date > Sys.Date() - lubridate::days(past_days)) |>
-                  #date <= lubridate::as_date(max(target$datetime))) |>
+    dplyr::filter(date > Sys.Date() - lubridate::days(past_days),
+                  date <= lubridate::as_date(max(target$datetime))) |>
     dplyr::group_by(model_id, date, duration, path, endpoint) |>
     dplyr::summarise(reference_date = paste(unique(reference_date), collapse=","),
                      pub_date = paste(unique(pub_date), collapse=","),
@@ -140,7 +141,7 @@ furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, con
           arrow::write_dataset(s3_scores_path,
                                partitioning = c("model_id", "date"))
 
-        curr_prov <- dplyr::tibble(new_id = id)
+        curr_prov <- dplyr::tibble(date = Sys.Date(), new_id = id)
       }else{
         curr_prov <- NULL
       }

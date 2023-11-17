@@ -103,13 +103,24 @@ if(length(submissions) > 0){
 
         print(head(fc))
         s3$CreateDir(paste0("parquet/"))
-        path <- s3$path(paste0("parquet/"))
-        fc |> arrow::write_dataset(path, format = 'parquet',
+        fc |> arrow::write_dataset(s3$path(paste0("parquet")), format = 'parquet',
                             partitioning = c("project_id",
                                              "duration",
                                              "variable",
                                              "model_id",
                                              "reference_date"))
+        s3$CreateDir(paste0("summaries"))
+        fc |>
+          dplyr::summarise(prediction = mean(prediction), .by = dplyr::any_of(c("site_id", "datetime", "reference_datetime", "family", "depth_m", "duration", "model_id",
+                                                                                "parameter", "pub_datetime", "reference_date", "variable", "project_id"))) |>
+          score4cast::summarize_forecast(extra_groups = c("duration", "project_id")) |>
+          dplyr::mutate(reference_date = lubridate::as_date(reference_datetime)) |>
+          arrow::write_dataset(s3$path("summaries"), format = 'parquet',
+                               partitioning = c("project_id",
+                                                "duration",
+                                                "variable",
+                                                "model_id",
+                                                "reference_date"))
 
         bucket <- config$forecasts_bucket
         curr_inventory <- fc |>
@@ -119,6 +130,7 @@ if(length(submissions) > 0){
           distinct(duration, model_id, site_id, reference_date, variable, date, project_id, pub_date) |>
           mutate(path = glue::glue("{bucket}/parquet/project_id={project_id}/duration={duration}/variable={variable}"),
                  path_full = glue::glue("{bucket}/parquet/project_id={project_id}/duration={duration}/variable={variable}/model_id={model_id}/reference_date={reference_date}/part-0.parquet"),
+                 path_summaries = glue::glue("{bucket}/summaries/project_id={project_id}/duration={duration}/variable={variable}/model_id={model_id}/reference_date={reference_date}/part-0.parquet"),
                  endpoint =config$endpoint)
 
         curr_inventory <- dplyr::left_join(curr_inventory, sites, by = "site_id")
