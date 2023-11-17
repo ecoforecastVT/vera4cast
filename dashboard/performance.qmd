@@ -23,17 +23,23 @@ This page visualizes the forecasts and forecast performance for the focal target
 ## Most recent forecasts {#sec-performance}
 
 ```{r}
+
+reference_datetimes <- arrow::open_dataset("../cache/summaries/duration=P1D") |> 
+  group_by(variable) |> 
+  dplyr::summarize(reference_datetime_max = max(reference_datetime)) |>  
+  dplyr::collect()
+
+
+
 cutoff <- as.character(Sys.Date() - 30)
-combined <- arrow::open_dataset("../cache/duration=P1D") |> 
-  filter(date >= cutoff) |> collect()
-
-
 
 
 config <- yaml::read_yaml("../challenge_configuration.yaml")
 sites <- readr::read_csv(paste0("../", config$site_table), show_col_types = FALSE)
 
-df <- combined |> 
+df <- arrow::open_dataset("../cache/summaries/duration=P1D") |> 
+  left_join(reference_datetimes, by = "variable") |> 
+  filter(reference_datetime == reference_datetime_max) |> 
   left_join(sites, by = "site_id") |> 
   filter(site_id %in% sites$site_id) |> 
   mutate(reference_datetime = lubridate::as_datetime(reference_datetime),
@@ -53,10 +59,10 @@ Forecasts submitted on `r reference_date`
 
 if("Chla_ugL_mean" %in% unique(df$variable)){
 df |> 
-  filter(lubridate::as_date(reference_datetime) > max(lubridate::as_date(df$reference_datetime)) - lubridate::days(1),
-        lubridate::as_date(datetime) > lubridate::as_date(reference_datetime), 
+  filter(lubridate::as_date(datetime) > lubridate::as_date(reference_datetime), 
          variable == c("Chla_ugL_mean"),
          ((depth_m == 1.6 & site_id == "fcre") | (depth_m == 1.5 & site_id == "bvre"))) |> 
+  mutate(observation = as.numeric(NA)) |> 
   forecast_plots()
 }
 ```
@@ -68,10 +74,10 @@ df |>
 if("Bloom_binary_mean" %in% unique(df$variable)){
   
 ggobj_df <- df |> 
-  filter(lubridate::as_date(reference_datetime) == max(lubridate::as_date(df$reference_datetime)) - lubridate::days(1),
-        lubridate::as_date(datetime) > lubridate::as_date(reference_datetime), 
+  filter(lubridate::as_date(datetime) > lubridate::as_date(reference_datetime), 
          variable == c("Bloom_binary_mean"),
-         ((depth_m == 1.6 & site_id == "fcre") | (depth_m == 1.5 & site_id == "bvre")))
+         ((depth_m == 1.6 & site_id == "fcre") | (depth_m == 1.5 & site_id == "bvre"))) |> 
+    mutate(observation = as.numeric(NA))
   
 if(nrow(ggobj_df) > 0){
 
@@ -100,10 +106,9 @@ girafe(ggobj = ggobj,
 
 ```{r}
 df |> 
-  filter(lubridate::as_date(reference_datetime) == max(lubridate::as_date(df$reference_datetime)) - lubridate::days(2),
-         variable == c("Temp_C_mean"),
-         lubridate::as_date(datetime) > lubridate::as_date(reference_datetime)) |>  
-         #((depth_m == 1.6 & site_id == "fcre") | (depth_m == 1.5 & site_id == "bvre"))) |>  
+  filter(variable == c("Temp_C_mean"),
+         lubridate::as_date(datetime) > lubridate::as_date(reference_datetime))  |> 
+    mutate(observation = as.numeric(NA)) |> 
   forecast_plots()
 ```
 
@@ -111,9 +116,9 @@ df |>
 
 ```{r}
 df |> 
-  filter(lubridate::as_date(reference_datetime) == max(lubridate::as_date(df$reference_datetime)) - lubridate::days(1),
-         lubridate::as_date(datetime) > lubridate::as_date(reference_datetime), 
-         variable == c("AirTemp_C_mean")) |> 
+  filter(lubridate::as_date(datetime) > lubridate::as_date(reference_datetime), 
+         variable == c("AirTemp_C_mean"))  |> 
+    mutate(observation = as.numeric(NA)) |> 
   forecast_plots()
 ```
 
@@ -124,9 +129,9 @@ df |>
 if("fDOM_QSU_mean" %in% unique(df$variable)){
 
 df |> 
-  filter(lubridate::as_date(reference_datetime) == max(lubridate::as_date(df$reference_datetime)) - lubridate::days(1),
-         lubridate::as_date(datetime) > lubridate::as_date(reference_datetime), 
-         variable == c("fDOM_QSU_mean")) |> 
+  filter(lubridate::as_date(datetime) > lubridate::as_date(reference_datetime), 
+         variable == c("fDOM_QSU_mean"))  |> 
+    mutate(observation = as.numeric(NA)) |> 
   forecast_plots()
 }
 ```
@@ -136,11 +141,10 @@ df |>
 ```{r}
 if("Secchi_m_sample" %in% unique(df$variable)){
 
-
 df |> 
-  filter(lubridate::as_date(reference_datetime) == max(lubridate::as_date(df$reference_datetime)) - lubridate::days(1),
-         lubridate::as_date(datetime) > lubridate::as_date(reference_datetime), 
-         variable == c("Secchi_m_sample")) |> 
+  filter(lubridate::as_date(datetime) > lubridate::as_date(reference_datetime), 
+         variable == c("Secchi_m_sample")) |>
+    mutate(observation = as.numeric(NA)) |> 
   forecast_plots()
   
 }
@@ -152,9 +156,9 @@ df |>
 if("IceCover_binary_sum" %in% unique(df$variable)){
 
 df |> 
-  filter(lubridate::as_date(reference_datetime) == max(lubridate::as_date(df$reference_datetime)) - lubridate::days(1),
-         lubridate::as_date(datetime) > lubridate::as_date(reference_datetime), 
+  filter(lubridate::as_date(datetime) > lubridate::as_date(reference_datetime), 
          variable == c("IceCover_binary_sum")) |> 
+    mutate(observation = as.numeric(NA)) |> 
   forecast_plots()
 }
 ```
@@ -164,9 +168,9 @@ df |>
 ```{r}
 if("CH4_umolL_sample" %in% unique(df$variable)){
 df |> 
-  filter(lubridate::as_date(reference_datetime) == max(lubridate::as_date(df$reference_datetime)) - lubridate::days(1),
-         lubridate::as_date(datetime) > lubridate::as_date(reference_datetime), 
-         variable == c("CH4_umolL_sample")) |> 
+  filter(lubridate::as_date(datetime) > lubridate::as_date(reference_datetime), 
+         variable == c("CH4_umolL_sample"))  |> 
+    mutate(observation = as.numeric(NA)) |> 
   forecast_plots()
 }
 ```
@@ -177,9 +181,9 @@ df |>
 ```{r}
 if("Flow_cms_mean" %in% unique(df$variable)){
 df |> 
-  filter(lubridate::as_date(reference_datetime) == max(lubridate::as_date(df$reference_datetime)) - lubridate::days(1),
-         lubridate::as_date(datetime) > lubridate::as_date(reference_datetime), 
-         variable == c("Flow_cms_mean")) |> 
+  filter(lubridate::as_date(datetime) > lubridate::as_date(reference_datetime), 
+         variable == c("Flow_cms_mean"))  |> 
+    mutate(observation = as.numeric(NA)) |> 
   forecast_plots()
 }
 ```
@@ -189,21 +193,25 @@ df |>
 ## Forecast analysis
 
 ```{r}
-sites <- combined |> distinct(site_id) |> collect() |> slice_head(n= 6) |> pull(site_id)
-## with at least n observations to compare!
+df <- arrow::open_dataset("../cache/scores/duration=P1D") |> 
+  left_join(sites, by = "site_id") |> 
+  filter(site_id %in% sites$site_id) |> 
+  mutate(reference_datetime = lubridate::as_datetime(reference_datetime),
+         datetime = lubridate::as_datetime(datetime)) |> 
+  collect()
 
-ref <- Sys.Date() - lubridate::days(10)
+ref <- Sys.Date() - lubridate::days(30)
 
 ref <- max(c(ref, 
-             min(lubridate::as_date(combined$reference_datetime)),
+             min(lubridate::as_date(df$reference_datetime)),
              lubridate::as_date("2023-10-14")))
 
 #n_data <- 10
 #who <- combined |> filter(!is.na(observation)) |> summarise(has_data = max(reference_datetime)) |> collect()
 #ref <- as.character ( as.Date(who$has_data[[1]]) - n_data )
-ex <- combined |> 
+ex <- df |> 
   mutate(reference_date = lubridate::as_date(reference_datetime)) |> 
-  filter(reference_date == ref, site_id %in% sites) |> collect() 
+  filter(reference_date == ref)
 
 ```
 
@@ -255,18 +263,18 @@ Scores are averaged across all submissions of the model with a given horizon or 
 ## Chlorophyll-a
 
 ```{r}
-leaderboard_plots(combined, "Chla_ugL_mean")
+leaderboard_plots(df, "Chla_ugL_mean")
 ```
 
 ## Water temperature
 
 ```{r}
-leaderboard_plots(combined, "Temp_C_mean")
+leaderboard_plots(df, "Temp_C_mean")
 ```
 
 ## Air temperature
 
 ```{r}
-leaderboard_plots(combined, "AirTemp_C_mean")
+leaderboard_plots(df, "AirTemp_C_mean")
 ```
 :::

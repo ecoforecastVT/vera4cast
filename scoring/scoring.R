@@ -2,7 +2,7 @@ library(score4cast)
 library(arrow)
 
 past_days <- 365
-n_cores <- 8
+n_cores <- 4
 
 setwd(here::here())
 
@@ -33,7 +33,10 @@ variable_duration <- arrow::open_dataset(s3_inv) |>
   dplyr::distinct(variable, duration, project_id) |>
   dplyr::collect()
 
-future::plan("future::sequential", workers = n_cores)
+future::plan("future::multisession", workers = n_cores)
+
+#future::plan("future::sequential", workers = n_cores)
+
 
 furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, config, endpoint){
 
@@ -62,7 +65,7 @@ furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, con
     arrow::write_csv_arrow(prov, local_prov)
   }
 
-  prov_df <- readr::read_csv(local_prov, col_types = "c")
+  prov_df <- readr::read_csv(local_prov, show_col_types = FALSE)
 
   s3_scores_path <- s3_scores$path(glue::glue("parquet/project_id={project_id}/duration={duration}/variable={variable}"))
 
@@ -114,8 +117,6 @@ furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, con
       id <- rlang::hash(list(group[, c("model_id","reference_date","date","duration")],  tg))
 
       if (!(score4cast:::prov_has(id, prov_df, "new_id"))){
-
-        print(group)
 
         reference_dates <- unlist(stringr::str_split(group$reference_date, ","))
 
