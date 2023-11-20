@@ -1,5 +1,5 @@
 {
-  "id": "Daily_oxygen concentration",
+  "id": "Daily_oxygen_concentration",
   "description": "This page includes all models for the Daily_oxygen concentration variable.",
   "stac_version": "1.0.0",
   "license": "CC0-1.0",
@@ -47,7 +47,7 @@
       "type": "text/html"
     }
   ],
-  "title": "Daily_oxygen concentration",
+  "title": "Daily_oxygen_concentration",
   "extent": {
     "spatial": {
       "bbox": [
