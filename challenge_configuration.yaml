@@ -7,10 +7,7 @@ scores_bucket: bio230121-bucket01/vera4cast/scores
 forecasts_bucket: bio230121-bucket01/vera4cast/forecasts
 submissions_bucket: vera4cast-submissions
 inventory_bucket: bio230121-bucket01/vera4cast/inventory
-<<<<<<< HEAD
 #inventory_bucket: bio230014-bucket01/challenges/inventory
-=======
->>>>>>> 36cd5ddb57e8340dd9b59b75eeec8313751ac67a
 noaa_forecast_bucket: drivers/noaa/gefs-v12-reprocess/
 prov_bucket: bio230121-bucket01/vera4cast/prov
 targets_bucket: bio230121-bucket01/vera4cast/targets
@@ -36,8 +33,8 @@ variable_groups:
     thumbnail_link: 'https://projects.ecoforecast.org/neon4cast-catalog/img/neon_buoy.jpg'
     thumbnail_title: 'NEON Aquatics Buoy'
   Chemical:
-    variable: ['DO_mgL_mean', 'DO_mgL_mean']
-    duration: ['P1D','PT1H']
+    variable: ['DO_mgL_mean']
+    duration: ['P1D']
     thumbnail_link: 'https://projects.ecoforecast.org/neon4cast-catalog/img/neon_buoy.jpg'
     thumbnail_title: 'NEON Aquatics Buoy'
 catalog_config:

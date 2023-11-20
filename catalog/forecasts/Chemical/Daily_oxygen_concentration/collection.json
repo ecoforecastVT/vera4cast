@@ -1,6 +1,6 @@
 {
-  "id": "Hourly_oxygen_concentration",
-  "description": "This page includes all models for the Hourly_oxygen_concentration variable.",
+  "id": "Daily_oxygen_concentration",
+  "description": "This page includes all models for the Daily_oxygen_concentration variable.",
   "stac_version": "1.0.0",
   "license": "CC0-1.0",
   "stac_extensions": [
@@ -47,7 +47,7 @@
       "type": "text/html"
     }
   ],
-  "title": "Hourly_oxygen_concentration",
+  "title": "Daily_oxygen_concentration",
   "extent": {
     "spatial": {
       "bbox": [
@@ -58,7 +58,7 @@
       "interval": [
         [
           "2023-10-14T00:00:00Z",
-          "2023-12-01T00:00:00Z"
+          "2023-12-22T00:00:00Z"
         ]
       ]
     }
