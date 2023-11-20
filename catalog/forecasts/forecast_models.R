@@ -240,6 +240,10 @@ for (i in 1:length(config$variable_groups)){ ## organize variable groups
     #var_name_combined_list <- paste0(duration_values,' ',var_name_full)
     var_name_combined_list <- paste0(duration_values,'_',var_name_full)
 
+    if (length(unique(var_name_combined_list)) == 1){
+      var_name_combined_list <- unique(var_name_combined_list)
+    }
+
 
     ## CREATE VARIABLE GROUP JSONS
     group_description <- paste0('This page includes variables for the ',names(config$variable_groups[i]),' group.')
