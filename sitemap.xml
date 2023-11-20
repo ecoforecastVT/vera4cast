@@ -41,10 +41,6 @@
       <lastmod>2023-11-14</lastmod>
    </url>
    <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Chemical/Hourly_oxygen_concentration/collection.json</loc>
-      <lastmod>2023-11-14</lastmod>
-   </url>
-   <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Chemical/collection.json</loc>
       <lastmod>2023-11-14</lastmod>
    </url>
@@ -186,10 +182,6 @@
    </url>
    <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Chemical/Daily_oxygen_concentration/collection.json</loc>
-      <lastmod>2023-11-14</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Chemical/Hourly_oxygen_concentration/collection.json</loc>
       <lastmod>2023-11-14</lastmod>
    </url>
    <url>
