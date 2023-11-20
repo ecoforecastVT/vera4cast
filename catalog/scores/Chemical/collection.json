@@ -16,11 +16,6 @@
       "href": "Daily_oxygen_concentration/collection.json"
     },
     {
-      "rel": "child",
-      "type": "application/json",
-      "href": "Daily_oxygen_concentration/collection.json"
-    },
-    {
       "rel": "parent",
       "type": "application/json",
       "href": "../collection.json"
