@@ -35,7 +35,7 @@ names(metadata_multi_choice) <- mc_var_names
 # extract specific model information from inventory bucket
 config <- yaml::read_yaml('challenge_configuration.yaml')
 
-inventory_df <- duckdbfs::open_dataset(glue::glue("s3://{config$inventory_bucket}/catalog"),
+inventory_df <- duckdbfs::open_dataset(glue::glue("s3://{config$inventory_bucket}/catalog/forecast"),
                                   s3_endpoint = "renc.osn.xsede.org", anonymous=TRUE) |>
   collect()
 
