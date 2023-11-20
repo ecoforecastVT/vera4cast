@@ -41,17 +41,17 @@ forecast_theme_df <- arrow::open_dataset(arrow::s3_bucket(config$forecasts_bucke
 
 ## identify model ids from bucket -- used in generate model items function
 
-# forecast_data_df <- duckdbfs::open_dataset(glue::glue("s3://{config$inventory_bucket}/catalog"),
-#                                   s3_endpoint = config$endpoint, anonymous=TRUE) |>
-#   collect()
-
-forecast_s3 <- arrow::s3_bucket(glue::glue("{config$inventory_bucket}/catalog/forecasts/"),
-                              endpoint_override = "sdsc.osn.xsede.org",
-                              anonymous=TRUE)
-
-forecast_data_df <- arrow::open_dataset(forecast_s3) |>
-  filter(project_id == config$project_id) |>
+forecast_data_df <- duckdbfs::open_dataset(glue::glue("s3://{config$inventory_bucket}/catalog/forecasts"),
+                                  s3_endpoint = config$endpoint, anonymous=TRUE) |>
   collect()
+
+# forecast_s3 <- arrow::s3_bucket(glue::glue("{config$inventory_bucket}/catalog/forecasts/"),
+#                               endpoint_override = "sdsc.osn.xsede.org",
+#                               anonymous=TRUE)
+#
+# forecast_data_df <- arrow::open_dataset(forecast_s3) |>
+#   filter(project_id == config$project_id) |>
+#   collect()
 
 theme_models <- forecast_data_df |>
   distinct(model_id)

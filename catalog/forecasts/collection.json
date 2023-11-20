@@ -25,6 +25,12 @@
     {
       "rel": "child",
       "type": "application/json",
+      "href": "Chemical/collection.json",
+      "title": "Chemical"
+    },
+    {
+      "rel": "child",
+      "type": "application/json",
       "href": "models/collection.json",
       "title": "group item"
     },
@@ -65,10 +71,10 @@
     "spatial": {
       "bbox": [
         [
-          -156.6194,
-          17.9696,
-          -66.7987,
-          71.2824
+          -79.8441,
+          37.3022,
+          -79.8146,
+          37.3217
         ]
       ]
     },

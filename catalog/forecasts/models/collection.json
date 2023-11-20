@@ -13,42 +13,12 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/fableETS.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/climatology.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/fableARIMA.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/fableNNETAR.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/persistenceRW.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/inflow_gefsClimAED.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
       "href": "model_items/cfs.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/ecmwf_ifs04.json"
+      "href": "model_items/climatology.json"
     },
     {
       "rel": "item",
@@ -68,22 +38,42 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "model_items/ecmwf_ifs04.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/fableARIMA.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/fableETS.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/fableNNETAR.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "model_items/glm_aed_v1.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/TempC_mean_example_forecast.json"
+      "href": "model_items/inflow_gefsClimAED.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/persistenceFO.json"
+      "href": "model_items/persistenceRW.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/climatology2.json"
+      "href": "model_items/TESTclimatology.json"
     },
     {
       "rel": "item",
@@ -93,7 +83,17 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/TESTclimatology.json"
+      "href": "model_items/TempC_mean_example_forecast.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/climatology2.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/persistenceFO.json"
     },
     {
       "rel": "parent",
