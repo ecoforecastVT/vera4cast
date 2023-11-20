@@ -118,6 +118,8 @@ furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, con
 
       if (!(score4cast:::prov_has(id, prov_df, "new_id"))){
 
+        print(group)
+
         reference_dates <- unlist(stringr::str_split(group$reference_date, ","))
 
         ref_upper <- (lubridate::as_date(ref)+lubridate::days(1))

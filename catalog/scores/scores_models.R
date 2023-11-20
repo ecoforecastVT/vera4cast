@@ -46,6 +46,7 @@ scores_theme_df <- arrow::open_dataset(arrow::s3_bucket(config$scores_bucket, en
   #filter(model_id == model_id, site_id = site_id, reference_datetime = reference_datetime)
 
 ## identify model ids from bucket -- used in generate model items function
+
 # scores_data_df <- duckdbfs::open_dataset(glue::glue("s3://{config$inventory_bucket}/catalog/scores/project_id=vera4cast"),
 #                                   s3_endpoint = config$endpoint, anonymous=TRUE) |>
 #   collect()
@@ -54,7 +55,9 @@ scores_s3 <- arrow::s3_bucket(glue::glue("{config$inventory_bucket}/catalog/scor
                        endpoint_override = "sdsc.osn.xsede.org",
                        anonymous=TRUE)
 
-scores_data_df <- arrow::open_dataset(scores_s3) |> collect()
+scores_data_df <- arrow::open_dataset(scores_s3) |> 
+       filter(project_id == config$project_id) |>
+       collect()
 
 theme_models <- scores_data_df |>
   distinct(model_id)
