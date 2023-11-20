@@ -11,6 +11,91 @@
   "type": "Collection",
   "links": [
     {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/cfs.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/climatology.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/gem_global.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/gfs_seamless.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/icon_seamless.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/ecmwf_ifs04.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/fableARIMA.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/fableETS.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/fableNNETAR.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/glm_aed_v1.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/inflow_gefsClimAED.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/persistenceRW.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/TESTclimatology.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/example_forecast.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/TempC_mean_example_forecast.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/climatology2.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/persistenceFO.json"
+    },
+    {
       "rel": "parent",
       "type": "application/json",
       "href": "../collection.json"
@@ -52,8 +137,8 @@
     "temporal": {
       "interval": [
         [
-          "InfT00:00:00Z",
-          "-InfT00:00:00Z"
+          "2023-09-21T00:00:00Z",
+          "2024-03-01T00:00:00Z"
         ]
       ]
     }

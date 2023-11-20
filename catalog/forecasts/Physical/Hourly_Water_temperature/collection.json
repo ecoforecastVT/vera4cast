@@ -18,6 +18,11 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "../../models/model_items/glm_aed_v1.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "../../models/model_items/inflow_gefsClimAED.json"
     },
     {
@@ -28,22 +33,7 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/TempC_mean_example_forecast.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/persistenceFO.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/glm_aed_v1.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/climatology2.json"
+      "href": "../../models/model_items/TESTclimatology.json"
     },
     {
       "rel": "item",
@@ -53,7 +43,17 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/TESTclimatology.json"
+      "href": "../../models/model_items/TempC_mean_example_forecast.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/climatology2.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/persistenceFO.json"
     },
     {
       "rel": "parent",
@@ -98,7 +98,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2023-12-21T00:00:00Z"
+          "2023-12-26T00:00:00Z"
         ]
       ]
     }

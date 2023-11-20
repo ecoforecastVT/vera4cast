@@ -13,11 +13,6 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/fableETS.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
       "href": "../../models/model_items/climatology.json"
     },
     {
@@ -28,17 +23,22 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "../../models/model_items/fableETS.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "../../models/model_items/fableNNETAR.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/persistenceRW.json"
+      "href": "../../models/model_items/glm_aed_v1.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/glm_aed_v1.json"
+      "href": "../../models/model_items/persistenceRW.json"
     },
     {
       "rel": "item",
@@ -88,7 +88,7 @@
       "interval": [
         [
           "2023-10-01T00:00:00Z",
-          "2023-12-21T00:00:00Z"
+          "2023-12-26T00:00:00Z"
         ]
       ]
     }

@@ -7,10 +7,10 @@
   "id": "glm_aed_v1",
   "bbox": [
     [
-      -156.6194,
-      71.2824,
-      -66.7987,
-      71.2824
+      -79.8441,
+      37.3217,
+      -79.8146,
+      37.3217
     ]
   ],
   "geometry": {
@@ -20,7 +20,7 @@
     ]
   },
   "properties": {
-    "description": "\nmodel info: GLM-AED with Ensemble Kalman Filter as implemented in FLARE.  This version used DA to update model states but not model parameters.\n\nSites: fcre\n\nVariables: Daily Secchi, Daily fluorescent dissolved organic matter, Daily Chlorophyll-a, Daily Bloom_binary, Daily Dissolved organic carbon concentration, Daily oxygen concentration, Daily ammonium concentration, Daily Total soluble reactive phosphorus concentration, Daily Water_temperature",
+    "description": "\nmodel info: GLM-AED with Ensemble Kalman Filter as implemented in FLARE.  This version used DA to update model states but not model parameters.\n\nSites: fcre\n\nVariables: Daily Bloom_binary, Daily Chlorophyll-a, Daily Dissolved organic carbon concentration, Daily oxygen concentration, Daily ammonium concentration, Daily Total soluble reactive phosphorus concentration, Daily Water_temperature, Daily fluorescent dissolved organic matter, Daily Secchi",
     "start_datetime": "2023-10-14",
     "end_datetime": "2023-12-01",
     "providers": [
@@ -45,15 +45,15 @@
     "keywords": [
       "Forecasting",
       "vera4cast",
-      "Daily Secchi",
-      "Daily fluorescent dissolved organic matter",
-      "Daily Chlorophyll-a",
       "Daily Bloom_binary",
+      "Daily Chlorophyll-a",
       "Daily Dissolved organic carbon concentration",
       "Daily oxygen concentration",
       "Daily ammonium concentration",
       "Daily Total soluble reactive phosphorus concentration",
-      "Daily Water_temperature"
+      "Daily Water_temperature",
+      "Daily fluorescent dissolved organic matter",
+      "Daily Secchi"
     ],
     "table:columns": [
       {
@@ -171,57 +171,57 @@
     },
     "3": {
       "type": "application/x-parquet",
-      "title": "Database Access for Daily Secchi",
-      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=Secchi_m_sample/model_id=glm_aed_v1?endpoint_override=renc.osn.xsede.org",
-      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=Secchi_m_sample/model_id=glm_aed_v1?endpoint_override=renc.osn.xsede.org)\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+      "title": "Database Access for Daily Bloom_binary",
+      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=Bloom_binary_mean/model_id=glm_aed_v1?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=Bloom_binary_mean/model_id=glm_aed_v1?endpoint_override=renc.osn.xsede.org)\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     },
     "4": {
-      "type": "application/x-parquet",
-      "title": "Database Access for Daily fluorescent dissolved organic matter",
-      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=fDOM_QSU_mean/model_id=glm_aed_v1?endpoint_override=renc.osn.xsede.org",
-      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=fDOM_QSU_mean/model_id=glm_aed_v1?endpoint_override=renc.osn.xsede.org)\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
-    },
-    "5": {
       "type": "application/x-parquet",
       "title": "Database Access for Daily Chlorophyll-a",
       "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=Chla_ugL_mean/model_id=glm_aed_v1?endpoint_override=renc.osn.xsede.org",
       "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=Chla_ugL_mean/model_id=glm_aed_v1?endpoint_override=renc.osn.xsede.org)\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     },
-    "6": {
-      "type": "application/x-parquet",
-      "title": "Database Access for Daily Bloom_binary",
-      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=Bloom_binary_mean/model_id=glm_aed_v1?endpoint_override=renc.osn.xsede.org",
-      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=Bloom_binary_mean/model_id=glm_aed_v1?endpoint_override=renc.osn.xsede.org)\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
-    },
-    "7": {
+    "5": {
       "type": "application/x-parquet",
       "title": "Database Access for Daily Dissolved organic carbon concentration",
       "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=DIC_mgL_sample/model_id=glm_aed_v1?endpoint_override=renc.osn.xsede.org",
       "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=DIC_mgL_sample/model_id=glm_aed_v1?endpoint_override=renc.osn.xsede.org)\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     },
-    "8": {
+    "6": {
       "type": "application/x-parquet",
       "title": "Database Access for Daily oxygen concentration",
       "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=DO_mgL_mean/model_id=glm_aed_v1?endpoint_override=renc.osn.xsede.org",
       "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=DO_mgL_mean/model_id=glm_aed_v1?endpoint_override=renc.osn.xsede.org)\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     },
-    "9": {
+    "7": {
       "type": "application/x-parquet",
       "title": "Database Access for Daily ammonium concentration",
       "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=NH4_ugL_sample/model_id=glm_aed_v1?endpoint_override=renc.osn.xsede.org",
       "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=NH4_ugL_sample/model_id=glm_aed_v1?endpoint_override=renc.osn.xsede.org)\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     },
-    "10": {
+    "8": {
       "type": "application/x-parquet",
       "title": "Database Access for Daily Total soluble reactive phosphorus concentration",
       "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=SRP_ugL_sample/model_id=glm_aed_v1?endpoint_override=renc.osn.xsede.org",
       "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=SRP_ugL_sample/model_id=glm_aed_v1?endpoint_override=renc.osn.xsede.org)\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     },
-    "11": {
+    "9": {
       "type": "application/x-parquet",
       "title": "Database Access for Daily Water_temperature",
       "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=Temp_C_mean/model_id=glm_aed_v1?endpoint_override=renc.osn.xsede.org",
       "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=Temp_C_mean/model_id=glm_aed_v1?endpoint_override=renc.osn.xsede.org)\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+    },
+    "10": {
+      "type": "application/x-parquet",
+      "title": "Database Access for Daily fluorescent dissolved organic matter",
+      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=fDOM_QSU_mean/model_id=glm_aed_v1?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=fDOM_QSU_mean/model_id=glm_aed_v1?endpoint_override=renc.osn.xsede.org)\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+    },
+    "11": {
+      "type": "application/x-parquet",
+      "title": "Database Access for Daily Secchi",
+      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=Secchi_m_sample/model_id=glm_aed_v1?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D/variable=Secchi_m_sample/model_id=glm_aed_v1?endpoint_override=renc.osn.xsede.org)\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     }
   }
 }
