@@ -51,12 +51,11 @@ scores_theme_df <- arrow::open_dataset(arrow::s3_bucket(config$scores_bucket, en
 #                                   s3_endpoint = config$endpoint, anonymous=TRUE) |>
 #   collect()
 
-scores_s3 <- arrow::s3_bucket(glue::glue("{config$inventory_bucket}/catalog/forecasts/"),
-                                endpoint_override = "sdsc.osn.xsede.org",
+scores_s3 <- arrow::s3_bucket(glue::glue("{config$inventory_bucket}/catalog/scores/project_id={config$project_id}"),
+                                endpoint_override = config$endpoint,
                                 anonymous=TRUE)
 
 scores_data_df <- arrow::open_dataset(scores_s3) |>
-  filter(project_id == config$project_id) |>
   collect()
 
 
