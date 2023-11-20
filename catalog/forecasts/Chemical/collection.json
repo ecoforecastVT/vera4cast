@@ -13,7 +13,11 @@
     {
       "rel": "child",
       "type": "application/json",
+<<<<<<< HEAD
       "href": "Daily_oxygen concentration/collection.json"
+=======
+      "href": "Daily_oxygen_concentration/collection.json"
+>>>>>>> 36cd5ddb57e8340dd9b59b75eeec8313751ac67a
     },
     {
       "rel": "child",
