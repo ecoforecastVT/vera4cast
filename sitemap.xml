@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
       <loc>https://www.ltreb-reservoirs.org/vera4cast//catalog.html</loc>
-      <lastmod>2023-11-17</lastmod>
+      <lastmod>2023-11-18</lastmod>
    </url>
    <url>
       <loc>https://www.ltreb-reservoirs.org/vera4cast//instructions.html</loc>
-      <lastmod>2023-11-17</lastmod>
+      <lastmod>2023-11-18</lastmod>
    </url>
    <url>
       <loc>https://www.ltreb-reservoirs.org/vera4cast//performance.html</loc>
-      <lastmod>2023-11-17</lastmod>
+      <lastmod>2023-11-18</lastmod>
    </url>
    <url>
       <loc>https://www.ltreb-reservoirs.org/vera4cast//index.html</loc>
-      <lastmod>2023-11-17</lastmod>
+      <lastmod>2023-11-18</lastmod>
    </url>
    <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/catalog.json</loc>
@@ -34,6 +34,18 @@
    </url>
    <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/collection.json</loc>
+      <lastmod>2023-11-14</lastmod>
+   </url>
+   <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Chemical/Daily_oxygen_concentration/collection.json</loc>
+      <lastmod>2023-11-14</lastmod>
+   </url>
+   <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Chemical/Hourly_oxygen_concentration/collection.json</loc>
+      <lastmod>2023-11-14</lastmod>
+   </url>
+   <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Chemical/collection.json</loc>
       <lastmod>2023-11-14</lastmod>
    </url>
    <url>
@@ -133,6 +145,30 @@
       <lastmod>2023-11-14</lastmod>
    </url>
    <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/noaa_forecasts/Pseudo/collection.json</loc>
+      <lastmod>2023-11-14</lastmod>
+   </url>
+   <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/noaa_forecasts/Stage1/collection.json</loc>
+      <lastmod>2023-11-14</lastmod>
+   </url>
+   <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/noaa_forecasts/Stage1-stats/collection.json</loc>
+      <lastmod>2023-11-14</lastmod>
+   </url>
+   <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/noaa_forecasts/Stage2/collection.json</loc>
+      <lastmod>2023-11-14</lastmod>
+   </url>
+   <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/noaa_forecasts/Stage3/collection.json</loc>
+      <lastmod>2023-11-14</lastmod>
+   </url>
+   <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/noaa_forecasts/collection.json</loc>
+      <lastmod>2023-11-14</lastmod>
+   </url>
+   <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Biological/Daily_Bloom_binary/collection.json</loc>
       <lastmod>2023-11-14</lastmod>
    </url>
@@ -146,6 +182,18 @@
    </url>
    <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Biological/collection.json</loc>
+      <lastmod>2023-11-14</lastmod>
+   </url>
+   <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Chemical/Daily_oxygen_concentration/collection.json</loc>
+      <lastmod>2023-11-14</lastmod>
+   </url>
+   <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Chemical/Hourly_oxygen_concentration/collection.json</loc>
+      <lastmod>2023-11-14</lastmod>
+   </url>
+   <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Chemical/collection.json</loc>
       <lastmod>2023-11-14</lastmod>
    </url>
    <url>
