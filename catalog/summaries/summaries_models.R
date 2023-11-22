@@ -108,8 +108,8 @@ forecast_sites <- c()
 for (m in theme_models$model_id){
 
   # make model items directory
-  if (!dir.exists(paste0(catalog_config$forecast_path,"models/model_items"))){
-    dir.create(paste0(catalog_config$forecast_path,"models/model_items"))
+  if (!dir.exists(paste0(catalog_config$summaries_path,"models/model_items"))){
+    dir.create(paste0(catalog_config$summaries_path,"models/model_items"))
   }
 
   print(m)
@@ -148,7 +148,7 @@ for (m in theme_models$model_id){
                          site_values = model_sites$site_id,
                          site_table = catalog_config$site_metadata_url,
                          model_documentation = registered_model_id,
-                         destination_path = paste0(catalog_config$forecast_path,"models/model_items"),
+                         destination_path = paste0(catalog_config$summaries_path,"models/model_items"),
                          aws_download_path = config$summaries_bucket, # CHANGE THIS BUCKET NAME
                          collection_name = 'forecasts',
                          thumbnail_image_name = NULL,
@@ -174,8 +174,8 @@ for (i in 1:length(config$variable_groups)){ ## organize variable groups
     next
   }
 
-  if (!dir.exists(paste0(catalog_config$forecast_path,names(config$variable_groups[i])))){
-    dir.create(paste0(catalog_config$forecast_path,names(config$variable_groups[i])))
+  if (!dir.exists(paste0(catalog_config$summaries_path,names(config$variable_groups[i])))){
+    dir.create(paste0(catalog_config$summaries_path,names(config$variable_groups[i])))
   }
 
   for(j in 1:length(config$variable_groups[[i]]$variable)){ # FOR EACH VARIABLE WITHIN A MODEL GROUP
@@ -244,7 +244,7 @@ for (i in 1:length(config$variable_groups)){ ## organize variable groups
                                      dashboard_string = catalog_config$dashboard_url,
                                      dashboard_title = catalog_config$dashboard_title,
                                      theme_title = names(config$variable_groups[i]),
-                                     destination_path = paste0(catalog_config$forecast_path,names(config$variable_groups[i])),
+                                     destination_path = paste0(catalog_config$summaries_path,names(config$variable_groups[i])),
                                      aws_download_path = catalog_config$summaries_download_path,
                                      group_var_items = stac4cast::generate_group_variable_items(variables = var_name_combined_list),
                                      thumbnail_link = config$variable_groups[[i]]$thumbnail_link,
@@ -252,8 +252,8 @@ for (i in 1:length(config$variable_groups)){ ## organize variable groups
                                      group_var_vector = unique(var_values),
                                      group_sites = find_group_sites$site_id)
 
-    if (!dir.exists(paste0(catalog_config$forecast_path,names(config$variable_groups)[i],'/',var_name_combined_list[j]))){
-      dir.create(paste0(catalog_config$forecast_path,names(config$variable_groups)[i],'/',var_name_combined_list[j]))
+    if (!dir.exists(paste0(catalog_config$summaries_path,names(config$variable_groups)[i],'/',var_name_combined_list[j]))){
+      dir.create(paste0(catalog_config$summaries_path,names(config$variable_groups)[i],'/',var_name_combined_list[j]))
     }
 
     # var_data <- summaries_data_df |>
@@ -286,7 +286,7 @@ for (i in 1:length(config$variable_groups)){ ## organize variable groups
                                      dashboard_string = catalog_config$dashboard_url,
                                      dashboard_title = catalog_config$dashboard_title,
                                      theme_title = var_name_combined_list[j],
-                                     destination_path = file.path(catalog_config$forecast_path,names(config$variable_groups)[i],var_name_combined_list[j]),
+                                     destination_path = file.path(catalog_config$summaries_path,names(config$variable_groups)[i],var_name_combined_list[j]),
                                      aws_download_path = var_data$path[1],
                                      group_var_items = stac4cast::generate_variable_model_items(model_list = var_models$model_id),
                                      thumbnail_link = 'pending',
@@ -297,7 +297,7 @@ for (i in 1:length(config$variable_groups)){ ## organize variable groups
   }
 
   ## REMOVE STALE OR UNUSED DIRECTORIES
-  current_var_path <- paste0(catalog_config$forecast_path,names(config$variable_groups[i]))
-  current_var_dirs <- list.dirs(current_var_path, recursive = FALSE, full.names = FALSE)
+  current_var_path <- paste0(catalog_config$summaries_path,names(config$variable_groups[i]))
+  current_var_dirs <- list.dirs(current_var_path, recursive = FALSE, full.names = TRUE)
 
 }
