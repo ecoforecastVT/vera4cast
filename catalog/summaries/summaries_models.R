@@ -174,9 +174,15 @@ for (i in 1:length(config$variable_groups)){ ## organize variable groups
     next
   }
 
+  ## REMOVE STALE OR UNUSED DIRECTORIES
+  current_var_path <- paste0(catalog_config$summaries_path,names(config$variable_groups[i]))
+  current_var_dirs <- list.dirs(current_var_path, recursive = FALSE, full.names = TRUE)
+  unlink(current_var_dirs, recursive = TRUE)
+
   if (!dir.exists(paste0(catalog_config$summaries_path,names(config$variable_groups[i])))){
     dir.create(paste0(catalog_config$summaries_path,names(config$variable_groups[i])))
   }
+
 
   for(j in 1:length(config$variable_groups[[i]]$variable)){ # FOR EACH VARIABLE WITHIN A MODEL GROUP
 
@@ -295,9 +301,5 @@ for (i in 1:length(config$variable_groups)){ ## organize variable groups
                                      group_sites = find_var_sites$site_id)
 
   }
-
-  ## REMOVE STALE OR UNUSED DIRECTORIES
-  current_var_path <- paste0(catalog_config$summaries_path,names(config$variable_groups[i]))
-  current_var_dirs <- list.dirs(current_var_path, recursive = FALSE, full.names = TRUE)
 
 }
