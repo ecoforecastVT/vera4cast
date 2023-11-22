@@ -316,4 +316,9 @@ for (i in 1:length(config$variable_groups)){ ## organize variable groups
                           group_sites = find_var_sites$site_id)
 
   }
+
+  ## REMOVE STALE OR UNUSED DIRECTORIES
+  current_var_path <- paste0(catalog_config$forecast_path,names(config$variable_groups[i]))
+  current_var_dirs <- list.dirs(current_var_path, recursive = FALSE, full.names = FALSE)
+
 }

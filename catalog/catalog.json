@@ -41,6 +41,12 @@
       "href": "noaa_forecasts/collection.json"
     },
     {
+      "rel": "child",
+      "type": "application/json",
+      "title": "Summarized Forecasts",
+      "href": "summaries/collection.json"
+    },
+    {
       "rel": "parent",
       "type": "application/json",
       "href": "https://raw.githubusercontent.com/eco4cast/challenge-catalogs/main/catalog.json"
