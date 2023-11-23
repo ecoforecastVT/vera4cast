@@ -88,21 +88,21 @@
       "interval": [
         [
           "2023-10-01T00:00:00Z",
-          "2023-12-27T00:00:00Z"
+          "2023-12-28T00:00:00Z"
         ]
       ]
     }
   },
   "table:columns": [
     {
-      "name": "reference_datetime",
-      "type": "timestamp[us, tz=UTC]",
-      "description": "datetime that the forecast was initiated (horizon = 0)"
-    },
-    {
       "name": "site_id",
       "type": "string",
       "description": "For forecasts that are not on a spatial grid, use of a site dimension that maps to a more detailed geometry (points, polygons, etc.) is allowable. In general this would be documented in the external metadata (e.g., alook-up table that provides lon and lat)"
+    },
+    {
+      "name": "reference_datetime",
+      "type": "timestamp[us, tz=UTC]",
+      "description": "datetime that the forecast was initiated (horizon = 0)"
     },
     {
       "name": "datetime",
@@ -110,54 +110,29 @@
       "description": "datetime of the forecasted value (ISO 8601)"
     },
     {
-      "name": "family",
-      "type": "string",
-      "description": "For ensembles: “ensemble.” Default value if unspecified for probability distributions: Name of the statistical distribution associated with the reported statistics. The “sample” distribution is synonymous with “ensemble.”For summary statistics: “summary.”"
-    },
-    {
-      "name": "pub_datetime",
-      "type": "timestamp[us, tz=UTC]",
-      "description": "datetime that forecast was submitted"
-    },
-    {
       "name": "depth_m",
       "type": "double",
       "description": "depth (meters) in water column of prediction"
     },
     {
-      "name": "mean",
-      "type": "double",
-      "description": "mean forecast prediction"
+      "name": "family",
+      "type": "string",
+      "description": "For ensembles: “ensemble.” Default value if unspecified for probability distributions: Name of the statistical distribution associated with the reported statistics. The “sample” distribution is synonymous with “ensemble.”For summary statistics: “summary.”"
     },
     {
-      "name": "median",
-      "type": "double",
-      "description": "median forecast prediction"
+      "name": "parameter",
+      "type": "string",
+      "description": "ensemble member or distribution parameter"
     },
     {
-      "name": "sd",
+      "name": "prediction",
       "type": "double",
-      "description": "standard deviation forecasts"
+      "description": "predicted value for variable"
     },
     {
-      "name": "quantile97.5",
-      "type": "double",
-      "description": "upper 97.5 percentile value of forecast"
-    },
-    {
-      "name": "quantile02.5",
-      "type": "double",
-      "description": "upper 2.5 percentile value of forecast"
-    },
-    {
-      "name": "quantile90",
-      "type": "double",
-      "description": "upper 90 percentile value of forecast"
-    },
-    {
-      "name": "quantile10",
-      "type": "double",
-      "description": "upper 10 percentile value of forecast"
+      "name": "pub_datetime",
+      "type": "timestamp[us, tz=UTC]",
+      "description": "datetime that forecast was submitted"
     },
     {
       "name": "project_id",
