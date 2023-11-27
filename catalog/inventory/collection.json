@@ -47,10 +47,10 @@
     "spatial": {
       "bbox": [
         [
-          -156.6194,
-          17.9696,
-          -66.7987,
-          71.2824
+          -79.8441,
+          37.3022,
+          -79.8146,
+          37.3217
         ]
       ]
     },
@@ -100,14 +100,39 @@
       "description": "unique project identifier"
     },
     {
+      "name": "pub_date",
+      "type": "date32[day]",
+      "description": {}
+    },
+    {
       "name": "path",
       "type": null,
       "description": "storage path for forecast data"
     },
     {
+      "name": "path_full",
+      "type": null,
+      "description": {}
+    },
+    {
+      "name": "path_summaries",
+      "type": null,
+      "description": {}
+    },
+    {
       "name": "endpoint",
       "type": "string",
       "description": "storage location for forecast data"
+    },
+    {
+      "name": "latitude",
+      "type": "double",
+      "description": {}
+    },
+    {
+      "name": "longitude",
+      "type": "double",
+      "description": {}
     }
   ],
   "assets": {

@@ -1,0 +1,140 @@
+{
+  "id": "targets",
+  "description": "The catalog contains targets for the Virginia Ecoforecast Reservoir Analysis. The targets include insitu target data, inflow target data, and meteorology target data. We provide the code to access the targets as an asset.",
+  "stac_version": "1.0.0",
+  "license": "CC0-1.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/scientific/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/table/v1.2.0/schema.json"
+  ],
+  "type": "Collection",
+  "links": [
+    {
+      "rel": "parent",
+      "type": "application/json",
+      "href": "../catalog.json"
+    },
+    {
+      "rel": "root",
+      "type": "application/json",
+      "href": "../catalog.json"
+    },
+    {
+      "rel": "self",
+      "type": "application/json",
+      "href": "collection.json"
+    },
+    {
+      "rel": "cite-as",
+      "href": "https://doi.org/10.1002/fee.2616"
+    },
+    {
+      "rel": "about",
+      "href": "www.ltreb-reservoirs.org/vera4cast",
+      "type": "text/html",
+      "title": "VERA Forecasting Challenge Documentation"
+    },
+    {
+      "rel": "describedby",
+      "href": "https://www.ltreb-reservoirs.org/vera4cast",
+      "title": "VERA Forecast Challenge Dashboard",
+      "type": "text/html"
+    }
+  ],
+  "title": "Targets",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -79.8441,
+          37.3022,
+          -79.8146,
+          37.3217
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2013-08-30 08:00:00T00:00:00Z",
+          "2023-11-26T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "table:columns": [
+    {
+      "name": "project_id",
+      "type": "character",
+      "description": "unique project identifier"
+    },
+    {
+      "name": "site_id",
+      "type": "character",
+      "description": "unique site identifier"
+    },
+    {
+      "name": "datetime",
+      "type": ["POSIXct", "POSIXt"],
+      "description": "datetime of the observed value (ISO 8601)"
+    },
+    {
+      "name": "duration",
+      "type": "character",
+      "description": "temporal duration of target (hourly = PT1H, daily = P1D, etc.); follows ISO 8601 duration convention"
+    },
+    {
+      "name": "depth_m",
+      "type": "numeric",
+      "description": "depth (meters) in water column of observation"
+    },
+    {
+      "name": "variable",
+      "type": "character",
+      "description": "observation variable"
+    },
+    {
+      "name": "observation",
+      "type": "numeric",
+      "description": "observed value for variable"
+    }
+  ],
+  "assets": {
+    "data": {
+      "href": "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-insitu-targets.csv.gz",
+      "type": "application/x-parquet",
+      "title": "Insitu Targets Access",
+      "roles": [
+        "data"
+      ],
+      "description": "Use `arrow` for remote access to the insitu targets file.\n  This R code will return results for the relevant targets file.\n\n### R\n\n```{r}\n# Use code below\n\n url <- https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-insitu-targets.csv.gz/ntargets <- readr::read_csv(url, show_col_types = FALSE)\n```"
+    },
+    "data.1": {
+      "href": "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-inflow-targets.csv.gz",
+      "type": "application/x-parquet",
+      "title": "Inflow Targets Access",
+      "roles": [
+        "data"
+      ],
+      "description": "Use `arrow` for remote access to the insitu targets file.\n  This R code will return results for the relevant targets file.\n\n### R\n\n```{r}\n# Use code below\n\n url <- https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-inflow-targets.csv.gz/ntargets <- readr::read_csv(url, show_col_types = FALSE)\n```"
+    },
+    "data.2": {
+      "href": "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-met-targets.csv.gz",
+      "type": "application/x-parquet",
+      "title": "Meteorology Targets Access",
+      "roles": [
+        "data"
+      ],
+      "description": "Use `arrow` for remote access to the insitu targets file.\n  This R code will return results for the relevant targets file.\n\n### R\n\n```{r}\n# Use code below\n\n url <- https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-met-targets.csv.gz/ntargets <- readr::read_csv(url, show_col_types = FALSE)\n```"
+    },
+    "thumbnail": {
+      "href": "https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/dashboard/img/banner-2.jpg",
+      "type": "image/JPEG",
+      "roles": [
+        "thumbnail"
+      ],
+      "title": "Falling Creek Reservoir"
+    }
+  }
+}
