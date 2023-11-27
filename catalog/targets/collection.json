@@ -108,7 +108,7 @@
       "roles": [
         "data"
       ],
-      "description": "Use `arrow` for remote access to the insitu targets file.\n  This R code will return results for the relevant targets file.\n\n### R\n\n```{r}\n# Use code below\n\n url <- https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-insitu-targets.csv.gz/ntargets <- readr::read_csv(url, show_col_types = FALSE)\n```"
+      "description": "This R code will return results for the relevant targets file.\n\n### R\n\n```{r}\n# Use code below\n\n url <- https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-insitu-targets.csv.gz\ntargets <- readr::read_csv(url, show_col_types = FALSE)\n```"
     },
     "data.1": {
       "href": "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-inflow-targets.csv.gz",
@@ -117,7 +117,7 @@
       "roles": [
         "data"
       ],
-      "description": "Use `arrow` for remote access to the insitu targets file.\n  This R code will return results for the relevant targets file.\n\n### R\n\n```{r}\n# Use code below\n\n url <- https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-inflow-targets.csv.gz/ntargets <- readr::read_csv(url, show_col_types = FALSE)\n```"
+      "description": "This R code will return results for the relevant targets file.\n\n### R\n\n```{r}\n# Use code below\n\n url <- https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-inflow-targets.csv.gz\ntargets <- readr::read_csv(url, show_col_types = FALSE)\n```"
     },
     "data.2": {
       "href": "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-met-targets.csv.gz",
@@ -126,7 +126,7 @@
       "roles": [
         "data"
       ],
-      "description": "Use `arrow` for remote access to the insitu targets file.\n  This R code will return results for the relevant targets file.\n\n### R\n\n```{r}\n# Use code below\n\n url <- https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-met-targets.csv.gz/ntargets <- readr::read_csv(url, show_col_types = FALSE)\n```"
+      "description": "This R code will return results for the relevant targets file.\n\n### R\n\n```{r}\n# Use code below\n\n url <- https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-met-targets.csv.gz\ntargets <- readr::read_csv(url, show_col_types = FALSE)\n```"
     },
     "thumbnail": {
       "href": "https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/dashboard/img/banner-2.jpg",
