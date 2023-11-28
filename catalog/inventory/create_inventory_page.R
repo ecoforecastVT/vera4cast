@@ -37,7 +37,7 @@ inventory_date_range <- inventory_data_df |> dplyr::summarise(min(date),max(date
 inventory_min_date <- inventory_date_range$`min(date)`
 inventory_max_date <- inventory_date_range$`max(date)`
 
-build_description <- paste0("The catalog contains forecasts for the ", config$challenge_long_name,". The forecasts are the raw forecasts that include all ensemble members (if a forecast represents uncertainty using an ensemble).  Due to the size of the raw forecasts, we recommend accessing the scores (summaries of the forecasts) to analyze forecasts (unless you need the individual ensemble members). You can access the forecasts at the top level of the dataset where all models, variables, and dates that forecasts were produced (reference_datetime) are available. The code to access the entire dataset is provided as an asset. Given the size of the forecast catalog, it can be time-consuming to access the data at the full dataset level. For quicker access to the forecasts for a particular model (model_id), we also provide the code to access the data at the model_id level as an asset for each model.")
+build_description <- paste0("Inventories are look-up tables for discovering what has been forecasted")
 
 
 stac4cast::build_inventory(table_schema = inventory_theme_df,

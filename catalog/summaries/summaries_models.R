@@ -50,7 +50,7 @@ forecast_date_range <- summaries_data_df |> dplyr::summarise(min(date),max(date)
 forecast_min_date <- forecast_date_range$`min(date)`
 forecast_max_date <- forecast_date_range$`max(date)`
 
-build_description <- paste0("The catalog contains summarized forecasts for the ", config$challenge_long_name,". The scores are summaries of the forecasts (i.e., mean, median, confidence intervals) and matched observations (if available). You can access the summaries at the top level of the dataset where all models, variables, and dates that forecasts were produced (reference_datetime) are available. The code to access the entire dataset is provided as an asset. Given the size of the forecast catalog, it can be time-consuming to access the data at the full dataset level. For quicker access to the forecasts for a particular model (model_id), we also provide the code to access the data at the model_id level as an asset for each model.")
+build_description <- paste0("Summaries are the forecasts statistics of the raw forecasts (i.e., mean, median, confidence intervals). You can access the summaries at the top level of the dataset where all models, variables, and dates that forecasts were produced (reference_datetime) are available. The code to access the entire dataset is provided as an asset. Given the size of the forecast catalog, it can be time-consuming to access the data at the full dataset level. For quicker access to the forecasts for a particular model (model_id), we also provide the code to access the data at the model_id level as an asset for each model.")
 
 stac4cast::build_forecast_scores(table_schema = summaries_theme_df,
                                  #theme_id = 'Forecasts',

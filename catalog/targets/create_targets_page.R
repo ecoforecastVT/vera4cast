@@ -38,7 +38,7 @@ target_date_range <- targets |> dplyr::summarise(min(datetime),max(datetime))
 target_min_date <- as.Date(target_date_range$`min(datetime)`)
 target_max_date <- as.Date(target_date_range$`max(datetime)`)
 
-build_description <- paste0("The catalog contains targets for the ", config$challenge_long_name,". The targets include insitu target data, inflow target data, and meteorology target data. We provide the code to access the targets as an asset.")
+build_description <- paste0("The targets are observations that can be used to evaluate and build forecasts.  We provide the code to access different targets as an asset.")
 
 
 stac4cast::build_targets(table_schema = targets,
