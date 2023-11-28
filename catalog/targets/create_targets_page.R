@@ -53,5 +53,5 @@ stac4cast::build_targets(table_schema = targets,
                            destination_path = catalog_config$targets_path,
                            #link_items = stac4cast::generate_group_values(group_values = names(config$variable_groups)),
                            link_items = NULL,
-                           thumbnail_link = catalog_config$forecasts_thumbnail,
-                           thumbnail_title = catalog_config$forecasts_thumbnail_title)
+                           thumbnail_link = catalog_config$targets_thumbnail,
+                           thumbnail_title = catalog_config$targets_thumbnail_title)

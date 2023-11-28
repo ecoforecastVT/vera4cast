@@ -30,30 +30,36 @@ variable_groups:
     variable: ['Chla_ugL_mean','Bloom_binary_mean']
     duration: ['P1D','P1D']
     thumbnail_link: 'https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/bvr_platform_green_close.jpg'
-    thumbnail_title: 'BVRE Algae Bloom'
+    thumbnail_title: 'BVRE Algae Bloom Image'
   Physical:
     variable: ['Temp_C_mean', 'Secchi_m_sample','Temp_C_mean']
     duration: ['P1D','P1D','PT1H']
     thumbnail_link: 'https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/fcr_catwalk.jpg'
-    thumbnail_title: 'NEON Aquatics Buoy'
+    thumbnail_title: 'FCRE Catwalk Image'
   Chemical:
     variable: ['DO_mgL_mean']
     duration: ['P1D']
     thumbnail_link: 'https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/bvr_platform_green.jpg'
-    thumbnail_title: 'NEON Aquatics Buoy'
+    thumbnail_title: 'BVRE Algae Bloom Image'
 catalog_config:
   about_string: 'www.ltreb-reservoirs.org/vera4cast'
   about_title: 'VERA Forecasting Challenge Documentation'
   scores_thumbnail: "https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/bvr_platform.jpg"
-  scores_thumbnail_title: "Falling Creek Reservoir"
+  scores_thumbnail_title: "Beaver Creek Reservoir"
   forecasts_thumbnail: "https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/dashboard/img/banner-2.jpg"
   forecasts_thumbnail_title: "Falling Creek Reservoir"
   forecast_path: 'catalog/forecasts/'
   scores_path: 'catalog/scores/'
   summaries_path: 'catalog/summaries/'
+  summaries_thumbnail: 'https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/bvr_edge.JPG'
+  summaries_thumbnail_title: "BVRE Shore Image"
   inventory_path: 'catalog/inventory/'
+  inventory_thumbnail: 'https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/bvr_dusk.jpg'
+  inventory_thumbnail_title: "BVRE Reservoir Image"
   noaa_path: 'catalog/noaa_forecasts/'
   targets_path: 'catalog/targets/'
+  targets_thumbnail: 'https://github.com/addelany/vera4cast/blob/main/catalog/thumbnail_plots/carvens_full.jpg'
+  targets_thumbnail_title: "CCRE Reservoir Image"
   aws_download_path: 'bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D'
   summaries_download_path: 'bio230121-bucket01/vera4cast/forecasts/summaries/parquet/'
   host_url: "https://www.ecoforecastprojectvt.org"

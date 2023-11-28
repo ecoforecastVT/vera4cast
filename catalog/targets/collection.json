@@ -58,7 +58,7 @@
       "interval": [
         [
           "2013-08-30T00:00:00Z",
-          "2023-11-26T00:00:00Z"
+          "2023-11-27T00:00:00Z"
         ]
       ]
     }
@@ -129,12 +129,12 @@
       "description": "This R code will return results for the relevant targets file.\n\n### R\n\n```{r}\n# Use code below\n\n url <- https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-met-targets.csv.gz\ntargets <- readr::read_csv(url, show_col_types = FALSE)\n```"
     },
     "thumbnail": {
-      "href": "https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/dashboard/img/banner-2.jpg",
+      "href": "https://github.com/addelany/vera4cast/blob/main/catalog/thumbnail_plots/carvens_full.jpg",
       "type": "image/JPEG",
       "roles": [
         "thumbnail"
       ],
-      "title": "Falling Creek Reservoir"
+      "title": "CCRE Reservoir Image"
     }
   }
 }
