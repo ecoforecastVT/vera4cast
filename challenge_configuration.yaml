@@ -29,22 +29,22 @@ variable_groups:
   Biological:
     variable: ['Chla_ugL_mean','Bloom_binary_mean']
     duration: ['P1D','P1D']
-    thumbnail_link: 'https://projects.ecoforecast.org/neon4cast-catalog/img/neon_buoy.jpg'
-    thumbnail_title: 'NEON Aquatics Buoy'
+    thumbnail_link: 'https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/bvr_platform_green_close.jpg'
+    thumbnail_title: 'BVRE Algae Bloom'
   Physical:
     variable: ['Temp_C_mean', 'Secchi_m_sample','Temp_C_mean']
     duration: ['P1D','P1D','PT1H']
-    thumbnail_link: 'https://projects.ecoforecast.org/neon4cast-catalog/img/neon_buoy.jpg'
+    thumbnail_link: 'https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/fcr_catwalk.jpg'
     thumbnail_title: 'NEON Aquatics Buoy'
   Chemical:
     variable: ['DO_mgL_mean']
     duration: ['P1D']
-    thumbnail_link: 'https://projects.ecoforecast.org/neon4cast-catalog/img/neon_buoy.jpg'
+    thumbnail_link: 'https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/bvr_platform_green.jpg'
     thumbnail_title: 'NEON Aquatics Buoy'
 catalog_config:
   about_string: 'www.ltreb-reservoirs.org/vera4cast'
   about_title: 'VERA Forecasting Challenge Documentation'
-  scores_thumbnail: "https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/dashboard/img/banner-2.jpg"
+  scores_thumbnail: "https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/bvr_platform.jpg"
   scores_thumbnail_title: "Falling Creek Reservoir"
   forecasts_thumbnail: "https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/dashboard/img/banner-2.jpg"
   forecasts_thumbnail_title: "Falling Creek Reservoir"
