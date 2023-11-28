@@ -54,11 +54,13 @@ catalog_config:
   summaries_thumbnail: 'https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/bvr_edge.JPG'
   summaries_thumbnail_title: "BVRE Shore Image"
   inventory_path: 'catalog/inventory/'
-  inventory_thumbnail: 'https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/bvr_dusk.jpg'
+  inventory_thumbnail: 'https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/thumbnail_plots/bvr_low.JPG'
   inventory_thumbnail_title: "BVRE Reservoir Image"
   noaa_path: 'catalog/noaa_forecasts/'
+  noaa_thumbnail: 'https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/bvr_dusk.jpg'
+  noaa_thumbnail_title: "CCRE Reservoir Image"
   targets_path: 'catalog/targets/'
-  targets_thumbnail: 'https://github.com/addelany/vera4cast/blob/main/catalog/thumbnail_plots/carvens_full.jpg'
+  targets_thumbnail: 'https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/carvens_full.jpg'
   targets_thumbnail_title: "CCRE Reservoir Image"
   aws_download_path: 'bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D'
   summaries_download_path: 'bio230121-bucket01/vera4cast/forecasts/summaries/parquet/'
