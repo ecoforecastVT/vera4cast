@@ -28,6 +28,11 @@ noaa_description_create <- data.frame(site_id = 'For forecasts that are not on a
 
 noaa_theme_df <- arrow::open_dataset(arrow::s3_bucket(paste0(config$noaa_forecast_bucket,"stage2/parquet/0/2023-08-01/feea"), endpoint_override = config$noaa_endpoint, anonymous = TRUE))
 
+noaa_theme_dates <- arrow::open_dataset(arrow::s3_bucket(paste0(config$noaa_forecast_bucket,"stage2/parquet/"), endpoint_override = config$noaa_endpoint, anonymous = TRUE)) |>
+  dplyr::summarise(min(datetime),max(datetime)) |>
+  collect()
+noaa_min_date <- noaa_theme_dates$`min(datetime)`
+noaa_max_date <- noaa_theme_dates$`max(datetime)`
 
 #filter(model_id == model_id, site_id = site_id, reference_datetime = reference_datetime)
 # NOTE IF NOT USING FILTER -- THE stac4cast::build_table_columns() NEEDS TO BE UPDATED
@@ -51,8 +56,8 @@ build_description <- paste0("NOAA Global Ensemble Forecasting System weather for
 stac4cast::build_forecast_scores(table_schema = noaa_theme_df,
                                  #theme_id = 'Forecasts',
                                  table_description = noaa_description_create,
-                                 start_date = 'pending',
-                                 end_date = 'pending',
+                                 start_date = noaa_min_date,
+                                 end_date = noaa_max_date,
                                  id_value = "noaa-forecasts",
                                  description_string = build_description,
                                  about_string = catalog_config$about_string,
