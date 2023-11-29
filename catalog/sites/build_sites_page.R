@@ -11,7 +11,7 @@ catalog_config <- config$catalog_config
 site_description_create <- data.frame(site = 'unique site name',
                                          site_id = 'unique site identifier',
                                          max_depth_m = 'maximum depth of the site in meters',
-                                         surgace_area_km2 = 'surface area of the site in square kilometers',
+                                         surface_area_km2 = 'surface area of the site in square kilometers',
                                          latitude = 'site latitude',
                                          longitude = 'site longitude')
 
@@ -36,7 +36,7 @@ site_df <- read_csv(config$site_table, show_col_types = FALSE)
 build_description <- paste0("The catalog contains site metadata for the ", config$challenge_long_name)
 
 
-stac4cast::build_targets(table_schema = site_df,
+stac4cast::build_sites(table_schema = site_df,
                          table_description = site_description_create,
                          # start_date = target_min_date,
                          # end_date = target_max_date,
@@ -45,8 +45,8 @@ stac4cast::build_targets(table_schema = site_df,
                          about_string = catalog_config$about_string,
                          about_title = catalog_config$about_title,
                          theme_title = "Site Metadata",
-                         destination_path = catalog_config$site_path,
+                         destination_path = config$site_path,
                          #link_items = stac4cast::generate_group_values(group_values = names(config$variable_groups)),
                          link_items = NULL,
-                         thumbnail_link = catalog_config$site_thumbnail,
-                         thumbnail_title = catalog_config$site_thumbnail_title)
+                         thumbnail_link = config$site_thumbnail,
+                         thumbnail_title = config$site_thumbnail_title)
