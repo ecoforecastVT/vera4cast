@@ -1,6 +1,6 @@
 {
   "id": "targets",
-  "description": "The catalog contains targets for the Virginia Ecoforecast Reservoir Analysis. The targets include insitu target data, inflow target data, and meteorology target data. We provide the code to access the targets as an asset.",
+  "description": "The targets are observations that can be used to evaluate and build forecasts.  We provide the code to access different targets as an asset.",
   "stac_version": "1.0.0",
   "license": "CC0-1.0",
   "stac_extensions": [
@@ -58,7 +58,7 @@
       "interval": [
         [
           "2013-08-30T00:00:00Z",
-          "2023-11-27T00:00:00Z"
+          "2023-11-28T00:00:00Z"
         ]
       ]
     }
@@ -108,7 +108,7 @@
       "roles": [
         "data"
       ],
-      "description": "This R code will return results for the relevant targets file.\n\n### R\n\n```{r}\n# Use code below\n\n url <- https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-insitu-targets.csv.gz\ntargets <- readr::read_csv(url, show_col_types = FALSE)\n```"
+      "description": "This R code will return results for the relevant targets file.\n\n### R\n\n```{r}\n# Use code below\n\nurl <- https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-insitu-targets.csv.gz\ntargets <- readr::read_csv(url, show_col_types = FALSE)\n```"
     },
     "data.1": {
       "href": "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-inflow-targets.csv.gz",
@@ -117,7 +117,7 @@
       "roles": [
         "data"
       ],
-      "description": "This R code will return results for the relevant targets file.\n\n### R\n\n```{r}\n# Use code below\n\n url <- https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-inflow-targets.csv.gz\ntargets <- readr::read_csv(url, show_col_types = FALSE)\n```"
+      "description": "This R code will return results for the relevant targets file.\n\n### R\n\n```{r}\n# Use code below\n\nurl <- https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-inflow-targets.csv.gz\ntargets <- readr::read_csv(url, show_col_types = FALSE)\n```"
     },
     "data.2": {
       "href": "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-met-targets.csv.gz",
@@ -126,7 +126,7 @@
       "roles": [
         "data"
       ],
-      "description": "This R code will return results for the relevant targets file.\n\n### R\n\n```{r}\n# Use code below\n\n url <- https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-met-targets.csv.gz\ntargets <- readr::read_csv(url, show_col_types = FALSE)\n```"
+      "description": "This R code will return results for the relevant targets file.\n\n### R\n\n```{r}\n# Use code below\n\nurl <- https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-met-targets.csv.gz\ntargets <- readr::read_csv(url, show_col_types = FALSE)\n```"
     },
     "thumbnail": {
       "href": "https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/carvens_full.jpg",
