@@ -34,23 +34,6 @@ noaa_theme_dates <- arrow::open_dataset(arrow::s3_bucket(paste0(config$noaa_fore
 noaa_min_date <- noaa_theme_dates$`min(datetime)`
 noaa_max_date <- noaa_theme_dates$`max(datetime)`
 
-#filter(model_id == model_id, site_id = site_id, reference_datetime = reference_datetime)
-# NOTE IF NOT USING FILTER -- THE stac4cast::build_table_columns() NEEDS TO BE UPDATED
-#(USE strsplit(forecast_theme_df$ToString(), "\n") INSTEAD OF strsplit(forecast_theme_df[[1]]$ToString(), "\n"))
-
-## identify model ids from bucket -- used in generate model items function
-# noaa_data_df <- duckdbfs::open_dataset(glue::glue("s3://{config$inventory_bucket}/catalog"),
-#                                            s3_endpoint = config$endpoint, anonymous=TRUE) |>
-#   collect()
-
-# theme_models <- forecast_data_df |>
-#   distinct(model_id)
-
-###  SET TO PENDING FOR NOW
-# noaa_date_range <- noaa_data_df |> dplyr::summarise(min(datetime),max(datetime))
-# noaa_min_date <- noaa_date_range$`min(datetime)`
-# noaa_max_date <- noaa_date_range$`max(datetime)`
-
 build_description <- paste0("NOAA Global Ensemble Forecasting System weather forecasts that have been downloaded and processed for the forecasted sites.")
 
 stac4cast::build_forecast_scores(table_schema = noaa_theme_df,
@@ -90,8 +73,8 @@ for (i in 1:length(config$noaa_forecast_groups)){ ## organize variable groups
 
     stac4cast::build_noaa_forecast(table_schema = noaa_theme_df,
                                    table_description = noaa_description_create,
-                                   start_date = 'pending',
-                                   end_date = 'pending',
+                                   start_date = noaa_min_date,
+                                   end_date = noaa_max_date,
                                    id_value = config$noaa_forecast_groups[i],
                                    description_string = build_description,
                                    about_string = catalog_config$about_string,
