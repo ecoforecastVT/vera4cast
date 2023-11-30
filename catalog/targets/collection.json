@@ -58,7 +58,7 @@
       "interval": [
         [
           "2013-08-30T00:00:00Z",
-          "2023-11-28T00:00:00Z"
+          "2023-11-29T00:00:00Z"
         ]
       ]
     }
@@ -101,33 +101,6 @@
     }
   ],
   "assets": {
-    "data": {
-      "href": "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-insitu-targets.csv.gz",
-      "type": "application/x-parquet",
-      "title": "Insitu Targets Access",
-      "roles": [
-        "data"
-      ],
-      "description": "This R code will return results for the relevant targets file.\n\n### R\n\n```{r}\n# Use code below\n\nurl <- https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-insitu-targets.csv.gz\ntargets <- readr::read_csv(url, show_col_types = FALSE)\n```"
-    },
-    "data.1": {
-      "href": "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-inflow-targets.csv.gz",
-      "type": "application/x-parquet",
-      "title": "Inflow Targets Access",
-      "roles": [
-        "data"
-      ],
-      "description": "This R code will return results for the relevant targets file.\n\n### R\n\n```{r}\n# Use code below\n\nurl <- https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-inflow-targets.csv.gz\ntargets <- readr::read_csv(url, show_col_types = FALSE)\n```"
-    },
-    "data.2": {
-      "href": "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-met-targets.csv.gz",
-      "type": "application/x-parquet",
-      "title": "Meteorology Targets Access",
-      "roles": [
-        "data"
-      ],
-      "description": "This R code will return results for the relevant targets file.\n\n### R\n\n```{r}\n# Use code below\n\nurl <- https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-met-targets.csv.gz\ntargets <- readr::read_csv(url, show_col_types = FALSE)\n```"
-    },
     "thumbnail": {
       "href": "https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/carvens_full.jpg",
       "type": "image/JPEG",
@@ -135,6 +108,24 @@
         "thumbnail"
       ],
       "title": "CCRE Reservoir Image"
+    },
+    "2": {
+      "href": {},
+      "type": "application/x-parquet",
+      "title": " Target Access",
+      "roles": [
+        "data"
+      ],
+      "description": "This R code will return results for the relevant targets file.\n\n### R\n\n```{r}\n# Use code below\n\nurl <- \ntargets <- readr::read_csv(url, show_col_types = FALSE)\n```"
+    },
+    "3": {
+      "href": {},
+      "type": "application/x-parquet",
+      "title": " Target Access",
+      "roles": [
+        "data"
+      ],
+      "description": "This R code will return results for the relevant targets file.\n\n### R\n\n```{r}\n# Use code below\n\nurl <- \ntargets <- readr::read_csv(url, show_col_types = FALSE)\n```"
     }
   }
 }
