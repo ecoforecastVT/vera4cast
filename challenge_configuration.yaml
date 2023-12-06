@@ -24,9 +24,13 @@ site_path: 'catalog/sites'
 target_metadata_gsheet: https://docs.google.com/spreadsheets/d/1fOWo6zlcWA8F6PmRS9AD6n1pf-dTWSsmGKNpaX3yHNE/edit?usp=sharing
 challenge_url: https://www.ltreb-reservoirs.org/vera4cast/
 github_repo: LTREB-reservoirs/vera4cast
-insitu_targets_file: "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-insitu-targets.csv.gz"
-inflow_targets_file: "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-inflow-targets.csv.gz"
-met_targets_file: "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-met-targets.csv.gz"
+target_groups:
+  Insitu:
+    targets_file: "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-insitu-targets.csv.gz"
+  Inflow:
+    targets_file: "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-inflow-targets.csv.gz"
+  Met:
+    targets_file: "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-met-targets.csv.gz"
 noaa_forecast_groups: ['Pseudo','Stage1-stats','Stage1','Stage2','Stage3']
 noaa_forecast_group_paths: ['pseudo','stage1-stats','stage1','stage2','stage3']
 variable_groups:
