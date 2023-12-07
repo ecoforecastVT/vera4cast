@@ -57,7 +57,7 @@ stac4cast::build_forecast_scores(table_schema = noaa_theme_df,
 ## BUILD VARIABLE GROUPS
 ## find group sites
 find_noaa_sites <- read_csv(config$site_table) |>
-  distinct(field_site_id)
+  distinct(site_id)
 
 for (i in 1:length(config$noaa_forecast_groups)){ ## organize variable groups
   print(config$noaa_forecast_groups[i])
