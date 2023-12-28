@@ -23,7 +23,7 @@
   "properties": {
     "description": "\nmodel info: fable package exponential smoothing model fable::ETS()\n\nSites: bvre, fcre\n\nVariables: Daily Bloom_binary, Daily Chlorophyll-a",
     "start_datetime": "2023-10-01",
-    "end_datetime": "2023-12-26",
+    "end_datetime": "2023-12-27",
     "providers": [
       {
         "url": "pending",
