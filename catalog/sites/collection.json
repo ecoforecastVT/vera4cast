@@ -106,7 +106,7 @@
       "description": "This R code will return results for the site metadata.\n\n### R\n\n```{r}\n# Use code below\n\nurl <- https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/vera4cast_field_site_metadata.csv\nsites <- readr::read_csv(url, show_col_types = FALSE)\n```"
     },
     "thumbnail": {
-      "href": "https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/dashboard/img/banner-2.jpg",
+      "href": "https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/thumbnail_plots/fcr_scenic.jpg",
       "type": "image/JPEG",
       "roles": [
         "thumbnail"
