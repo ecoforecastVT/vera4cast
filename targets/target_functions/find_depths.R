@@ -124,8 +124,7 @@ find_depths <- function(data_file, # data_file = the file of most recent data ei
       tidyr::pivot_wider(id_cols =  c(Reservoir, Site, DateTime), names_from = c("variable", "units", "Position"),
                          names_sep = "_",
                          values_from = "observation",
-                         values_fill = NA) |>
-      select(Reservoir:ThermistorTemp_C_10, ThermistorTemp_C_11:ThermistorTemp_C_13, RDO_mgL_6:LvlTemp_C_13)
+                         values_fill = NA)
 
     # Add the columns that were cut
 
@@ -140,7 +139,8 @@ find_depths <- function(data_file, # data_file = the file of most recent data ei
     # merge the two files together to get a file that looks like the one you started with except the observations above the
     # water are removed
 
-    final_depths <- merge(final_Temp,oth_sensors, by=(c("Reservoir", "Site", "DateTime")))
+    final_depths <- merge(final_Temp,oth_sensors, by=(c("Reservoir", "Site", "DateTime"))) |>
+      select(colnames(data))
 
 
   } else{
