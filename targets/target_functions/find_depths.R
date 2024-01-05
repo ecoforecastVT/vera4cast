@@ -134,7 +134,7 @@ find_depths <- function(data_file, # data_file = the file of most recent data ei
              starts_with("Flag"),
              contains("Depth"),
              starts_with("RECORD"),
-             starts_with("CR6"))
+             starts_with("CR"))
 
     # merge the two files together to get a file that looks like the one you started with except the observations above the
     # water are removed
