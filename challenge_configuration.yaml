@@ -35,8 +35,8 @@ noaa_forecast_groups: ['Pseudo','Stage1-stats','Stage1','Stage2','Stage3']
 noaa_forecast_group_paths: ['pseudo','stage1-stats','stage1','stage2','stage3']
 variable_groups:
   Biological:
-    variable: ['Chla_ugL_mean','Bloom_binary_mean']
-    duration: ['P1D','P1D']
+    variable: ['Chla_ugL_mean','Bloom_binary_mean', 'Chla_ugL_mean']
+    duration: ['P1D','P1D', 'PT1H']
     thumbnail_link: 'https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/bvr_platform_green_close.jpg'
     thumbnail_title: 'BVRE Algae Bloom Image'
   Physical:

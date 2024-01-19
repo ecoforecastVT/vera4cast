@@ -23,7 +23,7 @@
     {
       "rel": "child",
       "type": "application/json",
-      "href": "Daily_Chlorophyll-a/collection.json"
+      "href": "Hourly_Chlorophyll-a/collection.json"
     },
     {
       "rel": "parent",
