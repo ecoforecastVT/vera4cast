@@ -149,7 +149,7 @@ for (m in theme_models$model_id){
                          site_table = catalog_config$site_metadata_url,
                          model_documentation = registered_model_id,
                          destination_path = paste0(catalog_config$summaries_path,"models/model_items"),
-                         aws_download_path = config$summaries_bucket, # CHANGE THIS BUCKET NAME
+                         aws_download_path = config$scores_bucket, # USE SCORES BUCKET FOR MODELS
                          collection_name = 'forecasts',
                          thumbnail_image_name = NULL,
                          table_schema = summaries_theme_df,

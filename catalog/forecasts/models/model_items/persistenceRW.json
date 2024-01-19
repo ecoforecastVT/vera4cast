@@ -23,7 +23,11 @@
   "properties": {
     "description": "\nmodel info: Random walk from the fable package with ensembles used to represent uncertainty\n\nSites: bvre, fcre\n\nVariables: Daily Water_temperature, Daily Chlorophyll-a",
     "start_datetime": "2023-09-21",
+<<<<<<< HEAD
     "end_datetime": "2024-02-23",
+=======
+    "end_datetime": "2024-02-22",
+>>>>>>> 5973deff48e70b919feee045a09d25e00b371689
     "providers": [
       {
         "url": "pending",
