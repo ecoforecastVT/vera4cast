@@ -170,7 +170,7 @@ for (m in theme_models$model_id){
               site_table = catalog_config$site_metadata_url,
               model_documentation = registered_model_id,
               destination_path = paste0(catalog_config$forecast_path,"models/model_items"),
-              aws_download_path = config$forecasts_bucket, # CHANGE THIS BUCKET NAME
+              aws_download_path = catalog_config$aws_download_path_forecasts, # CHANGE THIS BUCKET NAME
               collection_name = 'forecasts',
               thumbnail_image_name = NULL,
               table_schema = forecast_theme_df,
@@ -232,7 +232,7 @@ for (i in 1:length(config$variable_groups)){ ## organize variable groups
       arrange(duration)
 
     var_name_full <- var_gsheet_arrange[which(var_gsheet_arrange$`"official" targets name` %in% var_values),1][[1]]
-
+    #var_name_full <- var_gsheet_arrange[which(var_gsheet_arrange$`"official" targets name` %in% var_name),1][[1]]
 
     ## create new vector to store duration names
     duration_values <- config$variable_groups[[i]]$duration
@@ -240,15 +240,20 @@ for (i in 1:length(config$variable_groups)){ ## organize variable groups
     duration_values[which(duration_values == 'PT1H')] <- 'Hourly'
     duration_values[which(duration_values == 'PT30M')] <- '30min'
     duration_values[which(duration_values == 'P1W')] <- 'Weekly'
+    print(duration_values)
 
     #var_name_combined_list <- paste0(var_values, '_',duration_values)
     #var_name_combined_list <- paste0(duration_values,' ',var_name_full)
     var_name_combined_list <- paste0(duration_values,'_',var_name_full)
 
-    if (length(unique(var_name_combined_list)) == 1){
+    if (length(duration_values) != length(var_name_full)){
+      print('Duplicate variable names found in gsheet')
       var_name_combined_list <- unique(var_name_combined_list)
     }
 
+    # if (length(unique(var_name_combined_list)) == 1){
+    #   var_name_combined_list <- unique(var_name_combined_list)
+    # }
 
     ## CREATE VARIABLE GROUP JSONS
     group_description <- paste0('This page includes variables for the ',names(config$variable_groups[i]),' group.')

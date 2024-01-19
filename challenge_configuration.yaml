@@ -35,8 +35,8 @@ noaa_forecast_groups: ['Pseudo','Stage1-stats','Stage1','Stage2','Stage3']
 noaa_forecast_group_paths: ['pseudo','stage1-stats','stage1','stage2','stage3']
 variable_groups:
   Biological:
-    variable: ['Chla_ugL_mean','Bloom_binary_mean', 'Chla_ugL_mean']
-    duration: ['P1D','P1D', 'PT1H']
+    variable: ['Chla_ugL_mean','Bloom_binary_mean']
+    duration: ['P1D','P1D']
     thumbnail_link: 'https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/bvr_platform_green_close.jpg'
     thumbnail_title: 'BVRE Algae Bloom Image'
   Physical:
@@ -70,8 +70,9 @@ catalog_config:
   targets_path: 'catalog/targets/'
   targets_thumbnail: 'https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/carvens_full.jpg'
   targets_thumbnail_title: "CCRE Reservoir Image"
-  aws_download_path: 'bio230121-bucket01/vera4cast/forecasts/parquet/duration=P1D'
-  summaries_download_path: 'bio230121-bucket01/vera4cast/forecasts/summaries/parquet/'
+  aws_download_path_forecasts: 'bio230121-bucket01/challenges/forecasts/parquet/'
+  aws_download_path_scores: 'bio230121-bucket01/challenges/scores/parquet/'
+  summaries_download_path: 'bio230121-bucket01/challenges/forecasts/summaries/'
   host_url: "https://www.ecoforecastprojectvt.org"
   host_name: "Ecoforecast Challenge"
   bbox:
