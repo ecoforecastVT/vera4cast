@@ -70,9 +70,9 @@ catalog_config:
   targets_path: 'catalog/targets/'
   targets_thumbnail: 'https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/carvens_full.jpg'
   targets_thumbnail_title: "CCRE Reservoir Image"
-  aws_download_path_forecasts: 'bio230121-bucket01/challenges/forecasts/parquet/'
-  aws_download_path_scores: 'bio230121-bucket01/challenges/scores/parquet/'
-  summaries_download_path: 'bio230121-bucket01/challenges/forecasts/summaries/'
+  aws_download_path_forecasts: 'bio230121-bucket01/vera4cast/forecasts/parquet/'
+  aws_download_path_scores: 'bio230121-bucket01/vera4cast/scores/parquet/'
+  summaries_download_path: 'bio230121-bucket01/vera4cast/forecasts/summaries/'
   host_url: "https://www.ecoforecastprojectvt.org"
   host_name: "Ecoforecast Challenge"
   bbox:
