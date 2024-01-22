@@ -11,6 +11,7 @@ s3_hourly <- arrow::s3_bucket("bio230121-bucket01/vera4cast/targets/project_id=v
 column_names <- c("project_id", "site_id","datetime","duration", "depth_m","variable","observation")
 
 ## EXO
+print('EXO')
 source('targets/target_functions/target_generation_exo_daily.R')
 fcr_files <- c("https://pasta.lternet.edu/package/data/eml/edi/271/7/71e6b946b751aa1b966ab5653b01077f",
                "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv")
@@ -28,6 +29,7 @@ exo_daily$project_id <- 'vera4cast'
 
 
 ## FLUOROPROBE
+print('Thermistor')
 source('targets/target_functions/target_generation_FluoroProbe.R')
 historic_data <- "https://portal.edirepository.org/nis/dataviewer?packageid=edi.272.7&entityid=001cb516ad3e8cbabe1fdcf6826a0a45"
 current_data <- "https://raw.githubusercontent.com/CareyLabVT/Reservoirs/master/Data/DataNotYetUploadedToEDI/Raw_fluoroprobe/fluoroprobe_L1.csv"
@@ -40,7 +42,8 @@ fluoro_daily$project_id <- 'vera4cast'
 ### TEMP STRING
 source('targets/target_functions/target_generation_ThermistorTemp_C_daily.R')
 
-# FCR
+#
+print('FCR Thermistor')
 fcr_latest <- "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv"
 fcr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/271/7/71e6b946b751aa1b966ab5653b01077f"
 
@@ -49,6 +52,7 @@ fcr_thermistor_temp_daily$duration <- 'P1D'
 fcr_thermistor_temp_daily$project_id <- 'vera4cast'
 
 # BVR
+print('BVR Thermistor')
 bvr_latest <- "https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-platform-data-qaqc/bvre-waterquality_L1.csv"
 bvr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/725/3/a9a7ff6fe8dc20f7a8f89447d4dc2038"
 
@@ -58,6 +62,7 @@ bvr_thermistor_temp_daily$project_id <- 'vera4cast'
 
 
 #Secchi
+print('Secchi')
 source('targets/target_functions/target_generation_daily_secchi_m.R')
 current = "https://raw.githubusercontent.com/CareyLabVT/Reservoirs/master/Data/DataNotYetUploadedToEDI/Secchi/secchi_L1.csv"
 edi = "https://pasta.lternet.edu/package/data/eml/edi/198/11/81f396b3e910d3359907b7264e689052"
@@ -94,6 +99,7 @@ arrow::write_csv_arrow(combined_targets_deduped, sink = s3_daily$path("daily-ins
 
 
 ## INFLOWS
+print('Inflows')
 source('targets/target_functions/inflow/target_generation_inflows.R')
 
 current_inflow <- 'https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-weir-data-qaqc/FCRWeir_L1.csv'
@@ -119,6 +125,7 @@ arrow::write_csv_arrow(inflow_daily, sink = s3_daily$path("daily-inflow-targets.
 
 
 # MET TARGETS
+print('Met Targets')
 current_met <- 'https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-metstation-data-qaqc/FCRmet_L1.csv'
 historic_met <- 'https://pasta.lternet.edu/package/data/eml/edi/389/7/02d36541de9088f2dd99d79dc3a7a853'
 
