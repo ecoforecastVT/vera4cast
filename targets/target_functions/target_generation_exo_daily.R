@@ -164,3 +164,6 @@ target_generation_exo_daily <- function (fcr_files,
 
   #return(comb_sum)
 }
+
+## Call healthcheck
+RCurl::url.exists("https://hc-ping.com/04dde6b2-a5f1-4a33-811b-3386cf84d4f9", timeout = 5)

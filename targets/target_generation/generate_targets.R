@@ -144,3 +144,7 @@ met_hourly <- met_hourly |>
   select(all_of(column_names))
 
 arrow::write_csv_arrow(met_hourly, sink = s3_hourly$path("hourly-met-targets.csv.gz"))
+
+
+## Call healthcheck
+RCurl::url.exists("https://hc-ping.com/04dde6b2-a5f1-4a33-811b-3386cf84d4f9", timeout = 5)
