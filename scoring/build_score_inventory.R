@@ -25,3 +25,7 @@ s3_inventory <- arrow::s3_bucket(config$inventory_bucket,
                                  secret_key = Sys.getenv("OSN_SECRET"))
 
 arrow::write_dataset(inventory_df, path = s3_inventory$path(glue::glue("catalog/scores/project_id={config$project_id}")))
+
+
+## Call healthcheck
+RCurl::url.exists("https://hc-ping.com/f8f2bb0b-51ac-40ff-bf61-d31a3cea3d29", timeout = 5)

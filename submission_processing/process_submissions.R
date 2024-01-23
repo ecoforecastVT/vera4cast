@@ -182,3 +182,7 @@ if(length(submissions) > 0){
 unlink(local_dir, recursive = TRUE)
 
 message(paste0("Completed Processing Submissions ", Sys.time()))
+
+## Call healthcheck
+RCurl::url.exists("https://hc-ping.com/29cf0694-f351-4671-a71f-f9805a64ded6", timeout = 5)
+

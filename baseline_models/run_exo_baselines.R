@@ -400,3 +400,6 @@ vera4castHelpers::submit(forecast_file = forecast_file,
 
 unlink(forecast_file)
 
+
+## Call healthcheck
+RCurl::url.exists("https://hc-ping.com/d9e543eb-5d48-4859-ba81-cf712d16f24b", timeout = 5)
