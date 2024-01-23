@@ -28,11 +28,21 @@ target_generation_exo_daily <- function (fcr_files,
                   sampledate = as.Date(DateTime))
 
   # Load BVR data
-  bvr_df <- readr::read_csv(bvr_files, show_col_types = FALSE) |>
+  bvr_current <- readr::read_csv(bvr_files[1], show_col_types = FALSE) |>
     dplyr::mutate(site_id = "bvre",
                   DateTime = lubridate::force_tz(DateTime, tzone = "EST"),
                   DateTime = lubridate::with_tz(DateTime, tzone = "UTC"),
                   sampledate = as.Date(DateTime))
+
+  bvr_historical <- readr::read_csv(bvr_files[2], show_col_types = FALSE) |>
+    dplyr::mutate(site_id = "bvre",
+                  DateTime = lubridate::force_tz(DateTime, tzone = "EST"),
+                  DateTime = lubridate::with_tz(DateTime, tzone = "UTC"),
+                  sampledate = as.Date(DateTime)) |>
+    dplyr::rename(LvlDepth_m_13 = Depth_m_13)
+
+  bvr_df <- dplyr::bind_rows(bvr_current, bvr_historical)
+
 
 
   ## only use complete days (remove only partially sampled days) # 144 sample events per day (6*24)
