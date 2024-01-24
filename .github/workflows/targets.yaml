@@ -22,5 +22,4 @@ jobs:
       - name: Generate targets
         shell: Rscript {0}
         run: |
-          install.packages("RCurl")
           source("targets/target_generation/generate_targets.R")

@@ -32,5 +32,4 @@ jobs:
       - name: Update inventory
         shell: Rscript {0}
         run: |
-          install.packages("RCurl")
           source("scoring/build_score_inventory.R")

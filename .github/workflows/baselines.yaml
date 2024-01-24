@@ -29,5 +29,4 @@ jobs:
       - name: Generate forecasts
         shell: Rscript {0}
         run: |
-          install.packages("RCurl")
           source("baseline_models/run_exo_baselines.R")
