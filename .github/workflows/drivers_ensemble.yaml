@@ -21,5 +21,4 @@ jobs:
       - name: Download
         shell: Rscript {0}
         run: |
-          install.packages("RCurl")
           source("drivers/ensemble_forecasts.R")
