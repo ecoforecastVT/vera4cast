@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: '0 4 * * *'
   workflow_dispatch:
-  
+
 name: seasonal_forecast_download
 jobs:
   seasonal:
@@ -20,4 +20,5 @@ jobs:
       - name: Download
         shell: Rscript {0}
         run: |
+          install.packages("RCurl")
           source("drivers/seasonal.R")
