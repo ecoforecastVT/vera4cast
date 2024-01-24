@@ -1,4 +1,5 @@
 library(tidyverse)
+library(RCurl)
 
 ## set destination s3 paths
 s3 <- arrow::s3_bucket("bio230121-bucket01", endpoint_override = "renc.osn.xsede.org")
