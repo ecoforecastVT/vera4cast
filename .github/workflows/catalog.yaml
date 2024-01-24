@@ -37,7 +37,9 @@ jobs:
 
       - name: Render
         shell: Rscript {0}
-        run: source("catalog/update_stac.R")
+        run: |
+         install.packages("RCurl")
+         source("catalog/update_stac.R")
 
       - name: Commit and Push
         run: |

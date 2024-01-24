@@ -31,4 +31,5 @@ jobs:
       - name: Process submissions
         shell: Rscript {0}
         run: |
+          install.packages("RCurl")
           source("submission_processing/process_submissions.R")
