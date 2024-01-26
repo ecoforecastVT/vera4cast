@@ -161,3 +161,7 @@ furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, con
 },
 variable_duration,  config, endpoint
 )
+
+## Call healthcheck
+RCurl::url.exists("https://hc-ping.com/931decf3-9674-4498-a2fc-938a4321ea2e", timeout = 5)
+

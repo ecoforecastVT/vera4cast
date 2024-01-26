@@ -149,7 +149,7 @@ for (m in theme_models$model_id){
                          site_table = catalog_config$site_metadata_url,
                          model_documentation = registered_model_id,
                          destination_path = paste0(catalog_config$summaries_path,"models/model_items"),
-                         aws_download_path = config$summaries_bucket, # CHANGE THIS BUCKET NAME
+                         aws_download_path = catalog_config$summaries_download_path, # USE SCORES BUCKET FOR MODELS
                          collection_name = 'forecasts',
                          thumbnail_image_name = NULL,
                          table_schema = summaries_theme_df,
@@ -225,9 +225,14 @@ for (i in 1:length(config$variable_groups)){ ## organize variable groups
     #var_name_combined_list <- paste0(duration_values,' ',var_name_full)
     var_name_combined_list <- paste0(duration_values,'_',var_name_full)
 
-    if (length(unique(var_name_combined_list)) == 1){
+    if (length(duration_values) != length(var_name_full)){
+      print('Duplicate variable names found in gsheet')
       var_name_combined_list <- unique(var_name_combined_list)
     }
+
+    # if (length(unique(var_name_combined_list)) == 1){
+    #   var_name_combined_list <- unique(var_name_combined_list)
+    # }
 
 
     ## CREATE VARIABLE GROUP JSONS
