@@ -19,7 +19,8 @@ generate_target_climatology <- function(targets, # a dataframe already read in
   target_clim <- targets %>%
     filter(variable %in% var,
            depth_m %in% target_depths,
-           site_id %in% site) %>%
+           site_id %in% site,
+           datetime < forecast_date) %>%
     mutate(doy = yday(datetime)) %>%
     group_by(doy, site_id, variable, depth_m) %>%
     summarise(clim_mean = mean(observation, na.rm = TRUE),
