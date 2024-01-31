@@ -1,78 +1,102 @@
 
 # Function carry out a random walk forecast
-RW_daily_forecast <- function(site, var, h,
-                        bootstrap = FALSE, boot_number = 200, 
-                        transformation = 'none', verbose = TRUE,...) {
+generate_target_persistenceRW <- function(targets,
+                                          site,
+                                          var,
+                                          forecast_date = Sys.Date(),
+                                          model_id = 'persistenceRW',
+                                          h,
+                                          depth = 'target',
+                                          bootstrap = FALSE,
+                                          boot_number = 200, ...) {
+
+
+  if (depth == 'target') {
+    # only generates forecasts for target depths
+    target_depths <- c(1.5, 1.6, NA)
+  } else {
+    target_depths <- depth
+  }
+
+  targets_ts <- targets |>
+    mutate(datetime = lubridate::as_date(datetime)) |>
+    filter(variable %in% var,
+           site_id %in% site,
+           depth_m %in% target_depths,
+           datetime < forecast_date) |>
+    group_by(variable, site_id, depth_m, duration, project_id, datetime) |>
+    summarise(observation = mean(observation), .groups = 'drop') |>  # get rid of the repeat observations by finding the mean
+    as_tsibble(key = c('variable', 'site_id', 'depth_m', 'duration', 'project_id'), index = 'datetime') |>
+    # add NA values up to today (index)
+    fill_gaps(.end = forecast_date)
+
+
   # Work out when the forecast should start
   forecast_starts <- targets %>%
-    dplyr::filter(!is.na(observation) & site_id == site & variable == var) %>%
+    dplyr::filter(!is.na(observation) & site_id == site & variable == var & datetime < forecast_date) %>%
     # Start the day after the most recent non-NA value
-    dplyr::summarise(start_date = max(datetime) + lubridate::days(1)) %>% # Date
-    dplyr::mutate(h = (Sys.Date() - start_date) + h) %>% # Horizon value
+    dplyr::summarise(start_date = as_date(max(datetime)) + lubridate::days(1)) %>% # Date
+    dplyr::mutate(h = (forecast_date - start_date) + h) %>% # Horizon value
     dplyr::ungroup()
-  
-  if (verbose == T) {
-    message(
-      site,
-      ' ',
-      var,
-      ' forecast with transformation = ',
-      transformation,
-      ' and bootstrap = ',
-      bootstrap
-    )
-  }
-  
+
   # filter the targets data set to the site_var pair
-  targets_use <- targets %>%
-    dplyr::filter(site_id == site,
-           variable == var) %>%
-    tsibble::as_tsibble(key = c('variable', 'site_id'), index = 'datetime') %>%
-    # add NA values up to today (index)
-    tsibble::fill_gaps(.end = Sys.Date()) %>%
-    # Remove the NA's put at the end, so that the forecast starts from the last day with an observation,
-    # rather than today
+  targets_use <- targets_ts |>
     dplyr::filter(datetime < forecast_starts$start_date)
-  
+
   if (nrow(targets_use) == 0) {
-    message('no targets available, no forecast run')
+    message(paste0('no targets available, no forecast run for ', site, ' ', var, '. Check site_id and variable name'))
     empty_df <- data.frame('variable' = character(),
-                            'site_id' = character(),
-                            '.model' = character(),
-                             'datetime' = lubridate::ymd(),
-                            '.rep' = character(),
-                            '.sim' = numeric())
-    
+                           'site_id' = character(),
+                           '.model' = character(),
+                           'datetime' = lubridate::ymd(),
+                           '.rep' = character(),
+                           '.sim' = numeric())
+
     return(empty_df)
-    
+
   } else {
-    if (transformation == 'log') {
-      RW_model <- targets_use %>%
-        fabletools::model(RW = fable::RW(log(observation)))
-    }
-    if (transformation == 'log1p') {
-      RW_model <- targets_use %>%
-        fabletools::model(RW = fable::RW(log1p(observation)))
-    }
-    if (transformation == 'none') {
-      RW_model <- targets_use %>%
-        fabletools::model(RW = fable::RW(observation))
-    }
-    if (transformation == 'sqrt') {
-      RW_model <- targets_use %>%
-        fabletools::model(RW = fable::RW(sqrt(observation)))
-    }
-    
+
+    RW_model <- targets_use %>%
+      fabletools::model(RW = fable::RW(observation))
+
+
     if (bootstrap == T) {
-      forecast <- RW_model %>% fabletools::generate(
-          h = as.numeric(forecast_starts$h),
-          bootstrap = T,
-          times = boot_number
-        )
-    }  else
+      forecast <- RW_model %>%
+        fabletools::generate(h = as.numeric(forecast_starts$h),
+                             bootstrap = T,
+                             times = boot_number) |>
+        rename(paramter = .rep,
+               prediction = .sim) |>
+        mutate(model_id = model_id,
+               family = 'ensemble')  |>
+        select(any_of(c("model_id", "datetime", "reference_datetime","site_id", "variable", "family",
+                        "parameter", "prediction", "project_id", "duration" )))|>
+        select(-any_of('.model'))|>
+        filter(datetime > reference_datetime)
+
+      return(forecast)
+
+    }  else {
+      # don't use bootstrapping
       forecast <- RW_model %>% fabletools::forecast(h = as.numeric(forecast_starts$h))
-    message('forecast finished')
-    return(forecast)
+
+      # extract parameters
+      parameters <- distributional::parameters(forecast$observation)
+
+      # make right format
+      forecast <- bind_cols(forecast, parameters) |>
+        pivot_longer(mu:sigma,
+                     names_to = 'parameter',
+                     values_to = 'prediction') |>
+        mutate(model_id = model_id,
+               family = 'normal',
+               reference_datetime=forecast_date) |>
+        select(all_of(c("model_id", "datetime", "reference_datetime","site_id", "variable", "family",
+                        "parameter", "prediction", "project_id", "duration" ))) |>
+        select(-any_of('.model')) |>
+        filter(datetime > reference_datetime)
+      return(forecast)
+    }
+
   }
-  
 }
