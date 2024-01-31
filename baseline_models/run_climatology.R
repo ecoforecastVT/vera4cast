@@ -55,3 +55,21 @@ climatology_insitu <- purrr::pmap_dfr(site_var_combinations,
 
 # combine and submit
 combined_climatology <- bind_rows(climatology_met, climatology_inflow, climatology_insitu)
+
+# 4. Write forecast file
+file_date <- combined_climatology$reference_datetime[1]
+
+forecast_file <- paste0(paste("daily", file_date, team_name, sep = "-"), ".csv.gz")
+
+write_csv(combined_climatology, forecast_file)
+
+combined_climatology %>%
+  pivot_wider(names_from = parameter, values_from = prediction) |>
+  ggplot(aes(x = datetime, y = mu)) +
+  geom_line() +
+  geom_ribbon(aes(ymax = mu+sigma, ymin = mu-sigma), alpha = 0.3, fill = 'blue') +
+  facet_grid(variable~site_id, scales = 'free')
+
+# vera4castHelpers::submit(forecast_file = forecast_file,
+#                          ask = FALSE,
+#                          first_submission = FALSE)
