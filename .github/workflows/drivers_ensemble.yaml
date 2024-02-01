@@ -22,3 +22,7 @@ jobs:
         shell: Rscript {0}
         run: |
           source("drivers/ensemble_forecasts.R")
+
+      - name: Healthcheck
+        run: |
+          curl -m 10 --retry 5 https://hc-ping.com/09ad92fc-a41c-496d-96c2-94974dc2dfdb
