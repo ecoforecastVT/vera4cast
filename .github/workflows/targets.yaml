@@ -24,7 +24,7 @@ jobs:
         run: |
           source("targets/target_generation/generate_targets.R")
 
-     - name: Healthcheck
+      - name: Healthcheck
         run: |
           sudo apt-get update
           sudo apt-get install -y curl
