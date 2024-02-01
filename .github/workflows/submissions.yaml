@@ -31,4 +31,6 @@ jobs:
       - name: Process submissions
         shell: Rscript {0}
         run: |
+          sudo apt-get update
+          sudo apt-get install -y curl
           source("submission_processing/process_submissions.R")
