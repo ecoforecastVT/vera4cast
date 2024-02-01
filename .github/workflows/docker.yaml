@@ -26,3 +26,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/vera-rocker:latest
           build-args: GITHUB_PAT=${{ secrets.PAT }}
+
+      - name: Healthcheck
+        run: |
+          curl -m 10 --retry 5 https://hc-ping.com/6606d412-aaa1-4778-9424-3971a54a7ba1

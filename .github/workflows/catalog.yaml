@@ -49,3 +49,6 @@ jobs:
           git commit -a -m "update catalog" || echo "nothing to commit"
           git push https://${GITHUB_PAT}:${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}
 
+      - name: Healthcheck
+        run: |
+          curl -m 10 --retry 5 https://hc-ping.com/296326f1-30e9-48ee-ad04-d0eaceb4748d
