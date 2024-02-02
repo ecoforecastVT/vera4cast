@@ -6,7 +6,7 @@ library(aws.s3)
 library(imputeTS)
 library(tsibble)
 library(fable)
-source('R/climatology_functions.R')
+source('R/ClimatologyModelFunction.R')
 
 #' set the random number for reproducible MCMC runs
 set.seed(329)
@@ -70,6 +70,8 @@ combined_climatology %>%
   geom_ribbon(aes(ymax = mu+sigma, ymin = mu-sigma), alpha = 0.3, fill = 'blue') +
   facet_grid(variable~site_id, scales = 'free')
 
-# vera4castHelpers::submit(forecast_file = forecast_file,
-#                          ask = FALSE,
-#                          first_submission = FALSE)
+vera4castHelpers::submit(forecast_file = forecast_file,
+                         ask = FALSE,
+                         first_submission = FALSE)
+
+unlink(forecast_file)

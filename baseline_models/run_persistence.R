@@ -22,7 +22,7 @@ targets_tubr <- readr::read_csv(paste0("https://", config$endpoint, "/", config$
 sites <- readr::read_csv(config$site_table, show_col_types = FALSE)
 site_names <- sites$site_id
 
-# Runs the RW forecast for each combination of variable and site_id
+# Runs the RW forecast for inflow variables
 persistenceRW_inflow <- purrr::map_dfr(.x = c('Flow_cms_mean', 'Temp_C_mean'),
                                        .f = ~ generate_target_persistenceRW(targets = targets_tubr,
                                                                             h = 35,
@@ -33,6 +33,7 @@ persistenceRW_inflow <- purrr::map_dfr(.x = c('Flow_cms_mean', 'Temp_C_mean'),
                                                                             var = .x,
                                                                             ...))
 
+# met variables
 persistenceRW_met <- generate_target_persistenceRW(targets = targets_met,
                                                    h = 35,
                                                    model_id = 'persistenceRW',
@@ -42,6 +43,7 @@ persistenceRW_met <- generate_target_persistenceRW(targets = targets_met,
                                                    var = "AirTemp_C_mean")
 
 
+# Insitu variables
 # get all combinations
 site_var_combinations <- expand.grid(var = c('DO_mgL_mean',
                                              'DOsat_percent_mean',
@@ -60,7 +62,7 @@ persistenceRW_insitu <- purrr::pmap_dfr(site_var_combinations,
 # combine and submit
 combined_persistenceRW <- bind_rows(persistenceRW_inflow, persistenceRW_insitu, persistenceRW_met)
 
-# 4. Write forecast file
+# write forecast file
 file_date <- combined_persistenceRW$reference_datetime[1]
 
 forecast_file <- paste0(paste("daily", file_date, team_name, sep = "-"), ".csv.gz")
