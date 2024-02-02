@@ -87,7 +87,9 @@ generate_target_persistenceRW <- function(targets,
         select(all_of(c("model_id", "datetime", "reference_datetime","site_id", "variable", "family",
                         "parameter", "prediction", "project_id", "duration" ))) |>
         select(-any_of('.model')) |>
-        filter(datetime > reference_datetime)
+        filter(datetime > reference_datetime) |>
+        ungroup() |>
+        as_tibble()
       return(forecast)
     }
 

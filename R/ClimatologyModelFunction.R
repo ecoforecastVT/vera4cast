@@ -95,7 +95,9 @@ generate_target_climatology <- function(targets, # a dataframe already read in
                model_id = model_id) |>
         select(model_id, datetime, reference_datetime, site_id, variable, family, parameter, prediction) |>
         mutate(project_id = "vera4cast",
-               duration = "P1D")
+               duration = "P1D") |>
+        ungroup() |>
+        as_tibble()
 
       message('climatology generated')
       return(combined)
