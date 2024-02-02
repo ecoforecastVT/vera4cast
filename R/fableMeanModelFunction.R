@@ -8,6 +8,7 @@ generate_target_mean <- function(targets, # a dataframe already read in
                                  forecast_date = Sys.Date(),
                                  bootstrap = F,
                                  boot_number = 200) {
+  message('Generating historic mean forecast for ',  var, ' at ', site)
 
   if (depth == 'target') {
     # only generates forecasts for target depths
