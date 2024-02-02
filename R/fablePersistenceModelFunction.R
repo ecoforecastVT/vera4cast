@@ -45,14 +45,9 @@ generate_target_persistenceRW <- function(targets,
 
   if (nrow(targets_use) == 0) {
     message(paste0('no targets available, no forecast run for ', site, ' ', var, '. Check site_id and variable name'))
-    empty_df <- data.frame('variable' = character(),
-                           'site_id' = character(),
-                           '.model' = character(),
-                           'datetime' = lubridate::ymd(),
-                           '.rep' = character(),
-                           '.sim' = numeric())
 
-    return(empty_df)
+
+    return(NULL)
 
   } else {
 
