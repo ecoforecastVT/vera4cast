@@ -15,7 +15,7 @@ config <- yaml::read_yaml("challenge_configuration.yaml")
 team_name <- "climatology"
 
 # where are the relevant targets?
-targets <- readr::read_csv(paste0("https://", config$endpoint, "/", config$targets_bucket, "/project_id=vera4cast/duration=P1D/daily-insitu-targets.csv.gz"), guess_max = 10000)
+targets_insitu <- readr::read_csv(paste0("https://", config$endpoint, "/", config$targets_bucket, "/project_id=vera4cast/duration=P1D/daily-insitu-targets.csv.gz"), guess_max = 10000)
 targets_met <- readr::read_csv(paste0("https://", config$endpoint, "/", config$targets_bucket, "/project_id=vera4cast/duration=P1D/daily-met-targets.csv.gz"), guess_max = 10000, show_col_types = FALSE)
 targets_tubr <- readr::read_csv(paste0("https://", config$endpoint, "/", config$targets_bucket, "/project_id=vera4cast/duration=P1D/daily-inflow-targets.csv.gz"), guess_max = 10000, show_col_types = FALSE)
 
@@ -47,7 +47,7 @@ site_var_combinations <- expand.grid(var = c('DO_mgL_mean',
                                               'bvre'))
 
 climatology_insitu <- purrr::pmap_dfr(site_var_combinations,
-                                      .f = ~ generate_target_climatology(targets = targets,
+                                      .f = ~ generate_target_climatology(targets = targets_insitu,
                                                                          h = 35,
                                                                          forecast_date = Sys.Date(),
                                                                          depth = 'target',

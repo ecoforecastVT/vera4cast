@@ -45,8 +45,6 @@ generate_target_persistenceRW <- function(targets,
 
   if (nrow(targets_use) == 0) {
     message(paste0('no targets available, no forecast run for ', site, ' ', var, '. Check site_id and variable name'))
-
-
     return(NULL)
 
   } else {
