@@ -42,7 +42,9 @@ climatology_met <- generate_target_climatology(targets = targets_met,
 # get all combinations
 site_var_combinations <- expand.grid(var = c('DO_mgL_mean',
                                              'DOsat_percent_mean',
-                                             'Secchi_m_sample'),
+                                             'Chla_ugL_mean',
+                                             'Secchi_m_sample',
+                                             'Temp_C_mean'),
                                      site = c('fcre',
                                               'bvre'))
 
