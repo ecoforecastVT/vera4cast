@@ -26,7 +26,20 @@ jobs:
       #    remotes::install_github("LTREB-reservoirs/vera4castHelpers")
       #    install.packages(c("imputeTS", "tsibble", "fable"))
 
-      - name: Generate forecasts
+      - name: Generate persistence
         shell: Rscript {0}
         run: |
-          source("baseline_models/run_exo_baselines.R")
+           source("baseline_models/run_persistence.R")
+      - name: Generate climatology
+        shell: Rscript {0}
+        run: |
+           source("baseline_models/run_climatology.R")
+      - name: Generate historic mean
+        shell: Rscript {0}
+        run: |
+           source("baseline_models/run_historic_mean.R")
+
+      - name: Generate monthly mean
+        shell: Rscript {0}
+        run: |
+           source("baseline_models/run_monthly_mean.R")
