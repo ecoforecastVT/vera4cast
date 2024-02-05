@@ -1,16 +1,14 @@
 
-# Function carry out a random walk forecast
-generate_target_persistenceRW <- function(targets,
-                                          site,
-                                          var,
-                                          forecast_date = Sys.Date(),
-                                          model_id = 'persistenceRW',
-                                          h,
-                                          depth = 'target',
-                                          bootstrap = FALSE,
-                                          boot_number = 200, ...) {
-
-  message('Generating persistenceRW forecast for ',  var, ' at ', site)
+generate_target_mean <- function(targets, # a dataframe already read in
+                                 h = 35,
+                                 site,
+                                 model_id = 'historic_mean',
+                                 var,
+                                 depth = 'target',
+                                 forecast_date = Sys.Date(),
+                                 bootstrap = F,
+                                 boot_number = 200) {
+  message('Generating historic mean forecast for ',  var, ' at ', site)
 
   if (depth == 'target') {
     # only generates forecasts for target depths
@@ -18,6 +16,7 @@ generate_target_persistenceRW <- function(targets,
   } else {
     target_depths <- depth
   }
+
 
   targets_ts <- targets |>
     mutate(datetime = lubridate::as_date(datetime)) |>
@@ -32,47 +31,41 @@ generate_target_persistenceRW <- function(targets,
     fill_gaps(.end = forecast_date)
 
 
-  # Work out when the forecast should start
-  forecast_starts <- targets %>%
-    dplyr::filter(!is.na(observation) & site_id == site & variable == var & datetime < forecast_date) %>%
-    # Start the day after the most recent non-NA value
-    dplyr::summarise(start_date = as_date(max(datetime)) + lubridate::days(1)) %>% # Date
-    dplyr::mutate(h = (forecast_date - start_date) + h) %>% # Horizon value
-    dplyr::ungroup()
-
   # filter the targets data set to the site_var pair
   targets_use <- targets_ts |>
-    dplyr::filter(datetime < forecast_starts$start_date)
+    dplyr::filter(datetime < forecast_date)
+
 
   if (nrow(targets_use) == 0) {
     message(paste0('no targets available, no forecast run for ', site, ' ', var, '. Check site_id and variable name'))
     return(NULL)
 
   } else {
+    # fit model
+    mean_model <- targets_use |>
+      fabletools::model(mean = fable::MEAN(observation))
 
-    RW_model <- targets_use %>%
-      fabletools::model(RW = fable::RW(observation))
-
-
+    # Generate uncertainty using boostrapping??
     if (bootstrap == T) {
-      forecast <- RW_model %>%
-        fabletools::generate(h = as.numeric(forecast_starts$h),
+      forecast <- mean_model %>%
+        fabletools::generate(h = h,
                              bootstrap = T,
                              times = boot_number) |>
-        rename(paramter = .rep,
+        rename(parameter = .rep,
                prediction = .sim) |>
         mutate(model_id = model_id,
-               family = 'ensemble')  |>
+               family = 'ensemble',
+               reference_datetime = forecast_date)  |>
         select(any_of(c("model_id", "datetime", "reference_datetime","site_id", "variable", "family",
                         "parameter", "prediction", "project_id", "duration", "depth_m" )))|>
         select(-any_of('.model'))|>
         filter(datetime > reference_datetime)
 
-      return(forecast)
+      return(as_tibble(forecast))
 
     }  else {
       # don't use bootstrapping
-      forecast <- RW_model %>% fabletools::forecast(h = as.numeric(forecast_starts$h))
+      forecast <- mean_model %>% fabletools::forecast(h = h)
 
       # extract parameters
       parameters <- distributional::parameters(forecast$observation)
@@ -93,6 +86,7 @@ generate_target_persistenceRW <- function(targets,
         as_tibble()
       return(forecast)
     }
-
   }
+
+
 }
