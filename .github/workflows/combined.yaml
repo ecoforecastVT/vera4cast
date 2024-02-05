@@ -18,7 +18,7 @@ jobs:
       OSN_SECRET: ${{ secrets.OSN_SECRET }}
     container: rqthomas/vera-rocker:latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Process submissions
         shell: Rscript {0}
@@ -35,7 +35,7 @@ jobs:
       OSN_SECRET: ${{ secrets.OSN_SECRET }}
     container: rqthomas/vera-rocker:latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Generate scores
         shell: Rscript {0}
@@ -59,7 +59,7 @@ jobs:
     steps:
       - run: git config --system --add safe.directory '*'
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
            fetch-depth: 0
            set-safe-directory: '*'
@@ -96,7 +96,7 @@ jobs:
     steps:
       - run: git config --system --add safe.directory '*'
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
            fetch-depth: 0
            set-safe-directory: '*'
@@ -126,7 +126,8 @@ jobs:
           git add .
           git commit -a -m "update pages" || echo "nothing to commit"
           git push https://${GITHUB_PAT}:${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}
-                - name: Healthcheck
+
+      - name: Ping Healthchecks
         run: |
           sudo apt-get update
           sudo apt-get install -y curl
