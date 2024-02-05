@@ -9,7 +9,7 @@ on:
 name: baseline-forecasts
 
 jobs:
-  docker:
+  Generate baselines:
     runs-on: ubuntu-latest
     container: rqthomas/vera-rocker:latest
     env:
