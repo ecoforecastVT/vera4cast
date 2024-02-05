@@ -43,3 +43,9 @@ jobs:
         shell: Rscript {0}
         run: |
            source("baseline_models/run_monthly_mean.R")
+      - name: Healthcheck
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl
+          curl -m 10 --retry 5 https://hc-ping.com/183e72e8-9408-4764-8337-d7a00a75f21c
+

@@ -19,7 +19,7 @@ jobs:
       OSN_SECRET: ${{ secrets.OSN_SECRET }}
     container: rqthomas/vera-rocker:latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Install
         shell: Rscript {0}
@@ -30,5 +30,10 @@ jobs:
 
       - name: Process submissions
         shell: Rscript {0}
-        run: |
+        run: 
           source("submission_processing/process_submissions.R")
+
+      - name: Ping Healthchecks
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl
