@@ -64,7 +64,7 @@ generate_target_persistenceRW <- function(targets,
         mutate(model_id = model_id,
                family = 'ensemble')  |>
         select(any_of(c("model_id", "datetime", "reference_datetime","site_id", "variable", "family",
-                        "parameter", "prediction", "project_id", "duration" )))|>
+                        "parameter", "prediction", "project_id", "duration", "depth_m" )))|>
         select(-any_of('.model'))|>
         filter(datetime > reference_datetime)
 
@@ -86,7 +86,7 @@ generate_target_persistenceRW <- function(targets,
                family = 'normal',
                reference_datetime=forecast_date) |>
         select(all_of(c("model_id", "datetime", "reference_datetime","site_id", "variable", "family",
-                        "parameter", "prediction", "project_id", "duration" ))) |>
+                        "parameter", "prediction", "project_id", "duration", "depth_m" ))) |>
         select(-any_of('.model')) |>
         filter(datetime > reference_datetime) |>
         ungroup() |>

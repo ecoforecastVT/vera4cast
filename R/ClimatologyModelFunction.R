@@ -81,7 +81,7 @@ generate_target_climatology <- function(targets, # a dataframe already read in
     if (length(site_count) != 0) {
       combined <- forecast %>%
         filter(site_id %in% site_count) |>
-        select(datetime, site_id, depth_m, variable, clim_mean, clim_sd) %>%
+        select(datetime, site_id, depth_m, variable, clim_mean, clim_sd, depth_m) %>%
         rename(mean = clim_mean,
                sd = clim_sd) %>%
         group_by(site_id, variable) %>%
@@ -93,7 +93,7 @@ generate_target_climatology <- function(targets, # a dataframe already read in
         mutate(family = "normal") |>
         mutate(reference_datetime = min(datetime) - lubridate::days(1),
                model_id = model_id) |>
-        select(model_id, datetime, reference_datetime, site_id, variable, family, parameter, prediction) |>
+        select(model_id, datetime, reference_datetime, site_id, variable, family, parameter, prediction, depth_m) |>
         mutate(project_id = "vera4cast",
                duration = "P1D") |>
         ungroup() |>
