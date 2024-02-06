@@ -53,7 +53,7 @@
       "interval": [
         [
           "2020-09-25T00:00:00Z",
-          "2024-03-10T00:00:00Z"
+          "2024-03-11T00:00:00Z"
         ]
       ]
     }
@@ -122,7 +122,7 @@
   ],
   "assets": {
     "data": {
-      "href": "\"s3://anonymous@drivers/noaa/gefs-v12-reprocess/stage3/parquet/0?endpoint_override=s3.flare-forecast.org\"",
+      "href": "s3://anonymous@drivers/noaa/gefs-v12-reprocess/stage3/parquet/0?endpoint_override=s3.flare-forecast.org",
       "type": "application/x-parquet",
       "title": "Database Access",
       "roles": [
