@@ -9,7 +9,7 @@ on:
 name: baseline-forecasts
 
 jobs:
-  docker:
+  Generate-baselines:
     runs-on: ubuntu-latest
     container: rqthomas/vera-rocker:latest
     env:
@@ -17,7 +17,7 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       #- name: Install
       #  shell: Rscript {0}
@@ -26,13 +26,26 @@ jobs:
       #    remotes::install_github("LTREB-reservoirs/vera4castHelpers")
       #    install.packages(c("imputeTS", "tsibble", "fable"))
 
-      - name: Generate forecasts
+      - name: Generate persistence
         shell: Rscript {0}
         run: |
-          source("baseline_models/run_exo_baselines.R")
+           source("baseline_models/run_persistence.R")
+      - name: Generate climatology
+        shell: Rscript {0}
+        run: |
+           source("baseline_models/run_climatology.R")
+      - name: Generate historic mean
+        shell: Rscript {0}
+        run: |
+           source("baseline_models/run_historic_mean.R")
 
+      - name: Generate monthly mean
+        shell: Rscript {0}
+        run: |
+           source("baseline_models/run_monthly_mean.R")
       - name: Healthcheck
         run: |
           sudo apt-get update
           sudo apt-get install -y curl
           curl -m 10 --retry 5 https://hc-ping.com/183e72e8-9408-4764-8337-d7a00a75f21c
+
