@@ -57,4 +57,4 @@ df |> filter(reference_date == max_reference_date &
 vera4castHelpers::submit(filename, first_submission = FALSE)
 
 ## Call healthcheck
-RCurl::url.exists("https://hc-ping.com/0543988c-6f32-41c5-ad96-49bb971027c6", timeout = 5)
+#RCurl::url.exists("https://hc-ping.com/0543988c-6f32-41c5-ad96-49bb971027c6", timeout = 5)
