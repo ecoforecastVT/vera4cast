@@ -96,6 +96,26 @@
       "href": "model_items/persistenceFO.json"
     },
     {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/Flow_cms_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/Temp_C_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/historic_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/monthly_mean.json"
+    },
+    {
       "rel": "parent",
       "type": "application/json",
       "href": "../collection.json"
