@@ -44,7 +44,9 @@ site_var_combinations <- expand.grid(var = c('DO_mgL_mean',
                                              'DOsat_percent_mean',
                                              'Chla_ugL_mean',
                                              'Secchi_m_sample',
-                                             'Temp_C_mean'),
+                                             'Temp_C_mean',
+                                             'fDOM_QSU_mean',
+                                             'CH4_umolL_sample'),
                                      site = c('fcre',
                                               'bvre'))
 
