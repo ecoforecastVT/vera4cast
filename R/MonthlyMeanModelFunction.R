@@ -1,4 +1,4 @@
-generate_target_monthly_mean <- function(targets, # a dataframe already read in
+generate_baseline_monthly_mean <- function(targets, # a dataframe already read in
                                          h = 35,
                                          site, # vector of site_ids
                                          model_id = 'monthly_mean',

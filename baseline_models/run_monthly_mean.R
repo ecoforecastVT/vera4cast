@@ -25,13 +25,13 @@ site_names <- sites$site_id
 
 # Inflow variables
 monthly_mean_inflow <- purrr::map_dfr(.x = c('Flow_cms_mean', 'Temp_C_mean'),
-                                      .f = ~generate_target_monthly_mean(targets = targets_tubr,
+                                      .f = ~generate_baseline_monthly_mean(targets = targets_tubr,
                                                                          h = 35,
                                                                          model_id = team_name,
                                                                          forecast_date = Sys.Date(),
                                                                          site = 'tubr', depth = 'target', var = .x))
 # Met variables
-monthly_mean_met <- generate_target_monthly_mean(targets = targets_met,
+monthly_mean_met <- generate_baseline_monthly_mean(targets = targets_met,
                                                  h = 35,
                                                  site = 'fcre',
                                                  var = 'AirTemp_C_mean',
@@ -52,7 +52,7 @@ site_var_combinations <- expand.grid(var = c('DO_mgL_mean',
                                               'bvre'))
 
 monthly_mean_insitu <- purrr::pmap_dfr(site_var_combinations,
-                                       .f = ~ generate_target_monthly_mean(targets = targets_insitu,
+                                       .f = ~ generate_baseline_monthly_mean(targets = targets_insitu,
                                                                            h = 35,
                                                                            forecast_date = Sys.Date(),
                                                                            model_id = team_name,

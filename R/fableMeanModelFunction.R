@@ -1,5 +1,5 @@
 
-generate_target_mean <- function(targets, # a dataframe already read in
+generate_baseline_mean <- function(targets, # a dataframe already read in
                                  h = 35,
                                  site,
                                  model_id = 'historic_mean',

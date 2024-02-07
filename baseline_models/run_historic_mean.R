@@ -24,7 +24,7 @@ site_names <- sites$site_id
 
 # Runs the RW forecast for inflow variables
 historic_mean_inflow <- purrr::map_dfr(.x = c('Flow_cms_mean', 'Temp_C_mean'),
-                                       .f = ~ generate_target_mean(targets = targets_tubr,
+                                       .f = ~ generate_baseline_mean(targets = targets_tubr,
                                                                    h = 35,
                                                                    model_id = team_name,
                                                                    forecast_date = Sys.Date(),
@@ -34,7 +34,7 @@ historic_mean_inflow <- purrr::map_dfr(.x = c('Flow_cms_mean', 'Temp_C_mean'),
                                                                    ...))
 
 # met variables
-historic_mean_met <- generate_target_mean(targets = targets_met,
+historic_mean_met <- generate_baseline_mean(targets = targets_met,
                                           h = 35,
                                           model_id = team_name,
                                           forecast_date = Sys.Date(),
@@ -56,7 +56,7 @@ site_var_combinations <- expand.grid(var = c('DO_mgL_mean',
                                               'bvre'))
 
 historic_mean_insitu <- purrr::pmap_dfr(site_var_combinations,
-                                        .f = ~ generate_target_mean(targets = targets_insitu,
+                                        .f = ~ generate_baseline_mean(targets = targets_insitu,
                                                                     h = 35,
                                                                     model_id = team_name,
                                                                     forecast_date = Sys.Date(),
