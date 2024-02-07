@@ -24,7 +24,7 @@ site_names <- sites$site_id
 
 # Runs the RW forecast for inflow variables
 persistenceRW_inflow <- purrr::map_dfr(.x = c('Flow_cms_mean', 'Temp_C_mean'),
-                                       .f = ~ generate_target_persistenceRW(targets = targets_tubr,
+                                       .f = ~ generate_baseline_persistenceRW(targets = targets_tubr,
                                                                             h = 35,
                                                                             model_id = 'persistenceRW',
                                                                             forecast_date = Sys.Date(),
@@ -34,7 +34,7 @@ persistenceRW_inflow <- purrr::map_dfr(.x = c('Flow_cms_mean', 'Temp_C_mean'),
                                                                             ...))
 
 # met variables
-persistenceRW_met <- generate_target_persistenceRW(targets = targets_met,
+persistenceRW_met <- generate_baseline_persistenceRW(targets = targets_met,
                                                    h = 35,
                                                    model_id = 'persistenceRW',
                                                    forecast_date = Sys.Date(),
@@ -49,12 +49,14 @@ site_var_combinations <- expand.grid(var = c('DO_mgL_mean',
                                              'DOsat_percent_mean',
                                              'Chla_ugL_mean',
                                              'Secchi_m_sample',
-                                             'Temp_C_mean'),
+                                             'Temp_C_mean',
+                                             'fDOM_QSU_mean',
+                                             'CH4_umolL_sample'),
                                      site = c('fcre',
                                               'bvre'))
 
 persistenceRW_insitu <- purrr::pmap_dfr(site_var_combinations,
-                                      .f = ~ generate_target_persistenceRW(targets = targets_insitu,
+                                      .f = ~ generate_baseline_persistenceRW(targets = targets_insitu,
                                                                          h = 35,
                                                                          model_id = 'persistenceRW',
                                                                          forecast_date = Sys.Date(),
