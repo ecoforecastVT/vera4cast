@@ -11,6 +11,7 @@ config <- yaml::read_yaml("challenge_configuration.yaml")
 team_name <- 'historic_mean'
 
 source('R/fableMeanModelFunction.R')
+source('R/convert2binary.R')
 
 # Read in targets
 targets_insitu <- readr::read_csv(paste0("https://", config$endpoint, "/", config$targets_bucket, "/project_id=vera4cast/duration=P1D/daily-insitu-targets.csv.gz"), guess_max = 10000)
@@ -63,8 +64,17 @@ historic_mean_insitu <- purrr::pmap_dfr(site_var_combinations,
                                                                     depth = 'target',
                                                                     ...))
 
+# Generate binary forecasts from continuous
+historic_mean_insitu_binary <- purrr::map_dfr(.x = c('fcre', 'bvre'),
+                                              .f = ~convert_continuous_binary(continuous_var = 'Chla_ugL_mean',
+                                                                              binary_var = 'Bloom_binary_mean',
+                                                                              forecast = historic_mean_insitu,
+                                                                              targets = targets_insitu,
+                                                                              site = .x,
+                                                                              threshold = 20))
+
 # combine and submit
-combined_historic_mean <- bind_rows(historic_mean_inflow, historic_mean_insitu, historic_mean_met)
+combined_historic_mean <- bind_rows(historic_mean_inflow, historic_mean_insitu, historic_mean_met, historic_mean_insitu_binary)
 
 # write forecast file
 file_date <- combined_historic_mean$reference_datetime[1]
@@ -74,11 +84,19 @@ forecast_file <- paste0(paste("daily", file_date, team_name, sep = "-"), ".csv.g
 write_csv(combined_historic_mean, forecast_file)
 
 combined_historic_mean %>%
+  filter(family == 'normal') |>
   pivot_wider(names_from = parameter, values_from = prediction) |>
   ggplot(aes(x = datetime, y = mu)) +
   geom_line() +
   geom_ribbon(aes(ymax = mu+sigma, ymin = mu-sigma), alpha = 0.3, fill = 'blue') +
   facet_grid(variable~site_id, scales = 'free')
+
+combined_historic_mean %>%
+  filter(family == 'bernoulli') |>
+  ggplot(aes(x = datetime, y = prediction)) +
+  geom_line() +
+  facet_grid(variable~site_id, scales = 'free')
+
 
 vera4castHelpers::submit(forecast_file = forecast_file,
                          ask = FALSE,

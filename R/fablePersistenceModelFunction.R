@@ -1,14 +1,14 @@
 
 # Function carry out a random walk forecast
 generate_baseline_persistenceRW <- function(targets,
-                                          site,
-                                          var,
-                                          forecast_date = Sys.Date(),
-                                          model_id = 'persistenceRW',
-                                          h,
-                                          depth = 'target',
-                                          bootstrap = FALSE,
-                                          boot_number = 200, ...) {
+                                            site,
+                                            var,
+                                            forecast_date = Sys.Date(),
+                                            model_id = 'persistenceRW',
+                                            h,
+                                            depth = 'target',
+                                            bootstrap = FALSE,
+                                            boot_number = 200, ...) {
 
   message('Generating persistenceRW forecast for ',  var, ' at ', site)
 
@@ -62,11 +62,14 @@ generate_baseline_persistenceRW <- function(targets,
         rename(paramter = .rep,
                prediction = .sim) |>
         mutate(model_id = model_id,
-               family = 'ensemble')  |>
+               family = 'ensemble',
+               reference_datetime = forecast_date)  |>
         select(any_of(c("model_id", "datetime", "reference_datetime","site_id", "variable", "family",
                         "parameter", "prediction", "project_id", "duration", "depth_m" )))|>
         select(-any_of('.model'))|>
-        filter(datetime > reference_datetime)
+        filter(datetime > reference_datetime)|>
+        ungroup() |>
+        as_tibble()
 
       return(forecast)
 
