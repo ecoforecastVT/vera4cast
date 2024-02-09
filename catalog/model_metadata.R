@@ -59,23 +59,18 @@ for(i in 1:nrow(registered_models)){
 
   #Parameters
 
-  if(registered_models$`Does your forecast include uncertainty from the model parameters?`[i] == "Yes and at least one is estimated from data"){
-    metadata$uncertainty$parameters$present <- TRUE
-    metadata$uncertainty$parameters$data_driven <- TRUE
-    metadata$uncertainty$parameters$progagates$type <- progagates_method
-  }else if(registered_models$`Does your forecast include uncertainty from the model parameters?`[i] == "Yes and they are not estimated from data"){
+  if(registered_models$`Does your model include parameters?`[i] == "Yes and they are not estimated from data"){
     metadata$uncertainty$parameters$present <- TRUE
     metadata$uncertainty$parameters$data_driven <- FALSE
-    metadata$uncertainty$parameters$progagates$type <- progagates_method
-  }else if(registered_models$`Does your forecast include uncertainty from the model parameters?`[i] == "No"){
-    if(registered_models$`Does your model include parameters?`[i] == "Yes"){
-      metadata$uncertainty$parameters$present <- TRUE
-      metadata$uncertainty$parameters$data_driven <- FALSE
-    }else{
-      metadata$uncertainty$parameters$present <- FALSE
+    if(registered_models$`Does your forecast include uncertainty from the model parameters?`[i] == "Yes"){
+      metadata$uncertainty$parameters$progagates$type <- progagates_method
     }
-  }else{
-    metadata$uncertainty$parameters$present <- "Unknown"
+  }else if(registered_models$`Does your forecast include uncertainty from the model parameters?`[i] == "Yes and at least one is estimated from data"){
+    metadata$uncertainty$parameters$present <- TRUE
+    metadata$uncertainty$parameters$data_driven <- TRUE
+    if(registered_models$`Does your forecast include uncertainty from the model parameters?`[i] == "Yes"){
+      metadata$uncertainty$parameters$progagates$type <- progagates_method
+    }
   }
 
   if(registered_models$`Do you update your initial conditions or parameters between forecast submissions using newly available data (i.e., data assimilation)?`[i] %in%
@@ -166,7 +161,7 @@ for(i in 1:nrow(registered_models)){
   jsonlite::write_json(metadata, path = file.path("catalog",file_name), pretty = TRUE)
 
   minioclient::mc_cp(file.path("catalog",file_name), file.path("osn",config$model_metadata_bucket, file_name))
-             
+
   unlink(file.path("catalog",file_name))
 }
 
