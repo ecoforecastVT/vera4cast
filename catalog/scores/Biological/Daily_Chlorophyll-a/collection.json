@@ -48,12 +48,12 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/persistenceRW.json"
+      "href": "../../models/model_items/monthly_mean.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/monthly_mean.json"
+      "href": "../../models/model_items/persistenceRW.json"
     },
     {
       "rel": "parent",

@@ -38,12 +38,12 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/historic_mean.json"
+      "href": "model_items/icon_seamless.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/icon_seamless.json"
+      "href": "model_items/persistenceRW.json"
     },
     {
       "rel": "item",
@@ -73,17 +73,12 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/persistenceRW.json"
+      "href": "model_items/historic_mean.json"
     },
     {
       "rel": "item",
       "type": "application/json",
       "href": "model_items/monthly_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/Flow_cms_mean.json"
     },
     {
       "rel": "item",
@@ -103,6 +98,11 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "model_items/Temp_C_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "model_items/example_forecast.json"
     },
     {
@@ -113,7 +113,7 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/Temp_C_mean.json"
+      "href": "model_items/Flow_cms_mean.json"
     },
     {
       "rel": "parent",

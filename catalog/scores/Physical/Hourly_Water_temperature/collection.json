@@ -23,6 +23,11 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "../../models/model_items/Temp_C_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "../../models/model_items/climatology.json"
     },
     {
@@ -48,11 +53,6 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/monthly_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
       "href": "../../models/model_items/persistenceFO.json"
     },
     {
@@ -63,12 +63,12 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/Temp_C_mean.json"
+      "href": "../../models/model_items/historic_mean.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/historic_mean.json"
+      "href": "../../models/model_items/monthly_mean.json"
     },
     {
       "rel": "parent",

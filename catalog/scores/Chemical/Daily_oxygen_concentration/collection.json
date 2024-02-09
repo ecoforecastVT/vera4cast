@@ -13,12 +13,12 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/glm_aed_v1.json"
+      "href": "../../models/model_items/climatology.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/historic_mean.json"
+      "href": "../../models/model_items/glm_aed_v1.json"
     },
     {
       "rel": "item",
@@ -33,7 +33,7 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/climatology.json"
+      "href": "../../models/model_items/historic_mean.json"
     },
     {
       "rel": "parent",
@@ -71,7 +71,7 @@
   "extent": {
     "spatial": {
       "bbox": [
-        ["Inf", "Inf", "-Inf", "-Inf"]
+        [-79.8372, 37.3032, -79.8159, 37.3129]
       ]
     },
     "temporal": {
