@@ -43,6 +43,11 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "model_items/monthly_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "model_items/persistenceRW.json"
     },
     {
@@ -78,7 +83,7 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/monthly_mean.json"
+      "href": "model_items/Flow_cms_mean.json"
     },
     {
       "rel": "item",
@@ -98,11 +103,6 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/Temp_C_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
       "href": "model_items/example_forecast.json"
     },
     {
@@ -113,7 +113,7 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/Flow_cms_mean.json"
+      "href": "model_items/Temp_C_mean.json"
     },
     {
       "rel": "parent",
@@ -158,7 +158,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-02-09T00:00:00Z"
+          "2024-02-10T00:00:00Z"
         ]
       ]
     }
