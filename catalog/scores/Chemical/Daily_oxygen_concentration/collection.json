@@ -13,22 +13,22 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/climatology.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
       "href": "../../models/model_items/glm_aed_v1.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/historic_mean.json"
+      "href": "../../models/model_items/persistenceRW.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/persistenceRW.json"
+      "href": "../../models/model_items/climatology.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/historic_mean.json"
     },
     {
       "rel": "item",
@@ -71,14 +71,14 @@
   "extent": {
     "spatial": {
       "bbox": [
-        [-79.8372, 37.3032, -79.8159, 37.3129]
+        ["Inf", "Inf", "-Inf", "-Inf"]
       ]
     },
     "temporal": {
       "interval": [
         [
           "2023-10-14T00:00:00Z",
-          "2024-02-09T00:00:00Z"
+          "2024-02-10T00:00:00Z"
         ]
       ]
     }
