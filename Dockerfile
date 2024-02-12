@@ -18,4 +18,5 @@ RUN R -e "devtools::install_github('eco4cast/stac4cast')"
 RUN R -e "devtools::install_github('cboettig/duckdbfs')"
 RUN R -e "devtools::install_github('cboettig/aws.s3')"
 RUN R -e "devtools::install_github('FLARE-forecast/RopenMeteo')"
+RUN R -e "remotes::install_github('mitchelloharawild/distributional', ref = 'bb0427e')"
 #RUN ldd /usr/local/lib/R/site-library/GLM3r/exec/nixglm
