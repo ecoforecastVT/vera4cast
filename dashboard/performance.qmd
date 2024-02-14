@@ -109,6 +109,17 @@ df |>
   forecast_plots()
 ```
 
+### Dissolved oxygen
+
+```{r}
+if("DO_mgL_mean" %in% unique(df$variable)){
+df |> 
+  filter(variable == c("DO_mgL_mean")) |> 
+    mutate(observation = as.numeric(NA)) |> 
+  forecast_plots()
+}
+```
+
 ### Air temperature
 
 ```{r}
@@ -246,6 +257,13 @@ ex |> filter(variable == "Temp_C_mean") |>
   forecast_plots()
 ```
 
+### Dissolved oxygen
+
+```{r}
+ex |> filter(variable == "DO_mgL_mean") |> 
+  forecast_plots()
+```
+
 ### Secchi depth
 
 ```{r}
@@ -279,6 +297,12 @@ leaderboard_plots(df, "Chla_ugL_mean")
 
 ```{r}
 leaderboard_plots(df, "Temp_C_mean")
+```
+
+## Dissolved oxygen
+
+```{r}
+leaderboard_plots(df, "DO_mgL_mean")
 ```
 
 ## Air temperature
