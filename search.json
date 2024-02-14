@@ -11,21 +11,21 @@
     "href": "performance.html#sec-performance",
     "title": "Forecast performance",
     "section": "Most recent forecasts",
-    "text": "Most recent forecasts\nForecasts submitted on 2024-02-23\n\nChlorophyll-aChlorophyll-a bloom probabilityWater temperatureAir temperaturefDOM QSUSecchi depthIce Cover ProbabilityDissolved methaneInflow discharge"
+    "text": "Most recent forecasts\nForecasts submitted on 2024-02-23\n\nChlorophyll-aChlorophyll-a bloom probabilityWater temperatureDissolved oxygenAir temperaturefDOM QSUSecchi depthIce Cover ProbabilityDissolved methaneInflow discharge"
   },
   {
     "objectID": "performance.html#forecast-analysis",
     "href": "performance.html#forecast-analysis",
     "title": "Forecast performance",
     "section": "Forecast analysis",
-    "text": "Forecast analysis\nBelow are forecasts submitted 30 days ago and include the observations used to evaluate them. Mouse over to see the team id, scroll to zoom.\n\nChlorophyll-aWater temperatureSecchi depthAir Temperature\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNULL"
+    "text": "Forecast analysis\nBelow are forecasts submitted 30 days ago and include the observations used to evaluate them. Mouse over to see the team id, scroll to zoom.\n\nChlorophyll-aWater temperatureDissolved oxygenSecchi depthAir Temperature\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNULL"
   },
   {
     "objectID": "performance.html#aggregated-scores",
     "href": "performance.html#aggregated-scores",
     "title": "Forecast performance",
     "section": "Aggregated scores",
-    "text": "Aggregated scores\nAverage skill scores of each model across all sites.\n\nScores are shown by reference date and forecast horizon (in days).\n\nScores are averaged across all submissions of the model with a given horizon or a given reference_datetime using submissions made since 2024-01-15.\n\n\nChlorophyll-aWater temperatureAir temperature"
+    "text": "Aggregated scores\nAverage skill scores of each model across all sites.\n\nScores are shown by reference date and forecast horizon (in days).\n\nScores are averaged across all submissions of the model with a given horizon or a given reference_datetime using submissions made since 2024-01-15.\n\n\nChlorophyll-aWater temperatureDissolved oxygenAir temperature"
   },
   {
     "objectID": "catalog.html#sec-spatiotemporal-asset-catalog",
@@ -102,7 +102,7 @@
     "href": "index.html#why-a-forecasting-challenge",
     "title": "Forecasting Challenge",
     "section": "Why a forecasting challenge?",
-    "text": "Why a forecasting challenge?\nWe are using forecasts to compare the predictability of different physical, chemical, and biological variables across varying environmental conditions to identify the fundamental predictability of freshwater ecosystems.\nThe VERA forecasting challenge is one component of the Virginia Reservoirs LTREB project, which is monitoring two connected drinking water supply reservoirs with contrasting dissolved oxygen conditions to broadly advance our understanding of freshwater ecosystem processes.\n \n\n\n\n\n\n\n\n\n\nTotal forecasts submitted to the VERA Challenge\n1562\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMost recent data for model training\n2024-02-14\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of years of data for model training\n10.76\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of variables being forecasted\n25"
+    "text": "Why a forecasting challenge?\nWe are using forecasts to compare the predictability of different physical, chemical, and biological variables across varying environmental conditions to identify the fundamental predictability of freshwater ecosystems.\nThe VERA forecasting challenge is one component of the Virginia Reservoirs LTREB project, which is monitoring two connected drinking water supply reservoirs with contrasting dissolved oxygen conditions to broadly advance our understanding of freshwater ecosystem processes.\n \n\n\n\n\n\n\n\n\n\nTotal forecasts submitted to the VERA Challenge\n1567\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMost recent data for model training\n2024-02-14\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of years of data for model training\n10.76\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of variables being forecasted\n25"
   },
   {
     "objectID": "index.html#what-sites-are-being-forecasted",
