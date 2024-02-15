@@ -1,6 +1,6 @@
 
 # Function carry out a random walk forecast
-generate_target_persistenceRW <- function(targets,
+generate_baseline_persistenceRW <- function(targets,
                                           site,
                                           var,
                                           forecast_date = Sys.Date(),

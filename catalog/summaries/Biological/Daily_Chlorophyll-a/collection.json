@@ -1,6 +1,6 @@
 {
-  "id": "Physical",
-  "description": "This page includes variables for the Physical group.",
+  "id": "Daily_Chlorophyll-a",
+  "description": "This page includes all models for the Daily_Chlorophyll-a variable.",
   "stac_version": "1.0.0",
   "license": "CC0-1.0",
   "stac_extensions": [
@@ -11,19 +11,49 @@
   "type": "Collection",
   "links": [
     {
-      "rel": "child",
+      "rel": "item",
       "type": "application/json",
-      "href": "Daily_Water_temperature/collection.json"
+      "href": "../../models/model_items/climatology.json"
     },
     {
-      "rel": "child",
+      "rel": "item",
       "type": "application/json",
-      "href": "Daily_Secchi/collection.json"
+      "href": "../../models/model_items/fableARIMA.json"
     },
     {
-      "rel": "child",
+      "rel": "item",
       "type": "application/json",
-      "href": "Hourly_Water_temperature/collection.json"
+      "href": "../../models/model_items/fableETS.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/fableNNETAR.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/glm_aed_v1.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/persistenceRW.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/climatology2.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/historic_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/monthly_mean.json"
     },
     {
       "rel": "parent",
@@ -57,18 +87,18 @@
       "type": "text/html"
     }
   ],
-  "title": "Physical",
+  "title": "Daily_Chlorophyll-a",
   "extent": {
     "spatial": {
       "bbox": [
-        [-79.8357, 37.3078, -79.8357, 37.3078]
+        [-79.8372, 37.3032, -79.8159, 37.3129]
       ]
     },
     "temporal": {
       "interval": [
         [
-          "2023-09-21T00:00:00Z",
-          "2024-02-07T00:00:00Z"
+          "2023-10-01T00:00:00Z",
+          "2024-03-13T00:00:00Z"
         ]
       ]
     }
@@ -82,7 +112,7 @@
     {
       "name": "site_id",
       "type": "string",
-      "description": "For forecasts that are not on a spatial grid, use of a site dimension that maps to a more detailed geometry (points, polygons, etc.) is allowable. In general this would be documented in the external metadata (e.g., alook-up table that provides lon and lat); however in netCDF this could be handled by the CF Discrete Sampling Geometry data model."
+      "description": "For forecasts that are not on a spatial grid, use of a site dimension that maps to a more detailed geometry (points, polygons, etc.) is allowable. In general this would be documented in the external metadata (e.g., alook-up table that provides lon and lat)"
     },
     {
       "name": "datetime",
@@ -92,7 +122,7 @@
     {
       "name": "family",
       "type": "string",
-      "description": "For ensembles: “ensemble.” Default value if unspecified For probability distributions: Name of the statistical distribution associated with the reported statistics. The “sample” distribution is synonymous with “ensemble.” For summary statistics: “summary.”If this dimension does not vary, it is permissible to specify family as a variable attribute if the file format being used supports this (e.g.,netCDF)."
+      "description": "For ensembles: “ensemble.” Default value if unspecified for probability distributions: Name of the statistical distribution associated with the reported statistics. The “sample” distribution is synonymous with “ensemble.”For summary statistics: “summary.”"
     },
     {
       "name": "pub_datetime",
@@ -103,21 +133,6 @@
       "name": "depth_m",
       "type": "double",
       "description": "depth (meters) in water column of prediction"
-    },
-    {
-      "name": "observation",
-      "type": "double",
-      "description": "observed value for variable"
-    },
-    {
-      "name": "crps",
-      "type": "double",
-      "description": "crps forecast score"
-    },
-    {
-      "name": "logs",
-      "type": "double",
-      "description": "logs forecast score"
     },
     {
       "name": "mean",
@@ -157,12 +172,12 @@
     {
       "name": "project_id",
       "type": "string",
-      "description": "unique project identifier"
+      "description": "unique identifier for the forecast project"
     },
     {
       "name": "duration",
       "type": "string",
-      "description": "temporal duration of forecast (hourly = PT1H, daily = P1D, etc.); follows ISO 8601 duration convention"
+      "description": "temporal duration of forecast (hourly, daily, etc.); follows ISO 8601 duration convention"
     },
     {
       "name": "variable",
@@ -175,28 +190,28 @@
       "description": "unique model identifier"
     },
     {
-      "name": "date",
+      "name": "reference_date",
       "type": "string",
-      "description": "ISO 8601 (ISO 2019) date of the predicted value; follows CF convention http://cfconventions.org/cf-conventions/cf-conventions.html#time-coordinate. This variable was called time before v0.5of the EFI convention. For time-integrated variables (e.g., cumulative net primary productivity), one should specify the start_datetime and end_datetime as two variables, instead of the single datetime. If this is not provided the datetime is assumed to be the MIDPOINT of the integration period."
+      "description": "date that the forecast was initiated"
     }
   ],
   "assets": {
     "data": {
-      "href": "s3://anonymous@bio230121-bucket01/vera4cast/scores/parquet/?endpoint_override=renc.osn.xsede.org",
+      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Chla_ugL_mean?endpoint_override=renc.osn.xsede.org",
       "type": "application/x-parquet",
       "title": "Database Access",
       "roles": [
         "data"
       ],
-      "description": "Use `arrow` for remote access to the database. This R code will return results for the NEON Ecological Forecasting Aquatics theme.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/scores/parquet/?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |>\n dplyr::filter(variable %in% c(\"Temp_C_mean\", \"Secchi_m_sample\")) |>\n dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+      "description": "Use `arrow` for remote access to the database. This R code will return results for forecasts of the variable by the specific model .\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Chla_ugL_mean?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     },
     "thumbnail": {
-      "href": "https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/fcr_catwalk.jpg",
+      "href": "pending",
       "type": "image/JPEG",
       "roles": [
         "thumbnail"
       ],
-      "title": "FCRE Catwalk Image"
+      "title": "pending"
     }
   }
 }

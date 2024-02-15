@@ -46,6 +46,16 @@
       "href": "../../models/model_items/persistenceRW.json"
     },
     {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/historic_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/monthly_mean.json"
+    },
+    {
       "rel": "parent",
       "type": "application/json",
       "href": "../collection.json"
@@ -88,7 +98,7 @@
       "interval": [
         [
           "2023-10-01T00:00:00Z",
-          "2024-02-05T00:00:00Z"
+          "2024-02-06T00:00:00Z"
         ]
       ]
     }
@@ -202,7 +212,7 @@
   ],
   "assets": {
     "data": {
-      "href": "\"s3://anonymous@bio230121-bucket01/vera4cast/scores/parquet/project_id=vera4cast/duration=P1D/variable=Chla_ugL_mean?endpoint_override=renc.osn.xsede.org\"",
+      "href": "s3://anonymous@bio230121-bucket01/vera4cast/scores/parquet/project_id=vera4cast/duration=P1D/variable=Chla_ugL_mean?endpoint_override=renc.osn.xsede.org",
       "type": "application/x-parquet",
       "title": "Database Access",
       "roles": [
