@@ -7,6 +7,7 @@ library(imputeTS)
 library(tsibble)
 library(fable)
 source('R/MonthlyMeanModelFunction.R')
+source('R/convert2binary.R')
 
 #' set the random number for reproducible MCMC runs
 set.seed(329)
@@ -53,13 +54,21 @@ site_var_combinations <- expand.grid(var = c('DO_mgL_mean',
 
 monthly_mean_insitu <- purrr::pmap_dfr(site_var_combinations,
                                        .f = ~ generate_baseline_monthly_mean(targets = targets_insitu,
-                                                                           h = 35,
-                                                                           forecast_date = Sys.Date(),
-                                                                           model_id = team_name,
-                                                                           depth = 'target', ...))
+                                                                             h = 35,
+                                                                             forecast_date = Sys.Date(),
+                                                                             model_id = team_name,
+                                                                             depth = 'target', ...))
+# Generate binary forecasts from continuous
+monthly_mean_insitu_binary <- purrr::map_dfr(.x = c('fcre', 'bvre'),
+                                      .f = ~convert_continuous_binary(continuous_var = 'Chla_ugL_mean',
+                                                                      binary_var = 'Bloom_binary_mean',
+                                                                      forecast = monthly_mean_insitu,
+                                                                      targets = targets_insitu,
+                                                                      site = .x,
+                                                                      threshold = 20))
 
 # combine and submit
-combined_monthly_mean <- bind_rows(monthly_mean_met, monthly_mean_inflow, monthly_mean_insitu)
+combined_monthly_mean <- bind_rows(monthly_mean_met, monthly_mean_inflow, monthly_mean_insitu, monthly_mean_insitu_binary)
 
 # 4. Write forecast file
 file_date <- combined_monthly_mean$reference_datetime[1]
@@ -69,10 +78,17 @@ forecast_file <- paste0(paste("daily", file_date, team_name, sep = "-"), ".csv.g
 write_csv(combined_monthly_mean, forecast_file)
 
 combined_monthly_mean %>%
+  filter(family == 'normal') |>
   pivot_wider(names_from = parameter, values_from = prediction) |>
   ggplot(aes(x = datetime, y = mu)) +
   geom_line() +
   geom_ribbon(aes(ymax = mu+sigma, ymin = mu-sigma), alpha = 0.3, fill = 'blue') +
+  facet_grid(variable~site_id, scales = 'free')
+
+combined_monthly_mean %>%
+  filter(family == 'bernoulli') |>
+  ggplot(aes(x = datetime, y = prediction)) +
+  geom_line() +
   facet_grid(variable~site_id, scales = 'free')
 
 vera4castHelpers::submit(forecast_file = forecast_file,

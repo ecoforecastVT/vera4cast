@@ -22,9 +22,9 @@
     ]
   },
   "properties": {
-    "description": "\nmodel info: Random walk from the fable package with ensembles used to represent uncertainty\n\nSites: bvre, fcre, tubr\n\nVariables: Daily Water_temperature, Daily Chlorophyll-a, Daily Inflow discharge, Daily oxygen_concentration, Daily oxygen % sat, Daily Secchi, Daily Air temperature",
+    "description": "\nmodel info: Random walk from the fable package with ensembles used to represent uncertainty\n\nSites: bvre, fcre, tubr\n\nVariables: Daily Water_temperature, Daily Chlorophyll-a, Daily Inflow discharge, Daily oxygen_concentration, Daily oxygen % sat, Daily Secchi, Daily Air temperature, Daily fluorescent dissolved organic matter, Daily Bloom_binary",
     "start_datetime": "2023-09-21",
-    "end_datetime": "2024-03-11",
+    "end_datetime": "2024-03-19",
     "providers": [
       {
         "url": "pending",
@@ -53,7 +53,9 @@
       "Daily oxygen_concentration",
       "Daily oxygen % sat",
       "Daily Secchi",
-      "Daily Air temperature"
+      "Daily Air temperature",
+      "Daily fluorescent dissolved organic matter",
+      "Daily Bloom_binary"
     ],
     "table:columns": [
       {
@@ -210,6 +212,18 @@
       "title": "Database Access for Daily Air temperature",
       "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=AirTemp_C_mean/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org",
       "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=AirTemp_C_mean/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+    },
+    "10": {
+      "type": "application/x-parquet",
+      "title": "Database Access for Daily fluorescent dissolved organic matter",
+      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=fDOM_QSU_mean/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=fDOM_QSU_mean/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+    },
+    "11": {
+      "type": "application/x-parquet",
+      "title": "Database Access for Daily Bloom_binary",
+      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Bloom_binary_mean/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Bloom_binary_mean/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     }
   }
 }

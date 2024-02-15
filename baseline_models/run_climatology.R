@@ -6,7 +6,9 @@ library(aws.s3)
 library(imputeTS)
 library(tsibble)
 library(fable)
+
 source('R/ClimatologyModelFunction.R')
+source('R/convert2binary.R')
 
 #' set the random number for reproducible MCMC runs
 set.seed(329)
@@ -26,10 +28,9 @@ site_names <- sites$site_id
 # Inflow variables
 climatology_inflow <- purrr::map_dfr(.x = c('Flow_cms_mean', 'Temp_C_mean'),
                                      .f = ~ generate_baseline_climatology(targets = targets_tubr,
-                                                                        h = 35,
-                                                                        forecast_date = Sys.Date(),
-                                                                        site = 'tubr', depth = 'target', var = .x,
-                                                                        ...))
+                                                                          h = 35,
+                                                                          forecast_date = Sys.Date(),
+                                                                          site = 'tubr', depth = 'target', var = .x))
 # Met variables
 climatology_met <- generate_baseline_climatology(targets = targets_met,
                                                h = 35,
@@ -57,8 +58,17 @@ climatology_insitu <- purrr::pmap_dfr(site_var_combinations,
                                                                          depth = 'target',
                                                                          ...))
 
+# Generate binary forecasts from continuous
+climatology_insitu_binary <- purrr::map_dfr(.x = c('fcre', 'bvre'),
+                                              .f = ~convert_continuous_binary(continuous_var = 'Chla_ugL_mean',
+                                                                              binary_var = 'Bloom_binary_mean',
+                                                                              forecast = climatology_insitu,
+                                                                              targets = targets_insitu,
+                                                                              site = .x,
+                                                                              threshold = 20))
+
 # combine and submit
-combined_climatology <- bind_rows(climatology_met, climatology_inflow, climatology_insitu)
+combined_climatology <- bind_rows(climatology_met, climatology_inflow, climatology_insitu, climatology_insitu_binary)
 
 # 4. Write forecast file
 file_date <- combined_climatology$reference_datetime[1]
@@ -68,10 +78,17 @@ forecast_file <- paste0(paste("daily", file_date, team_name, sep = "-"), ".csv.g
 write_csv(combined_climatology, forecast_file)
 
 combined_climatology %>%
+  filter(family == 'normal') |>
   pivot_wider(names_from = parameter, values_from = prediction) |>
   ggplot(aes(x = datetime, y = mu)) +
   geom_line() +
   geom_ribbon(aes(ymax = mu+sigma, ymin = mu-sigma), alpha = 0.3, fill = 'blue') +
+  facet_grid(variable~site_id, scales = 'free')
+
+combined_climatology %>%
+  filter(family == 'bernoulli') |>
+  ggplot(aes(x = datetime, y = prediction)) +
+  geom_line() +
   facet_grid(variable~site_id, scales = 'free')
 
 vera4castHelpers::submit(forecast_file = forecast_file,

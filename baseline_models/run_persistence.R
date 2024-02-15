@@ -11,6 +11,7 @@ config <- yaml::read_yaml("challenge_configuration.yaml")
 team_name <- 'persistenceRW'
 
 source('R/fablePersistenceModelFunction.R')
+source('R/convert2binary.R')
 
 # Read in targets
 targets_insitu <- readr::read_csv(paste0("https://", config$endpoint, "/", config$targets_bucket, "/project_id=vera4cast/duration=P1D/daily-insitu-targets.csv.gz"), guess_max = 10000)
@@ -25,13 +26,13 @@ site_names <- sites$site_id
 # Runs the RW forecast for inflow variables
 persistenceRW_inflow <- purrr::map_dfr(.x = c('Flow_cms_mean', 'Temp_C_mean'),
                                        .f = ~ generate_baseline_persistenceRW(targets = targets_tubr,
-                                                                            h = 35,
-                                                                            model_id = 'persistenceRW',
-                                                                            forecast_date = Sys.Date(),
-                                                                            site = 'tubr',
-                                                                            depth = 'target',
-                                                                            var = .x,
-                                                                            ...))
+                                                                              h = 35,
+                                                                              model_id = 'persistenceRW',
+                                                                              forecast_date = Sys.Date(),
+                                                                              site = 'tubr',
+                                                                              depth = 'target',
+                                                                              var = .x,
+                                                                              ...))
 
 # met variables
 persistenceRW_met <- generate_baseline_persistenceRW(targets = targets_met,
@@ -63,8 +64,17 @@ persistenceRW_insitu <- purrr::pmap_dfr(site_var_combinations,
                                                                          depth = 'target',
                                                                          ...))
 
+# Generate binary forecasts from continuous
+persistenceRW_insitu_binary <- purrr::map_dfr(.x = c('fcre', 'bvre'),
+                                             .f = ~convert_continuous_binary(continuous_var = 'Chla_ugL_mean',
+                                                                             binary_var = 'Bloom_binary_mean',
+                                                                             forecast = persistenceRW_insitu,
+                                                                             targets = targets_insitu,
+                                                                             site = .x,
+                                                                             threshold = 20))
+
 # combine and submit
-combined_persistenceRW <- bind_rows(persistenceRW_inflow, persistenceRW_insitu, persistenceRW_met)
+combined_persistenceRW <- bind_rows(persistenceRW_inflow, persistenceRW_insitu, persistenceRW_met, persistenceRW_insitu_binary)
 
 # write forecast file
 file_date <- combined_persistenceRW$reference_datetime[1]
@@ -74,10 +84,17 @@ forecast_file <- paste0(paste("daily", file_date, team_name, sep = "-"), ".csv.g
 write_csv(combined_persistenceRW, forecast_file)
 
 combined_persistenceRW %>%
+  filter(family == 'normal') |>
   pivot_wider(names_from = parameter, values_from = prediction) |>
   ggplot(aes(x = datetime, y = mu)) +
   geom_line() +
   geom_ribbon(aes(ymax = mu+sigma, ymin = mu-sigma), alpha = 0.3, fill = 'blue') +
+  facet_grid(variable~site_id, scales = 'free')
+
+combined_persistenceRW %>%
+  filter(family == 'bernoulli') |>
+  ggplot(aes(x = datetime, y = prediction)) +
+  geom_line() +
   facet_grid(variable~site_id, scales = 'free')
 
 vera4castHelpers::submit(forecast_file = forecast_file,

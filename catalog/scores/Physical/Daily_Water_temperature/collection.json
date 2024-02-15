@@ -23,6 +23,11 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "../../models/model_items/Temp_C_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "../../models/model_items/climatology.json"
     },
     {
@@ -43,7 +48,17 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "../../models/model_items/historic_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "../../models/model_items/inflow_gefsClimAED.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/monthly_mean.json"
     },
     {
       "rel": "item",
@@ -54,21 +69,6 @@
       "rel": "item",
       "type": "application/json",
       "href": "../../models/model_items/persistenceRW.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/Temp_C_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/historic_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/monthly_mean.json"
     },
     {
       "rel": "parent",
@@ -113,7 +113,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-02-06T00:00:00Z"
+          "2024-02-14T00:00:00Z"
         ]
       ]
     }

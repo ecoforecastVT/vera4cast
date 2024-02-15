@@ -116,6 +116,16 @@
       "href": "model_items/monthly_mean.json"
     },
     {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/flareSimstrat.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/flareGOTM.json"
+    },
+    {
       "rel": "parent",
       "type": "application/json",
       "href": "../collection.json"
