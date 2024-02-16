@@ -33,4 +33,4 @@ links <- lapply(links, map_links)
 cat(whisker.render(tpl), file = "dashboard/docs/sitemap.xml")
 
 ## Call healthcheck
-RCurl::url.exists("https://hc-ping.com/f96cbbec-851f-4255-80d4-65b6f41935bb", timeout = 5)
+#RCurl::url.exists("https://hc-ping.com/f96cbbec-851f-4255-80d4-65b6f41935bb", timeout = 5)

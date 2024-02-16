@@ -4,7 +4,7 @@
     "https://stac-extensions.github.io/table/v1.2.0/schema.json"
   ],
   "type": "Feature",
-  "id": "Temp_C_mean",
+  "id": "flareGOTM",
   "bbox": [
     [
       -79.8441,
@@ -16,13 +16,13 @@
   "geometry": {
     "type": "MultiPoint",
     "coordinates": [
-      [-79.8357, 37.3078]
+      [-79.8372, 37.3032]
     ]
   },
   "properties": {
-    "description": [],
-    "start_datetime": "2024-02-06",
-    "end_datetime": "2024-03-15",
+    "description": "\nmodel info: FLARE-GOTM combines the 1D hydrodynamic process-based model GOTM, a data assimilation algorithm, and NOAA weather data to forecast water column temperatures.\n\nSites: fcre\n\nVariables: Daily NA",
+    "start_datetime": "2024-01-21",
+    "end_datetime": "2024-03-16",
     "providers": [
       {
         "url": "pending",
@@ -45,7 +45,7 @@
     "keywords": [
       "Forecasting",
       "vera4cast",
-      "Daily Water_temperature"
+      "Daily NA"
     ],
     "table:columns": [
       {
@@ -121,7 +121,7 @@
       "rel": "collection",
       "href": "../collection.json",
       "type": "application/json",
-      "title": "Temp_C_mean"
+      "title": "flareGOTM"
     },
     {
       "rel": "root",
@@ -133,17 +133,17 @@
       "rel": "parent",
       "href": "../collection.json",
       "type": "application/json",
-      "title": "Temp_C_mean"
+      "title": "flareGOTM"
     },
     {
       "rel": "self",
-      "href": "Temp_C_mean.json",
+      "href": "flareGOTM.json",
       "type": "application/json",
       "title": "Model Forecast"
     },
     {
       "rel": "item",
-      "href": [],
+      "href": null,
       "type": "text/html",
       "title": "Link for Model Code"
     }
@@ -152,20 +152,20 @@
     "1": {
       "type": "application/json",
       "title": "Model Metadata",
-      "href": "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/metadata/model_id/Temp_C_mean.json",
-      "description": "Use `jsonlite::fromJSON()` to download the model metadata JSON file. This R code will return metadata provided during the model registration.\n      \n\n### R\n\n```{r}\n# Use code below\n\nmodel_metadata <- jsonlite::fromJSON(\"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/metadata/model_id/Temp_C_mean.json\")\n\n"
+      "href": "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/metadata/model_id/flareGOTM.json",
+      "description": "Use `jsonlite::fromJSON()` to download the model metadata JSON file. This R code will return metadata provided during the model registration.\n      \n\n### R\n\n```{r}\n# Use code below\n\nmodel_metadata <- jsonlite::fromJSON(\"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/metadata/model_id/flareGOTM.json\")\n\n"
     },
     "2": {
       "type": "text/html",
       "title": "Link for Model Code",
-      "href": [],
+      "href": null,
       "description": "The link to the model code provided by the model submission team"
     },
     "3": {
       "type": "application/x-parquet",
-      "title": "Database Access for Daily Water_temperature",
-      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Temp_C_mean/model_id=Temp_C_mean?endpoint_override=renc.osn.xsede.org",
-      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Temp_C_mean/model_id=Temp_C_mean?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+      "title": "Database Access for Daily NA",
+      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=temperature/model_id=flareGOTM?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=temperature/model_id=flareGOTM?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     }
   }
 }

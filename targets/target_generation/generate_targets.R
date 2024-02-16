@@ -74,9 +74,45 @@ secchi_daily <- target_generation_daily_secchi_m(current = current, edi = edi) |
 secchi_daily$duration <- 'P1D'
 secchi_daily$project_id <- 'vera4cast'
 
+
+
+##Eddy Flux
+print('Eddy Flux')
+source('targets/target_functions/generate_EddyFlux_ghg_targets_function.R')
+eddy_flux <- generate_EddyFlux_ghg_targets_function(
+ current_data_file = "https://raw.githubusercontent.com/CareyLabVT/Reservoirs/master/Data/DataNotYetUploadedToEDI/EddyFlux_Processing/EddyPro_Cleaned_L1.csv",
+ edi_data_file = "https://pasta.lternet.edu/package/data/eml/edi/1061/2/f837d12dc12ab37a6772598578875e00")
+
+
+## CTD  - MOM
+print('CTD - MOM')
+source('targets/target_functions/targets_generation_daily_MOM.R')
+historic_file  <- "https://pasta.lternet.edu/package/data/eml/edi/200/13/27ceda6bc7fdec2e7d79a6e4fe16ffdf"
+current_file <-  "https://raw.githubusercontent.com/CareyLabVT/Reservoirs/master/Data/DataNotYetUploadedToEDI/Raw_CTD/ctd_L1.csv"
+
+mom_daily_targets <- targets_generation_daily_MOM(current_file = current_file, historic_file = historic_file)
+
+## Thermocline Depth
+print('Thermocline Depth')
+source('targets/target_functions/generate_thermoclineD.R')
+fcr_latest <- "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv"
+fcr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/271/7/71e6b946b751aa1b966ab5653b01077f"
+
+thermocline_depth <- generate_thermocline_depth(current_file = fcr_latest,
+                                                historic_file = fcr_edi)
+
+## Schmidt Stability
+print('Schmidt Stability')
+source('targets/target_functions/target_generation_SchmidtStability.R')
+fcr_files <- c("https://pasta.lternet.edu/package/data/eml/edi/271/7/71e6b946b751aa1b966ab5653b01077f",
+               "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv")
+
+schmidt_stability <- generate_schmidt.stability(current_file = fcr_files[2], historic_file = fcr_files[1])
+
 ## combine the data and perform final adjustments (depth, etc.)
 
-combined_targets <- bind_rows(exo_daily, fluoro_daily, fcr_thermistor_temp_daily, bvr_thermistor_temp_daily, secchi_daily) |>
+combined_targets <- bind_rows(exo_daily, fluoro_daily, fcr_thermistor_temp_daily, bvr_thermistor_temp_daily, secchi_daily, eddy_flux,
+                              mom_daily_targets, thermocline_depth, schmidt_stability) |>
   select(all_of(column_names))
 
 combined_targets_deduped <- combined_targets |>
@@ -145,7 +181,6 @@ met_hourly <- met_hourly |>
   select(all_of(column_names))
 
 arrow::write_csv_arrow(met_hourly, sink = s3_hourly$path("hourly-met-targets.csv.gz"))
-
 
 # ## Call healthcheck
 # RCurl::url.exists("https://hc-ping.com/04dde6b2-a5f1-4a33-811b-3386cf84d4f9", timeout = 5)

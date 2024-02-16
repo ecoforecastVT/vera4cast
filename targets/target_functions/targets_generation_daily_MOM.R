@@ -76,5 +76,5 @@ targets_generation_daily_MOM <- function(current_file, historic_file){
 
   }
 
-a <- targets_generation_daily_MOM(current_file = current_file, historic_file = historic_file)
+#a <- targets_generation_daily_MOM(current_file = current_file, historic_file = historic_file)
 
