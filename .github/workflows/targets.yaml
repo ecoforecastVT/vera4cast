@@ -22,6 +22,7 @@ jobs:
       - name: Generate targets
         shell: Rscript {0}
         run: |
+          R -e 'remotes::install_version("pacman", version = "0.5.1")'
           source("targets/target_generation/generate_targets.R")
 
       - name: Healthcheck
