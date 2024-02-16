@@ -1,10 +1,10 @@
 generate_baseline_climatology <- function(targets, # a dataframe already read in
-                                        h = 35,
-                                        site, # vector of site_ids
-                                        model_id = 'climatology',
-                                        var, # single variable
-                                        depth = 'target',
-                                        forecast_date = Sys.Date()) {
+                                          h = 35,
+                                          site, # vector of site_ids
+                                          model_id = 'climatology',
+                                          var, # single variable
+                                          depth = 'target',
+                                          forecast_date = Sys.Date()) {
   message('Generating climatology for ',  var, ' at ', site)
 
   if (depth == 'target') {
@@ -14,6 +14,10 @@ generate_baseline_climatology <- function(targets, # a dataframe already read in
     target_depths <- depth
   }
 
+
+  variable_df <- data.frame(doy = seq(1,366, 1),
+                            variable = var,
+                            site_id = site)
 
   # calculate the mean and standard deviation for each doy
   target_clim <- targets %>%
@@ -26,7 +30,12 @@ generate_baseline_climatology <- function(targets, # a dataframe already read in
     summarise(clim_mean = mean(observation, na.rm = TRUE),
               clim_sd = sd(observation, na.rm = TRUE),
               .groups = "drop") %>%
-    mutate(clim_mean = ifelse(is.nan(clim_mean), NA, clim_mean))
+    full_join(variable_df, by = c('doy', 'site_id', 'variable')) |>
+    arrange(doy) |>
+    mutate(clim_mean = ifelse(is.nan(clim_mean), NA, clim_mean),
+           clim_mean = ifelse(variable == 'Secchi_m_sample',
+                              imputeTS::na_interpolation(x = clim_mean, maxgap = 14),
+                              clim_mean))
 
   if (nrow(target_clim) == 0) {
     message('No targets available. Check that the dates, depths, and sites exist in the target data frame')
