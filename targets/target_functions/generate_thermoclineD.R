@@ -1,3 +1,6 @@
+install.packages('rLakeAnalyzer')
+library(rLakeAnalyzer)
+
 generate_thermocline_depth <- function(current_file, historic_file) {
   options(dplyr.summarise.inform = FALSE)
   source('R/find_depths.R')
