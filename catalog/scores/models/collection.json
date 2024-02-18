@@ -38,6 +38,11 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "model_items/historic_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "model_items/icon_seamless.json"
     },
     {
@@ -69,11 +74,6 @@
       "rel": "item",
       "type": "application/json",
       "href": "model_items/glm_aed_v1.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/historic_mean.json"
     },
     {
       "rel": "item",
@@ -158,7 +158,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-02-17T00:00:00Z"
+          "2024-02-18T00:00:00Z"
         ]
       ]
     }
