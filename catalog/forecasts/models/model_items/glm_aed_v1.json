@@ -22,7 +22,7 @@
   "properties": {
     "description": "\nmodel info: GLM-AED with Ensemble Kalman Filter as implemented in FLARE.  This version used DA to update model states but not model parameters.\n\nSites: fcre\n\nVariables: Daily Bloom_binary, Daily Chlorophyll-a, Daily Dissolved organic carbon concentration, Daily oxygen_concentration, Daily ammonium concentration, Daily Total soluble reactive phosphorus concentration, Daily Water_temperature, Daily fluorescent dissolved organic matter, Daily Secchi, Daily Dissolved methane, Daily Presence of ice cover",
     "start_datetime": "2023-10-14",
-    "end_datetime": "2024-03-19",
+    "end_datetime": "2024-03-22",
     "providers": [
       {
         "url": "pending",

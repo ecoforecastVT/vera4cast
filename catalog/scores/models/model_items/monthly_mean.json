@@ -22,9 +22,9 @@
     ]
   },
   "properties": {
-    "description": "\nmodel info: This model calculates a monthly mean from the historic data and assigns this as the mean prediction for any day within that month. The standard deviation of the observations for that month is given as the standard deviation of the forecast.\n\nSites: fcre, bvre, tubr\n\nVariables: Daily Air temperature, Daily Bloom_binary, Daily Chlorophyll-a, Daily oxygen_concentration, Daily oxygen % sat, Daily Inflow discharge, Daily Water_temperature, Daily fluorescent dissolved organic matter",
+    "description": "\nmodel info: This model calculates a monthly mean from the historic data and assigns this as the mean prediction for any day within that month. The standard deviation of the observations for that month is given as the standard deviation of the forecast.\n\nSites: fcre, bvre, tubr\n\nVariables: Daily Air temperature, Daily Bloom_binary, Daily Chlorophyll-a, Daily oxygen_concentration, Daily oxygen % sat, Daily Inflow discharge, Daily Secchi, Daily Water_temperature, Daily fluorescent dissolved organic matter",
     "start_datetime": "2024-02-06",
-    "end_datetime": "2024-02-15",
+    "end_datetime": "2024-02-19",
     "providers": [
       {
         "url": "pending",
@@ -53,6 +53,7 @@
       "Daily oxygen_concentration",
       "Daily oxygen % sat",
       "Daily Inflow discharge",
+      "Daily Secchi",
       "Daily Water_temperature",
       "Daily fluorescent dissolved organic matter"
     ],
@@ -248,11 +249,17 @@
     },
     "9": {
       "type": "application/x-parquet",
+      "title": "Database Access for Daily Secchi",
+      "href": "s3://anonymous@bio230121-bucket01/vera4cast/scores/parquet/project_id=vera4cast/duration=P1D/variable=Secchi_m_sample/model_id=monthly_mean?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/scores/parquet/project_id=vera4cast/duration=P1D/variable=Secchi_m_sample/model_id=monthly_mean?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+    },
+    "10": {
+      "type": "application/x-parquet",
       "title": "Database Access for Daily Water_temperature",
       "href": "s3://anonymous@bio230121-bucket01/vera4cast/scores/parquet/project_id=vera4cast/duration=P1D/variable=Temp_C_mean/model_id=monthly_mean?endpoint_override=renc.osn.xsede.org",
       "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/scores/parquet/project_id=vera4cast/duration=P1D/variable=Temp_C_mean/model_id=monthly_mean?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     },
-    "10": {
+    "11": {
       "type": "application/x-parquet",
       "title": "Database Access for Daily fluorescent dissolved organic matter",
       "href": "s3://anonymous@bio230121-bucket01/vera4cast/scores/parquet/project_id=vera4cast/duration=P1D/variable=fDOM_QSU_mean/model_id=monthly_mean?endpoint_override=renc.osn.xsede.org",

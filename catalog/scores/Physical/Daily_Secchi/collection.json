@@ -13,7 +13,27 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "../../models/model_items/climatology.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "../../models/model_items/glm_aed_v1.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/historic_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/monthly_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/persistenceRW.json"
     },
     {
       "rel": "parent",
@@ -51,14 +71,14 @@
   "extent": {
     "spatial": {
       "bbox": [
-        [-79.8372, 37.3032, -79.8372, 37.3032]
+        ["Inf", "Inf", "-Inf", "-Inf"]
       ]
     },
     "temporal": {
       "interval": [
         [
           "2023-10-14T00:00:00Z",
-          "2023-12-04T00:00:00Z"
+          "2024-02-13T00:00:00Z"
         ]
       ]
     }
