@@ -89,7 +89,7 @@ generate_baseline_monthly_mean <- function(targets, # a dataframe already read i
         # get in standard format
         pivot_longer(c("mu", "sigma"),names_to = "parameter", values_to = "prediction") |>
         mutate(family = "normal") |>
-        mutate(reference_datetime = min(datetime) - lubridate::days(1),
+        mutate(reference_datetime = forecast_date,
                model_id = model_id) |>
         select(model_id, datetime, reference_datetime, site_id, variable, family, parameter, prediction, depth_m) |>
         mutate(project_id = "vera4cast",

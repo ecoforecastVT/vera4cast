@@ -31,7 +31,7 @@ target_generation_ThermistorTemp_C_hourly <- function(current_file, historic_fil
       dplyr::summarise(observation = mean(observation, na.rm = T),
                        n = dplyr::n(),
                        .groups = 'drop') |>
-      dplyr::mutate(observation = ifelse(n < 144/3, NA, observation), # 144 = 24(hrs) * 6(10 minute intervals/hr)
+      dplyr::mutate(observation = ifelse(n < 6/2, NA, observation), # 6 = 6(10 minute intervals/hr)
                     Reservoir = 'bvre') |>
 
       dplyr::rename(site_id = Reservoir,
@@ -57,7 +57,7 @@ target_generation_ThermistorTemp_C_hourly <- function(current_file, historic_fil
       dplyr::summarise(observation = mean(observation, na.rm = T),
                        n = dplyr::n(),
                        .groups = 'drop') |>
-      dplyr::mutate(observation = ifelse(n < 144/2, NA, observation)) |> # 144 = 24(hrs) * 6(10 minute intervals/hr)
+      dplyr::mutate(observation = ifelse(n < 6/2, NA, observation)) |> # 6 = 6(10 minute intervals/hr)
       dplyr::rename(site_id = Reservoir,
                     datetime = date) |>
       dplyr::select(-n)
