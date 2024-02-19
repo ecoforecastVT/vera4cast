@@ -34,7 +34,8 @@ generate_baseline_climatology <- function(targets, # a dataframe already read in
     arrange(doy) |>
     mutate(clim_mean = ifelse(is.nan(clim_mean), NA, clim_mean),
            clim_mean = ifelse(variable == 'Secchi_m_sample',
-                              imputeTS::na_interpolation(x = clim_mean, maxgap = 14),
+                              imputeTS::na_interpolation(x = clim_mean),
+                              # all values "interpolated" irrespective of gap length?
                               clim_mean))
 
   if (nrow(target_clim) == 0) {
