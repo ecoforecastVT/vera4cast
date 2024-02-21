@@ -5,7 +5,7 @@ on:
     - cron: '0 4 * * *'
   workflow_dispatch:
 
-name: submissions-score-dashboard-catalog
+name: submissions-score-dashboard
 
 jobs:
   submissions:
