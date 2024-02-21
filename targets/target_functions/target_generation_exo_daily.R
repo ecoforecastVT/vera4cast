@@ -115,7 +115,7 @@ target_generation_exo_daily <- function (fcr_files,
 
   bvr_DO <- bvr_df |>
     filter(!sampledate %in% bvr_remove_days$sampledate) |> # filter for complete days
-    select(DateTime, (starts_with('RDO') & ends_with('adjusted')) | (starts_with('EXODO'))) |>
+    select(DateTime, (starts_with('RDO')) | (starts_with('EXODO'))) |>
     pivot_longer(-DateTime, names_to = 'variable', values_to = 'observation') |>
     mutate(sampledate = as.Date(DateTime)) |>
     mutate(depth_m = as.numeric(sapply(stringr::str_split(variable, "_"), function(x) x[3]))) |>
