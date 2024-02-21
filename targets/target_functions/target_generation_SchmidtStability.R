@@ -207,7 +207,7 @@ generate_schmidt.stability <- function(current_file, historic_file) {
                          site_id = current_df$Reservoir[1],
                          depth_m = NA,
                          observation = schmidts,
-                         variable = 'schmidt.stability')
+                         variable = 'SchmidtStability_Jm2_mean')
   ## Match data to flare targets file
   return(final_ss)
 }
