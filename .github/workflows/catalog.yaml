@@ -53,4 +53,4 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y curl
-          curl -m 10 --retry 5 https://hc-ping.com/296326f1-30e9-48ee-ad04-d0eaceb4748d
+          curl -m 10 --retry 5 https://hc-ping.com/3ca7c26c-243e-4405-a3e9-a8381a923def
