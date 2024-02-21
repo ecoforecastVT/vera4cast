@@ -37,7 +37,9 @@ generate_EddyFlux_ghg_targets_function <- function(current_data_file, edi_data_f
     mutate(Depth_m = NA)%>%
     select(-date)%>%
     rename(site_id=Reservoir, # rename the columns for standard notation
-           depth=Depth_m)%>%
+           depth=Depth_m,
+           CO2_umolL_sample = co2_flux_umolm2s,
+           CH4_umolL_sample = ch4_flux_umolm2s)%>%
     pivot_longer(cols=c(co2_flux_umolm2s, ch4_flux_umolm2s), # make the wide data frame into a long one so each observation has a depth
                  names_to='variable',
                  values_to='observation')%>%
