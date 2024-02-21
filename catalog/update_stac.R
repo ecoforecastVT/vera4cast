@@ -42,4 +42,4 @@ source('catalog/noaa_forecasts/noaa_forecasts.R')
 
 
 ## Call healthcheck
-RCurl::url.exists("https://hc-ping.com/3ca7c26c-243e-4405-a3e9-a8381a923def", timeout = 5)
+#RCurl::url.exists("https://hc-ping.com/3ca7c26c-243e-4405-a3e9-a8381a923def", timeout = 5)
