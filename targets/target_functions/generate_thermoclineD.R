@@ -174,7 +174,7 @@ generate_thermocline_depth <- function(current_file, historic_file) {
                         names_to = 'variable',
                         # names_prefix = 'mean_',
                         values_to = 'observation') |>
-    mutate(variable == 'ThermoclineDepth_m_mean')
+    dplyr::mutate(variable = 'ThermoclineDepth_m_mean')
   ## Match data to flare targets file
   return(final_df)
 }
