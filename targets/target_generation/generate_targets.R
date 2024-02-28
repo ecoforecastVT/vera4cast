@@ -77,11 +77,11 @@ secchi_daily$project_id <- 'vera4cast'
 
 
 ##Eddy Flux
-print('Eddy Flux')
-source('targets/target_functions/generate_EddyFlux_ghg_targets_function.R')
-eddy_flux <- generate_EddyFlux_ghg_targets_function(
- current_data_file = "https://raw.githubusercontent.com/CareyLabVT/Reservoirs/master/Data/DataNotYetUploadedToEDI/EddyFlux_Processing/EddyPro_Cleaned_L1.csv",
- edi_data_file = "https://pasta.lternet.edu/package/data/eml/edi/1061/2/f837d12dc12ab37a6772598578875e00")
+#print('Eddy Flux')
+#source('targets/target_functions/generate_EddyFlux_ghg_targets_function.R')
+#eddy_flux <- generate_EddyFlux_ghg_targets_function(
+# current_data_file = "https://raw.githubusercontent.com/CareyLabVT/Reservoirs/master/Data/DataNotYetUploadedToEDI/EddyFlux_Processing/EddyPro_Cleaned_L1.csv",
+# edi_data_file = "https://pasta.lternet.edu/package/data/eml/edi/1061/2/f837d12dc12ab37a6772598578875e00")
 
 
 ## CTD  - MOM
