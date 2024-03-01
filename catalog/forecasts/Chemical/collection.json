@@ -51,14 +51,14 @@
   "extent": {
     "spatial": {
       "bbox": [
-        ["Inf", "Inf", "-Inf", "-Inf"]
+        [-79.8372, 37.3032, -79.8159, 37.3129]
       ]
     },
     "temporal": {
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-04-01T00:00:00Z"
+          "2024-04-06T00:00:00Z"
         ]
       ]
     }
@@ -132,7 +132,7 @@
   ],
   "assets": {
     "data": {
-      "href": "s3://anonymous@?endpoint_override=renc.osn.xsede.org",
+      "href": "\"s3://anonymous@?endpoint_override=renc.osn.xsede.org\"",
       "type": "application/x-parquet",
       "title": "Database Access",
       "roles": [
