@@ -2,22 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
       <loc>https://www.ltreb-reservoirs.org/vera4cast//catalog.html</loc>
-      <lastmod>2024-02-29</lastmod>
+      <lastmod>2024-03-01</lastmod>
    </url>
    <url>
       <loc>https://www.ltreb-reservoirs.org/vera4cast//instructions.html</loc>
-      <lastmod>2024-02-29</lastmod>
+      <lastmod>2024-03-01</lastmod>
    </url>
    <url>
       <loc>https://www.ltreb-reservoirs.org/vera4cast//performance.html</loc>
-      <lastmod>2024-02-29</lastmod>
+      <lastmod>2024-03-01</lastmod>
    </url>
    <url>
       <loc>https://www.ltreb-reservoirs.org/vera4cast//index.html</loc>
-      <lastmod>2024-02-29</lastmod>
+      <lastmod>2024-03-01</lastmod>
    </url>
    <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/catalog.json</loc>
+      <lastmod>2024-02-23</lastmod>
+   </url>
+   <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/climatology.json</loc>
       <lastmod>2024-02-23</lastmod>
    </url>
    <url>
@@ -321,35 +325,11 @@
       <lastmod>2024-02-23</lastmod>
    </url>
    <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/summaries/Biological/Daily_Bloom_binary/collection.json</loc>
-      <lastmod>2024-02-23</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/summaries/Biological/Daily_Chlorophyll-a/collection.json</loc>
-      <lastmod>2024-02-23</lastmod>
-   </url>
-   <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/summaries/Biological/collection.json</loc>
       <lastmod>2024-02-23</lastmod>
    </url>
    <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/summaries/Chemical/Daily_oxygen_concentration/collection.json</loc>
-      <lastmod>2024-02-23</lastmod>
-   </url>
-   <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/summaries/Chemical/collection.json</loc>
-      <lastmod>2024-02-23</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/summaries/Physical/Daily_Secchi/collection.json</loc>
-      <lastmod>2024-02-23</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/summaries/Physical/Daily_Water_temperature/collection.json</loc>
-      <lastmod>2024-02-23</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/summaries/Physical/Hourly_Water_temperature/collection.json</loc>
       <lastmod>2024-02-23</lastmod>
    </url>
    <url>
