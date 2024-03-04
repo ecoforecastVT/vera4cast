@@ -26,7 +26,7 @@ noaa_description_create <- data.frame(site_id = 'For forecasts that are not on a
                                           latitude = 'forecast site latitude')
 
 
-noaa_theme_df <- arrow::open_dataset(arrow::s3_bucket(paste0(config$noaa_forecast_bucket,"stage2/reference_datetime=2024-02-21/site_id=feea"), endpoint_override = config$noaa_endpoint, anonymous = TRUE))
+noaa_theme_df <- arrow::open_dataset(arrow::s3_bucket(paste0(config$noaa_forecast_bucket,"/stage2/reference_datetime=2024-02-21/site_id=feea"), endpoint_override = config$noaa_endpoint, anonymous = TRUE))
 
 noaa_theme_dates <- arrow::open_dataset(arrow::s3_bucket(paste0(config$noaa_forecast_bucket,"stage2/"), endpoint_override = config$noaa_endpoint, anonymous = TRUE)) |>
   dplyr::summarise(min(datetime),max(datetime)) |>
