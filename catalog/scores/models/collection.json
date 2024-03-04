@@ -113,6 +113,16 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "model_items/flareGOTM.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/flareSimstrat.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "model_items/persistenceFO.json"
     },
     {
@@ -158,7 +168,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-02-19T00:00:00Z"
+          "2024-03-04T00:00:00Z"
         ]
       ]
     }

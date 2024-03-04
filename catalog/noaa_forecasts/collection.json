@@ -88,7 +88,7 @@
       "interval": [
         [
           "2024-02-16T00:00:00Z",
-          "2024-04-04T00:00:00Z"
+          "2024-04-07T00:00:00Z"
         ]
       ]
     }
@@ -122,7 +122,7 @@
   ],
   "assets": {
     "data": {
-      "href": "\"s3://anonymous@bio230121-bucket01/flare/drivers/met/gefs-v12?endpoint_override=renc.osn.xsede.org\"",
+      "href": "s3://anonymous@bio230121-bucket01/flare/drivers/met/gefs-v12?endpoint_override=renc.osn.xsede.org",
       "type": "application/x-parquet",
       "title": "Database Access",
       "roles": [

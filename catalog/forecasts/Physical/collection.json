@@ -68,7 +68,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-04-06T00:00:00Z"
+          "2024-04-08T00:00:00Z"
         ]
       ]
     }
@@ -142,7 +142,7 @@
   ],
   "assets": {
     "data": {
-      "href": "\"s3://anonymous@?endpoint_override=renc.osn.xsede.org\"",
+      "href": "s3://anonymous@?endpoint_override=renc.osn.xsede.org",
       "type": "application/x-parquet",
       "title": "Database Access",
       "roles": [
