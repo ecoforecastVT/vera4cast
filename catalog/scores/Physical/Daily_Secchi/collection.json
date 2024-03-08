@@ -13,6 +13,11 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "../../models/model_items/climatology.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "../../models/model_items/glm_aed_v1.json"
     },
     {
@@ -29,11 +34,6 @@
       "rel": "item",
       "type": "application/json",
       "href": "../../models/model_items/persistenceRW.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/climatology.json"
     },
     {
       "rel": "parent",
@@ -78,7 +78,7 @@
       "interval": [
         [
           "2023-10-14T00:00:00Z",
-          "2024-02-13T00:00:00Z"
+          "2024-03-05T00:00:00Z"
         ]
       ]
     }
