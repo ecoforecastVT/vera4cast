@@ -22,7 +22,7 @@
   "properties": {
     "description": "\nmodel info: FLARE-Simstrat combines the 1D process-based model Simstrat, a data assimilation algorithm (EnKF) and NOAA driver weather data to make predictions of water column temperatures.\n\nSites: fcre\n\nVariables: Daily Water_temperature",
     "start_datetime": "2024-01-21",
-    "end_datetime": "2024-03-07",
+    "end_datetime": "2024-03-08",
     "providers": [
       {
         "url": "pending",
