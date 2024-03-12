@@ -150,7 +150,7 @@ find_depths <- function(data_file, # data_file = the file of most recent data ei
       dplyr::mutate(Depth_m = round(Depth_m, round_digits)) |>
       dplyr::select(Reservoir, Site, Depth_m,
                     DateTime, variable,
-                    Position, sensor_depth,
+                    Position, observation, sensor_depth,
                     rounded_depth,
                     depth_bin)
 
