@@ -21,7 +21,7 @@ forecast_ggobj <- function(df, ncol = NULL, show.legend = TRUE) {
 }
 
 
-forecast_plots <- function(df, ncol = NULL, show.legend = FALSE) {
+forecast_plots <- function(df, ncol = NULL, show.legend = TRUE) {
 
   if(nrow(df)==0) return(NULL)
 
