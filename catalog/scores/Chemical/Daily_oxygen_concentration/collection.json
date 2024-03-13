@@ -13,6 +13,16 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "../../models/model_items/asl.auto.arima.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/asl.ets.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "../../models/model_items/climatology.json"
     },
     {
@@ -78,7 +88,7 @@
       "interval": [
         [
           "2023-10-14T00:00:00Z",
-          "2024-03-11T00:00:00Z"
+          "2024-03-12T00:00:00Z"
         ]
       ]
     }

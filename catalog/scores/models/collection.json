@@ -83,6 +83,16 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "model_items/asl.auto.arima.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/asl.ets.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "model_items/Flow_cms_mean.json"
     },
     {
@@ -168,7 +178,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-03-12T00:00:00Z"
+          "2024-03-13T00:00:00Z"
         ]
       ]
     }
