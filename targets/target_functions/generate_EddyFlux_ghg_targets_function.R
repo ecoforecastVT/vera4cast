@@ -1,33 +1,198 @@
 # Function for generating the targets file for mean daily fluxes from EddyFlux
 # Author: Adrienne Breef-Pilz
-# 8 Sep 2023
+# Created: 8 Sep 2023
+# Edited: 15 March 2024 - added more qaqc
 
 install.packages('pacman')
 pacman::p_load("tidyverse","lubridate")
 
-generate_EddyFlux_ghg_targets_function <- function(current_data_file, edi_data_file){
 
-  ## read in current data file which is found on GitHub
+generate_EddyFlux_ghg_targets_function <- function(flux_current_data_file,
+                                                   flux_edi_data_file,
+                                                   met_current_data_file,
+                                                   met_edi_data_file){
 
-  dt1 <-read_csv(current_data_file)
+  # Things to figure out is how many fluxes are needed for a good daily flux.
+  # Right now it is just a daily average no matter if it is one observation or 48
+
+  # functions we need for despike
+  source("https://raw.githubusercontent.com/CareyLabVT/Reservoirs/master/Data/DataNotYetUploadedToEDI/EddyFlux_Processing/despike.R")
+
+  ## Read in the data files
+
+  ## read in EddyFlux summary files from the current data file which is found on GitHub
+
+  dt1 <-read_csv(flux_current_data_file)
 
   # read in historical data file
   # EDI
-  inUrl1 <- edi_data_file
-  infile1 <- tempfile()
-  try(download.file(inUrl1,infile1,method="curl"))
-  if (is.na(file.size(infile1))) download.file(inUrl1,infile1,method="auto")
 
   # read in the data file downloaded from EDI
-  dt2 <-read_csv(infile1)
+  dt2 <-read_csv(flux_edi_data_file)
 
-  # Filter to what you need
-  targets_df<-bind_rows(dt2,dt1)%>% # bind observations together
-    select(date, co2_flux_umolm2s, ch4_flux_umolm2s)%>% # select columns we want
+  # combine the historic and the current data file
+  ec <- dt2%>%
+    bind_rows(.,dt1)%>%
+    distinct()
 
-    # Add a few QAQC checks
-    mutate(co2_flux_umolm2s=ifelse(co2_flux_umolm2s>100 | co2_flux_umolm2s< -100, NA, co2_flux_umolm2s))%>%
-    mutate(ch4_flux_umolm2s=ifelse(ch4_flux_umolm2s>1 | ch4_flux_umolm2s< -1, NA, ch4_flux_umolm2s))%>%
+  # Format time
+  # make a datetime column and read in with original timezone
+  ec$datetime <- paste0(ec$date, " ",ec$time)
+
+  # Set timezone as America/New_York because that's what it is in and then convert to EST
+  ec$datetime <- force_tz(ymd_hms(ec$datetime), tzone = "America/New_York")
+
+  # convert from Eastern/US with daylight savings observed to EST which does not.
+  ec$datetime <- with_tz(ec$datetime, tzone = "EST")
+
+
+
+  #### Reading in data from the Met Station for QAQCing when raining
+  # Load data Meteorological data from EDI
+
+
+  # Read in Met file from EDI
+  met_all <- read_csv(met_edi_data_file,
+                      col_select=c("DateTime","Rain_Total_mm"))%>%
+    mutate(DateTime = force_tz(DateTime, tzone="EST"))%>%
+    # Start timeseries on the 00:15:00 to facilitate 30-min averages
+    filter(DateTime >= ymd_hms("2020-04-04 00:15:00", tz="EST"))
+
+  # Bind files together if need to use current file
+
+  met_curr <- read_csv(met_current_data_file,
+                       col_select=c("DateTime","Rain_Total_mm"))%>%
+    mutate(DateTime = force_tz(DateTime, tzone="EST"))
+
+  met_all <- dplyr::bind_rows(met_curr, met_all) # bind everything together
+
+
+  # Start timeseries on the 00:15:00 to facilitate 30-min averages
+
+  # Select data every 30 minutes from Jan 2020 to end of met data
+  met_all$Breaks <- cut(met_all$DateTime,breaks = "30 mins",right=FALSE)
+  met_all$Breaks <- parse_date_time(met_all$Breaks, orders=c("ymd", "ymd HMS"), tz="EST")
+
+
+  # Sum met data to the 30 min mark (for Total Rain and Total PAR)
+  met_2 <- met_all %>%
+    select(DateTime,Rain_Total_mm,Breaks) %>%
+    group_by(Breaks) %>%
+    summarise_if(is.numeric,sum,na.rm=TRUE) %>%
+    ungroup()%>%
+    mutate(DateTime=Breaks - 900)%>%
+    rename(datetime = DateTime,
+           Rain_sum = Rain_Total_mm)
+
+  ec2 <- left_join(ec, met_2, by='datetime')
+
+
+
+  # Filter out wind directions that are BEHIND the catwalk
+  # I.e., only keep data that is IN FRONT of the catwalk for both EC and Met data
+  ec_filt <- ec2 %>% dplyr::filter(wind_dir < 80 | wind_dir > 250)
+
+
+  # Remove values that are greater than abs(100)
+  # NOTE: Updated from Brenda's code to use abs(100); instead of -70 to 100 filtering
+  # Waldo et al. 2021 used: values greater than abs(15000)
+  ec_filt$co2_flux_umolm2s <- ifelse(ec_filt$co2_flux_umolm2s > 100 | ec_filt$co2_flux_umolm2s < -100, NA, ec_filt$co2_flux_umolm2s)
+
+  # Remove CO2 data if QC >= 2 (aka: data that has been flagged by Eddy Pro)
+  ec_filt$co2_flux_umolm2s <- ifelse(ec_filt$qc_co2_flux >= 2, NA, ec_filt$co2_flux_umolm2s)
+
+  # Additionally remove CO2 data when H and LE > 2 (following CH4 filtering)
+  ec_filt$co2_flux_umolm2s <- ifelse(ec_filt$qc_co2_flux==1 & ec_filt$qc_LE>=2, NA, ec_filt$co2_flux_umolm2s)
+  ec_filt$co2_flux_umolm2s <- ifelse(ec_filt$qc_co2_flux==1 & ec_filt$qc_H>=2, NA, ec_filt$co2_flux_umolm2s)
+
+  # Remove large CH4 values
+
+  # Remove values that are greater than abs(0.25)
+  # NOTE: Updated from Brenda's code to use abs(0.25)
+  # Waldo et al. 2021 used: values greater than abs(500)
+  ec_filt$ch4_flux_umolm2s <- ifelse(ec_filt$ch4_flux_umolm2s >= 0.25 | ec_filt$ch4_flux_umolm2s <= -0.25, NA, ec_filt$ch4_flux_umolm2s)
+
+  # Remove ch4 values when signal strength < 20
+  ec_filt$ch4_flux_umolm2s <- ifelse(ec_filt$rssi_77_mean < 20, NA, ec_filt$ch4_flux_umolm2s)
+
+  # Remove CH4 data if QC >= 2
+  ec_filt$ch4_flux_umolm2s <- ifelse(ec_filt$qc_ch4_flux >=2, NA, ec_filt$ch4_flux_umolm2s)
+
+  # Additionally, remove CH4 when other parameters are QA/QC'd
+  # Following Waldo et al. 2021: Remove additional ch4 flux data
+  # (aka: anytime ch4_qc flag = 1 & another qc_flag =2, remove)
+  ec_filt$ch4_flux_umolm2s <- ifelse(ec_filt$qc_ch4_flux==1 & ec_filt$qc_co2_flux>=2, NA, ec_filt$ch4_flux_umolm2s)
+  ec_filt$ch4_flux_umolm2s <- ifelse(ec_filt$qc_ch4_flux==1 & ec_filt$qc_LE>=2, NA, ec_filt$ch4_flux_umolm2s)
+  ec_filt$ch4_flux_umolm2s <- ifelse(ec_filt$qc_ch4_flux==1 & ec_filt$qc_H>=2, NA, ec_filt$ch4_flux_umolm2s)
+
+  # Check QC for H and LE}
+  # Removing qc >= 2 for H and LE
+  ec_filt$H_wm2 <- ifelse(ec_filt$qc_H >= 2, NA, ec_filt$H_wm2)
+  ec_filt$LE_wm2 <- ifelse(ec_filt$qc_LE >= 2, NA, ec_filt$LE_wm2)
+
+  # Remove high H values: greater than abs(200)
+  # NOTE: Updated to have same upper and lower magnitude bound
+  # Waldo et al. 2021 used abs of 200 for H
+
+  ec_filt$H_wm2 <- ifelse(ec_filt$H_wm2 >= 200 | ec_filt$H_wm2 <= -200, NA, ec_filt$H_wm2)
+
+  # Remove high LE values: greater than abs(500)
+  # NOTE: Updated to have same upper and lower magnitude bounds
+  # Waldo et al. 2021 used abs of 1000 for LE
+
+  ec_filt$LE_wm2 <- ifelse(ec_filt$LE_wm2 >= 500 | ec_filt$LE_wm2 <= -500, NA, ec_filt$LE_wm2)
+
+
+  # Remove CH4 when it rains
+  ec_filt$ch4_flux_umolm2s <- ifelse(ec_filt$Rain_sum > 0, NA, ec_filt$ch4_flux_umolm2s)
+
+  # Remove CH4 data when thermocouple was not working (apr 05 - apr 25) # ABP find for 2023
+  ec_filt$ch4_flux_umolm2s <- ifelse(ec_filt$datetime >= '2021-04-05' & ec_filt$datetime <= '2021-04-25',
+                                     NA, ec_filt$ch4_flux_umolm2s)
+
+  eddy_fcr <- ec_filt
+
+  # Despike NEE (CO2 flux) and CH4. Use the function sourced at the beginning of the script
+
+
+  # Calculate low, medium, and high data flags
+  flag <- spike_flag(eddy_fcr$co2_flux_umolm2s,z = 7)
+  NEE_low <- ifelse(flag == 1, NA, eddy_fcr$co2_flux_umolm2s)
+  flag <- spike_flag(eddy_fcr$co2_flux_umolm2s,z = 5.5)
+  NEE_medium <- ifelse(flag == 1, NA, eddy_fcr$co2_flux_umolm2s)
+  flag <- spike_flag(eddy_fcr$co2_flux_umolm2s,z = 4)
+  NEE_high <- ifelse(flag == 1, NA, eddy_fcr$co2_flux_umolm2s)
+
+
+  # Combine all flagged data into the data frame but only keep medium one
+
+  eddy_fcr$CO2_med_flux <- NEE_medium
+
+
+  #Despike CH4 flux
+  flag <- spike_flag(eddy_fcr$ch4_flux_umolm2s,z = 7)
+  CH4_low <- ifelse(flag == 1, NA, eddy_fcr$ch4_flux_umolm2s)
+  flag <- spike_flag(eddy_fcr$ch4_flux_umolm2s,z = 5.5)
+  CH4_medium <- ifelse(flag == 1, NA, eddy_fcr$ch4_flux_umolm2s)
+  flag <- spike_flag(eddy_fcr$ch4_flux_umolm2s,z = 4)
+  CH4_high <- ifelse(flag == 1, NA, eddy_fcr$ch4_flux_umolm2s)
+
+
+  # Combine all flagged data into the data frame but only keep the medium one
+  eddy_fcr$ch4_med_flux <- CH4_medium
+
+
+  # Filter out all the values (x_peak) that are out of the reservoir
+  eddy_fcr$footprint_flag <- ifelse(eddy_fcr$wind_dir >= 15 & eddy_fcr$wind_dir <= 90 & eddy_fcr$x_peak_m >= 40, 1,
+                                    ifelse(eddy_fcr$wind_dir < 15 & eddy_fcr$wind_dir > 327 & eddy_fcr$x_peak_m > 120, 1,
+                                           ifelse(eddy_fcr$wind_dir < 302 & eddy_fcr$wind_dir >= 250 & eddy_fcr$x_peak_m > 50, 1, 0)))
+
+  # Remove flagged data
+  targets_df <- eddy_fcr %>%
+    filter(footprint_flag == 0)%>% # filter out so it is the smallest footprint
+    select(date, CO2_med_flux, ch4_med_flux)%>%
+    dplyr::rename(co2_flux_umolm2s = CO2_med_flux,
+                  ch4_flux_umolm2s = ch4_med_flux) %>% # rename columns
 
     group_by(date)%>% # average if there are more than one sample taken during that day
     summarise_if(is.numeric, mean, na.rm = TRUE)%>%
@@ -52,8 +217,10 @@ generate_EddyFlux_ghg_targets_function <- function(current_data_file, edi_data_f
 }
 
 # Using the function with the EDI address for data
- # generate_EddyFlux_ghg_targets_function(
- #  current_data_file = "https://raw.githubusercontent.com/CareyLabVT/Reservoirs/master/Data/DataNotYetUploadedToEDI/EddyFlux_Processing/EddyPro_Cleaned_L1.csv",
- #  edi_data_file = "https://pasta.lternet.edu/package/data/eml/edi/1061/2/f837d12dc12ab37a6772598578875e00"
- #  )
+# generate_EddyFlux_ghg_targets_function(
+
+# flux_current_data_file <- "https://raw.githubusercontent.com/CareyLabVT/Reservoirs/master/Data/DataNotYetUploadedToEDI/EddyFlux_Processing/EddyPro_Cleaned_L1.csv",
+# flux_edi_data_file <- "https://pasta-s.lternet.edu/package/data/eml/edi/692/11/e0976e7a6543fada4cbf5a1bb168713b",
+# met_current_data_file <- "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-metstation-data-qaqc/FCRmet_L1.csv",
+# met_edi_data_file <- "https://pasta.lternet.edu/package/data/eml/edi/389/8/d4c74bbb3b86ea293e5c52136347fbb0")
 
