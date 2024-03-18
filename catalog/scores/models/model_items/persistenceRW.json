@@ -24,7 +24,7 @@
   "properties": {
     "description": "\nmodel info: Random walk from the fable package with ensembles used to represent uncertainty\n\nSites: fcre, bvre, tubr\n\nVariables: Daily Air temperature, Daily Bloom_binary, Daily Chlorophyll-a, Daily oxygen_concentration, Daily oxygen % sat, Daily Inflow discharge, Daily Secchi, Daily Water_temperature, Daily fluorescent dissolved organic matter",
     "start_datetime": "2023-09-21",
-    "end_datetime": "2024-03-17",
+    "end_datetime": "2024-03-18",
     "providers": [
       {
         "url": "pending",
