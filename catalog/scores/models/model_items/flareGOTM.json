@@ -22,7 +22,7 @@
   "properties": {
     "description": "\nmodel info: FLARE-GOTM combines the 1D hydrodynamic process-based model GOTM, a data assimilation algorithm, and NOAA weather data to forecast water column temperatures.\n\nSites: fcre\n\nVariables: Daily Water_temperature",
     "start_datetime": "2024-01-21",
-    "end_datetime": "2024-03-17",
+    "end_datetime": "2024-03-18",
     "providers": [
       {
         "url": "pending",
