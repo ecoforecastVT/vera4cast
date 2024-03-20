@@ -13,6 +13,11 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "../../models/model_items/asl.auto.arima.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "../../models/model_items/asl.ets.json"
     },
     {
@@ -39,11 +44,6 @@
       "rel": "item",
       "type": "application/json",
       "href": "../../models/model_items/persistenceRW.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/asl.auto.arima.json"
     },
     {
       "rel": "parent",
