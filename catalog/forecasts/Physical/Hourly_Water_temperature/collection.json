@@ -91,6 +91,11 @@
       "href": "../../models/model_items/asl.ets.json"
     },
     {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/asl.tbats.json"
+    },
+    {
       "rel": "parent",
       "type": "application/json",
       "href": "../collection.json"
@@ -133,7 +138,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-04-24T00:00:00Z"
+          "2024-04-25T00:00:00Z"
         ]
       ]
     }
