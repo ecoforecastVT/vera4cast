@@ -12,18 +12,18 @@ s3_hourly <- arrow::s3_bucket("bio230121-bucket01/vera4cast/targets/project_id=v
 column_names <- c("project_id", "site_id","datetime","duration", "depth_m","variable","observation")
 
 ## EXO
-print('EXO')
-source('targets/target_functions/target_generation_exo_daily.R')
-fcr_files <- c("https://pasta.lternet.edu/package/data/eml/edi/271/7/71e6b946b751aa1b966ab5653b01077f",
-               "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv")
+print('EXO - NEED TO ADD BACK IN LATER')
+#source('targets/target_functions/target_generation_exo_daily.R')
+#fcr_files <- c("https://pasta.lternet.edu/package/data/eml/edi/271/7/71e6b946b751aa1b966ab5653b01077f",
+#               "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv")
 
-bvr_files <- c("https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-platform-data-qaqc/bvre-waterquality_L1.csv",
-               "https://pasta.lternet.edu/package/data/eml/edi/725/3/a9a7ff6fe8dc20f7a8f89447d4dc2038")
+#bvr_files <- c("https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-platform-data-qaqc/bvre-waterquality_L1.csv",
+#               "https://pasta.lternet.edu/package/data/eml/edi/725/3/a9a7ff6fe8dc20f7a8f89447d4dc2038")
 
-exo_daily <- target_generation_exo_daily(fcr_files, bvr_files)
+#exo_daily <- target_generation_exo_daily(fcr_files, bvr_files)
 
-exo_daily$duration <- 'P1D'
-exo_daily$project_id <- 'vera4cast'
+#exo_daily$duration <- 'P1D'
+#exo_daily$project_id <- 'vera4cast'
 
 
 ### NOTE : RDO DO DATA IS INCLUDED IN THE EXO TARGET GENERATION SCRIPT
