@@ -88,6 +88,11 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "model_items/asl.tbats.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "model_items/climatology2.json"
     },
     {
@@ -178,7 +183,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-03-19T00:00:00Z"
+          "2024-03-24T00:00:00Z"
         ]
       ]
     }
