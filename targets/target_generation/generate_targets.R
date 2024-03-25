@@ -77,11 +77,14 @@ secchi_daily$project_id <- 'vera4cast'
 
 
 ##Eddy Flux
-#print('Eddy Flux')
-#source('targets/target_functions/generate_EddyFlux_ghg_targets_function.R')
-#eddy_flux <- generate_EddyFlux_ghg_targets_function(
-# current_data_file = "https://raw.githubusercontent.com/CareyLabVT/Reservoirs/master/Data/DataNotYetUploadedToEDI/EddyFlux_Processing/EddyPro_Cleaned_L1.csv",
-# edi_data_file = "https://pasta.lternet.edu/package/data/eml/edi/1061/2/f837d12dc12ab37a6772598578875e00")
+print( 'Eddy Flux')
+# print('Eddy Flux - NEED TO ADD BACK IN LATER')
+source('targets/target_functions/generate_EddyFlux_ghg_targets_function.R')
+eddy_flux <- generate_EddyFlux_ghg_targets_function(
+ flux_current_data_file = "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-eddyflux-data-qaqc/EddyFlux_streaming_L1.csv",
+ flux_edi_data_file = "https://pasta-s.lternet.edu/package/data/eml/edi/692/11/e0976e7a6543fada4cbf5a1bb168713b",
+ met_current_data_file = "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-metstation-data-qaqc/FCRmet_L1.csv",
+ met_edi_data_file = "https://pasta.lternet.edu/package/data/eml/edi/389/8/d4c74bbb3b86ea293e5c52136347fbb0")
 
 
 ## CTD  - MOM
