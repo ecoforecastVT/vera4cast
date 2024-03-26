@@ -25,7 +25,7 @@
     "href": "performance.html#aggregated-scores",
     "title": "Forecast performance",
     "section": "Aggregated scores",
-    "text": "Aggregated scores\nAverage skill scores of each model across all sites.\n\nScores are shown by reference date and forecast horizon (in days).\n\nScores are averaged across all submissions of the model with a given horizon or a given reference_datetime using submissions made since 2024-02-24.\n\n\nChlorophyll-aWater temperatureDissolved oxygenAir temperature"
+    "text": "Aggregated scores\nAverage skill scores of each model across all sites.\n\nScores are shown by reference date and forecast horizon (in days).\n\nScores are averaged across all submissions of the model with a given horizon or a given reference_datetime using submissions made since 2024-02-25.\n\n\nChlorophyll-aWater temperatureDissolved oxygenAir temperature"
   },
   {
     "objectID": "targets.html",
@@ -130,13 +130,13 @@
     "href": "index.html#why-a-forecasting-challenge",
     "title": "Forecasting Challenge",
     "section": "Why a forecasting challenge?",
-    "text": "Why a forecasting challenge?\nWe are using forecasts to compare the predictability of different physical, chemical, and biological variables across varying environmental conditions to identify the fundamental predictability of freshwater ecosystems.\nThe VERA forecasting challenge is one component of the Virginia Reservoirs LTREB project, which is monitoring two connected drinking water supply reservoirs with contrasting dissolved oxygen conditions to broadly advance our understanding of freshwater ecosystem processes.\n \n\n\n\n\n\n\n\n\n\nTotal forecasts submitted to the VERA Challenge\n2187\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMost recent data for model training\n2024-03-24\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of years of data for model training\n11.05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of variables being forecasted\n25"
+    "text": "Why a forecasting challenge?\nWe are using forecasts to compare the predictability of different physical, chemical, and biological variables across varying environmental conditions to identify the fundamental predictability of freshwater ecosystems.\nThe VERA forecasting challenge is one component of the Virginia Reservoirs LTREB project, which is monitoring two connected drinking water supply reservoirs with contrasting dissolved oxygen conditions to broadly advance our understanding of freshwater ecosystem processes.\n \n\n\n\n\n\n\n\n\n\nTotal forecasts submitted to the VERA Challenge\n2190\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMost recent data for model training\n2024-03-24\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of years of data for model training\n11.05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of variables being forecasted\n25"
   },
   {
     "objectID": "index.html#what-sites-are-being-forecasted",
     "href": "index.html#what-sites-are-being-forecasted",
     "title": "Forecasting Challenge",
     "section": "What sites are being forecasted?",
-    "text": "What sites are being forecasted?\n\n\n\n\n\n\n  This material is based upon work supported by the National Science Foundation under Grant DEB-2327030. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.   Page last updated on 2024-03-25"
+    "text": "What sites are being forecasted?\n\n\n\n\n\n\n  This material is based upon work supported by the National Science Foundation under Grant DEB-2327030. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.   Page last updated on 2024-03-26"
   }
 ]
