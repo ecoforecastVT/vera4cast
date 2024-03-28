@@ -13,7 +13,7 @@ target_generation_met <- function(current_met, historic_met, time_interval){
 
   df_combined <- bind_rows(df_current, df_historic) |>
     #select(DateTime, "PAR_umolm2s_Average":"Albedo_Average_W_m2") |>
-    mutate(sampledatetime_local = force_tz(as.POSIXct(DateTime), tz="America/New_York", roll_dst = c('pre'))) |>  ## ADDED PRE TO FIX NA ISSUE
+    mutate(sampledatetime_local = force_tz(as.POSIXct(DateTime), tz="EST", roll_dst = c('pre'))) |>  ## ADDED PRE TO FIX NA ISSUE
     mutate(sampledatetime_utc = with_tz(sampledatetime_local, tz = 'UTC')) |>
     #select(sampledatetime_utc, "PAR_umolm2s_Average":"Albedo_Average_W_m2") |>
     select(sampledatetime_utc, PAR_umolm2s_mean = PAR_umolm2s_Average, BP_kPa_mean = BP_Average_kPa,
