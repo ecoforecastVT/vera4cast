@@ -24,7 +24,7 @@
   "properties": {
     "description": "\nmodel info: This model calculates a monthly mean from the historic data and assigns this as the mean prediction for any day within that month. The standard deviation of the observations for that month is given as the standard deviation of the forecast.\n\nSites: fcre, bvre, tubr\n\nVariables: Daily Air temperature, Daily Bloom_binary, Daily Chlorophyll-a, Daily oxygen_concentration, Daily oxygen % sat, Daily Inflow discharge, Daily Secchi, Daily Water_temperature, Daily fluorescent dissolved organic matter",
     "start_datetime": "2024-02-06",
-    "end_datetime": "2024-03-13",
+    "end_datetime": "2024-03-28",
     "providers": [
       {
         "url": "pending",

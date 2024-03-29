@@ -33,6 +33,16 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "../../models/model_items/asl.ets.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/asl.tbats.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "../../models/model_items/climatology.json"
     },
     {
@@ -86,11 +96,6 @@
       "href": "../../models/model_items/persistenceRW.json"
     },
     {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/asl.ets.json"
-    },
-    {
       "rel": "parent",
       "type": "application/json",
       "href": "../collection.json"
@@ -133,7 +138,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-03-12T00:00:00Z"
+          "2024-03-27T00:00:00Z"
         ]
       ]
     }
