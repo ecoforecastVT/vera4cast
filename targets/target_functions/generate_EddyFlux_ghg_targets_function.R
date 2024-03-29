@@ -1,7 +1,7 @@
 # Function for generating the targets file for mean daily fluxes from EddyFlux
 # Author: Adrienne Breef-Pilz
 # Created: 8 Sep 2023
-# Edited: 29 March 2024 - added more qaqc
+# Edited: 29 March 2024 - fix column name issues and timzone issues
 
 install.packages('pacman')
 pacman::p_load("tidyverse","lubridate")
