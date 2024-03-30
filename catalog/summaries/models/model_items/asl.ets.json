@@ -23,7 +23,7 @@
   "properties": {
     "description": "\nmodel info: forecast::ets() function in R, fit individually at each site/depth\n\nSites: bvre, fcre\n\nVariables: Daily Water_temperature, Daily Chlorophyll-a, Daily fluorescent dissolved organic matter, Daily oxygen_concentration, Daily Secchi",
     "start_datetime": "2024-03-12",
-    "end_datetime": "2024-05-02",
+    "end_datetime": "2024-05-03",
     "providers": [
       {
         "url": "pending",
