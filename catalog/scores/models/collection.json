@@ -88,22 +88,12 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/climatology2.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
       "href": "model_items/asl.tbats.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/Flow_cms_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/inflow_gefsClimAED.json"
+      "href": "model_items/climatology2.json"
     },
     {
       "rel": "item",
@@ -139,6 +129,16 @@
       "rel": "item",
       "type": "application/json",
       "href": "model_items/flareSimstrat.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/inflow_gefsClimAED.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/Flow_cms_mean.json"
     },
     {
       "rel": "parent",
@@ -183,7 +183,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-03-30T00:00:00Z"
+          "2024-03-31T00:00:00Z"
         ]
       ]
     }
