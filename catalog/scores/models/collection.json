@@ -98,7 +98,12 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/persistenceFO.json"
+      "href": "model_items/Flow_cms_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/inflow_gefsClimAED.json"
     },
     {
       "rel": "item",
@@ -133,12 +138,7 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/inflow_gefsClimAED.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/Flow_cms_mean.json"
+      "href": "model_items/persistenceFO.json"
     },
     {
       "rel": "parent",
@@ -183,7 +183,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-03-31T00:00:00Z"
+          "2024-04-01T00:00:00Z"
         ]
       ]
     }
