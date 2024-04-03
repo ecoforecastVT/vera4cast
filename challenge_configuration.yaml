@@ -51,7 +51,7 @@ variable_groups:
     thumbnail_link: 'https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/bvr_platform_green.jpg'
     thumbnail_title: 'BVRE Algae Bloom Image'
 catalog_config:
-  about_string: 'www.ltreb-reservoirs.org/vera4cast'
+  about_string: 'https://www.ltreb-reservoirs.org/vera4cast/'
   about_title: 'VERA Forecasting Challenge Documentation'
   scores_thumbnail: "https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/bvr_platform.jpg"
   scores_thumbnail_title: "Beaver Creek Reservoir"
