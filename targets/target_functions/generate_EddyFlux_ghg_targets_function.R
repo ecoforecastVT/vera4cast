@@ -1,7 +1,7 @@
 # Function for generating the targets file for mean daily fluxes from EddyFlux
 # Author: Adrienne Breef-Pilz
 # Created: 8 Sep 2023
-# Edited: 15 March 2024 - added more qaqc
+# Edited: 29 March 2024 - fix column name issues and timzone issues
 
 install.packages('pacman')
 pacman::p_load("tidyverse","lubridate")
@@ -86,6 +86,11 @@ generate_EddyFlux_ghg_targets_function <- function(flux_current_data_file,
 
   ec2 <- left_join(ec, met_2, by='datetime')
 
+  # convert time to UTC
+  ec2 <- ec2 |>
+    dplyr::mutate(datetime_utc = with_tz(datetime, tz = 'UTC'),
+                  date = as.Date(datetime_utc))
+
 
 
   # Filter out wind directions that are BEHIND the catwalk
@@ -125,7 +130,7 @@ generate_EddyFlux_ghg_targets_function <- function(flux_current_data_file,
   ec_filt$ch4_flux_umolm2s <- ifelse(ec_filt$qc_ch4_flux==1 & ec_filt$qc_LE>=2, NA, ec_filt$ch4_flux_umolm2s)
   ec_filt$ch4_flux_umolm2s <- ifelse(ec_filt$qc_ch4_flux==1 & ec_filt$qc_H>=2, NA, ec_filt$ch4_flux_umolm2s)
 
-  # Check QC for H and LE}
+  # Check QC for H and LE
   # Removing qc >= 2 for H and LE
   ec_filt$H_wm2 <- ifelse(ec_filt$qc_H >= 2, NA, ec_filt$H_wm2)
   ec_filt$LE_wm2 <- ifelse(ec_filt$qc_LE >= 2, NA, ec_filt$LE_wm2)
@@ -191,21 +196,21 @@ generate_EddyFlux_ghg_targets_function <- function(flux_current_data_file,
   targets_df <- eddy_fcr %>%
     filter(footprint_flag == 0)%>% # filter out so it is the smallest footprint
     select(date, CO2_med_flux, ch4_med_flux)%>%
-    dplyr::rename(co2_flux_umolm2s = CO2_med_flux,
-                  ch4_flux_umolm2s = ch4_med_flux) %>% # rename columns
+    dplyr::rename(co2flux_umolm2s_mean = CO2_med_flux,
+                  ch4flux_umolm2s_mean = ch4_med_flux)%>%  # rename columns
 
     group_by(date)%>% # average if there are more than one sample taken during that day
     summarise_if(is.numeric, mean, na.rm = TRUE)%>%
     ungroup()%>%
-    mutate(datetime=ymd_hms(paste0(date,"","00:00:00")))%>%
+    drop_na(date)%>% # drop when we have timezone issues with daylight savings
+    mutate(datetime=(paste0(date," ","00:00:00")))%>%
+    #drop_na(datetime) %>%
     mutate(Reservoir='fcre')%>% # change the name to the the reservoir code for FLARE
     mutate(Depth_m = NA)%>%
     select(-date)%>%
     rename(site_id=Reservoir, # rename the columns for standard notation
-           depth=Depth_m,
-           CO2_umolL_sample = co2_flux_umolm2s,
-           CH4_umolL_sample = ch4_flux_umolm2s)%>%
-    pivot_longer(cols=c(co2_flux_umolm2s, ch4_flux_umolm2s), # make the wide data frame into a long one so each observation has a depth
+           depth=Depth_m)%>%
+    pivot_longer(cols=c(co2flux_umolm2s_mean, ch4flux_umolm2s_mean), # make the wide data frame into a long one so each observation has a depth
                  names_to='variable',
                  values_to='observation')%>%
     select(c('datetime', 'site_id', 'depth', "observation", 'variable')) # rearrange order of columns
