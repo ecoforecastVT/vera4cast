@@ -61,7 +61,7 @@
     },
     {
       "rel": "about",
-      "href": "www.ltreb-reservoirs.org/vera4cast",
+      "href": "https://www.ltreb-reservoirs.org/vera4cast/",
       "type": "text/html",
       "title": "VERA Forecasting Challenge Documentation"
     },
@@ -88,7 +88,7 @@
       "interval": [
         [
           "2024-02-16T00:00:00Z",
-          "2024-05-06T00:00:00Z"
+          "2024-05-09T00:00:00Z"
         ]
       ]
     }

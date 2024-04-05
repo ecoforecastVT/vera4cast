@@ -13,12 +13,47 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "../../models/model_items/TESTclimatology.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/TempC_mean_example_forecast.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/Temp_C_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/asl.auto.arima.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/asl.ets.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/asl.tbats.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "../../models/model_items/climatology.json"
     },
     {
       "rel": "item",
       "type": "application/json",
       "href": "../../models/model_items/climatology2.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/example_ID.json"
     },
     {
       "rel": "item",
@@ -66,36 +101,6 @@
       "href": "../../models/model_items/persistenceRW.json"
     },
     {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/TESTclimatology.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/TempC_mean_example_forecast.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/Temp_C_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/asl.auto.arima.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/asl.ets.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/asl.tbats.json"
-    },
-    {
       "rel": "parent",
       "type": "application/json",
       "href": "../collection.json"
@@ -116,7 +121,7 @@
     },
     {
       "rel": "about",
-      "href": "www.ltreb-reservoirs.org/vera4cast",
+      "href": "https://www.ltreb-reservoirs.org/vera4cast/",
       "type": "text/html",
       "title": "VERA Forecasting Challenge Documentation"
     },
@@ -138,7 +143,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-04-01T00:00:00Z"
+          "2024-04-04T00:00:00Z"
         ]
       ]
     }

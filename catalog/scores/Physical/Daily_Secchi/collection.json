@@ -13,6 +13,31 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "../../models/model_items/asl.auto.arima.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/asl.ets.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/asl.tbats.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/climatology.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/glm_aed_v1.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "../../models/model_items/historic_mean.json"
     },
     {
@@ -24,26 +49,6 @@
       "rel": "item",
       "type": "application/json",
       "href": "../../models/model_items/persistenceRW.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/asl.auto.arima.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/asl.ets.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/climatology.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/glm_aed_v1.json"
     },
     {
       "rel": "parent",
@@ -66,7 +71,7 @@
     },
     {
       "rel": "about",
-      "href": "www.ltreb-reservoirs.org/vera4cast",
+      "href": "https://www.ltreb-reservoirs.org/vera4cast/",
       "type": "text/html",
       "title": "VERA Forecasting Challenge Documentation"
     },
@@ -88,7 +93,7 @@
       "interval": [
         [
           "2023-10-14T00:00:00Z",
-          "2024-03-18T00:00:00Z"
+          "2024-03-25T00:00:00Z"
         ]
       ]
     }

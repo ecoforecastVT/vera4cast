@@ -141,6 +141,11 @@
       "href": "model_items/asl.tbats.json"
     },
     {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/example_ID.json"
+    },
+    {
       "rel": "parent",
       "type": "application/json",
       "href": "../collection.json"
@@ -161,7 +166,7 @@
     },
     {
       "rel": "about",
-      "href": "www.ltreb-reservoirs.org/vera4cast",
+      "href": "https://www.ltreb-reservoirs.org/vera4cast/",
       "type": "text/html",
       "title": "VERA Forecasting Challenge Documentation"
     },
@@ -183,7 +188,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-05-07T00:00:00Z"
+          "2024-05-08T00:00:00Z"
         ]
       ]
     }
