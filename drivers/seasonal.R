@@ -34,7 +34,7 @@ df |> filter(reference_date == max_reference_date &
   select(-unit) |>
   pivot_wider(names_from = variable, values_from = prediction) |>
   na.omit() |>
-  summarize(RH_percent_mean = mean(relativehumidity_2m, na.rm = TRUE),
+  summarize(RH_percent_mean = mean(relative_humidity_2m, na.rm = TRUE),
             Rain_mm_sum = sum(precipitation, na.rm = TRUE),
             WindSpeed_ms_mean = mean(windspeed_10m, na.rm = TRUE),
             AirTemp_C_mean = mean(temperature_2m, na.rm = TRUE),
