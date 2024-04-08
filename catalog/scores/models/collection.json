@@ -13,67 +13,12 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/fableETS.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/fableNNETAR.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/glm_aed_v1.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/historic_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/monthly_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/persistenceRW.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/asl.auto.arima.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/asl.ets.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/asl.tbats.json"
+      "href": "model_items/cfs.json"
     },
     {
       "rel": "item",
       "type": "application/json",
       "href": "model_items/climatology.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/Flow_cms_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/inflow_gefsClimAED.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/cfs.json"
     },
     {
       "rel": "item",
@@ -93,7 +38,72 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "model_items/historic_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "model_items/icon_seamless.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/monthly_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/persistenceRW.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/fableARIMA.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/fableETS.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/fableNNETAR.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/glm_aed_v1.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/asl.auto.arima.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/asl.ets.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/asl.tbats.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/climatology2.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/Flow_cms_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/inflow_gefsClimAED.json"
     },
     {
       "rel": "item",
@@ -109,11 +119,6 @@
       "rel": "item",
       "type": "application/json",
       "href": "model_items/Temp_C_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/climatology2.json"
     },
     {
       "rel": "item",
@@ -139,11 +144,6 @@
       "rel": "item",
       "type": "application/json",
       "href": "model_items/persistenceFO.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/fableARIMA.json"
     },
     {
       "rel": "parent",
@@ -188,7 +188,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-04-07T00:00:00Z"
+          "2024-04-08T00:00:00Z"
         ]
       ]
     }
