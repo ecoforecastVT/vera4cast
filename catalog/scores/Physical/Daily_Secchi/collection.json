@@ -9,6 +9,7 @@
     "https://stac-extensions.github.io/table/v1.2.0/schema.json"
   ],
   "type": "Collection",
+  "sci:doi": "https://doi.org/10.1002/fee.2616",
   "links": [
     {
       "rel": "item",
@@ -67,7 +68,7 @@
     },
     {
       "rel": "cite-as",
-      "href": "https://doi.org/10.1002/fee.2616"
+      "href": {}
     },
     {
       "rel": "about",
