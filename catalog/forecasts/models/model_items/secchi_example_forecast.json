@@ -4,7 +4,7 @@
     "https://stac-extensions.github.io/table/v1.2.0/schema.json"
   ],
   "type": "Feature",
-  "id": "fableNNETAR",
+  "id": "secchi_example_forecast",
   "bbox": [
     [
       -79.8441,
@@ -16,14 +16,13 @@
   "geometry": {
     "type": "MultiPoint",
     "coordinates": [
-      [-79.8159, 37.3129],
       [-79.8372, 37.3032]
     ]
   },
   "properties": {
-    "description": "\nmodel info: autoregressive neural net fit using the NNETAR() function in the fable R package\n\nSites: bvre, fcre\n\nVariables: Daily Bloom_binary, Daily Chlorophyll-a",
-    "start_datetime": "2023-10-01",
-    "end_datetime": "2024-05-15",
+    "description": [],
+    "start_datetime": "2024-04-11",
+    "end_datetime": "2024-04-20",
     "providers": [
       {
         "url": "pending",
@@ -46,8 +45,7 @@
     "keywords": [
       "Forecasting",
       "vera4cast",
-      "Daily Bloom_binary",
-      "Daily Chlorophyll-a"
+      "Daily Secchi"
     ],
     "table:columns": [
       {
@@ -123,7 +121,7 @@
       "rel": "collection",
       "href": "../collection.json",
       "type": "application/json",
-      "title": "fableNNETAR"
+      "title": "secchi_example_forecast"
     },
     {
       "rel": "root",
@@ -135,17 +133,17 @@
       "rel": "parent",
       "href": "../collection.json",
       "type": "application/json",
-      "title": "fableNNETAR"
+      "title": "secchi_example_forecast"
     },
     {
       "rel": "self",
-      "href": "fableNNETAR.json",
+      "href": "secchi_example_forecast.json",
       "type": "application/json",
       "title": "Model Forecast"
     },
     {
       "rel": "item",
-      "href": "https://github.com/melofton/vera4casts/blob/main/code/function_library/predict/fableNNETAR.R",
+      "href": [],
       "type": "text/html",
       "title": "Link for Model Code"
     }
@@ -154,26 +152,20 @@
     "1": {
       "type": "application/json",
       "title": "Model Metadata",
-      "href": "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/metadata/model_id/fableNNETAR.json",
-      "description": "Use `jsonlite::fromJSON()` to download the model metadata JSON file. This R code will return metadata provided during the model registration.\n      \n\n### R\n\n```{r}\n# Use code below\n\nmodel_metadata <- jsonlite::fromJSON(\"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/metadata/model_id/fableNNETAR.json\")\n\n"
+      "href": "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/metadata/model_id/secchi_example_forecast.json",
+      "description": "Use `jsonlite::fromJSON()` to download the model metadata JSON file. This R code will return metadata provided during the model registration.\n      \n\n### R\n\n```{r}\n# Use code below\n\nmodel_metadata <- jsonlite::fromJSON(\"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/metadata/model_id/secchi_example_forecast.json\")\n\n"
     },
     "2": {
       "type": "text/html",
       "title": "Link for Model Code",
-      "href": "https://github.com/melofton/vera4casts/blob/main/code/function_library/predict/fableNNETAR.R",
+      "href": [],
       "description": "The link to the model code provided by the model submission team"
     },
     "3": {
       "type": "application/x-parquet",
-      "title": "Database Access for Daily Bloom_binary",
-      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Bloom_binary_mean/model_id=fableNNETAR?endpoint_override=renc.osn.xsede.org",
-      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Bloom_binary_mean/model_id=fableNNETAR?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
-    },
-    "4": {
-      "type": "application/x-parquet",
-      "title": "Database Access for Daily Chlorophyll-a",
-      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Chla_ugL_mean/model_id=fableNNETAR?endpoint_override=renc.osn.xsede.org",
-      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Chla_ugL_mean/model_id=fableNNETAR?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+      "title": "Database Access for Daily Secchi",
+      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Secchi_m_sample/model_id=secchi_example_forecast?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Secchi_m_sample/model_id=secchi_example_forecast?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     }
   }
 }
