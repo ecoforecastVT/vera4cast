@@ -74,7 +74,7 @@
     "href": "index.html#why-a-forecasting-challenge",
     "title": "Forecasting Challenge",
     "section": "Why a forecasting challenge?",
-    "text": "Why a forecasting challenge?\nWe are using forecasts to compare the predictability of different physical, chemical, and biological variables across varying environmental conditions to identify the fundamental predictability of freshwater ecosystems.\nThe VERA forecasting challenge is one component of the Virginia Reservoirs LTREB project, which is monitoring two connected drinking water supply reservoirs with contrasting dissolved oxygen conditions to broadly advance our understanding of freshwater ecosystem processes.\n \n\n\n\n\n\n\n\n\n\nTotal forecasts submitted to the VERA Challenge\n2390\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMost recent data for model training\n2024-04-10\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of years of data for model training\n11.1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of variables being forecasted\n25"
+    "text": "Why a forecasting challenge?\nWe are using forecasts to compare the predictability of different physical, chemical, and biological variables across varying environmental conditions to identify the fundamental predictability of freshwater ecosystems.\nThe VERA forecasting challenge is one component of the Virginia Reservoirs LTREB project, which is monitoring two connected drinking water supply reservoirs with contrasting dissolved oxygen conditions to broadly advance our understanding of freshwater ecosystem processes.\n \n\n\n\n\n\n\n\n\n\nTotal forecasts submitted to the VERA Challenge\n2404\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMost recent data for model training\n2024-04-10\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of years of data for model training\n11.1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of variables being forecasted\n25"
   },
   {
     "objectID": "index.html#what-sites-are-being-forecasted",
@@ -123,7 +123,7 @@
     "href": "performance.html#sec-performance",
     "title": "Forecast performance",
     "section": "Most recent forecasts",
-    "text": "Most recent forecasts\nForecasts submitted on 2024-04-09\n\nChlorophyll-aChlorophyll-a bloom probabilityWater temperatureDissolved oxygenAir temperaturefDOM QSUSecchi depthIce Cover ProbabilityDissolved methaneInflow discharge"
+    "text": "Most recent forecasts\nForecasts submitted on 2024-04-10\n\nChlorophyll-aChlorophyll-a bloom probabilityWater temperatureDissolved oxygenAir temperaturefDOM QSUSecchi depthIce Cover ProbabilityDissolved methaneInflow discharge"
   },
   {
     "objectID": "performance.html#forecast-analysis",
