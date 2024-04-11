@@ -34,6 +34,11 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "../../models/model_items/gfs_seamless.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "../../models/model_items/glm_aed_v1.json"
     },
     {
@@ -50,11 +55,6 @@
       "rel": "item",
       "type": "application/json",
       "href": "../../models/model_items/persistenceRW.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/gfs_seamless.json"
     },
     {
       "rel": "parent",
@@ -99,7 +99,7 @@
       "interval": [
         [
           "2023-10-14T00:00:00Z",
-          "2024-04-09T00:00:00Z"
+          "2024-04-10T00:00:00Z"
         ]
       ]
     }
