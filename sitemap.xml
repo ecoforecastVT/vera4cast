@@ -173,6 +173,10 @@
       <lastmod>2024-04-05</lastmod>
    </url>
    <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/models/model_items/secchi_example_forecast.json</loc>
+      <lastmod>2024-04-05</lastmod>
+   </url>
+   <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/inventory/collection.json</loc>
       <lastmod>2024-04-05</lastmod>
    </url>
@@ -510,6 +514,10 @@
    </url>
    <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/summaries/models/model_items/persistenceRW.json</loc>
+      <lastmod>2024-04-05</lastmod>
+   </url>
+   <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/summaries/models/model_items/secchi_example_forecast.json</loc>
       <lastmod>2024-04-05</lastmod>
    </url>
    <url>
