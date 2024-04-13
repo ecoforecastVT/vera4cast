@@ -23,7 +23,7 @@
   "properties": {
     "description": "\nmodel info: forecast::auto.arima() function in R, fit individually at each site/depth\n\nSites: bvre, fcre\n\nVariables: Daily Chlorophyll-a, Daily oxygen_concentration, Daily Secchi, Daily Water_temperature, Daily fluorescent dissolved organic matter",
     "start_datetime": "2024-03-12",
-    "end_datetime": "2024-04-11",
+    "end_datetime": "2024-04-12",
     "providers": [
       {
         "url": "pending",
