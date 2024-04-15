@@ -166,7 +166,8 @@ arrow::write_csv_arrow(inflow_daily, sink = s3_daily$path("daily-inflow-targets.
 # MET TARGETS
 print('Met Targets')
 current_met <- 'https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-metstation-data-qaqc/FCRmet_L1.csv'
-historic_met <- 'https://pasta.lternet.edu/package/data/eml/edi/389/7/02d36541de9088f2dd99d79dc3a7a853'
+#historic_met <- 'https://pasta.lternet.edu/package/data/eml/edi/389/7/02d36541de9088f2dd99d79dc3a7a853'
+historic_met <- 'https://pasta.lternet.edu/package/data/eml/edi/389/8/d4c74bbb3b86ea293e5c52136347fbb0'
 
 source('targets/target_functions/meteorology/target_generation_met.R')
 
