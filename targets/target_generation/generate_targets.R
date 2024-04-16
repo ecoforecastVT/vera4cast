@@ -14,7 +14,7 @@ column_names <- c("project_id", "site_id","datetime","duration", "depth_m","vari
 ## EXO
 print('EXO')
 source('targets/target_functions/target_generation_exo_daily.R')
-fcr_files <- c("https://pasta.lternet.edu/package/data/eml/edi/271/7/71e6b946b751aa1b966ab5653b01077f",
+fcr_files <- c("https://pasta.lternet.edu/package/data/eml/edi/271/8/fbb8c7a0230f4587f1c6e11417fe9dce",
                "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv")
 
 bvr_files <- c("https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-platform-data-qaqc/bvre-waterquality_L1.csv",
@@ -30,9 +30,9 @@ exo_daily$project_id <- 'vera4cast'
 
 
 ## FLUOROPROBE
-print('Thermistor')
+print('Fluoroprobe')
 source('targets/target_functions/target_generation_FluoroProbe.R')
-historic_data <- "https://portal.edirepository.org/nis/dataviewer?packageid=edi.272.7&entityid=001cb516ad3e8cbabe1fdcf6826a0a45"
+historic_data <- "https://pasta.lternet.edu/package/data/eml/edi/272/8/0359840d24028e6522f8998bd41b544e"
 current_data <- "https://raw.githubusercontent.com/CareyLabVT/Reservoirs/master/Data/DataNotYetUploadedToEDI/Raw_fluoroprobe/fluoroprobe_L1.csv"
 
 fluoro_daily <- target_generation_FluoroProbe(current_file = current_data, historic_file = historic_data)
@@ -46,7 +46,7 @@ source('targets/target_functions/target_generation_ThermistorTemp_C_daily.R')
 #
 print('FCR Thermistor')
 fcr_latest <- "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv"
-fcr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/271/7/71e6b946b751aa1b966ab5653b01077f"
+fcr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/271/8/fbb8c7a0230f4587f1c6e11417fe9dce"
 
 fcr_thermistor_temp_daily <- target_generation_ThermistorTemp_C_daily(current_file = fcr_latest, historic_file = fcr_edi)
 fcr_thermistor_temp_daily$duration <- 'P1D'
@@ -98,7 +98,7 @@ mom_daily_targets <- targets_generation_daily_MOM(current_file = current_file, h
 print('Thermocline Depth')
 source('targets/target_functions/generate_thermoclineD.R')
 fcr_latest <- "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv"
-fcr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/271/7/71e6b946b751aa1b966ab5653b01077f"
+fcr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/271/8/fbb8c7a0230f4587f1c6e11417fe9dce"
 
 thermocline_depth <- generate_thermocline_depth(current_file = fcr_latest,
                                                 historic_file = fcr_edi)
@@ -106,7 +106,7 @@ thermocline_depth <- generate_thermocline_depth(current_file = fcr_latest,
 ## Schmidt Stability
 print('Schmidt Stability')
 source('targets/target_functions/target_generation_SchmidtStability.R')
-fcr_files <- c("https://pasta.lternet.edu/package/data/eml/edi/271/7/71e6b946b751aa1b966ab5653b01077f",
+fcr_files <- c("https://pasta.lternet.edu/package/data/eml/edi/271/8/fbb8c7a0230f4587f1c6e11417fe9dce",
                "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv")
 
 schmidt_stability <- generate_schmidt.stability(current_file = fcr_files[2], historic_file = fcr_files[1])
