@@ -109,11 +109,6 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/secchi_example_forecast.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
       "href": "model_items/TESTclimatology.json"
     },
     {
@@ -150,6 +145,11 @@
       "rel": "item",
       "type": "application/json",
       "href": "model_items/persistenceFO.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/secchi_example_forecast.json"
     },
     {
       "rel": "parent",
@@ -194,7 +194,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-04-24T00:00:00Z"
+          "2024-04-25T00:00:00Z"
         ]
       ]
     }
