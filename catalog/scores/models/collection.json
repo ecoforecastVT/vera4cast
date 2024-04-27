@@ -109,21 +109,6 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "model_items/TESTclimatology.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/TempC_mean_example_forecast.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "model_items/Temp_C_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
       "href": "model_items/example_ID.json"
     },
     {
@@ -150,6 +135,21 @@
       "rel": "item",
       "type": "application/json",
       "href": "model_items/secchi_example_forecast.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/TESTclimatology.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/TempC_mean_example_forecast.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/Temp_C_mean.json"
     },
     {
       "rel": "parent",

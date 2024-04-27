@@ -57,6 +57,11 @@
       "href": "../../models/model_items/gfs_seamless.json"
     },
     {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/fableNNETAR.json"
+    },
+    {
       "rel": "parent",
       "type": "application/json",
       "href": "../collection.json"
@@ -99,7 +104,7 @@
       "interval": [
         [
           "2023-10-14T00:00:00Z",
-          "2024-05-31T00:00:00Z"
+          "2024-06-01T00:00:00Z"
         ]
       ]
     }
