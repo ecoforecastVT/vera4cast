@@ -59,13 +59,16 @@ climatology_insitu <- purrr::pmap_dfr(site_var_combinations,
                                                                          ...))
 
 # Generate binary forecasts from continuous
-climatology_insitu_binary <- purrr::map_dfr(.x = c('fcre', 'bvre'),
-                                              .f = ~convert_continuous_binary(continuous_var = 'Chla_ugL_mean',
-                                                                              binary_var = 'Bloom_binary_mean',
-                                                                              forecast = climatology_insitu,
-                                                                              targets = targets_insitu,
-                                                                              site = .x,
-                                                                              threshold = 20))
+binary_site_var_comb <- data.frame(site = c('fcre', 'bvre'),
+                                   depth = c(1.6, 1.5))
+
+climatology_insitu_binary <- purrr::pmap_dfr(binary_site_var_comb,
+                                             .f = ~convert_continuous_binary(continuous_var = 'Chla_ugL_mean',
+                                                                             binary_var = 'Bloom_binary_mean',
+                                                                             forecast = climatology_insitu,
+                                                                             targets = targets_insitu,
+                                                                             threshold = 20,
+                                                                             ...))
 
 # combine and submit
 combined_climatology <- bind_rows(climatology_met, climatology_inflow, climatology_insitu, climatology_insitu_binary)
@@ -80,14 +83,14 @@ write_csv(combined_climatology, forecast_file)
 combined_climatology %>%
   filter(family == 'normal') |>
   pivot_wider(names_from = parameter, values_from = prediction) |>
-  ggplot(aes(x = datetime, y = mu)) +
+  ggplot(aes(x = datetime, y = mu, fill = as_factor(depth_m))) +
   geom_line() +
   geom_ribbon(aes(ymax = mu+sigma, ymin = mu-sigma), alpha = 0.3, fill = 'blue') +
   facet_grid(variable~site_id, scales = 'free')
 
 combined_climatology %>%
   filter(family == 'bernoulli') |>
-  ggplot(aes(x = datetime, y = prediction)) +
+  ggplot(aes(x = datetime, y = prediction, colour = as_factor(depth_m))) +
   geom_line() +
   facet_grid(variable~site_id, scales = 'free')
 
