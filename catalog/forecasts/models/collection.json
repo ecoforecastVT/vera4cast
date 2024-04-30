@@ -152,6 +152,11 @@
       "href": "model_items/secchi_example_forecast.json"
     },
     {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/fableNNETAR_focal.json"
+    },
+    {
       "rel": "parent",
       "type": "application/json",
       "href": "../collection.json"
@@ -194,7 +199,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-06-03T00:00:00Z"
+          "2024-06-04T00:00:00Z"
         ]
       ]
     }

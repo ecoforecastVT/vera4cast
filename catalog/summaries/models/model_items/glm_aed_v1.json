@@ -15,9 +15,7 @@
   ],
   "geometry": {
     "type": "MultiPoint",
-    "coordinates": [
-      [-79.8372, 37.3032]
-    ]
+    "coordinates": []
   },
   "properties": {
     "description": "\nmodel info: GLM-AED with Ensemble Kalman Filter as implemented in FLARE.  This version used DA to update model states but not model parameters.\n\nSites: fcre\n\nVariables: Daily Bloom_binary, Daily Chlorophyll-a, Daily Dissolved organic carbon concentration, Daily oxygen_concentration, Daily ammonium concentration, Daily Total soluble reactive phosphorus concentration, Daily Water_temperature, Daily fluorescent dissolved organic matter, Daily Secchi, Daily Dissolved methane, Daily Presence of ice cover",

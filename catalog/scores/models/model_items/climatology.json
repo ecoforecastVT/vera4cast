@@ -15,11 +15,7 @@
   ],
   "geometry": {
     "type": "MultiPoint",
-    "coordinates": [
-      [-79.8372, 37.3032],
-      [-79.8159, 37.3129],
-      [-79.8357, 37.3078]
-    ]
+    "coordinates": []
   },
   "properties": {
     "description": "\nmodel info: Historical DOY mean and sd.  Assumes normal distribution\n\nSites: fcre, bvre, tubr\n\nVariables: Daily Air temperature, Daily Bloom_binary, Daily Chlorophyll-a, Daily oxygen_concentration, Daily oxygen % sat, Daily Inflow discharge, Daily Secchi, Daily Water_temperature, Daily fluorescent dissolved organic matter",

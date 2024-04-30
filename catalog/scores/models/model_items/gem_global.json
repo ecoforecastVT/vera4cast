@@ -15,9 +15,7 @@
   ],
   "geometry": {
     "type": "MultiPoint",
-    "coordinates": [
-      [-79.8372, 37.3032]
-    ]
+    "coordinates": []
   },
   "properties": {
     "description": "\nmodel info: Candian GEM Global Ensemble model downloaded from open-meteo.com\n\nSites: fcre\n\nVariables: Daily Air temperature, Daily surface pressure, Daily Relative humdity, Daily Precipitation, Daily Shortwave radiation, Daily Wind speed",

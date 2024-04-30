@@ -62,6 +62,11 @@
       "href": "../../models/model_items/fableNNETAR.json"
     },
     {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/fableNNETAR_focal.json"
+    },
+    {
       "rel": "parent",
       "type": "application/json",
       "href": "../collection.json"
@@ -104,7 +109,7 @@
       "interval": [
         [
           "2023-10-14T00:00:00Z",
-          "2024-06-03T00:00:00Z"
+          "2024-06-04T00:00:00Z"
         ]
       ]
     }

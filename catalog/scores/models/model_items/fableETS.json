@@ -15,10 +15,7 @@
   ],
   "geometry": {
     "type": "MultiPoint",
-    "coordinates": [
-      [-79.8159, 37.3129],
-      [-79.8372, 37.3032]
-    ]
+    "coordinates": []
   },
   "properties": {
     "description": "\nmodel info: fable package exponential smoothing model fable::ETS()\n\nSites: bvre, fcre\n\nVariables: Daily Bloom_binary, Daily Chlorophyll-a",

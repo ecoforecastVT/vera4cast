@@ -15,10 +15,7 @@
   ],
   "geometry": {
     "type": "MultiPoint",
-    "coordinates": [
-      [-79.8159, 37.3129],
-      [-79.8372, 37.3032]
-    ]
+    "coordinates": []
   },
   "properties": {
     "description": "\nmodel info: forecast::ets() function in R, fit individually at each site/depth\n\nSites: bvre, fcre\n\nVariables: Daily Chlorophyll-a, Daily oxygen_concentration, Daily Secchi, Daily Water_temperature, Daily fluorescent dissolved organic matter",

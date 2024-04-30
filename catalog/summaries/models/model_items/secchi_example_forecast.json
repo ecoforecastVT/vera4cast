@@ -15,14 +15,12 @@
   ],
   "geometry": {
     "type": "MultiPoint",
-    "coordinates": [
-      [-79.8372, 37.3032]
-    ]
+    "coordinates": []
   },
   "properties": {
     "description": [],
     "start_datetime": "2024-04-11",
-    "end_datetime": "2024-05-08",
+    "end_datetime": "2024-05-09",
     "providers": [
       {
         "url": "pending",

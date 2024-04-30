@@ -15,9 +15,7 @@
   ],
   "geometry": {
     "type": "MultiPoint",
-    "coordinates": [
-      [-79.8372, 37.3032]
-    ]
+    "coordinates": []
   },
   "properties": {
     "description": "\nmodel info: ECMWF IFS Ensemble weather model downloaded from open-meteo.com.  Since ECMWF IFS Ensemble does output solar radiation on open-meteo.com,  the solar radiation from GFS seamless is used.\n\nSites: fcre\n\nVariables: Daily Air temperature, Daily surface pressure, Daily Relative humdity, Daily Precipitation, Daily Wind speed",

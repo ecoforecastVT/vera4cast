@@ -15,16 +15,12 @@
   ],
   "geometry": {
     "type": "MultiPoint",
-    "coordinates": [
-      [-79.8372, 37.3032],
-      [-79.8159, 37.3129],
-      [-79.8357, 37.3078]
-    ]
+    "coordinates": []
   },
   "properties": {
     "description": "\nmodel info: Historical DOY mean and sd.  Assumes normal distribution\n\nSites: fcre, bvre, tubr\n\nVariables: Daily Air temperature, Daily Chlorophyll-a, Daily Inflow discharge, Daily Water_temperature, Daily oxygen_concentration, Daily oxygen % sat, Daily Secchi, Daily fluorescent dissolved organic matter, Daily Bloom_binary",
     "start_datetime": "2023-09-21",
-    "end_datetime": "2024-06-03",
+    "end_datetime": "2024-06-04",
     "providers": [
       {
         "url": "pending",
