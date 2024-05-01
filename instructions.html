@@ -303,7 +303,7 @@ background-size: cover;
 <section id="ensemble-or-sample-forecast" class="level4" data-number="4.0.2">
 <h4 data-number="4.0.2" class="anchored" data-anchor-id="ensemble-or-sample-forecast"><span class="header-section-number">4.0.2</span> Ensemble (or sample) forecast</h4>
 <p>Ensemble (or sample) forecasts use the <code>family</code> value of <code>ensemble</code> and the <code>parameter</code> values are the ensemble index.</p>
-<p>When forecasts using the ensemble family are scored, we assume that the ensemble is a set of equally likely realizations that are sampled from a distribution that is comparable to that of the observations (i.e., no broad adjustments are required to make the ensemble more consistent with observations). This is referred to as a “perfect ensemble” by Bröcker and Smith (2007). Ensemble (or sample) forecasts are transformed to a probability distribution function (e.g., dressed) using the default methods in the <code>scoringRules</code> R package (empirical version of the quantile decomposition for the <code>crps</code> and kernel density estimation using a Gaussian kernel for the <code>logs</code>). Kernel density estimation uses the default bandwidth produced by the <code>bw.nrd</code> function in the R <code>stats</code> package.</p>
+<p>When forecasts using the ensemble family are scored, we assume that the ensemble is a set of equally likely realizations that are sampled from a distribution that is comparable to that of the observations (i.e., no broad adjustments are required to make the ensemble more consistent with observations). This is referred to as a “perfect ensemble” by Br<c3><b6>cker and Smith (2007). Ensemble (or sample) forecasts are transformed to a probability distribution function (e.g., dressed) using the default methods in the <code>scoringRules</code> R package (empirical version of the quantile decomposition for the <code>crps</code> and kernel density estimation using a Gaussian kernel for the <code>logs</code>). Kernel density estimation uses the default bandwidth produced by the <code>bw.nrd</code> function in the R <code>stats</code> package.</b6></c3></p>
 </section>
 <section id="example-forecasts" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="example-forecasts"><span class="header-section-number">4.1</span> Example forecasts</h3>
@@ -314,17 +314,17 @@ background-size: cover;
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 288
 Columns: 11
-$ model_id           &lt;chr&gt; "climatology", "climatology", "climatology", "clima…
-$ datetime           &lt;date&gt; 2023-10-02, 2023-10-02, 2023-10-02, 2023-10-02, 20…
-$ reference_datetime &lt;date&gt; 2023-10-01, 2023-10-01, 2023-10-01, 2023-10-01, 20…
-$ site_id            &lt;chr&gt; "bvre", "bvre", "bvre", "bvre", "bvre", "bvre", "bv…
-$ variable           &lt;chr&gt; "Chla_ugL_mean", "Chla_ugL_mean", "Temp_C_mean", "T…
-$ family             &lt;chr&gt; "normal", "normal", "normal", "normal", "normal", "…
-$ parameter          &lt;chr&gt; "mu", "sigma", "mu", "sigma", "mu", "sigma", "mu", …
-$ prediction         &lt;dbl&gt; 10.041987, 2.587292, 18.331126, 2.531732, 9.541139,…
-$ depth_m            &lt;dbl&gt; 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1…
-$ project_id         &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast",…
-$ duration           &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P…</code></pre>
+$ model_id           &lt;chr&gt; "climatology", "climatology", "climatology", "clima~
+$ datetime           &lt;date&gt; 2023-10-02, 2023-10-02, 2023-10-02, 2023-10-02, 20~
+$ reference_datetime &lt;date&gt; 2023-10-01, 2023-10-01, 2023-10-01, 2023-10-01, 20~
+$ site_id            &lt;chr&gt; "bvre", "bvre", "bvre", "bvre", "bvre", "bvre", "bv~
+$ variable           &lt;chr&gt; "Chla_ugL_mean", "Chla_ugL_mean", "Temp_C_mean", "T~
+$ family             &lt;chr&gt; "normal", "normal", "normal", "normal", "normal", "~
+$ parameter          &lt;chr&gt; "mu", "sigma", "mu", "sigma", "mu", "sigma", "mu", ~
+$ prediction         &lt;dbl&gt; 10.041987, 2.587292, 18.331126, 2.531732, 9.541139,~
+$ depth_m            &lt;dbl&gt; 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1~
+$ project_id         &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast",~
+$ duration           &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P~</code></pre>
 </div>
 </div>
 <p>For an ensemble (or sample) forecast, the <code>family</code> column uses the word <code>ensemble</code> to designate that it is an ensemble forecast and the parameter column is the ensemble member number (<code>1</code>, <code>2</code>, <code>3</code> …)</p>
@@ -334,17 +334,17 @@ $ duration           &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D"
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 28,800
 Columns: 11
-$ model_id           &lt;chr&gt; "persistenceRW", "persistenceRW", "persistenceRW", …
-$ datetime           &lt;dttm&gt; 2023-10-02, 2023-10-03, 2023-10-04, 2023-10-05, 20…
-$ reference_datetime &lt;dttm&gt; 2023-10-01, 2023-10-01, 2023-10-01, 2023-10-01, 20…
-$ site_id            &lt;chr&gt; "bvre", "bvre", "bvre", "bvre", "bvre", "bvre", "bv…
-$ family             &lt;chr&gt; "ensemble", "ensemble", "ensemble", "ensemble", "en…
-$ parameter          &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …
-$ variable           &lt;chr&gt; "Chla_ugL_mean", "Chla_ugL_mean", "Chla_ugL_mean", …
-$ prediction         &lt;dbl&gt; 10.59539, 13.04463, 13.86989, 13.81281, 14.09787, 1…
-$ depth_m            &lt;dbl&gt; 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1…
-$ project_id         &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast",…
-$ duration           &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P…</code></pre>
+$ model_id           &lt;chr&gt; "persistenceRW", "persistenceRW", "persistenceRW", ~
+$ datetime           &lt;dttm&gt; 2023-10-02, 2023-10-03, 2023-10-04, 2023-10-05, 20~
+$ reference_datetime &lt;dttm&gt; 2023-10-01, 2023-10-01, 2023-10-01, 2023-10-01, 20~
+$ site_id            &lt;chr&gt; "bvre", "bvre", "bvre", "bvre", "bvre", "bvre", "bv~
+$ family             &lt;chr&gt; "ensemble", "ensemble", "ensemble", "ensemble", "en~
+$ parameter          &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ~
+$ variable           &lt;chr&gt; "Chla_ugL_mean", "Chla_ugL_mean", "Chla_ugL_mean", ~
+$ prediction         &lt;dbl&gt; 10.59539, 13.04463, 13.86989, 13.81281, 14.09787, 1~
+$ depth_m            &lt;dbl&gt; 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1~
+$ project_id         &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast",~
+$ duration           &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P~</code></pre>
 </div>
 </div>
 </section>
