@@ -4,7 +4,7 @@
     "https://stac-extensions.github.io/table/v1.2.0/schema.json"
   ],
   "type": "Feature",
-  "id": "secchi_example_forecast",
+  "id": "secchi_last3obs_mean",
   "bbox": [
     [
       -79.8441,
@@ -18,9 +18,9 @@
     "coordinates": []
   },
   "properties": {
-    "description": [],
-    "start_datetime": "2024-04-11",
-    "end_datetime": "2024-05-11",
+    "description": "\nmodel info: This forecast simply takes the mean of the last three secchi observations and uses the standard deviation of that mean for the uncertainty around the forecast.\n\nSites: fcre\n\nVariables: Daily Secchi",
+    "start_datetime": "2024-05-02",
+    "end_datetime": "2024-06-01",
     "providers": [
       {
         "url": "pending",
@@ -144,7 +144,7 @@
       "rel": "collection",
       "href": "../collection.json",
       "type": "application/json",
-      "title": "secchi_example_forecast"
+      "title": "secchi_last3obs_mean"
     },
     {
       "rel": "root",
@@ -156,17 +156,17 @@
       "rel": "parent",
       "href": "../collection.json",
       "type": "application/json",
-      "title": "secchi_example_forecast"
+      "title": "secchi_last3obs_mean"
     },
     {
       "rel": "self",
-      "href": "secchi_example_forecast.json",
+      "href": "secchi_last3obs_mean.json",
       "type": "application/json",
       "title": "Model Forecast"
     },
     {
       "rel": "item",
-      "href": [],
+      "href": "https://github.com/kjkhoffman/vera4casts/blob/main/forecast_code/run_secchi_forecast.R",
       "type": "text/html",
       "title": "Link for Model Code"
     }
@@ -175,20 +175,20 @@
     "1": {
       "type": "application/json",
       "title": "Model Metadata",
-      "href": "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/metadata/model_id/secchi_example_forecast.json",
-      "description": "Use `jsonlite::fromJSON()` to download the model metadata JSON file. This R code will return metadata provided during the model registration.\n      \n\n### R\n\n```{r}\n# Use code below\n\nmodel_metadata <- jsonlite::fromJSON(\"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/metadata/model_id/secchi_example_forecast.json\")\n\n"
+      "href": "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/metadata/model_id/secchi_last3obs_mean.json",
+      "description": "Use `jsonlite::fromJSON()` to download the model metadata JSON file. This R code will return metadata provided during the model registration.\n      \n\n### R\n\n```{r}\n# Use code below\n\nmodel_metadata <- jsonlite::fromJSON(\"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/metadata/model_id/secchi_last3obs_mean.json\")\n\n"
     },
     "2": {
       "type": "text/html",
       "title": "Link for Model Code",
-      "href": [],
+      "href": "https://github.com/kjkhoffman/vera4casts/blob/main/forecast_code/run_secchi_forecast.R",
       "description": "The link to the model code provided by the model submission team"
     },
     "3": {
       "type": "application/x-parquet",
       "title": "Database Access for Daily Secchi",
-      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/summaries/project_id=vera4cast/duration=P1D/variable=Secchi_m_sample/model_id=secchi_example_forecast?endpoint_override=renc.osn.xsede.org",
-      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/forecasts/summaries/project_id=vera4cast/duration=P1D/variable=Secchi_m_sample/model_id=secchi_example_forecast?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/summaries/project_id=vera4cast/duration=P1D/variable=Secchi_m_sample/model_id=secchi_last3obs_mean?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/forecasts/summaries/project_id=vera4cast/duration=P1D/variable=Secchi_m_sample/model_id=secchi_last3obs_mean?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     }
   }
 }

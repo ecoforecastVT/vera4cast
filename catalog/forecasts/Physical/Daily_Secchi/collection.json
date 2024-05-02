@@ -72,6 +72,11 @@
       "href": "../../models/model_items/fableNNETAR_focal.json"
     },
     {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/secchi_last3obs_mean.json"
+    },
+    {
       "rel": "parent",
       "type": "application/json",
       "href": "../collection.json"
@@ -114,7 +119,7 @@
       "interval": [
         [
           "2023-10-14T00:00:00Z",
-          "2024-06-05T00:00:00Z"
+          "2024-06-07T00:00:00Z"
         ]
       ]
     }
