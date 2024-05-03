@@ -20,7 +20,7 @@
   "properties": {
     "description": "\nmodel info: autoregressive neural net fit using the NNETAR() function in the fable R package for VERA focal variables\n\nSites: bvre, fcre\n\nVariables: Daily Water_temperature, Daily oxygen_concentration, Daily Secchi, Daily fluorescent dissolved organic matter",
     "start_datetime": "2024-04-26",
-    "end_datetime": "2024-06-06",
+    "end_datetime": "2024-06-07",
     "providers": [
       {
         "url": "pending",
