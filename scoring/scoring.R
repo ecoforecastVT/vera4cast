@@ -133,6 +133,8 @@ furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, con
           dplyr::mutate(depth_m = ifelse(!is.na(depth_m), round(depth_m, 2), depth_m)) |> #project_specific
           dplyr::mutate(variable = curr_variable,
                         project_id = curr_project_id) |>
+          ## check to ensure gfs_seamless is not assigned to any non-meteo variables...drop values if any are found
+          dplyr::filter(!(model_id == 'gfs_seamless' & !(variable %in% c('AirTemp_C_mean', "BP_kPa_mean", "RH_percent_mean", "Rain_mm_sum")))) |>
           #If for some reason, a forecast has multiple values for a parameter from a specific forecast, then average
           dplyr::summarise(prediction = mean(prediction), .by = dplyr::any_of(c("site_id", "datetime", "reference_datetime", "family", "depth_m",
                                                                                 "parameter", "pub_datetime", "reference_date", "variable", "project_id"))) |>
