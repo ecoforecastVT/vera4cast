@@ -5,7 +5,9 @@ editor:
     wrap: sentence
 ---
 
-## Targets file
+For the VERA Challenge, we are forecasting a range of physical, chemical, and biological reservoir variables. The variables we forecast are called **(target variables, or targets)**. The targets for the VERA Challenge are in a specific daily time step format. To see the current focal targets we are soliciting submissions for in the VERA Challenge, explore the variables described below. Note that additional target variables related to the primary inflow stream to Falling Creek Reservoir as well as meteorological variables at Falling Creek Reservoir are provided in separate files under the section “Additional target variables” below.
+
+## Targets Overview
 
 Daily time-step variables measured within the reservoirs:
 
@@ -22,7 +24,7 @@ targets <- read_csv(url, show_col_types = FALSE)
 glimpse(targets)
 ```
 
-### Variable list 
+### Targert variable list 
 
 ```{r message=FALSE}
 googlesheets4::gs4_deauth()
@@ -113,6 +115,8 @@ site_list |> knitr::kable()
 
 ## Additional target variables
 
+We are collecting many additional datasets in near-real time at the reservoirs that can be used for forecasting, even though they are not the focal target variables evaluated in the VERA Challenge.
+
 ### Stream inflow to Falling Creek Reservoir
 
 Daily time-step variables measured in the monitored stream (Tunnel Branch; site_id = tubr)
@@ -126,13 +130,14 @@ glimpse(inflow_targets)
 inflow_targets |> 
   distinct(variable, duration) |> 
   left_join(target_metadata, by = c("variable","duration")) |> 
+  mutate(Description = ifelse(variable == 'Temp_C_mean', 'daily mean water temperature in degrees C', Description)) |> 
   select(-class) |> 
   knitr::kable()
 ```
 
 ### Falling Creek Reservoir meteorology
 
-Daily time-step variables measured at the meteorology station (located on the dam at Falling Creek Reservoir)
+Daily time-step variables measured at the meteorological station (located on the dam at Falling Creek Reservoir)
 
 ```{r}
 url3 <- "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-met-targets.csv.gz"

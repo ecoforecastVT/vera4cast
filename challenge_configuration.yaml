@@ -40,16 +40,32 @@ variable_groups:
     duration: ['P1D','P1D']
     thumbnail_link: 'https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/bvr_platform_green_close.jpg'
     thumbnail_title: 'BVRE Algae Bloom Image'
+    group_vars:
+      Chla_ugL_mean:
+        duration: 'P1D'
+      Bloom_binary_mean:
+        duration: "P1D"
   Physical:
     variable: ['Temp_C_mean', 'Secchi_m_sample','Temp_C_mean']
     duration: ['P1D','P1D','PT1H']
     thumbnail_link: 'https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/fcr_catwalk.jpg'
     thumbnail_title: 'FCRE Catwalk Image'
+    group_vars:
+      Temp_C_mean:
+        duration: ['P1D','PT1H']
+      Secchi_m_sample:
+        duration: "P1D"
   Chemical:
     variable: ['DO_mgL_mean']
     duration: ['P1D']
     thumbnail_link: 'https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/bvr_platform_green.jpg'
     thumbnail_title: 'BVRE Algae Bloom Image'
+    group_vars:
+      DO_mgL_mean:
+        duration: 'P1D'
+        var_doi: "10.5194/bg-20-5211-2023"
+        var_citation: "Delany, A., Ladwig, R., Buelo, C., Albright, E., and Hanson, P. C.: The influence of carbon cycling on oxygen depletion in
+        north-temperate lakes, Biogeosciences, 20, 5211–5228, https://doi.org/10.5194/bg-20-5211-2023, 2023."
 catalog_config:
   about_string: 'https://www.ltreb-reservoirs.org/vera4cast/'
   about_title: 'VERA Forecasting Challenge Documentation'
@@ -83,7 +99,8 @@ catalog_config:
     min_lon: -79.8441
   site_type: 'MultiPoint'
   base_image_path: 'https://data.ecoforecast.org/neon4cast-catalog'
-  citation_doi: "https://doi.org/10.1002/fee.2616"
+  citation_doi_link: "https://doi.org/10.1002/fee.2616"
+  citation_doi: "10.1002/fee.2616"
   citation_text: "Thomas, R.Q., C. Boettiger, C.C. Carey, M.C. Dietze, L.R. Johnson, M.A. Kenney, J.S. Mclachlan, J.A. Peters, E.R. Sokol, J.F. Weltzin, A. Willson, W.M. Woelmer, and Challenge Contributors. 2023. The NEON Ecological Forecasting Challenge. Frontiers in Ecology and Environment 21: 112-113."
   dashboard_url: "https://www.ltreb-reservoirs.org/vera4cast"
   dashboard_title: "VERA Forecast Challenge Dashboard"

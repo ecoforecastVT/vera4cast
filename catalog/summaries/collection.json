@@ -29,12 +29,6 @@
       "title": "Chemical"
     },
     {
-      "rel": "child",
-      "type": "application/json",
-      "href": "models/collection.json",
-      "title": "group item"
-    },
-    {
       "rel": "parent",
       "type": "application/json",
       "href": "../catalog.json"
@@ -51,7 +45,7 @@
     },
     {
       "rel": "cite-as",
-      "href": "https://doi.org/10.1002/fee.2616"
+      "href": "10.1002/fee.2616"
     },
     {
       "rel": "about",
@@ -82,7 +76,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-06-09T00:00:00Z"
+          "2024-05-31T00:00:00Z"
         ]
       ]
     }

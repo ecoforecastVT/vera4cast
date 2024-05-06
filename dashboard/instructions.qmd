@@ -10,7 +10,7 @@ editor:
 
 We provide an overview of the steps for submitting with the details below:
 
-1)  Register at <https://forms.gle/kg2Vkpho9BoMXSy57>. You are not required to register if your forecast submission uses the word "example" in your model_id". Any forecasts with "example" in the model_id will not be used in forecast evaluation analyses.
+1)  Register at <https://forms.gle/kg2Vkpho9BoMXSy57>. You are not required to register if your forecast submission uses the word "example" in your model_id (i.e myforecast_example). Any forecasts with "example" in the model_id will not be used in forecast evaluation analyses.
 2)  Generate a forecast!
 3)  Write the forecast output to a file that follows our standardized format (described below).
 4)  Submit your forecast using an R function (provided below).
@@ -26,6 +26,8 @@ We encourage you to use any modeling approach to make a prediction about the fut
 
 Forecasts require you to make an assessment of the confidence in your prediction of the future. You can represent your confidence (i.e., uncertainty in the forecast) using a distribution or numerically using an ensemble (or sample) of predictions. 
 
+For new forecasters, as a first step, two possible approaches for quantifying forecast uncertainty are: 1) using the residuals from the model fitting/calibration period to generate a model process uncertainty distribution that can be applied to the forecast; or 2) for forecasts that use meteorological variables as drivers, using weather forecasts provided by the VERA challenge organizers to account for driver uncertainty in a forecast.
+
 ### Any model drivers/covariates/features are welcome
 
 You can use any data as model inputs (including all of the forecast target data available to date). All sensor-based target data are available in near-real time (1-day latency). You may want to use the updated target data to re-train a model or for use in data assimilation.
@@ -34,15 +36,15 @@ As VERA is a genuine forecasting challenge, you will need forecasted drivers if 
 
 ### Forecasts can be for a range of horizons
 
-Forecasts can be submitted at the daily time step for 1 day to 10 years ahead into the future.
+Forecasts can be submitted at the daily time step for 1 day to 10 years ahead into the future. 
 
-### Forecasts can be submitted everyday
+### Forecasts can be submitted every day
 
 Since forecasts can be submitted every day, automation is important. We provide an example GitHub repository that can be used to automate your forecast with GitHub Actions. It also includes the use of a custom Docker Container [rqthomas/vera4cast:latest](https://github.com/LTREB-reservoirs/vera4cast/blob/main/Dockerfile) that has many of the R packages and functions needed to generate and submit forecasts. 
 
 ## Forecast file format
 
-The file is a csv format with the following columns:
+The forecast file should be in a csv format with the following columns:
 
 -   `project_id`: use `vera4cast`
 
@@ -68,7 +70,7 @@ The file is a csv format with the following columns:
     bvre = Beaverdam Reservoir, fcre = Falling Creek Reservoir, and tubr = Tunnel Branch, the stream that connects the two reservoirs
 
 -   `depth_m`: the depth (meters) for the forecasted variable.
-    Use `NA` for variables without a specified depth.
+    Use `NA` for variables without a specified depth (i.e Secchi).
 
 -   `family` name of the probability distribution that is described by the parameter values in the parameter column (see list below for possible distributions).
     An ensemble forecast has a family of `ensemble` (see note below about family possibilities).
@@ -76,17 +78,17 @@ The file is a csv format with the following columns:
 -   `parameter` the parameters for the distribution (see note below about the parameter column) or the number of the ensemble members.
     For example, the parameters for a normal distribution are called `mu` and `sigma`.
 
--   `variable`: standardized variable name
+-   `variable`: standardized variable name (see "What to forecast" tab for more information)
 
 -   `prediction`: forecasted value for the parameter in the parameter column
 
 ## Representing uncertainity 
 
-Uncertainty is represented through the family - parameter columns.
+Uncertainty is represented through the family and parameter columns.
 
 #### Parameteric forecast
 
-For a parametric forecast with a normal distribution, the `family` column would have the word `normal` to designate a normal distribution and the parameter column must have values of `mu` and `sigma` for each forecasted variable, site_id, depth, and time combination.
+Parametric forecasts describe uncertainty by providing the values of parameters for an uncertainty distribution representing the forecast. The name of the distribution is provided in the ‘family’ column and the names of the parameters for the distribution are provided in the ‘parameter’ column. The values of the parameters are provided in the ‘prediction’ column. For a parametric forecast with a normal distribution, the `family` column would have the word `normal` to designate a normal distribution and the parameter column must have values of `mu` and `sigma` for each forecasted variable, site_id, depth, and time combination.
 
 Parameteric forecasts for binary variables should use `bernoulli` as the distribution.
 
@@ -106,9 +108,9 @@ If you are submitting a forecast that is not in the supported list, we recommend
 
 #### Ensemble (or sample) forecast
 
-Ensemble (or sample) forecasts use the `family` value of `ensemble` and the `parameter` values are the ensemble index.  
+Ensemble, or sample, forecasts describe uncertainty by providing many predictions from multiple ensemble members, which altogether represent the uncertainty in the forecast. When submitting an ensemble forecast, the value of the ‘family’ column will be ‘ensemble’ and the ‘parameter’ column is used to index the ensemble members (e.g., 1-100 for a 100-member ensemble).
 
-When forecasts using the ensemble family are scored, we assume that the ensemble is a set of equally likely realizations that are sampled from a distribution that is comparable to that of the observations (i.e., no broad adjustments are required to make the ensemble more consistent with observations). This is referred to as a "perfect ensemble" by Bröcker and Smith (2007). Ensemble (or sample) forecasts are transformed to a probability distribution function (e.g., dressed) using the default methods in the `scoringRules` R package (empirical version of the quantile decomposition for the `crps` and kernel density estimation using a Gaussian kernel for the `logs`). Kernel density estimation uses the default bandwidth produced by the `bw.nrd` function in the R `stats` package.
+When forecasts using the ensemble family are scored, we assume that the ensemble is a set of equally likely realizations that are sampled from a distribution that is comparable to that of the observations (i.e., no broad adjustments are required to make the ensemble more consistent with observations). This is referred to as a "perfect ensemble" by [Bröcker and Smith (2007)](https://doi.org/10.1175/WAF993.1). Ensemble (or sample) forecasts are transformed to a probability distribution function (e.g., dressed) using the default methods in the `scoringRules` R package (empirical version of the quantile decomposition for the `crps` and kernel density estimation using a Gaussian kernel for the `logs`). Kernel density estimation uses the default bandwidth produced by the `bw.nrd` function in the R `stats` package.
 
 ### Example forecasts
 
@@ -160,7 +162,7 @@ After submission, our servers will process uploaded files by converting them to 
 
 ### Evaluation
 
-All forecasts are scored daily using new data until the full horizon of the forecast has been scored. Forecasts are scored using the `crps` and `logs` functions in the [`scoringRules`](https://cran.r-project.org/web/packages/scoringRules/index.html) R package. 
+All forecasts are scored daily using new data until the full horizon of the forecast has been scored. Forecasts are scored using the `crps` and `logs` functions in the [`scoringRules`](https://cran.r-project.org/web/packages/scoringRules/index.html) R package. These scores evaluate both the accuracy and precision of the forecast distribution (how close was the forecast mean to the observation and how certain was the forecast).
 
 ### Comparison
 
