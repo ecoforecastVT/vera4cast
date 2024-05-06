@@ -153,6 +153,11 @@
       "href": "model_items/persistenceFO.json"
     },
     {
+      "rel": "item",
+      "type": "application/json",
+      "href": "model_items/secchi_example_forecast.json"
+    },
+    {
       "rel": "parent",
       "type": "application/json",
       "href": "../collection.json"

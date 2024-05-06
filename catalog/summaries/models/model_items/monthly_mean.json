@@ -15,16 +15,12 @@
   ],
   "geometry": {
     "type": "MultiPoint",
-    "coordinates": [
-      [-79.8372, 37.3032],
-      [-79.8357, 37.3078],
-      [-79.8159, 37.3129]
-    ]
+    "coordinates": []
   },
   "properties": {
     "description": "\nmodel info: This model calculates a monthly mean from the historic data and assigns this as the mean prediction for any day within that month. The standard deviation of the observations for that month is given as the standard deviation of the forecast.\n\nSites: fcre, tubr, bvre\n\nVariables: Daily Air temperature, Daily Inflow discharge, Daily Water_temperature, Daily oxygen_concentration, Daily oxygen % sat, Daily Chlorophyll-a, Daily Secchi, Daily fluorescent dissolved organic matter, Daily Bloom_binary",
     "start_datetime": "2024-02-06",
-    "end_datetime": "2024-05-14",
+    "end_datetime": "2024-06-09",
     "providers": [
       {
         "url": "pending",

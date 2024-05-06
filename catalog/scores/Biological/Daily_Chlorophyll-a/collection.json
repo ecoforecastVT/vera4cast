@@ -54,6 +54,11 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "../../models/model_items/gfs_seamless.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "../../models/model_items/glm_aed_v1.json"
     },
     {
@@ -114,7 +119,7 @@
       "interval": [
         [
           "2023-10-01T00:00:00Z",
-          "2024-04-08T00:00:00Z"
+          "2024-04-25T00:00:00Z"
         ]
       ]
     }

@@ -15,9 +15,7 @@
   ],
   "geometry": {
     "type": "MultiPoint",
-    "coordinates": [
-      [-79.8159, 37.3129]
-    ]
+    "coordinates": []
   },
   "properties": {
     "description": "\nmodel info: another persistence forecast\n\nSites: bvre\n\nVariables: Daily Water_temperature",
