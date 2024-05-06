@@ -38,8 +38,8 @@ target_generation_exo_daily <- function (fcr_files,
     dplyr::mutate(site_id = "bvre",
                   DateTime = lubridate::force_tz(DateTime, tzone = "EST"),
                   DateTime = lubridate::with_tz(DateTime, tzone = "UTC"),
-                  sampledate = as.Date(DateTime)) |>
-    dplyr::rename(LvlDepth_m_13 = Depth_m_13)
+                  sampledate = as.Date(DateTime)) #|>
+    #dplyr::rename(LvlDepth_m_13 = Depth_m_13)
 
   bvr_df <- dplyr::bind_rows(bvr_current, bvr_historical)
 

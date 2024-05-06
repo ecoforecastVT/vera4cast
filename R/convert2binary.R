@@ -1,8 +1,16 @@
-
+#' @param continuous_var name of the continuous variable to convert from
+#' @param binary_var name of the binary variable to convert to
+#' @param forecast  a standard VERA forecast file (All columns)
+#' @param site single site ID
+#' @param depth single depth
+#' @param targets used to check if the var is actually a target variable
+#' @param threshold what is the threshold to check against
+#' @return returns a df in the VERA standard format
 convert_continuous_binary <- function(continuous_var,
                                       binary_var,
                                       forecast,
                                       site,
+                                      depth,
                                       targets,
                                       threshold) {
 
@@ -10,7 +18,8 @@ convert_continuous_binary <- function(continuous_var,
   if (forecast$family[1] == 'normal') {
     subset_forecast <- forecast |>
       filter(variable == continuous_var,
-             site_id == site)
+             site_id == site,
+             depth_m == depth)
 
     if (nrow(subset_forecast) == 0) {
       message("A forecast for ", continuous_var,  " at ", site, " doesn't exist in this forecast table. \nCheck site and variable names.")
@@ -41,7 +50,8 @@ convert_continuous_binary <- function(continuous_var,
   if (forecast$family[1] == 'ensemble') {
     subset_forecast <- forecast |>
       filter(variable == continuous_var,
-             site_id == site)
+             site_id == site,
+             depth_m == depth)
 
     if (nrow(subset_forecast) == 0) {
       message("A forecast for ", continuous_var,  " at ", site, " doesn't exist in this forecast table. \nCheck site and variable names.")

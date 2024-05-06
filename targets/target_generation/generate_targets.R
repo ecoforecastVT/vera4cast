@@ -30,9 +30,9 @@ exo_daily$project_id <- 'vera4cast'
 
 
 ## FLUOROPROBE
-print('Thermistor')
+print('Fluoroprobe')
 source('targets/target_functions/target_generation_FluoroProbe.R')
-historic_data <- "https://portal.edirepository.org/nis/dataviewer?packageid=edi.272.7&entityid=001cb516ad3e8cbabe1fdcf6826a0a45"
+historic_data <- "https://pasta.lternet.edu/package/data/eml/edi/272/8/0359840d24028e6522f8998bd41b544e"
 current_data <- "https://raw.githubusercontent.com/CareyLabVT/Reservoirs/master/Data/DataNotYetUploadedToEDI/Raw_fluoroprobe/fluoroprobe_L1.csv"
 
 fluoro_daily <- target_generation_FluoroProbe(current_file = current_data, historic_file = historic_data)
@@ -46,7 +46,7 @@ source('targets/target_functions/target_generation_ThermistorTemp_C_daily.R')
 #
 print('FCR Thermistor')
 fcr_latest <- "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv"
-fcr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/271/7/71e6b946b751aa1b966ab5653b01077f"
+fcr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/271/8/fbb8c7a0230f4587f1c6e11417fe9dce"
 
 fcr_thermistor_temp_daily <- target_generation_ThermistorTemp_C_daily(current_file = fcr_latest, historic_file = fcr_edi)
 fcr_thermistor_temp_daily$duration <- 'P1D'
@@ -55,7 +55,7 @@ fcr_thermistor_temp_daily$project_id <- 'vera4cast'
 # BVR
 print('BVR Thermistor')
 bvr_latest <- "https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-platform-data-qaqc/bvre-waterquality_L1.csv"
-bvr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/725/3/a9a7ff6fe8dc20f7a8f89447d4dc2038"
+bvr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/725/4/9adadd2a7c2319e54227ab31a161ea12"
 
 bvr_thermistor_temp_daily <- target_generation_ThermistorTemp_C_daily(current_file = bvr_latest, historic_file = bvr_edi)
 bvr_thermistor_temp_daily$duration <- 'P1D'
@@ -81,7 +81,7 @@ print( 'Eddy Flux')
 source('targets/target_functions/generate_EddyFlux_ghg_targets_function.R')
 eddy_flux <- generate_EddyFlux_ghg_targets_function(
 flux_current_data_file = "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-eddyflux-data-qaqc/EddyFlux_streaming_L1.csv",
-flux_edi_data_file = "https://pasta-s.lternet.edu/package/data/eml/edi/692/11/e0976e7a6543fada4cbf5a1bb168713b",
+flux_edi_data_file = "https://pasta.lternet.edu/package/data/eml/edi/1061/3/e0976e7a6543fada4cbf5a1bb168713b",
 met_current_data_file = "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-metstation-data-qaqc/FCRmet_L1.csv",
 met_edi_data_file = "https://pasta.lternet.edu/package/data/eml/edi/389/8/d4c74bbb3b86ea293e5c52136347fbb0")
 
@@ -98,7 +98,7 @@ mom_daily_targets <- targets_generation_daily_MOM(current_file = current_file, h
 print('Thermocline Depth')
 source('targets/target_functions/generate_thermoclineD.R')
 fcr_latest <- "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv"
-fcr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/271/7/71e6b946b751aa1b966ab5653b01077f"
+fcr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/271/8/fbb8c7a0230f4587f1c6e11417fe9dce"
 
 thermocline_depth <- generate_thermocline_depth(current_file = fcr_latest,
                                                 historic_file = fcr_edi)
@@ -106,7 +106,7 @@ thermocline_depth <- generate_thermocline_depth(current_file = fcr_latest,
 ## Schmidt Stability
 print('Schmidt Stability')
 source('targets/target_functions/target_generation_SchmidtStability.R')
-fcr_files <- c("https://pasta.lternet.edu/package/data/eml/edi/271/7/71e6b946b751aa1b966ab5653b01077f",
+fcr_files <- c("https://pasta.lternet.edu/package/data/eml/edi/271/8/fbb8c7a0230f4587f1c6e11417fe9dce",
                "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv")
 
 schmidt_stability <- generate_schmidt.stability(current_file = fcr_files[2], historic_file = fcr_files[1])
@@ -143,13 +143,13 @@ source('targets/target_functions/inflow/target_generation_inflows.R')
 
 current_inflow <- 'https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-weir-data-qaqc/FCRWeir_L1.csv'
 
-historic_inflow <- "https://pasta.lternet.edu/package/data/eml/edi/202/10/c065ff822e73c747f378efe47f5af12b"
+historic_inflow <- "https://pasta.lternet.edu/package/data/eml/edi/202/11/aae7888d68753b276d1623680f81d5de"
 
 historic_silica <- 'https://pasta.lternet.edu/package/data/eml/edi/542/1/791ec9ca0f1cb9361fa6a03fae8dfc95'
 
-historic_nutrients <- "https://pasta.lternet.edu/package/data/eml/edi/199/11/509f39850b6f95628d10889d66885b76"
+historic_nutrients <- "https://pasta.lternet.edu/package/data/eml/edi/199/12/a33a5283120c56e90ea414e76d5b7ddb"
 
-historic_ghg <- "https://pasta.lternet.edu/package/data/eml/edi/551/7/38d72673295864956cccd6bbba99a1a3"
+historic_ghg <- "https://pasta.lternet.edu/package/data/eml/edi/551/8/454c11035c491710243cae0423efbe7b"
 
 
 inflow_daily <- target_generation_inflows(historic_inflow = historic_inflow,
