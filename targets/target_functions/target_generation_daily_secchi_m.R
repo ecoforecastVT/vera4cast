@@ -72,6 +72,7 @@ target_generation_daily_secchi_m <- function(current, edi){
     distinct(datetime, observation, .keep_all=TRUE)
 
   comb_secchi_5 <- comb_secchi_4 %>%
+    mutate(datetime = lubridate::as_date(datetime)) |>
     group_by(datetime, site_id, depth, variable) %>%
     summarise(across(c(observation),mean))
 
