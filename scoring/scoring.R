@@ -127,6 +127,7 @@ furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, con
           dplyr::filter(reference_date %in% reference_dates,
                         lubridate::as_date(datetime) >= ref,
                         lubridate::as_date(datetime) < ref_upper) |>
+          dplyr::mutate(model_id = group$model_id) |>
           dplyr::collect()
 
         fc |>
@@ -138,6 +139,7 @@ furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, con
           #If for some reason, a forecast has multiple values for a parameter from a specific forecast, then average
           dplyr::summarise(prediction = mean(prediction), .by = dplyr::any_of(c("site_id", "datetime", "reference_datetime", "family", "depth_m",
                                                                                 "parameter", "pub_datetime", "reference_date", "variable", "project_id"))) |>
+          dplyr::filter(!(family == 'bernoulli' & variable == 'Chla_ugL_mean')) |>
           score4cast::crps_logs_score(tg, extra_groups = c("depth_m","project_id")) |> #project_specific
           #score4cast::crps_logs_score(tg, extra_groups = c("project_id")) |> #project_specific
           dplyr::mutate(date = group$date,
