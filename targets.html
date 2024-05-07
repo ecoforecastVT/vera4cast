@@ -195,9 +195,9 @@ background-size: cover;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#targets-file" id="toc-targets-file" class="nav-link active" data-scroll-target="#targets-file">Targets file</a>
+  <li><a href="#targets-overview" id="toc-targets-overview" class="nav-link active" data-scroll-target="#targets-overview">Targets Overview</a>
   <ul class="collapse">
-  <li><a href="#variable-list" id="toc-variable-list" class="nav-link" data-scroll-target="#variable-list">Variable list</a></li>
+  <li><a href="#targert-variable-list" id="toc-targert-variable-list" class="nav-link" data-scroll-target="#targert-variable-list">Targert variable list</a></li>
   </ul></li>
   <li><a href="#site" id="toc-site" class="nav-link" data-scroll-target="#site">Site</a></li>
   <li><a href="#additional-target-variables" id="toc-additional-target-variables" class="nav-link" data-scroll-target="#additional-target-variables">Additional target variables</a>
@@ -215,8 +215,9 @@ background-size: cover;
 
 
 
-<section id="targets-file" class="level2">
-<h2 class="anchored" data-anchor-id="targets-file">Targets file</h2>
+<p>For the VERA Challenge, we are forecasting a range of physical, chemical, and biological reservoir variables. The variables we forecast are called <strong>(target variables, or targets)</strong>. The targets for the VERA Challenge are in a specific daily time step format. To see the current focal targets we are soliciting submissions for in the VERA Challenge, explore the variables described below. Note that additional target variables related to the primary inflow stream to Falling Creek Reservoir as well as meteorological variables at Falling Creek Reservoir are provided in separate files under the section “Additional target variables” below.</p>
+<section id="targets-overview" class="level2">
+<h2 class="anchored" data-anchor-id="targets-overview">Targets Overview</h2>
 <p>Daily time-step variables measured within the reservoirs:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-insitu-targets.csv.gz"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -228,19 +229,19 @@ background-size: cover;
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(targets)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 92,277
+<pre><code>Rows: 92,650
 Columns: 7
-$ project_id  &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast", "vera4~
-$ site_id     &lt;chr&gt; "fcre", "fcre", "fcre", "fcre", "fcre", "fcre", "fcre", "f~
-$ datetime    &lt;dttm&gt; 2018-07-06, 2018-07-06, 2018-07-06, 2018-07-06, 2018-07-0~
-$ duration    &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P~
-$ depth_m     &lt;dbl&gt; 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6~
-$ variable    &lt;chr&gt; "Temp_C_mean", "SpCond_uScm_mean", "Chla_ugL_mean", "fDOM_~
-$ observation &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA~</code></pre>
+$ project_id  &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast", "vera4…
+$ site_id     &lt;chr&gt; "fcre", "fcre", "fcre", "fcre", "fcre", "fcre", "fcre", "f…
+$ datetime    &lt;dttm&gt; 2018-07-06, 2018-07-06, 2018-07-06, 2018-07-06, 2018-07-0…
+$ duration    &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P…
+$ depth_m     &lt;dbl&gt; 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6…
+$ variable    &lt;chr&gt; "Temp_C_mean", "SpCond_uScm_mean", "Chla_ugL_mean", "fDOM_…
+$ observation &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</code></pre>
 </div>
 </div>
-<section id="variable-list" class="level3">
-<h3 class="anchored" data-anchor-id="variable-list">Variable list</h3>
+<section id="targert-variable-list" class="level3">
+<h3 class="anchored" data-anchor-id="targert-variable-list">Targert variable list</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>googlesheets4<span class="sc">::</span><span class="fu">gs4_deauth</span>()</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>target_metadata <span class="ot">&lt;-</span> googlesheets4<span class="sc">::</span><span class="fu">read_sheet</span>(<span class="st">"https://docs.google.com/spreadsheets/d/1fOWo6zlcWA8F6PmRS9AD6n1pf-dTWSsmGKNpaX3yHNE/edit?usp=sharing"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -419,6 +420,7 @@ $ observation &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 </section>
 <section id="additional-target-variables" class="level2">
 <h2 class="anchored" data-anchor-id="additional-target-variables">Additional target variables</h2>
+<p>We are collecting many additional datasets in near-real time at the reservoirs that can be used for forecasting, even though they are not the focal target variables evaluated in the VERA Challenge.</p>
 <section id="stream-inflow-to-falling-creek-reservoir" class="level3">
 <h3 class="anchored" data-anchor-id="stream-inflow-to-falling-creek-reservoir">Stream inflow to Falling Creek Reservoir</h3>
 <p>Daily time-step variables measured in the monitored stream (Tunnel Branch; site_id = tubr)</p>
@@ -427,25 +429,25 @@ $ observation &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>inflow_targets <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url2, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(inflow_targets)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 10,217
+<pre><code>Rows: 10,225
 Columns: 7
-$ project_id  &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast", "vera4~
-$ site_id     &lt;chr&gt; "tubr", "tubr", "tubr", "tubr", "tubr", "tubr", "tubr", "t~
-$ datetime    &lt;dttm&gt; 2013-05-15, 2013-05-15, 2013-05-16, 2013-05-16, 2013-05-1~
-$ duration    &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P~
-$ depth_m     &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA~
-$ variable    &lt;chr&gt; "Flow_cms_mean", "Temp_C_mean", "Flow_cms_mean", "Temp_C_m~
-$ observation &lt;dbl&gt; 0.01585714, 15.73000000, 0.01487500, 15.35000000, 49.90000~</code></pre>
+$ project_id  &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast", "vera4…
+$ site_id     &lt;chr&gt; "tubr", "tubr", "tubr", "tubr", "tubr", "tubr", "tubr", "t…
+$ datetime    &lt;dttm&gt; 2013-05-15, 2013-05-15, 2013-05-16, 2013-05-16, 2013-05-1…
+$ duration    &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P…
+$ depth_m     &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ variable    &lt;chr&gt; "Flow_cms_mean", "Temp_C_mean", "Flow_cms_mean", "Temp_C_m…
+$ observation &lt;dbl&gt; 0.01585714, 15.73000000, 0.01487500, 15.35000000, 49.90000…</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
-<col style="width: 11%">
-<col style="width: 5%">
-<col style="width: 76%">
-<col style="width: 5%">
+<col style="width: 18%">
+<col style="width: 9%">
+<col style="width: 62%">
+<col style="width: 9%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -465,7 +467,7 @@ $ observation &lt;dbl&gt; 0.01585714, 15.73000000, 0.01487500, 15.35000000, 49.9
 <tr class="even">
 <td style="text-align: left;">Temp_C_mean</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">daily mean water temperature in degrees C, focal depths bvre = 1.5 m, fcre = 1.6 m, measured using EXO and thermistor</td>
+<td style="text-align: left;">daily mean water temperature in degrees C</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
@@ -541,21 +543,21 @@ $ observation &lt;dbl&gt; 0.01585714, 15.73000000, 0.01487500, 15.35000000, 49.9
 </section>
 <section id="falling-creek-reservoir-meteorology" class="level3">
 <h3 class="anchored" data-anchor-id="falling-creek-reservoir-meteorology">Falling Creek Reservoir meteorology</h3>
-<p>Daily time-step variables measured at the meteorology station (located on the dam at Falling Creek Reservoir)</p>
+<p>Daily time-step variables measured at the meteorological station (located on the dam at Falling Creek Reservoir)</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>url3 <span class="ot">&lt;-</span> <span class="st">"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-met-targets.csv.gz"</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>met_targets <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url3, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(met_targets)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 30,670
+<pre><code>Rows: 30,710
 Columns: 7
-$ project_id  &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast", "vera4~
-$ site_id     &lt;chr&gt; "fcre", "fcre", "fcre", "fcre", "fcre", "fcre", "fcre", "f~
-$ datetime    &lt;dttm&gt; 2024-01-01, 2024-01-01, 2024-01-01, 2024-01-01, 2024-01-0~
-$ duration    &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P~
-$ depth_m     &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA~
-$ variable    &lt;chr&gt; "PAR_umolm2s_mean", "BP_kPa_mean", "AirTemp_C_mean", "RH_p~
-$ observation &lt;dbl&gt; 174.44, 101.60, 5.08, 71.67, 2.91, 198.96, 94.11, 273.25, ~</code></pre>
+$ project_id  &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast", "vera4…
+$ site_id     &lt;chr&gt; "fcre", "fcre", "fcre", "fcre", "fcre", "fcre", "fcre", "f…
+$ datetime    &lt;dttm&gt; 2024-01-01, 2024-01-01, 2024-01-01, 2024-01-01, 2024-01-0…
+$ duration    &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P…
+$ depth_m     &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+$ variable    &lt;chr&gt; "PAR_umolm2s_mean", "BP_kPa_mean", "AirTemp_C_mean", "RH_p…
+$ observation &lt;dbl&gt; 174.44, 101.60, 5.08, 71.67, 2.91, 198.96, 94.11, 273.25, …</code></pre>
 </div>
 </div>
 <div class="cell">

@@ -202,7 +202,7 @@ background-size: cover;
   <li><a href="#must-include-uncertainty" id="toc-must-include-uncertainty" class="nav-link" data-scroll-target="#must-include-uncertainty"><span class="header-section-number">2.2</span> Must include uncertainty</a></li>
   <li><a href="#any-model-driverscovariatesfeatures-are-welcome" id="toc-any-model-driverscovariatesfeatures-are-welcome" class="nav-link" data-scroll-target="#any-model-driverscovariatesfeatures-are-welcome"><span class="header-section-number">2.3</span> Any model drivers/covariates/features are welcome</a></li>
   <li><a href="#forecasts-can-be-for-a-range-of-horizons" id="toc-forecasts-can-be-for-a-range-of-horizons" class="nav-link" data-scroll-target="#forecasts-can-be-for-a-range-of-horizons"><span class="header-section-number">2.4</span> Forecasts can be for a range of horizons</a></li>
-  <li><a href="#forecasts-can-be-submitted-everyday" id="toc-forecasts-can-be-submitted-everyday" class="nav-link" data-scroll-target="#forecasts-can-be-submitted-everyday"><span class="header-section-number">2.5</span> Forecasts can be submitted everyday</a></li>
+  <li><a href="#forecasts-can-be-submitted-every-day" id="toc-forecasts-can-be-submitted-every-day" class="nav-link" data-scroll-target="#forecasts-can-be-submitted-every-day"><span class="header-section-number">2.5</span> Forecasts can be submitted every day</a></li>
   </ul></li>
   <li><a href="#forecast-file-format" id="toc-forecast-file-format" class="nav-link" data-scroll-target="#forecast-file-format"><span class="header-section-number">3</span> Forecast file format</a></li>
   <li><a href="#representing-uncertainity" id="toc-representing-uncertainity" class="nav-link" data-scroll-target="#representing-uncertainity"><span class="header-section-number">4</span> Representing uncertainity</a>
@@ -231,7 +231,7 @@ background-size: cover;
 <h2 data-number="1" class="anchored" data-anchor-id="tldr-how-to-submit-a-forecast"><span class="header-section-number">1</span> tl;dr: How to submit a forecast</h2>
 <p>We provide an overview of the steps for submitting with the details below:</p>
 <ol type="1">
-<li>Register at <a href="https://forms.gle/kg2Vkpho9BoMXSy57" class="uri">https://forms.gle/kg2Vkpho9BoMXSy57</a>. You are not required to register if your forecast submission uses the word “example” in your model_id”. Any forecasts with “example” in the model_id will not be used in forecast evaluation analyses.</li>
+<li>Register at <a href="https://forms.gle/kg2Vkpho9BoMXSy57" class="uri">https://forms.gle/kg2Vkpho9BoMXSy57</a>. You are not required to register if your forecast submission uses the word “example” in your model_id (i.e myforecast_example). Any forecasts with “example” in the model_id will not be used in forecast evaluation analyses.</li>
 <li>Generate a forecast!</li>
 <li>Write the forecast output to a file that follows our standardized format (described below).</li>
 <li>Submit your forecast using an R function (provided below).</li>
@@ -247,6 +247,7 @@ background-size: cover;
 <section id="must-include-uncertainty" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="must-include-uncertainty"><span class="header-section-number">2.2</span> Must include uncertainty</h3>
 <p>Forecasts require you to make an assessment of the confidence in your prediction of the future. You can represent your confidence (i.e., uncertainty in the forecast) using a distribution or numerically using an ensemble (or sample) of predictions.</p>
+<p>For new forecasters, as a first step, two possible approaches for quantifying forecast uncertainty are: 1) using the residuals from the model fitting/calibration period to generate a model process uncertainty distribution that can be applied to the forecast; or 2) for forecasts that use meteorological variables as drivers, using weather forecasts provided by the VERA challenge organizers to account for driver uncertainty in a forecast.</p>
 </section>
 <section id="any-model-driverscovariatesfeatures-are-welcome" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="any-model-driverscovariatesfeatures-are-welcome"><span class="header-section-number">2.3</span> Any model drivers/covariates/features are welcome</h3>
@@ -257,14 +258,14 @@ background-size: cover;
 <h3 data-number="2.4" class="anchored" data-anchor-id="forecasts-can-be-for-a-range-of-horizons"><span class="header-section-number">2.4</span> Forecasts can be for a range of horizons</h3>
 <p>Forecasts can be submitted at the daily time step for 1 day to 10 years ahead into the future.</p>
 </section>
-<section id="forecasts-can-be-submitted-everyday" class="level3" data-number="2.5">
-<h3 data-number="2.5" class="anchored" data-anchor-id="forecasts-can-be-submitted-everyday"><span class="header-section-number">2.5</span> Forecasts can be submitted everyday</h3>
+<section id="forecasts-can-be-submitted-every-day" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="forecasts-can-be-submitted-every-day"><span class="header-section-number">2.5</span> Forecasts can be submitted every day</h3>
 <p>Since forecasts can be submitted every day, automation is important. We provide an example GitHub repository that can be used to automate your forecast with GitHub Actions. It also includes the use of a custom Docker Container <a href="https://github.com/LTREB-reservoirs/vera4cast/blob/main/Dockerfile">rqthomas/vera4cast:latest</a> that has many of the R packages and functions needed to generate and submit forecasts.</p>
 </section>
 </section>
 <section id="forecast-file-format" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="forecast-file-format"><span class="header-section-number">3</span> Forecast file format</h2>
-<p>The file is a csv format with the following columns:</p>
+<p>The forecast file should be in a csv format with the following columns:</p>
 <ul>
 <li><p><code>project_id</code>: use <code>vera4cast</code></p></li>
 <li><p><code>model_id</code>: the short name of the model defined as the model_id in the file name (see below) and in your registration. The model_id should have no spaces. model_id should reflect a method to forecast one or a set of target variables and must be unique to the vera4cast challenge.</p></li>
@@ -272,19 +273,19 @@ background-size: cover;
 <li><p><code>reference_datetime</code>: The start of the forecast; this should be 0 times steps into the future. There should only be one value of <code>reference_datetime</code> in the file. Format is <code>%Y-%m-%d %H:%M:%S</code> with UTC as the time zone. Forecasts submitted with a <code>%Y-%m-%d</code> format will be converted to a full datetime assuming UTC mid-night.</p></li>
 <li><p><code>duration</code>: the time-step of the forecast. Use the value of <code>P1D</code> for a daily forecast and <code>PT1H</code> for an hourly forecast. This value should match the duration of the target variable that you are forecasting. Formatted as <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations">ISO 8601 duration</a></p></li>
 <li><p><code>site_id</code>: code for site (<code>bvre</code>, <code>fcre</code>, or <code>tubr</code>) bvre = Beaverdam Reservoir, fcre = Falling Creek Reservoir, and tubr = Tunnel Branch, the stream that connects the two reservoirs</p></li>
-<li><p><code>depth_m</code>: the depth (meters) for the forecasted variable. Use <code>NA</code> for variables without a specified depth.</p></li>
+<li><p><code>depth_m</code>: the depth (meters) for the forecasted variable. Use <code>NA</code> for variables without a specified depth (i.e Secchi).</p></li>
 <li><p><code>family</code> name of the probability distribution that is described by the parameter values in the parameter column (see list below for possible distributions). An ensemble forecast has a family of <code>ensemble</code> (see note below about family possibilities).</p></li>
 <li><p><code>parameter</code> the parameters for the distribution (see note below about the parameter column) or the number of the ensemble members. For example, the parameters for a normal distribution are called <code>mu</code> and <code>sigma</code>.</p></li>
-<li><p><code>variable</code>: standardized variable name</p></li>
+<li><p><code>variable</code>: standardized variable name (see “What to forecast” tab for more information)</p></li>
 <li><p><code>prediction</code>: forecasted value for the parameter in the parameter column</p></li>
 </ul>
 </section>
 <section id="representing-uncertainity" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="representing-uncertainity"><span class="header-section-number">4</span> Representing uncertainity</h2>
-<p>Uncertainty is represented through the family - parameter columns.</p>
+<p>Uncertainty is represented through the family and parameter columns.</p>
 <section id="parameteric-forecast" class="level4" data-number="4.0.1">
 <h4 data-number="4.0.1" class="anchored" data-anchor-id="parameteric-forecast"><span class="header-section-number">4.0.1</span> Parameteric forecast</h4>
-<p>For a parametric forecast with a normal distribution, the <code>family</code> column would have the word <code>normal</code> to designate a normal distribution and the parameter column must have values of <code>mu</code> and <code>sigma</code> for each forecasted variable, site_id, depth, and time combination.</p>
+<p>Parametric forecasts describe uncertainty by providing the values of parameters for an uncertainty distribution representing the forecast. The name of the distribution is provided in the ‘family’ column and the names of the parameters for the distribution are provided in the ‘parameter’ column. The values of the parameters are provided in the ‘prediction’ column. For a parametric forecast with a normal distribution, the <code>family</code> column would have the word <code>normal</code> to designate a normal distribution and the parameter column must have values of <code>mu</code> and <code>sigma</code> for each forecasted variable, site_id, depth, and time combination.</p>
 <p>Parameteric forecasts for binary variables should use <code>bernoulli</code> as the distribution.</p>
 <p>The following names and parameterization of the distribution are currently supported by VERA (family: parameters):</p>
 <ul>
@@ -302,8 +303,8 @@ background-size: cover;
 </section>
 <section id="ensemble-or-sample-forecast" class="level4" data-number="4.0.2">
 <h4 data-number="4.0.2" class="anchored" data-anchor-id="ensemble-or-sample-forecast"><span class="header-section-number">4.0.2</span> Ensemble (or sample) forecast</h4>
-<p>Ensemble (or sample) forecasts use the <code>family</code> value of <code>ensemble</code> and the <code>parameter</code> values are the ensemble index.</p>
-<p>When forecasts using the ensemble family are scored, we assume that the ensemble is a set of equally likely realizations that are sampled from a distribution that is comparable to that of the observations (i.e., no broad adjustments are required to make the ensemble more consistent with observations). This is referred to as a “perfect ensemble” by Br<c3><b6>cker and Smith (2007). Ensemble (or sample) forecasts are transformed to a probability distribution function (e.g., dressed) using the default methods in the <code>scoringRules</code> R package (empirical version of the quantile decomposition for the <code>crps</code> and kernel density estimation using a Gaussian kernel for the <code>logs</code>). Kernel density estimation uses the default bandwidth produced by the <code>bw.nrd</code> function in the R <code>stats</code> package.</b6></c3></p>
+<p>Ensemble, or sample, forecasts describe uncertainty by providing many predictions from multiple ensemble members, which altogether represent the uncertainty in the forecast. When submitting an ensemble forecast, the value of the ‘family’ column will be ‘ensemble’ and the ‘parameter’ column is used to index the ensemble members (e.g., 1-100 for a 100-member ensemble).</p>
+<p>When forecasts using the ensemble family are scored, we assume that the ensemble is a set of equally likely realizations that are sampled from a distribution that is comparable to that of the observations (i.e., no broad adjustments are required to make the ensemble more consistent with observations). This is referred to as a “perfect ensemble” by <a href="https://doi.org/10.1175/WAF993.1">Bröcker and Smith (2007)</a>. Ensemble (or sample) forecasts are transformed to a probability distribution function (e.g., dressed) using the default methods in the <code>scoringRules</code> R package (empirical version of the quantile decomposition for the <code>crps</code> and kernel density estimation using a Gaussian kernel for the <code>logs</code>). Kernel density estimation uses the default bandwidth produced by the <code>bw.nrd</code> function in the R <code>stats</code> package.</p>
 </section>
 <section id="example-forecasts" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="example-forecasts"><span class="header-section-number">4.1</span> Example forecasts</h3>
@@ -314,17 +315,17 @@ background-size: cover;
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 288
 Columns: 11
-$ model_id           &lt;chr&gt; "climatology", "climatology", "climatology", "clima~
-$ datetime           &lt;date&gt; 2023-10-02, 2023-10-02, 2023-10-02, 2023-10-02, 20~
-$ reference_datetime &lt;date&gt; 2023-10-01, 2023-10-01, 2023-10-01, 2023-10-01, 20~
-$ site_id            &lt;chr&gt; "bvre", "bvre", "bvre", "bvre", "bvre", "bvre", "bv~
-$ variable           &lt;chr&gt; "Chla_ugL_mean", "Chla_ugL_mean", "Temp_C_mean", "T~
-$ family             &lt;chr&gt; "normal", "normal", "normal", "normal", "normal", "~
-$ parameter          &lt;chr&gt; "mu", "sigma", "mu", "sigma", "mu", "sigma", "mu", ~
-$ prediction         &lt;dbl&gt; 10.041987, 2.587292, 18.331126, 2.531732, 9.541139,~
-$ depth_m            &lt;dbl&gt; 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1~
-$ project_id         &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast",~
-$ duration           &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P~</code></pre>
+$ model_id           &lt;chr&gt; "climatology", "climatology", "climatology", "clima…
+$ datetime           &lt;date&gt; 2023-10-02, 2023-10-02, 2023-10-02, 2023-10-02, 20…
+$ reference_datetime &lt;date&gt; 2023-10-01, 2023-10-01, 2023-10-01, 2023-10-01, 20…
+$ site_id            &lt;chr&gt; "bvre", "bvre", "bvre", "bvre", "bvre", "bvre", "bv…
+$ variable           &lt;chr&gt; "Chla_ugL_mean", "Chla_ugL_mean", "Temp_C_mean", "T…
+$ family             &lt;chr&gt; "normal", "normal", "normal", "normal", "normal", "…
+$ parameter          &lt;chr&gt; "mu", "sigma", "mu", "sigma", "mu", "sigma", "mu", …
+$ prediction         &lt;dbl&gt; 10.041987, 2.587292, 18.331126, 2.531732, 9.541139,…
+$ depth_m            &lt;dbl&gt; 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1…
+$ project_id         &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast",…
+$ duration           &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P…</code></pre>
 </div>
 </div>
 <p>For an ensemble (or sample) forecast, the <code>family</code> column uses the word <code>ensemble</code> to designate that it is an ensemble forecast and the parameter column is the ensemble member number (<code>1</code>, <code>2</code>, <code>3</code> …)</p>
@@ -334,17 +335,17 @@ $ duration           &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D"
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 28,800
 Columns: 11
-$ model_id           &lt;chr&gt; "persistenceRW", "persistenceRW", "persistenceRW", ~
-$ datetime           &lt;dttm&gt; 2023-10-02, 2023-10-03, 2023-10-04, 2023-10-05, 20~
-$ reference_datetime &lt;dttm&gt; 2023-10-01, 2023-10-01, 2023-10-01, 2023-10-01, 20~
-$ site_id            &lt;chr&gt; "bvre", "bvre", "bvre", "bvre", "bvre", "bvre", "bv~
-$ family             &lt;chr&gt; "ensemble", "ensemble", "ensemble", "ensemble", "en~
-$ parameter          &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ~
-$ variable           &lt;chr&gt; "Chla_ugL_mean", "Chla_ugL_mean", "Chla_ugL_mean", ~
-$ prediction         &lt;dbl&gt; 10.59539, 13.04463, 13.86989, 13.81281, 14.09787, 1~
-$ depth_m            &lt;dbl&gt; 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1~
-$ project_id         &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast",~
-$ duration           &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P~</code></pre>
+$ model_id           &lt;chr&gt; "persistenceRW", "persistenceRW", "persistenceRW", …
+$ datetime           &lt;dttm&gt; 2023-10-02, 2023-10-03, 2023-10-04, 2023-10-05, 20…
+$ reference_datetime &lt;dttm&gt; 2023-10-01, 2023-10-01, 2023-10-01, 2023-10-01, 20…
+$ site_id            &lt;chr&gt; "bvre", "bvre", "bvre", "bvre", "bvre", "bvre", "bv…
+$ family             &lt;chr&gt; "ensemble", "ensemble", "ensemble", "ensemble", "en…
+$ parameter          &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …
+$ variable           &lt;chr&gt; "Chla_ugL_mean", "Chla_ugL_mean", "Chla_ugL_mean", …
+$ prediction         &lt;dbl&gt; 10.59539, 13.04463, 13.86989, 13.81281, 14.09787, 1…
+$ depth_m            &lt;dbl&gt; 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1…
+$ project_id         &lt;chr&gt; "vera4cast", "vera4cast", "vera4cast", "vera4cast",…
+$ duration           &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P…</code></pre>
 </div>
 </div>
 </section>
@@ -376,7 +377,7 @@ $ duration           &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D"
 </section>
 <section id="evaluation" class="level3" data-number="6.2">
 <h3 data-number="6.2" class="anchored" data-anchor-id="evaluation"><span class="header-section-number">6.2</span> Evaluation</h3>
-<p>All forecasts are scored daily using new data until the full horizon of the forecast has been scored. Forecasts are scored using the <code>crps</code> and <code>logs</code> functions in the <a href="https://cran.r-project.org/web/packages/scoringRules/index.html"><code>scoringRules</code></a> R package.</p>
+<p>All forecasts are scored daily using new data until the full horizon of the forecast has been scored. Forecasts are scored using the <code>crps</code> and <code>logs</code> functions in the <a href="https://cran.r-project.org/web/packages/scoringRules/index.html"><code>scoringRules</code></a> R package. These scores evaluate both the accuracy and precision of the forecast distribution (how close was the forecast mean to the observation and how certain was the forecast).</p>
 </section>
 <section id="comparison" class="level3" data-number="6.3">
 <h3 data-number="6.3" class="anchored" data-anchor-id="comparison"><span class="header-section-number">6.3</span> Comparison</h3>
