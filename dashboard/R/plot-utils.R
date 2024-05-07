@@ -4,7 +4,7 @@ library(tidyverse)
 library(score4cast)
 library(glue)
 
-forecast_ggobj <- function(df, ncol = NULL, show.legend = TRUE) {
+forecast_ggobj <- function(df, ncol = NULL, show.legend = TRUE, ylabel = 'predicted') {
 
     df |> collect() |>
     ggplot() +
@@ -14,18 +14,18 @@ forecast_ggobj <- function(df, ncol = NULL, show.legend = TRUE) {
                             alpha = 0.2, show.legend=FALSE) +
     geom_line_interactive(aes(datetime, mean, col = model_id,
                               tooltip = model_id, data_id = model_id), show.legend=show.legend) +
-    labs(x = 'datetime', y = 'predicted') +
+    labs(x = 'datetime', y = ylabel) +
     facet_wrap(~site_id, scales = "free", ncol=ncol) +
     guides(x =  guide_axis(angle = 45)) +
     theme_bw()
 }
 
 
-forecast_plots <- function(df, ncol = NULL, show.legend = TRUE) {
+forecast_plots <- function(df, ncol = NULL, show.legend = TRUE, ylabel = 'predicted') {
 
   if(nrow(df)==0) return(NULL)
 
-  ggobj <- forecast_ggobj(df, ncol, show.legend)
+  ggobj <- forecast_ggobj(df, ncol, show.legend, ylabel)
   girafe(ggobj = ggobj,
          width_svg = 8, height_svg = 4,
          options = list(
