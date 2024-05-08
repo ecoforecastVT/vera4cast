@@ -2,7 +2,7 @@
 title: "Forecasting Challenge"
 ---
 
-Welcome to the Virginia Ecoforecast Reservoir Analysis ([VERA](http://ltreb-reservoirs.org/)) Forecasting Challenge, hosted by the Virginia Tech Center for Ecosystem Forecasting ([EFP](https://www.ecoforecastprojectvt.org/)) as part of the Virginia Reservoirs LTREB program.
+Welcome to the Virginia Ecoforecast Reservoir Analysis ([VERA]) Forecasting Challenge, hosted by the Virginia Tech Center for Ecosystem Forecasting ([CEF](https://www.ecoforecast.centers.vt.edu/)) as part of the [Virginia Reservoirs LTREB](http://ltreb-reservoirs.org/) program.
 
 We invite you to submit forecasts!
 
