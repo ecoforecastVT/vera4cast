@@ -20,13 +20,31 @@ library(tidyverse)
 targets <- read_csv(url, show_col_types = FALSE)
 ```
 
-```{r}
-glimpse(targets)
+### Description of Target File Columns
+
+```{r, echo=FALSE}
+## CREATE table for column descriptions - matched to order of target columns
+target_descriptions <- c('unique project identifier',
+                         'unique site identifier',
+                         'datetime of the observed value (ISO 8601)',
+                         'temporal duration of target (hourly = PT1H, daily = P1D, etc.); follows ISO 8601 duration convention',
+                         'depth (meters) in water column of observation',
+                         'observation variable',
+                         'observed value for variable')
+
+target_table <- data.frame(
+  Column_Name = colnames(targets),
+  Data_Type = array(unlist(sapply(targets,class))[-4]), # two datetime objects returned (remove second object)
+  Description = target_descriptions
+)
+
+target_table |> 
+  knitr::kable()
 ```
 
 ### Targert variable list 
 
-```{r message=FALSE}
+```{r message=FALSE, echo=FALSE}
 googlesheets4::gs4_deauth()
 target_metadata <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1fOWo6zlcWA8F6PmRS9AD6n1pf-dTWSsmGKNpaX3yHNE/edit?usp=sharing")
 ```
@@ -124,7 +142,6 @@ Daily time-step variables measured in the monitored stream (Tunnel Branch; site_
 ```{r}
 url2 <- "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-inflow-targets.csv.gz"
 inflow_targets <- read_csv(url2, show_col_types = FALSE)
-glimpse(inflow_targets)
 ```
 ```{r echo = FALSE}
 inflow_targets |> 
@@ -142,7 +159,7 @@ Daily time-step variables measured at the meteorological station (located on the
 ```{r}
 url3 <- "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-met-targets.csv.gz"
 met_targets <- read_csv(url3, show_col_types = FALSE)
-glimpse(met_targets)
+#glimpse(met_targets)
 ```
 
 ```{r echo = FALSE}
