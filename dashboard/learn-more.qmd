@@ -1,6 +1,6 @@
 # Learn more
 
-See below to access the cyberinfrastructure that underlies the VERA Challenge, helpful tutorials for participating the VERA Challenge, and papers based on VERA.
+See below to access the cyberinfrastructure that underlies the VERA Challenge, helpful tutorials for participating the VERA Challenge, and papers related to VERA.
 
 ## Tutorials
 
@@ -8,9 +8,9 @@ Introductory tutorial for submitting to the Challenge: [https://github.com/Olsso
 
 Other tutorial materials about [ecological forecasting](https://ecoforecast.org/resources/educational-resources/)
 
-## Research from the Virginia Ecoforecast Reservoir Analysis group.  
+## Research from the Virginia Ecoforecast Reservoir Analysis team  
 
-### Ecological Forecasting 
+### Ecological forecasting 
 
 Lewis, A., W. Woelmer, H. Wander, D. Howard, J. Smith, R. McClure, M. Lofton, N. Hammond, R. Corrigan, R.Q. Thomas, C.C. Carey. 2022. Increased adoption of best practices in ecological forecasting enables comparisons of forecastability across systems. Ecological Applications 32: e02500 [https://doi.org/10.1002/eap.2500](https://doi.org/10.1002/eap.2500)
 
@@ -22,7 +22,9 @@ Dietze, M., R.Q. Thomas, J. Peters, C. Boettiger, A. Shiklomanov, and J. Ashande
 
 ### Education
 
-Moore, T.N., R.Q. Thomas, W.M. Woelmer, C.C Carey. 2022. Integrating ecological forecasting into undergraduate ecology curricula with an R Shiny application-based teaching module. Forecasting 4:604-633. [https://doi.org/10.3390/forecast4030033](https://doi.org/10.3390/forecast4030033)
+Lofton, M.E., T.N. Moore, W.M. Woelmer, R.Q. Thomas, and C.C. Carey. A modular curriculum to teach undergraduates ecological forecasting improves student and instructor confidence in their data science skills. Preprint available here(https://essopenarchive.org/users/540012/articles/741831-a-modular-curriculum-to-teach-undergraduates-ecological-forecasting-improves-student-and-instructor-confidence-in-their-data-science-skills)
+
+Moore, T.N., R.Q. Thomas, W.M. Woelmer, and C.C Carey. 2022. Integrating ecological forecasting into undergraduate ecology curricula with an R Shiny application-based teaching module. Forecasting 4:604-633. [https://doi.org/10.3390/forecast4030033](https://doi.org/10.3390/forecast4030033)
 
 Willson, A.M., H. Gallo, J.A. Peters, A. Abeyta, N. Bueno Watts, C.C. Carey, T.N. Moore, G. Smies, R.Q. Thomas, W.M. Woelmer, and J.S. McLachlan. 2023. Assessing opportunities and inequities in undergraduate ecological forecasting education. Ecology and Evolution 13: e10001. [https://doi.org/10.1002/ece3.10001](https://doi.org/10.1002/ece3.10001)
 
