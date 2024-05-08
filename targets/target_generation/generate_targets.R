@@ -85,6 +85,7 @@ flux_edi_data_file = "https://pasta.lternet.edu/package/data/eml/edi/1061/3/e097
 met_current_data_file = "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-metstation-data-qaqc/FCRmet_L1.csv",
 met_edi_data_file = "https://pasta.lternet.edu/package/data/eml/edi/389/8/d4c74bbb3b86ea293e5c52136347fbb0")
 
+eddy_flux$datetime <- lubridate::as_datetime(eddy_flux$datetime)
 
 ## CTD  - MOM
 print('CTD - MOM')
