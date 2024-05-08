@@ -22,7 +22,7 @@ Dietze, M., R.Q. Thomas, J. Peters, C. Boettiger, A. Shiklomanov, and J. Ashande
 
 ### Education
 
-Lofton, M.E., T.N. Moore, W.M. Woelmer, R.Q. Thomas, and C.C. Carey. A modular curriculum to teach undergraduates ecological forecasting improves student and instructor confidence in their data science skills. Preprint available here(https://essopenarchive.org/users/540012/articles/741831-a-modular-curriculum-to-teach-undergraduates-ecological-forecasting-improves-student-and-instructor-confidence-in-their-data-science-skills)
+Lofton, M.E., T.N. Moore, W.M. Woelmer, R.Q. Thomas, and C.C. Carey. A modular curriculum to teach undergraduates ecological forecasting improves student and instructor confidence in their data science skills. [https://essopenarchive.org/users/540012/articles/741831-a-modular-curriculum-to-teach-undergraduates-ecological-forecasting-improves-student-and-instructor-confidence-in-their-data-science-skills](https://essopenarchive.org/users/540012/articles/741831-a-modular-curriculum-to-teach-undergraduates-ecological-forecasting-improves-student-and-instructor-confidence-in-their-data-science-skills)
 
 Moore, T.N., R.Q. Thomas, W.M. Woelmer, and C.C Carey. 2022. Integrating ecological forecasting into undergraduate ecology curricula with an R Shiny application-based teaching module. Forecasting 4:604-633. [https://doi.org/10.3390/forecast4030033](https://doi.org/10.3390/forecast4030033)
 
