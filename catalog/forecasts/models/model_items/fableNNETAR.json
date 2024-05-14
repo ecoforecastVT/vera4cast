@@ -6,12 +6,7 @@
   "type": "Feature",
   "id": "fableNNETAR",
   "bbox": [
-    [
-      -79.8441,
-      37.3217,
-      -79.8146,
-      37.3217
-    ]
+    [-79.8372, 37.3032, -79.8159, 37.3129]
   ],
   "geometry": {
     "type": "MultiPoint",
@@ -20,7 +15,7 @@
   "properties": {
     "description": "\nmodel info: autoregressive neural net fit using the NNETAR() function in the fable R package\n\nSites: bvre, fcre\n\nVariables: Daily Bloom_binary, Daily Chlorophyll-a, Daily Water_temperature, Daily oxygen_concentration, Daily Secchi, Daily fluorescent dissolved organic matter",
     "start_datetime": "2023-10-01",
-    "end_datetime": "2024-06-08",
+    "end_datetime": "2024-06-17",
     "providers": [
       {
         "url": "pending",

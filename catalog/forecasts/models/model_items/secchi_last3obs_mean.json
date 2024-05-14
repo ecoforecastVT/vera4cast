@@ -6,12 +6,7 @@
   "type": "Feature",
   "id": "secchi_last3obs_mean",
   "bbox": [
-    [
-      -79.8441,
-      37.3217,
-      -79.8146,
-      37.3217
-    ]
+    [-79.8372, 37.3032, -79.8372, 37.3032]
   ],
   "geometry": {
     "type": "MultiPoint",
@@ -20,7 +15,7 @@
   "properties": {
     "description": "\nmodel info: This forecast simply takes the mean of the last three secchi observations and uses the standard deviation of that mean for the uncertainty around the forecast.\n\nSites: fcre\n\nVariables: Daily Secchi",
     "start_datetime": "2024-05-02",
-    "end_datetime": "2024-06-03",
+    "end_datetime": "2024-06-12",
     "providers": [
       {
         "url": "pending",
