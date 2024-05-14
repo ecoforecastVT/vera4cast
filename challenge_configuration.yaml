@@ -105,3 +105,4 @@ catalog_config:
   dashboard_url: "https://www.ltreb-reservoirs.org/vera4cast"
   dashboard_title: "VERA Forecast Challenge Dashboard"
   site_metadata_url: 'https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/vera4cast_field_site_metadata.csv'
+  noaa_sites: ['fcre']
