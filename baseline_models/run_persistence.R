@@ -31,7 +31,8 @@ persistenceRW_inflow <- purrr::map_dfr(.x = c('Flow_cms_mean', 'Temp_C_mean'),
                                                                               forecast_date = Sys.Date(),
                                                                               site = 'tubr',
                                                                               depth = 'target',
-                                                                              var = .x,
+
+                                                                              ,
                                                                               ...))
 
 # met variables
@@ -64,6 +65,20 @@ persistenceRW_insitu <- purrr::pmap_dfr(site_var_combinations,
                                                                          depth = 'target',
                                                                          ...))
 
+# Flux variables
+# get all combinations
+site_var_combinations <- expand.grid(var = c('co2flux_umolm2s_mean',
+                                             'ch4flux_umolm2s_mean'),
+                                     site = c('fcre'))
+
+persistenceRW_flux <- purrr::pmap_dfr(site_var_combinations,
+                                        .f = ~ generate_baseline_persistenceRW(targets = targets_insitu,
+                                                                               h = 35,
+                                                                               model_id = 'persistenceRW',
+                                                                               forecast_date = Sys.Date(),
+                                                                               depth = 'target',
+                                                                               ...))
+
 # Generate binary forecasts from continuous
 binary_site_var_comb <- data.frame(site = c('fcre', 'bvre'),
                                    depth = c(1.6, 1.5))
@@ -77,7 +92,7 @@ persistenceRW_insitu_binary <- purrr::pmap_dfr(binary_site_var_comb,
                                                                              ...))
 
 # combine and submit
-combined_persistenceRW <- bind_rows(persistenceRW_inflow, persistenceRW_insitu, persistenceRW_met, persistenceRW_insitu_binary)
+combined_persistenceRW <- bind_rows(persistenceRW_inflow, persistenceRW_insitu, persistenceRW_met, persistenceRW_flux, persistenceRW_insitu_binary)
 
 # write forecast file
 file_date <- combined_persistenceRW$reference_datetime[1]
