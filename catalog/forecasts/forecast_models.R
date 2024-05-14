@@ -67,6 +67,9 @@ forecast_data_df <- duckdbfs::open_dataset(glue::glue("s3://{config$inventory_bu
 theme_models <- forecast_data_df |>
   distinct(model_id)
 
+forecast_sites <- forecast_data_df |>
+  distinct(site_id)
+
 forecast_date_range <- forecast_data_df |> dplyr::summarise(min(date),max(date))
 forecast_min_date <- forecast_date_range$`min(date)`
 forecast_max_date <- forecast_date_range$`max(date)`
@@ -88,6 +91,7 @@ stac4cast::build_forecast_scores(table_schema = forecast_theme_df,
                       link_items = stac4cast::generate_group_values(group_values = names(config$variable_groups)),
                       thumbnail_link = catalog_config$forecasts_thumbnail,
                       thumbnail_title = catalog_config$forecasts_thumbnail_title,
+                      group_sites = forecast_sites$site_id,
                       model_child = FALSE)
 
 # ## create separate JSON for model landing page
@@ -287,7 +291,7 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
 
       variable_name_build <- append(variable_name_build, var_formal_name)
 
-      stac4cast::build_group_variables(table_schema = forecast_data_df,
+      stac4cast::build_group_variables(table_schema = forecast_theme_df,
                                        #theme_id = var_formal_name[j],
                                        table_description = forecast_description_create,
                                        start_date = var_min_date,
@@ -300,7 +304,7 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
                                        dashboard_title = catalog_config$dashboard_title,
                                        theme_title = var_formal_name,
                                        destination_path = file.path(catalog_config$forecast_path,names(config$variable_groups)[i],var_formal_name),
-                                       aws_download_path = var_path,
+                                       aws_download_path = catalog_config$aws_download_path_forecasts,
                                        group_var_items = stac4cast::generate_variable_model_items(model_list = var_models$model_id),
                                        thumbnail_link = 'pending',
                                        thumbnail_title = 'pending',
@@ -315,7 +319,7 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
   } ## end variable loop
 
   ## BUILD THE GROUP PAGES WITH UPDATED VAR/PUB INFORMATION
-  stac4cast::build_group_variables(table_schema = forecast_data_df,
+  stac4cast::build_group_variables(table_schema = forecast_theme_df,
                                    table_description = forecast_description_create,
                                    start_date = forecast_min_date,
                                    end_date = forecast_max_date,
