@@ -49,9 +49,9 @@ theme_models <- summaries_data_df |>
 summaries_sites <- summaries_data_df |>
   distinct(site_id)
 
-forecast_date_range <- summaries_data_df |> dplyr::summarise(min(date),max(date))
-forecast_min_date <- forecast_date_range$`min(date)`
-forecast_max_date <- forecast_date_range$`max(date)`
+summaries_date_range <- summaries_data_df |> dplyr::summarise(min(date),max(date))
+summaries_min_date <- summaries_date_range$`min(date)`
+summaries_max_date <- summaries_date_range$`max(date)`
 
 build_description <- paste0("Summaries are the forecasts statistics of the raw forecasts (i.e., mean, median, confidence intervals). You can access the summaries at the top level of the dataset where all models, variables, and dates that forecasts were produced (reference_datetime) are available. The code to access the entire dataset is provided as an asset. Given the size of the forecast catalog, it can be time-consuming to access the data at the full dataset level. For quicker access to the forecasts for a particular model (model_id), we also provide the code to access the data at the model_id level as an asset for each model.")
 
