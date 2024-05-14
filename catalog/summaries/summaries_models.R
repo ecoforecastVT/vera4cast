@@ -46,6 +46,9 @@ summaries_data_df <- duckdbfs::open_dataset(glue::glue("s3://{config$inventory_b
 theme_models <- summaries_data_df |>
   distinct(model_id)
 
+summaries_sites <- summaries_data_df |>
+  distinct(site_id)
+
 forecast_date_range <- summaries_data_df |> dplyr::summarise(min(date),max(date))
 forecast_min_date <- forecast_date_range$`min(date)`
 forecast_max_date <- forecast_date_range$`max(date)`
@@ -67,6 +70,7 @@ stac4cast::build_forecast_scores(table_schema = summaries_theme_df,
                                  link_items = stac4cast::generate_group_values(group_values = names(config$variable_groups)),
                                  thumbnail_link = catalog_config$summaries_thumbnail,
                                  thumbnail_title = catalog_config$summaries_thumbnail_title,
+                                 group_sites = summaries_sites$site_id,
                                  model_child = FALSE)
 
 ## create separate JSON for model landing page
