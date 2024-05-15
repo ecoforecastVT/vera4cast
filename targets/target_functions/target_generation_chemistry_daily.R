@@ -3,29 +3,29 @@
 # 17 Aug 2023
 
 target_generation_chemistry_daily <- function(current_data_file, historic_data_file){
-  
-  ## read in current data file 
-  # Right now there is no current Chemistry file to read in 
+
+  ## read in current data file
+  # Right now there is no current Chemistry file to read in
   dt1 <-current_data_file
-  
-  # read in historical data file 
-  # EDI
-  inUrl1 <- historic_data_file
-  infile1 <- tempfile()
-  try(download.file(inUrl1,infile1,method="curl"))
-  if (is.na(file.size(infile1))) download.file(inUrl1,infile1,method="auto")
-  
-  
-  dt2 <-read_csv(infile1) 
-  
-  ## manipulate the data files to match each other 
+
+  # read in historical data file
+  # # EDI
+  # inUrl1 <- historic_data_file
+  # infile1 <- tempfile()
+  # try(download.file(inUrl1,infile1,method="curl"))
+  # if (is.na(file.size(infile1))) download.file(inUrl1,infile1,method="auto")
+
+
+  dt2 <-read_csv(historic_data_file)
+
+  ## manipulate the data files to match each other
   # secchi: match current data file and select only secchi data in EDI
-  # temperature: in correct format as EDI 
+  # temperature: in correct format as EDI
   # swimmibility: select the sfc water and air temp columns and just use those
-  # Phtyos/MOMs: select columns that you need 
-  #MOM: EDI 
+  # Phtyos/MOMs: select columns that you need
+  #MOM: EDI
   #Phytos: Taken from catwalk file
-  
+
   ## bind the two files using row.bind()
 
     targets_df<-bind_rows(dt1,dt2)%>%
@@ -48,10 +48,11 @@ target_generation_chemistry_daily <- function(current_data_file, historic_data_f
       pivot_longer(cols=c(TN_ugL:DOC_mgL),
                    names_to='variable',
                    values_to='observation')%>%
+      mutate(variable = paste0(variable,'_sample')) |>
       select(c('datetime', 'site_id', 'depth', "observation", 'variable')) # rearrange order of columns
- 
-  
-      
+
+
+
   ## return dataframe formatted to match FLARE targets
     return(targets_df)
 }

@@ -196,8 +196,8 @@ generate_EddyFlux_ghg_targets_function <- function(flux_current_data_file,
   targets_df <- eddy_fcr %>%
     filter(footprint_flag == 0)%>% # filter out so it is the smallest footprint
     select(date, CO2_med_flux, ch4_med_flux)%>%
-    dplyr::rename(co2flux_umolm2s_mean = CO2_med_flux,
-                  ch4flux_umolm2s_mean = ch4_med_flux)%>%  # rename columns
+    dplyr::rename(CO2flux_umolm2s_mean = CO2_med_flux,
+                  CH4flux_umolm2s_mean = ch4_med_flux)%>%  # rename columns
 
     group_by(date)%>% # average if there are more than one sample taken during that day
     summarise_if(is.numeric, mean, na.rm = TRUE)%>%
@@ -210,7 +210,7 @@ generate_EddyFlux_ghg_targets_function <- function(flux_current_data_file,
     select(-date)%>%
     rename(site_id=Reservoir, # rename the columns for standard notation
            depth=Depth_m)%>%
-    pivot_longer(cols=c(co2flux_umolm2s_mean, ch4flux_umolm2s_mean), # make the wide data frame into a long one so each observation has a depth
+    pivot_longer(cols=c(CO2flux_umolm2s_mean, CH4flux_umolm2s_mean), # make the wide data frame into a long one so each observation has a depth
                  names_to='variable',
                  values_to='observation')%>%
     select(c('datetime', 'site_id', 'depth', "observation", 'variable')) # rearrange order of columns

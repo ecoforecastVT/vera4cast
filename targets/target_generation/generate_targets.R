@@ -87,6 +87,23 @@ met_edi_data_file = "https://pasta.lternet.edu/package/data/eml/edi/389/8/d4c74b
 
 eddy_flux$datetime <- lubridate::as_datetime(eddy_flux$datetime)
 
+
+## CHEM
+print('Chemistry')
+source('targets/target_functions/target_generation_chemistry_daily.R')
+chem_data <- target_generation_chemistry_daily(current_data_file = NULL,
+                                               historic_data_file = 'https://pasta.lternet.edu/package/data/eml/edi/199/12/a33a5283120c56e90ea414e76d5b7ddb')
+chem_data$datetime <- lubridate::as_datetime(chem_data$datetime)
+
+
+## GHG
+print('GHG')
+source('targets/target_functions/target_generation_ghg_daily.R')
+ghg_data <- target_generation_ghg_daily(current_data_file = 'https://github.com/CareyLabVT/Reservoirs/blob/master/Data/DataNotYetUploadedToEDI/Raw_GHG/L1_manual_GHG.csv',
+                                        historic_data_file = 'https://pasta.lternet.edu/package/data/eml/edi/551/8/454c11035c491710243cae0423efbe7b')
+ghg_data$datetime <- lubridate::as_datetime(ghg_data$datetime)
+
+
 ## CTD  - MOM
 print('CTD - MOM')
 source('targets/target_functions/targets_generation_daily_MOM.R')
@@ -115,7 +132,7 @@ schmidt_stability <- generate_schmidt.stability(current_file = fcr_files[2], his
 ## combine the data and perform final adjustments (depth, etc.)
 
 combined_targets <- bind_rows(exo_daily, fluoro_daily, fcr_thermistor_temp_daily, bvr_thermistor_temp_daily, secchi_daily,
-                              mom_daily_targets, thermocline_depth, schmidt_stability, eddy_flux) |>
+                              mom_daily_targets, thermocline_depth, schmidt_stability, eddy_flux, chem_data, ghg_data) |>
   select(all_of(column_names))
 
 combined_targets_deduped <- combined_targets |>
