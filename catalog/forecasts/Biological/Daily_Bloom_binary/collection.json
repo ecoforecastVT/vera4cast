@@ -68,6 +68,21 @@
       "href": "../../models/model_items/asl.tbats.json"
     },
     {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/asl.met.lm.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/asl.met.lm.step.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/asl.temp.lm.json"
+    },
+    {
       "rel": "parent",
       "type": "application/json",
       "href": "../collection.json"
@@ -110,7 +125,7 @@
       "interval": [
         [
           "2023-10-01T00:00:00Z",
-          "2024-06-18T00:00:00Z"
+          "2024-06-19T00:00:00Z"
         ]
       ]
     }

@@ -10,7 +10,9 @@
   ],
   "geometry": {
     "type": "MultiPoint",
-    "coordinates": []
+    "coordinates": [
+      [-79.8372, 37.3032]
+    ]
   },
   "properties": {
     "description": "\nmodel info: This forecast simply takes the mean of the last three secchi observations and uses the standard deviation of that mean for the uncertainty around the forecast.\n\nSites: fcre\n\nVariables: Daily Secchi",

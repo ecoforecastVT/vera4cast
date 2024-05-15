@@ -10,7 +10,9 @@
   ],
   "geometry": {
     "type": "MultiPoint",
-    "coordinates": []
+    "coordinates": [
+      [-79.8372, 37.3032]
+    ]
   },
   "properties": {
     "description": "\nmodel info: FLARE-Simstrat combines the 1D process-based model Simstrat, a data assimilation algorithm (EnKF) and NOAA driver weather data to make predictions of water column temperatures.\n\nSites: fcre\n\nVariables: Daily NA, Daily Water_temperature",

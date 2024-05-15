@@ -10,7 +10,9 @@
   ],
   "geometry": {
     "type": "MultiPoint",
-    "coordinates": []
+    "coordinates": [
+      [-79.8372, 37.3032]
+    ]
   },
   "properties": {
     "description": "\nmodel info: NOAA Climate Forecasting System forecasts as downloaded from open-meteo.com.  Submitted forecasts only include the first ~6 months because there are 4 ensemble members available (only 1 is available from 6 - 9 months).\n\nSites: fcre\n\nVariables: Daily Air temperature, Daily Relative humdity, Daily Precipitation, Daily Shortwave radiation, Daily Wind speed",

@@ -85,12 +85,12 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/asl.met.lm.json"
+      "href": "../../models/model_items/asl.met.lm.step.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/asl.met.lm.step.json"
+      "href": "../../models/model_items/asl.met.lm.json"
     },
     {
       "rel": "parent",
