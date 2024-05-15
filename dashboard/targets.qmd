@@ -63,6 +63,16 @@ target_metadata <- googlesheets4::read_sheet("https://docs.google.com/spreadshee
   select(variable, duration, class, Description, priority)
 ```
 
+## Sites
+
+```{r}
+site_list <- read_csv("https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/vera4cast_field_site_metadata.csv", show_col_types = FALSE)
+```
+
+```{r echo = FALSE}
+site_list |> knitr::kable()
+```
+
 #### Physical variables
 
 ```{r echo = FALSE}
@@ -126,16 +136,6 @@ targets |>
   facet_grid(variable~site_id, scales = "free_y") +
   theme_bw()
 
-```
-
-## Site
-
-```{r}
-site_list <- read_csv("https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/vera4cast_field_site_metadata.csv", show_col_types = FALSE)
-```
-
-```{r echo = FALSE}
-site_list |> knitr::kable()
 ```
 
 ## Additional target variables
