@@ -6,12 +6,7 @@
   "type": "Feature",
   "id": "secchi_example_forecast",
   "bbox": [
-    [
-      -79.8441,
-      37.3217,
-      -79.8146,
-      37.3217
-    ]
+    [-79.8372, 37.3032, -79.8372, 37.3032]
   ],
   "geometry": {
     "type": "MultiPoint",
@@ -20,7 +15,7 @@
   "properties": {
     "description": [],
     "start_datetime": "2024-04-11",
-    "end_datetime": "2024-04-15",
+    "end_datetime": "2024-05-06",
     "providers": [
       {
         "url": "pending",

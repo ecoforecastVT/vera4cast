@@ -9,7 +9,8 @@
     "https://stac-extensions.github.io/table/v1.2.0/schema.json"
   ],
   "type": "Collection",
-  "sci:doi": "https://doi.org/10.1002/fee.2616",
+  "sci:doi": "10.1002/fee.2616",
+  "sci:publications": {},
   "links": [
     {
       "rel": "item",
@@ -29,7 +30,22 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "../../models/model_items/asl.temp.lm.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "../../models/model_items/climatology.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/fableNNETAR.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/fableNNETAR_focal.json"
     },
     {
       "rel": "item",
@@ -62,6 +78,21 @@
       "href": "../../models/model_items/secchi_example_forecast.json"
     },
     {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/secchi_last3obs_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/asl.met.lm.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/asl.met.lm.step.json"
+    },
+    {
       "rel": "parent",
       "type": "application/json",
       "href": "../collection.json"
@@ -78,7 +109,7 @@
     },
     {
       "rel": "cite-as",
-      "href": {}
+      "href": "https://doi.org/10.1002/fee.2616"
     },
     {
       "rel": "about",
@@ -104,7 +135,7 @@
       "interval": [
         [
           "2023-10-14T00:00:00Z",
-          "2024-04-15T00:00:00Z"
+          "2024-05-06T00:00:00Z"
         ]
       ]
     }

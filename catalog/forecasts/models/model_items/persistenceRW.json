@@ -6,12 +6,7 @@
   "type": "Feature",
   "id": "persistenceRW",
   "bbox": [
-    [
-      -79.8441,
-      37.3217,
-      -79.8146,
-      37.3217
-    ]
+    [-79.8372, 37.3032, -79.8159, 37.3129]
   ],
   "geometry": {
     "type": "MultiPoint",
@@ -20,7 +15,7 @@
   "properties": {
     "description": "\nmodel info: Random walk from the fable package with ensembles used to represent uncertainty\n\nSites: bvre, fcre, tubr\n\nVariables: Daily Water_temperature, Daily Chlorophyll-a, Daily Inflow discharge, Daily oxygen_concentration, Daily oxygen % sat, Daily Secchi, Daily Air temperature, Daily fluorescent dissolved organic matter, Daily Bloom_binary",
     "start_datetime": "2023-09-21",
-    "end_datetime": "2024-06-07",
+    "end_datetime": "2024-06-16",
     "providers": [
       {
         "url": "pending",

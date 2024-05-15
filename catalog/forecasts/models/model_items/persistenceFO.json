@@ -6,12 +6,7 @@
   "type": "Feature",
   "id": "persistenceFO",
   "bbox": [
-    [
-      -79.8441,
-      37.3217,
-      -79.8146,
-      37.3217
-    ]
+    [-79.8159, 37.3129, -79.8159, 37.3129]
   ],
   "geometry": {
     "type": "MultiPoint",
