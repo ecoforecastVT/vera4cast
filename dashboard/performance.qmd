@@ -157,35 +157,35 @@ df |>
 
 ### Ice Cover Probability
 
-```{r}
-if("IceCover_binary_max" %in% unique(df$variable)){
-  
-  ggobj_df <- df |> 
-  filter(variable == c("IceCover_binary_max")) |> 
-    mutate(observation = as.numeric(NA))
-  
-if(nrow(ggobj_df) > 0){
-
-ggobj <- ggobj_df |> 
-ggplot(aes(x = datetime, y = mean, color = model_id)) + 
-  geom_line_interactive(aes(datetime, mean, col = model_id,
-                              tooltip = model_id, data_id = model_id),
-                        show.legend=FALSE) +
-  facet_wrap(~site_id) +
-  ylim(0,1) +
-  labs(y = "Predicted probability") +
-  theme_bw()
-
-girafe(ggobj = ggobj,
-         width_svg = 8, height_svg = 4,
-         options = list(
-           opts_hover_inv(css = "opacity:0.20;"),
-           opts_hover(css = "stroke-width:2;"),
-           opts_zoom(max = 4)
-         ))
-}
-}
-```
+# ```{r}
+# if("IceCover_binary_max" %in% unique(df$variable)){
+#   
+#   ggobj_df <- df |> 
+#   filter(variable == c("IceCover_binary_max")) |> 
+#     mutate(observation = as.numeric(NA))
+#   
+# if(nrow(ggobj_df) > 0){
+# 
+# ggobj <- ggobj_df |> 
+# ggplot(aes(x = datetime, y = mean, color = model_id)) + 
+#   geom_line_interactive(aes(datetime, mean, col = model_id,
+#                               tooltip = model_id, data_id = model_id),
+#                         show.legend=FALSE) +
+#   facet_wrap(~site_id) +
+#   ylim(0,1) +
+#   labs(y = "Predicted probability") +
+#   theme_bw()
+# 
+# girafe(ggobj = ggobj,
+#          width_svg = 8, height_svg = 4,
+#          options = list(
+#            opts_hover_inv(css = "opacity:0.20;"),
+#            opts_hover(css = "stroke-width:2;"),
+#            opts_zoom(max = 4)
+#          ))
+# }
+# }
+#```
 
 ### Dissolved methane
 
@@ -198,6 +198,15 @@ df |>
 }
 ```
 
+### Methane Flux
+```{r}
+if("CH4flux_umolm2s_mean" %in% unique(df$variable)){
+df |> 
+  filter(variable == c("CH4flux_umolm2s_mean"))  |> 
+    mutate(observation = as.numeric(NA)) |> 
+  forecast_plots(ylabel = 'CH4 Flux (umolm2s)')
+}
+```
 
 ### Inflow discharge
 
@@ -250,6 +259,13 @@ ex |> filter(variable == "Chla_ugL_mean") |>
   forecast_plots(ylabel = 'Chla (ugL)')
 ```
 
+### Chlorophyll-a bloom probability
+
+```{r}
+ex |> filter(variable == "Bloom_binary_mean") |> 
+  forecast_plots(ylabel = 'Percent Chance of Bloom')
+```
+
 ### Water temperature
 
 ```{r}
@@ -290,6 +306,12 @@ ex |> filter(variable == "fDOM_QSU_mean") |>
 ```{r}
 ex |> filter(variable == "CH4_umolL_sample") |> 
   forecast_plots(ylabel = 'CH4 (umolL)')
+```
+
+### Methane Flux
+```{r}
+ex |> filter(variable == "CH4flux_umolm2s_mean") |> 
+  forecast_plots(ylabel = 'CH4 Flux (umolm2s)')
 ```
 
 ### Inflow Discharge
