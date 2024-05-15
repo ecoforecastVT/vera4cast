@@ -226,11 +226,15 @@ background-size: cover;
 <h2 class="anchored" data-anchor-id="targets-overview">Targets Overview</h2>
 <p>Daily time-step variables measured within the reservoirs:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-insitu-targets.csv.gz"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-insitu-targets.csv.gz"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>url_inflow <span class="ot">&lt;-</span> <span class="st">"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-inflow-targets.csv.gz"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>targets <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>targets <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>inflow_targtes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url_inflow, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>targets <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">bind_rows</span>(targets, inflow_targtes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="description-of-target-file-columns" class="level3">
 <h3 class="anchored" data-anchor-id="description-of-target-file-columns">Description of Target File Columns</h3>
@@ -320,6 +324,11 @@ background-size: cover;
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">Secchi depth in meters</td>
 </tr>
+<tr class="odd">
+<td style="text-align: left;">Flow_cms_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">daily discharge from inflow stream cubic meters per second</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -336,9 +345,9 @@ background-size: cover;
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
-<col style="width: 9%">
+<col style="width: 11%">
 <col style="width: 6%">
-<col style="width: 84%">
+<col style="width: 82%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -357,6 +366,11 @@ background-size: cover;
 <td style="text-align: left;">DO_mgL_mean</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily mean oxygen in milligrams per liter from EXO; focal depths bvre = 1.5 m, fcre = 1.6 m, measured using EXO and RDO</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CH4_umolL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">daily sampled dissolved methane in umol/L</td>
 </tr>
 </tbody>
 </table>
@@ -757,6 +771,56 @@ background-size: cover;
 <td style="text-align: left;">SchmidtStability_Jm2_mean</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily mean schimdt stability joules per square meter</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TP_ugL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">daily sampled total phosphorus concentration in mg/L</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NH4_ugL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">daily sampled ammonium concentration in ug/L</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">NO3NO2_ugL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">daily sampled nitrate concentration in ug/L</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SRP_ugL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">daily sampled soluble reactive phosphorus concentration ug/L</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DOC_mgL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">daily sampled dissolved organic carbon concentration in mg/L</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DRSI_mgL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">daily sampled silica concentration in mg/L</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TN_ugL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">daily sampled total nitrogen concentration mg/L</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DIC_mgL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">daily sample dissolved organic carbon concentration in mg/L</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DC_mgL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">daily sample dissolved carbon concentration in mg/L</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DN_mgL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">daily sample dissolved nitrogen concentration in mg/L</td>
 </tr>
 </tbody>
 </table>
