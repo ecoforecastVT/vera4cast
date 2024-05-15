@@ -333,20 +333,21 @@ leaderboard_plots(df, "DO_mgL_mean")
 leaderboard_plots(df, "AirTemp_C_mean")
 ```
 
-### fDOM
+## fDOM
 
 ```{r}
 leaderboard_plots(df, "fDOM_QSU_mean")
 ```
 
-### Dissolved Methane
+## Dissolved Methane
 
 ```{r}
 leaderboard_plots(df, "CH4_umolL_sample")
 ```
 
-### Inflow Discharge
+## Inflow Discharge
 
 ```{r}
 leaderboard_plots(df, "Flow_cms_mean")
+```
 :::
