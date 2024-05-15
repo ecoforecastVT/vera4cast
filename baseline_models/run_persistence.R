@@ -53,7 +53,14 @@ site_var_combinations <- expand.grid(var = c('DO_mgL_mean',
                                              'Secchi_m_sample',
                                              'Temp_C_mean',
                                              'fDOM_QSU_mean',
-                                             'CH4_umolL_sample'),
+                                             'CH4_umolL_sample',
+                                             'CO2_umolL_sample',
+                                             'NH4_ugL_sample',
+                                             'DOC_mgL_sample',
+                                             'NO3NO2_ugL_sample',
+                                             'TP_ugL_sample',
+                                             'TN_ugL_sample',
+                                             'DIC_mgL_sample'),
                                      site = c('fcre',
                                               'bvre'))
 
@@ -67,8 +74,8 @@ persistenceRW_insitu <- purrr::pmap_dfr(site_var_combinations,
 
 # Flux variables
 # get all combinations
-site_var_combinations <- expand.grid(var = c('co2flux_umolm2s_mean',
-                                             'ch4flux_umolm2s_mean'),
+site_var_combinations <- expand.grid(var = c('CO2flux_umolm2s_mean',
+                                             'CH4flux_umolm2s_mean'),
                                      site = c('fcre'))
 
 persistenceRW_flux <- purrr::pmap_dfr(site_var_combinations,
