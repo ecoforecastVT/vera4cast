@@ -13,6 +13,9 @@ Daily time-step variables measured within the reservoirs:
 
 ```{r}
 url <- "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-insitu-targets.csv.gz"
+```
+
+```{r}
 url_inflow <- "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-inflow-targets.csv.gz"
 ```
 
