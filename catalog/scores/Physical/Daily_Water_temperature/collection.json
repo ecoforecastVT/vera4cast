@@ -9,8 +9,34 @@
     "https://stac-extensions.github.io/table/v1.2.0/schema.json"
   ],
   "type": "Collection",
-  "sci:doi": "https://doi.org/10.1002/fee.2616",
+  "sci:doi": "10.1002/fee.2616",
+  "sci:publications": {},
   "links": [
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/historic_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/inflow_gefsClimAED.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/monthly_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/persistenceFO.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/persistenceRW.json"
+    },
     {
       "rel": "item",
       "type": "application/json",
@@ -39,7 +65,17 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "../../models/model_items/asl.met.lm.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "../../models/model_items/asl.tbats.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/asl.temp.lm.json"
     },
     {
       "rel": "item",
@@ -64,6 +100,16 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "../../models/model_items/fableNNETAR.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/fableNNETAR_focal.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "../../models/model_items/flareGOTM.json"
     },
     {
@@ -84,27 +130,7 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/historic_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/inflow_gefsClimAED.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/monthly_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/persistenceFO.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/persistenceRW.json"
+      "href": "../../models/model_items/asl.met.lm.step.json"
     },
     {
       "rel": "parent",
@@ -123,7 +149,7 @@
     },
     {
       "rel": "cite-as",
-      "href": {}
+      "href": "https://doi.org/10.1002/fee.2616"
     },
     {
       "rel": "about",
@@ -149,7 +175,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-04-25T00:00:00Z"
+          "2024-05-13T00:00:00Z"
         ]
       ]
     }

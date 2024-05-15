@@ -9,7 +9,8 @@
     "https://stac-extensions.github.io/table/v1.2.0/schema.json"
   ],
   "type": "Collection",
-  "sci:doi": "https://doi.org/10.1002/fee.2616",
+  "sci:doi": "10.1002/fee.2616",
+  "sci:publications": {},
   "links": [
     {
       "rel": "child",
@@ -19,12 +20,12 @@
     {
       "rel": "child",
       "type": "application/json",
-      "href": "Daily_Secchi/collection.json"
+      "href": "Hourly_Water_temperature/collection.json"
     },
     {
       "rel": "child",
       "type": "application/json",
-      "href": "Hourly_Water_temperature/collection.json"
+      "href": "Daily_Secchi/collection.json"
     },
     {
       "rel": "parent",
@@ -43,7 +44,7 @@
     },
     {
       "rel": "cite-as",
-      "href": {}
+      "href": "https://doi.org/10.1002/fee.2616"
     },
     {
       "rel": "about",
@@ -69,7 +70,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-04-26T00:00:00Z"
+          "2024-05-14T00:00:00Z"
         ]
       ]
     }
