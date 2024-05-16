@@ -49,6 +49,16 @@ target_table |>
   knitr::kable()
 ```
 
+## Sites
+
+```{r}
+site_list <- read_csv("https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/vera4cast_field_site_metadata.csv", show_col_types = FALSE)
+```
+
+```{r echo = FALSE}
+site_list |> knitr::kable()
+```
+
 ### Targert variable list 
 
 ```{r message=FALSE, echo=FALSE}
@@ -61,16 +71,6 @@ target_metadata <- googlesheets4::read_sheet("https://docs.google.com/spreadshee
   rename(variable = `"official" targets name`,
          priority = `priority target`) |> 
   select(variable, duration, class, Description, priority)
-```
-
-## Sites
-
-```{r}
-site_list <- read_csv("https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/vera4cast_field_site_metadata.csv", show_col_types = FALSE)
-```
-
-```{r echo = FALSE}
-site_list |> knitr::kable()
 ```
 
 #### Physical variables
@@ -155,7 +155,7 @@ inflow_targets |>
   distinct(variable, duration) |> 
   left_join(target_metadata, by = c("variable","duration")) |> 
   mutate(Description = ifelse(variable == 'Temp_C_mean', 'daily mean water temperature in degrees C', Description)) |> 
-  select(-class) |> 
+  select(-class, -priority) |> 
   knitr::kable()
 ```
 
@@ -173,7 +173,7 @@ met_targets <- read_csv(url3, show_col_types = FALSE)
 met_targets |> 
   distinct(variable, duration) |> 
   left_join(target_metadata, by = c("variable","duration")) |> 
-  select(-class) |> 
+  select(-class, -priority) |> 
   knitr::kable()
 ```
 

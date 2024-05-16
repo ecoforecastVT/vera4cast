@@ -2,11 +2,11 @@
 # Author: Adrienne Breef-Pilz
 # 24 Aug 2023
 
-target_generation_ghg_targets <- function(current_data_file, edi_data_file){
+target_generation_ghg_daily <- function(current_data_file, edi_data_file){
 
   ## read in current data file
   # ABP work on creating a perliminary GHG file for the current data
-  dt1 <-current_data_file
+  dt1 <- read_csv(current_data_file)
 
   # read in historical data file
   # EDI
