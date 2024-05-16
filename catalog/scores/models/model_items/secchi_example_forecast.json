@@ -10,7 +10,9 @@
   ],
   "geometry": {
     "type": "MultiPoint",
-    "coordinates": []
+    "coordinates": [
+      [-79.8372, 37.3032]
+    ]
   },
   "properties": {
     "description": [],

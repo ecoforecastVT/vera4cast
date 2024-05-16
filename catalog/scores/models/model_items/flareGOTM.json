@@ -10,7 +10,9 @@
   ],
   "geometry": {
     "type": "MultiPoint",
-    "coordinates": []
+    "coordinates": [
+      [-79.8372, 37.3032]
+    ]
   },
   "properties": {
     "description": "\nmodel info: FLARE-GOTM combines the 1D hydrodynamic process-based model GOTM, a data assimilation algorithm, and NOAA weather data to forecast water column temperatures.\n\nSites: fcre\n\nVariables: Daily Water_temperature",
