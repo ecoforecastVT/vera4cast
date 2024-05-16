@@ -205,7 +205,7 @@ background-size: cover;
   <li><a href="#description-of-target-file-columns" id="toc-description-of-target-file-columns" class="nav-link" data-scroll-target="#description-of-target-file-columns">Description of Target File Columns</a></li>
   <li><a href="#targert-variable-list" id="toc-targert-variable-list" class="nav-link" data-scroll-target="#targert-variable-list">Targert variable list</a></li>
   </ul></li>
-  <li><a href="#site" id="toc-site" class="nav-link" data-scroll-target="#site">Site</a></li>
+  <li><a href="#sites" id="toc-sites" class="nav-link" data-scroll-target="#sites">Sites</a></li>
   <li><a href="#additional-target-variables" id="toc-additional-target-variables" class="nav-link" data-scroll-target="#additional-target-variables">Additional target variables</a>
   <ul class="collapse">
   <li><a href="#stream-inflow-to-falling-creek-reservoir" id="toc-stream-inflow-to-falling-creek-reservoir" class="nav-link" data-scroll-target="#stream-inflow-to-falling-creek-reservoir">Stream inflow to Falling Creek Reservoir</a></li>
@@ -298,134 +298,10 @@ background-size: cover;
 </section>
 <section id="targert-variable-list" class="level3">
 <h3 class="anchored" data-anchor-id="targert-variable-list">Targert variable list</h3>
-<section id="physical-variables" class="level4">
-<h4 class="anchored" data-anchor-id="physical-variables">Physical variables</h4>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 11%">
-<col style="width: 6%">
-<col style="width: 82%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">variable</th>
-<th style="text-align: left;">duration</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Temp_C_mean</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">daily mean water temperature in degrees C, focal depths bvre = 1.5 m, fcre = 1.6 m, measured using EXO and thermistor</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Secchi_m_sample</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">Secchi depth in meters</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Flow_cms_mean</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">daily discharge from inflow stream cubic meters per second</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="targets_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-</section>
-<section id="chemical-variables" class="level4">
-<h4 class="anchored" data-anchor-id="chemical-variables">Chemical variables</h4>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 11%">
-<col style="width: 6%">
-<col style="width: 82%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">variable</th>
-<th style="text-align: left;">duration</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">fDOM_QSU_mean</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">daily mean fluorescent dissolved organic matter (quinine sulfate units) from EXO; focal depths bvre = 1.5 m, fcre = 1.6 m</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">DO_mgL_mean</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">daily mean oxygen in milligrams per liter from EXO; focal depths bvre = 1.5 m, fcre = 1.6 m, measured using EXO and RDO</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">CH4_umolL_sample</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">daily sampled dissolved methane in umol/L</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="targets_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-</section>
-<section id="biological-variables" class="level4">
-<h4 class="anchored" data-anchor-id="biological-variables">Biological variables</h4>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 7%">
-<col style="width: 78%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">variable</th>
-<th style="text-align: left;">duration</th>
-<th style="text-align: left;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Chla_ugL_mean</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">daily mean chlorophyll a in micrograms per liter from Exo; focal depths bvre = 1.5 m, fcre = 1.6 m</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Bloom_binary_mean</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">binary indicator of bloom occurrence (Chla_ugL_mean &gt; 20 ugL)</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="targets_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
 </section>
 </section>
-</section>
-<section id="site" class="level2">
-<h2 class="anchored" data-anchor-id="site">Site</h2>
+<section id="sites" class="level2">
+<h2 class="anchored" data-anchor-id="sites">Sites</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>site_list <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/vera4cast_field_site_metadata.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -479,6 +355,130 @@ background-size: cover;
 </table>
 </div>
 </div>
+<section id="physical-variables" class="level4">
+<h4 class="anchored" data-anchor-id="physical-variables">Physical variables</h4>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 6%">
+<col style="width: 82%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">duration</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Temp_C_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">daily mean water temperature in degrees C, focal depths bvre = 1.5 m, fcre = 1.6 m, measured using EXO and thermistor</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Secchi_m_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">Secchi depth in meters</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Flow_cms_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">daily discharge from inflow stream cubic meters per second</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="targets_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="chemical-variables" class="level4">
+<h4 class="anchored" data-anchor-id="chemical-variables">Chemical variables</h4>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 6%">
+<col style="width: 82%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">duration</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">fDOM_QSU_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">daily mean fluorescent dissolved organic matter (quinine sulfate units) from EXO; focal depths bvre = 1.5 m, fcre = 1.6 m</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DO_mgL_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">daily mean oxygen in milligrams per liter from EXO; focal depths bvre = 1.5 m, fcre = 1.6 m, measured using EXO and RDO</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CH4_umolL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">daily sampled dissolved methane in umol/L</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="targets_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="biological-variables" class="level4">
+<h4 class="anchored" data-anchor-id="biological-variables">Biological variables</h4>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 7%">
+<col style="width: 78%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">duration</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Chla_ugL_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">daily mean chlorophyll a in micrograms per liter from Exo; focal depths bvre = 1.5 m, fcre = 1.6 m</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bloom_binary_mean</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">binary indicator of bloom occurrence (Chla_ugL_mean &gt; 20 ugL)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="targets_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
 </section>
 <section id="additional-target-variables" class="level2">
 <h2 class="anchored" data-anchor-id="additional-target-variables">Additional target variables</h2>
