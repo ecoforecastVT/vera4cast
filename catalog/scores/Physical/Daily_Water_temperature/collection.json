@@ -15,21 +15,6 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/monthly_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/persistenceFO.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/persistenceRW.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
       "href": "../../models/model_items/TESTclimatology.json"
     },
     {
@@ -131,6 +116,21 @@
       "rel": "item",
       "type": "application/json",
       "href": "../../models/model_items/inflow_gefsClimAED.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/monthly_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/persistenceFO.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/persistenceRW.json"
     },
     {
       "rel": "parent",

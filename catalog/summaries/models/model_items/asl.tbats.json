@@ -18,7 +18,7 @@
   "properties": {
     "description": "\nmodel info: forecast::tbats() function in R, fit individually at each site/depth\n\nSites: bvre, fcre\n\nVariables: Daily Water_temperature, Daily Chlorophyll-a, Daily fluorescent dissolved organic matter, Daily oxygen_concentration, Daily Secchi, Daily Turbidity, Daily Specific conductance, Daily Bloom_binary",
     "start_datetime": "2024-03-20",
-    "end_datetime": "2024-06-18",
+    "end_datetime": "2024-06-19",
     "providers": [
       {
         "url": "pending",
@@ -63,7 +63,7 @@
       },
       {
         "name": "datetime",
-        "type": "timestamp[us, tz=UTC]",
+        "type": "date32[day]",
         "description": "datetime of the forecasted value (ISO 8601)"
       },
       {

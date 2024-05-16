@@ -25,12 +25,12 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/asl.tbats.json"
+      "href": "../../models/model_items/asl.met.lm.step.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/asl.temp.lm.json"
+      "href": "../../models/model_items/asl.tbats.json"
     },
     {
       "rel": "item",
@@ -85,7 +85,7 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/asl.met.lm.step.json"
+      "href": "../../models/model_items/asl.temp.lm.json"
     },
     {
       "rel": "item",

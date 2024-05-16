@@ -56,7 +56,7 @@
       },
       {
         "name": "datetime",
-        "type": "timestamp[us, tz=UTC]",
+        "type": "date32[day]",
         "description": "datetime of the forecasted value (ISO 8601)"
       },
       {
