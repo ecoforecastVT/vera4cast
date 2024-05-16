@@ -10,12 +10,15 @@
   ],
   "geometry": {
     "type": "MultiPoint",
-    "coordinates": []
+    "coordinates": [
+      [-79.8159, 37.3129],
+      [-79.8372, 37.3032]
+    ]
   },
   "properties": {
     "description": "\nmodel info: autoregressive neural net fit using the NNETAR() function in the fable R package for VERA focal variables\n\nSites: bvre, fcre\n\nVariables: Daily Water_temperature, Daily oxygen_concentration, Daily Secchi, Daily fluorescent dissolved organic matter",
     "start_datetime": "2024-04-26",
-    "end_datetime": "2024-06-17",
+    "end_datetime": "2024-06-18",
     "providers": [
       {
         "url": "pending",
