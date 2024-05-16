@@ -24,6 +24,8 @@ sites <- readr::read_csv(config$site_table, show_col_types = FALSE)
 site_names <- sites$site_id
 
 # Runs the RW forecast for inflow variables
+print('Inflow model')
+
 persistenceRW_inflow <- purrr::map_dfr(.x = c('Flow_cms_mean', 'Temp_C_mean'),
                                        .f = ~ generate_baseline_persistenceRW(targets = targets_tubr,
                                                                               h = 35,
@@ -31,11 +33,11 @@ persistenceRW_inflow <- purrr::map_dfr(.x = c('Flow_cms_mean', 'Temp_C_mean'),
                                                                               forecast_date = Sys.Date(),
                                                                               site = 'tubr',
                                                                               depth = 'target',
-
-                                                                              ,
+                                                                              var = .x,
                                                                               ...))
-
 # met variables
+print('Met model')
+
 persistenceRW_met <- generate_baseline_persistenceRW(targets = targets_met,
                                                    h = 35,
                                                    model_id = 'persistenceRW',
@@ -47,6 +49,8 @@ persistenceRW_met <- generate_baseline_persistenceRW(targets = targets_met,
 
 # Insitu variables
 # get all combinations
+print('Insitu model')
+
 site_var_combinations <- expand.grid(var = c('DO_mgL_mean',
                                              'DOsat_percent_mean',
                                              'Chla_ugL_mean',
@@ -74,6 +78,8 @@ persistenceRW_insitu <- purrr::pmap_dfr(site_var_combinations,
 
 # Flux variables
 # get all combinations
+print('Flux model')
+
 site_var_combinations <- expand.grid(var = c('CO2flux_umolm2s_mean',
                                              'CH4flux_umolm2s_mean'),
                                      site = c('fcre'))
