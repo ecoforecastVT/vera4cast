@@ -203,9 +203,11 @@ background-size: cover;
   <li><a href="#targets-overview" id="toc-targets-overview" class="nav-link active" data-scroll-target="#targets-overview">Targets Overview</a>
   <ul class="collapse">
   <li><a href="#description-of-target-file-columns" id="toc-description-of-target-file-columns" class="nav-link" data-scroll-target="#description-of-target-file-columns">Description of Target File Columns</a></li>
+  </ul></li>
+  <li><a href="#sites" id="toc-sites" class="nav-link" data-scroll-target="#sites">Sites</a>
+  <ul class="collapse">
   <li><a href="#targert-variable-list" id="toc-targert-variable-list" class="nav-link" data-scroll-target="#targert-variable-list">Targert variable list</a></li>
   </ul></li>
-  <li><a href="#sites" id="toc-sites" class="nav-link" data-scroll-target="#sites">Sites</a></li>
   <li><a href="#additional-target-variables" id="toc-additional-target-variables" class="nav-link" data-scroll-target="#additional-target-variables">Additional target variables</a>
   <ul class="collapse">
   <li><a href="#stream-inflow-to-falling-creek-reservoir" id="toc-stream-inflow-to-falling-creek-reservoir" class="nav-link" data-scroll-target="#stream-inflow-to-falling-creek-reservoir">Stream inflow to Falling Creek Reservoir</a></li>
@@ -296,9 +298,6 @@ background-size: cover;
 </div>
 </div>
 </section>
-<section id="targert-variable-list" class="level3">
-<h3 class="anchored" data-anchor-id="targert-variable-list">Targert variable list</h3>
-</section>
 </section>
 <section id="sites" class="level2">
 <h2 class="anchored" data-anchor-id="sites">Sites</h2>
@@ -355,6 +354,8 @@ background-size: cover;
 </table>
 </div>
 </div>
+<section id="targert-variable-list" class="level3">
+<h3 class="anchored" data-anchor-id="targert-variable-list">Targert variable list</h3>
 <section id="physical-variables" class="level4">
 <h4 class="anchored" data-anchor-id="physical-variables">Physical variables</h4>
 <div class="cell">
@@ -480,6 +481,7 @@ background-size: cover;
 </div>
 </section>
 </section>
+</section>
 <section id="additional-target-variables" class="level2">
 <h2 class="anchored" data-anchor-id="additional-target-variables">Additional target variables</h2>
 <p>We are collecting many additional datasets in near-real time at the reservoirs that can be used for forecasting, even though they are not the focal target variables evaluated in the VERA Challenge.</p>
@@ -494,17 +496,15 @@ background-size: cover;
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
-<col style="width: 18%">
-<col style="width: 9%">
-<col style="width: 62%">
-<col style="width: 9%">
+<col style="width: 20%">
+<col style="width: 10%">
+<col style="width: 69%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">variable</th>
 <th style="text-align: left;">duration</th>
 <th style="text-align: left;">Description</th>
-<th style="text-align: left;">priority</th>
 </tr>
 </thead>
 <tbody>
@@ -512,79 +512,66 @@ background-size: cover;
 <td style="text-align: left;">Flow_cms_mean</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily discharge from inflow stream cubic meters per second</td>
-<td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Temp_C_mean</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily mean water temperature in degrees C</td>
-<td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">TP_ugL_sample</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily sampled total phosphorus concentration in mg/L</td>
-<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NH4_ugL_sample</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily sampled ammonium concentration in ug/L</td>
-<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NO3NO2_ugL_sample</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily sampled nitrate concentration in ug/L</td>
-<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">SRP_ugL_sample</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily sampled soluble reactive phosphorus concentration ug/L</td>
-<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">DOC_mgL_sample</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily sampled dissolved organic carbon concentration in mg/L</td>
-<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">DRSI_mgL_sample</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily sampled silica concentration in mg/L</td>
-<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">TN_ugL_sample</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily sampled total nitrogen concentration mg/L</td>
-<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">CH4_umolL_sample</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily sampled dissolved methane in umol/L</td>
-<td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">DIC_mgL_sample</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily sample dissolved organic carbon concentration in mg/L</td>
-<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">DC_mgL_sample</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily sample dissolved carbon concentration in mg/L</td>
-<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">DN_mgL_sample</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily sample dissolved nitrogen concentration in mg/L</td>
-<td style="text-align: left;">FALSE</td>
 </tr>
 </tbody>
 </table>
@@ -603,17 +590,15 @@ background-size: cover;
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
-<col style="width: 37%">
-<col style="width: 11%">
-<col style="width: 39%">
-<col style="width: 11%">
+<col style="width: 42%">
+<col style="width: 12%">
+<col style="width: 44%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">variable</th>
 <th style="text-align: left;">duration</th>
 <th style="text-align: left;">Description</th>
-<th style="text-align: left;">priority</th>
 </tr>
 </thead>
 <tbody>
@@ -621,61 +606,51 @@ background-size: cover;
 <td style="text-align: left;">PAR_umolm2s_mean</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">Daily mean PAR</td>
-<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">BP_kPa_mean</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">Daily mean surface pressure</td>
-<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">AirTemp_C_mean</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">Daily mean air temperature</td>
-<td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">RH_percent_mean</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">Daily mean relative humidity</td>
-<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">WindSpeed_ms_mean</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">Daily mean wind speed</td>
-<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">WindDir_degrees_mean</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">Daily mean wind direction</td>
-<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">ShortwaveRadiationUp_Wm2_mean</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">Daily mean shortwave radiation</td>
-<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">InfraredRadiationUp_Wm2_mean</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">Daily mean longwave radiation</td>
-<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Albedo_Wm2_mean</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">Daily mean surface albedo</td>
-<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Rain_mm_sum</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">Daily sum of precipitation</td>
-<td style="text-align: left;">FALSE</td>
 </tr>
 </tbody>
 </table>
