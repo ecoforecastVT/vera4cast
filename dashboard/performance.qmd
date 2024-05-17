@@ -210,6 +210,7 @@ df |>
 if("CH4flux_umolm2s_mean" %in% unique(df$variable)){
 df |> 
   filter(variable == c("CH4flux_umolm2s_mean"))  |> 
+    mutate(duration = ifelse(model_id = 'persistenceRW', 'P1D', duration))
     mutate(observation = as.numeric(NA)) |> 
   forecast_plots(ylabel = 'CH4 Flux (umolm2s)')
 }
