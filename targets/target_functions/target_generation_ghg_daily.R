@@ -10,13 +10,13 @@ target_generation_ghg_daily <- function(current_data_file, edi_data_file){
 
   # read in historical data file
   # EDI
-  inUrl1 <- edi_data_file
-  infile1 <- tempfile()
-  try(download.file(inUrl1,infile1,method="curl"))
-  if (is.na(file.size(infile1))) download.file(inUrl1,infile1,method="auto")
+ # inUrl1 <- edi_data_file
+ # infile1 <- tempfile()
+ # try(download.file(inUrl1,infile1,method="curl"))
+ # if (is.na(file.size(infile1))) download.file(inUrl1,infile1,method="auto")
 
   # read in the data file downloaded from EDI
-  dt2 <-read_csv(infile1)
+  dt2 <-read_csv(edi_data_file)
 
   # Filter to what you need
   targets_df<-bind_rows(dt1,dt2)%>% # bind observations together
