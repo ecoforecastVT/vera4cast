@@ -99,7 +99,7 @@ chem_data$datetime <- lubridate::as_datetime(chem_data$datetime)
 ## GHG
 print('GHG')
 source('targets/target_functions/target_generation_ghg_daily.R')
-ghg_data <- target_generation_ghg_daily(current_data_file = 'https://github.com/CareyLabVT/Reservoirs/blob/master/Data/DataNotYetUploadedToEDI/Raw_GHG/L1_manual_GHG.csv',
+ghg_data <- target_generation_ghg_daily(current_data_file = 'https://raw.githubusercontent.com/CareyLabVT/Reservoirs/master/Data/DataNotYetUploadedToEDI/Raw_GHG/L1_manual_GHG.csv',
                                         edi_data_file = 'https://pasta.lternet.edu/package/data/eml/edi/551/8/454c11035c491710243cae0423efbe7b')
 ghg_data$datetime <- lubridate::as_datetime(ghg_data$datetime)
 
