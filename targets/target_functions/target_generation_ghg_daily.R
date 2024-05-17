@@ -1,6 +1,7 @@
 # Function for generating the targets file for ghg samples
 # Author: Adrienne Breef-Pilz
 # 24 Aug 2023
+#Edit: 16 May 2024 typo in the depth name column change to depth_m
 
 target_generation_ghg_daily <- function(current_data_file, edi_data_file){
 
@@ -35,12 +36,12 @@ target_generation_ghg_daily <- function(current_data_file, edi_data_file){
            Reservoir=ifelse(Reservoir=="BVR",'bvre',Reservoir))%>%
     select(-Date, -Rep)%>%
     rename(site_id=Reservoir, # rename the columns for standard notation
-           depth=Depth_m)%>%
+           depth_m=Depth_m)%>%
     pivot_longer(cols=c(CH4_umolL:CO2_umolL), # make the wide data frame into a long one so each observation has a depth
                  names_to='variable',
                  values_to='observation')%>%
     mutate(variable = paste0(variable,'_sample')) |>
-    select(c('datetime', 'site_id', 'depth', "observation", 'variable')) # rearrange order of columns
+    select(c('datetime', 'site_id', 'depth_m', "observation", 'variable')) # rearrange order of columns
 
 
 
