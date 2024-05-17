@@ -25,7 +25,7 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/asl.met.lm.step.json"
+      "href": "../../models/model_items/asl.met.lm.json"
     },
     {
       "rel": "item",
@@ -75,7 +75,7 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/asl.met.lm.json"
+      "href": "../../models/model_items/asl.met.lm.step.json"
     },
     {
       "rel": "item",
@@ -125,7 +125,7 @@
       "interval": [
         [
           "2023-10-01T00:00:00Z",
-          "2024-05-14T00:00:00Z"
+          "2024-05-16T00:00:00Z"
         ]
       ]
     }

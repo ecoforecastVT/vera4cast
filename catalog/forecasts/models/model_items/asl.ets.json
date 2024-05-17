@@ -16,9 +16,9 @@
     ]
   },
   "properties": {
-    "description": "\nmodel info: forecast::ets() function in R, fit individually at each site/depth\n\nSites: bvre, fcre\n\nVariables: Daily Water_temperature, Daily Chlorophyll-a, Daily fluorescent dissolved organic matter, Daily oxygen_concentration, Daily Secchi, Daily Turbidity, Daily Specific conductance, Daily Bloom_binary",
+    "description": "\nmodel info: forecast::ets() function in R, fit individually at each site/depth\n\nSites: bvre, fcre\n\nVariables: Daily Water_temperature, Daily Chlorophyll-a, Daily fluorescent dissolved organic matter, Daily oxygen_concentration, Daily Secchi, Daily Turbidity, Daily Specific conductance, Daily Bloom_binary, Daily Dissolved methane",
     "start_datetime": "2024-03-12",
-    "end_datetime": "2024-06-19",
+    "end_datetime": "2024-06-20",
     "providers": [
       {
         "url": "pending",
@@ -48,7 +48,8 @@
       "Daily Secchi",
       "Daily Turbidity",
       "Daily Specific conductance",
-      "Daily Bloom_binary"
+      "Daily Bloom_binary",
+      "Daily Dissolved methane"
     ],
     "table:columns": [
       {
@@ -211,6 +212,12 @@
       "title": "Database Access for Daily Bloom_binary",
       "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Bloom_binary_mean/model_id=asl.ets?endpoint_override=renc.osn.xsede.org",
       "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Bloom_binary_mean/model_id=asl.ets?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+    },
+    "11": {
+      "type": "application/x-parquet",
+      "title": "Database Access for Daily Dissolved methane",
+      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=CH4_umolL_sample/model_id=asl.ets?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=CH4_umolL_sample/model_id=asl.ets?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     }
   }
 }
