@@ -38,7 +38,7 @@ reference_datetimes <- arrow::open_dataset("../cache/summaries/duration=P1D") |>
 cutoff <- as.character(Sys.Date() - 30)
 
 
-#config <- yaml::read_yaml("../challenge_configuration.yaml")
+config <- yaml::read_yaml("../challenge_configuration.yaml")
 sites <- readr::read_csv(paste0("../", config$site_table), show_col_types = FALSE)
 
 df <- arrow::open_dataset("../cache/summaries/duration=P1D") |> 
