@@ -214,7 +214,7 @@ generate_EddyFlux_ghg_targets_function <- function(flux_current_data_file,
                  names_to='variable',
                  values_to='observation')%>%
     mutate(duration = 'P1D') |>
-    select(c('datetime', 'site_id', 'depth_m', "observation", 'variable')) # rearrange order of columns
+    select(c('datetime', 'site_id', 'depth_m', "observation", 'variable', 'duration')) # rearrange order of columns
 
 
 
