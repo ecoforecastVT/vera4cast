@@ -44,12 +44,12 @@ target_generation_chemistry_daily <- function(current_data_file, historic_data_f
              Reservoir=ifelse(Reservoir=="BVR",'bvre',Reservoir))%>%
       select(-Date, -Rep)%>%
       rename(site_id=Reservoir,
-             depth=Depth_m)%>%
+             depth_m=Depth_m)%>%
       pivot_longer(cols=c(TN_ugL:DOC_mgL),
                    names_to='variable',
                    values_to='observation')%>%
       mutate(variable = paste0(variable,'_sample')) |>
-      select(c('datetime', 'site_id', 'depth', "observation", 'variable')) # rearrange order of columns
+      select(c('datetime', 'site_id', 'depth_m', "observation", 'variable')) # rearrange order of columns
 
 
 
