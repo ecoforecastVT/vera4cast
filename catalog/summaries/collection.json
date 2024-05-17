@@ -71,7 +71,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-06-19T00:00:00Z"
+          "2024-06-21T00:00:00Z"
         ]
       ]
     }
@@ -89,7 +89,7 @@
     },
     {
       "name": "datetime",
-      "type": "timestamp[us, tz=UTC]",
+      "type": "date32[day]",
       "description": "datetime of the forecasted value (ISO 8601)"
     },
     {

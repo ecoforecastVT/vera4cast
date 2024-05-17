@@ -17,9 +17,9 @@
     ]
   },
   "properties": {
-    "description": "\nmodel info: Random walk from the fable package with ensembles used to represent uncertainty\n\nSites: bvre, fcre, tubr\n\nVariables: Daily Water_temperature, Daily Chlorophyll-a, Daily Inflow discharge, Daily oxygen_concentration, Daily oxygen % sat, Daily Secchi, Daily Air temperature, Daily fluorescent dissolved organic matter, Daily Bloom_binary",
+    "description": "\nmodel info: Random walk from the fable package with ensembles used to represent uncertainty\n\nSites: bvre, fcre, tubr\n\nVariables: Daily Water_temperature, Daily Chlorophyll-a, Daily Inflow discharge, Daily oxygen_concentration, Daily oxygen % sat, Daily Secchi, Daily Air temperature, Daily fluorescent dissolved organic matter, Daily Bloom_binary, NA Dissolved methane, NA Dissolved carbon dioxide, NA ammonium concentration, NA dissolved organic carbon concentration, NA Nitrate concentration, NA Total phosphorus concentration, NA Total nitrogen concentration, NA Surface CO2 flux, NA Surface methane flux",
     "start_datetime": "2023-09-21",
-    "end_datetime": "2024-06-17",
+    "end_datetime": "2024-06-19",
     "providers": [
       {
         "url": "pending",
@@ -50,7 +50,16 @@
       "Daily Secchi",
       "Daily Air temperature",
       "Daily fluorescent dissolved organic matter",
-      "Daily Bloom_binary"
+      "Daily Bloom_binary",
+      "NA Dissolved methane",
+      "NA Dissolved carbon dioxide",
+      "NA ammonium concentration",
+      "NA dissolved organic carbon concentration",
+      "NA Nitrate concentration",
+      "NA Total phosphorus concentration",
+      "NA Total nitrogen concentration",
+      "NA Surface CO2 flux",
+      "NA Surface methane flux"
     ],
     "table:columns": [
       {
@@ -65,7 +74,7 @@
       },
       {
         "name": "datetime",
-        "type": "timestamp[us, tz=UTC]",
+        "type": "date32[day]",
         "description": "datetime of the forecasted value (ISO 8601)"
       },
       {
@@ -244,6 +253,60 @@
       "title": "Database Access for Daily Bloom_binary",
       "href": "s3://anonymous@project_id=vera4cast/duration=P1D/variable=Bloom_binary_mean/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org",
       "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=P1D/variable=Bloom_binary_mean/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+    },
+    "12": {
+      "type": "application/x-parquet",
+      "title": "Database Access for NA Dissolved methane",
+      "href": "s3://anonymous@project_id=vera4cast/duration=NA/variable=CH4_umolL_sample/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=NA/variable=CH4_umolL_sample/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+    },
+    "13": {
+      "type": "application/x-parquet",
+      "title": "Database Access for NA Dissolved carbon dioxide",
+      "href": "s3://anonymous@project_id=vera4cast/duration=NA/variable=CO2_umolL_sample/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=NA/variable=CO2_umolL_sample/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+    },
+    "14": {
+      "type": "application/x-parquet",
+      "title": "Database Access for NA ammonium concentration",
+      "href": "s3://anonymous@project_id=vera4cast/duration=NA/variable=NH4_ugL_sample/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=NA/variable=NH4_ugL_sample/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+    },
+    "15": {
+      "type": "application/x-parquet",
+      "title": "Database Access for NA dissolved organic carbon concentration",
+      "href": "s3://anonymous@project_id=vera4cast/duration=NA/variable=DOC_mgL_sample/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=NA/variable=DOC_mgL_sample/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+    },
+    "16": {
+      "type": "application/x-parquet",
+      "title": "Database Access for NA Nitrate concentration",
+      "href": "s3://anonymous@project_id=vera4cast/duration=NA/variable=NO3NO2_ugL_sample/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=NA/variable=NO3NO2_ugL_sample/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+    },
+    "17": {
+      "type": "application/x-parquet",
+      "title": "Database Access for NA Total phosphorus concentration",
+      "href": "s3://anonymous@project_id=vera4cast/duration=NA/variable=TP_ugL_sample/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=NA/variable=TP_ugL_sample/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+    },
+    "18": {
+      "type": "application/x-parquet",
+      "title": "Database Access for NA Total nitrogen concentration",
+      "href": "s3://anonymous@project_id=vera4cast/duration=NA/variable=TN_ugL_sample/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=NA/variable=TN_ugL_sample/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+    },
+    "19": {
+      "type": "application/x-parquet",
+      "title": "Database Access for NA Surface CO2 flux",
+      "href": "s3://anonymous@project_id=vera4cast/duration=NA/variable=CO2flux_umolm2s_mean/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=NA/variable=CO2flux_umolm2s_mean/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+    },
+    "20": {
+      "type": "application/x-parquet",
+      "title": "Database Access for NA Surface methane flux",
+      "href": "s3://anonymous@project_id=vera4cast/duration=NA/variable=CH4flux_umolm2s_mean/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=NA/variable=CH4flux_umolm2s_mean/model_id=persistenceRW?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     }
   }
 }

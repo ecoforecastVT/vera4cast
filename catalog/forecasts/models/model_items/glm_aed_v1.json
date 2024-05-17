@@ -17,7 +17,7 @@
   "properties": {
     "description": "\nmodel info: GLM-AED with Ensemble Kalman Filter as implemented in FLARE.  This version used DA to update model states but not model parameters.\n\nSites: fcre\n\nVariables: Daily Bloom_binary, Daily Chlorophyll-a, Daily Dissolved organic carbon concentration, Daily oxygen_concentration, Daily ammonium concentration, Daily Total soluble reactive phosphorus concentration, Daily Water_temperature, Daily fluorescent dissolved organic matter, Daily Secchi, Daily Dissolved methane, Daily Presence of ice cover",
     "start_datetime": "2023-10-14",
-    "end_datetime": "2024-06-17",
+    "end_datetime": "2024-06-18",
     "providers": [
       {
         "url": "pending",
@@ -54,9 +54,9 @@
     ],
     "table:columns": [
       {
-        "name": "site_id",
-        "type": "string",
-        "description": "For forecasts that are not on a spatial grid, use of a site dimension that maps to a more detailed geometry (points, polygons, etc.) is allowable. In general this would be documented in the external metadata (e.g., alook-up table that provides lon and lat)"
+        "name": "datetime",
+        "type": "date32[day]",
+        "description": "datetime of the forecasted value (ISO 8601)"
       },
       {
         "name": "reference_datetime",
@@ -64,14 +64,9 @@
         "description": "datetime that the forecast was initiated (horizon = 0)"
       },
       {
-        "name": "datetime",
-        "type": "timestamp[us, tz=UTC]",
-        "description": "datetime of the forecasted value (ISO 8601)"
-      },
-      {
-        "name": "depth_m",
-        "type": "double",
-        "description": "depth (meters) in water column of prediction"
+        "name": "site_id",
+        "type": "string",
+        "description": "For forecasts that are not on a spatial grid, use of a site dimension that maps to a more detailed geometry (points, polygons, etc.) is allowable. In general this would be documented in the external metadata (e.g., alook-up table that provides lon and lat)"
       },
       {
         "name": "family",
@@ -87,6 +82,11 @@
         "name": "prediction",
         "type": "double",
         "description": "predicted value for variable"
+      },
+      {
+        "name": "depth_m",
+        "type": "double",
+        "description": "depth (meters) in water column of prediction"
       },
       {
         "name": "pub_datetime",

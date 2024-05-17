@@ -17,9 +17,9 @@
     ]
   },
   "properties": {
-    "description": "\nmodel info: This model calculates a monthly mean from the historic data and assigns this as the mean prediction for any day within that month. The standard deviation of the observations for that month is given as the standard deviation of the forecast.\n\nSites: fcre, tubr, bvre\n\nVariables: Daily Air temperature, Daily Inflow discharge, Daily Water_temperature, Daily oxygen_concentration, Daily oxygen % sat, Daily Chlorophyll-a, Daily Secchi, Daily fluorescent dissolved organic matter, Daily Bloom_binary",
+    "description": "\nmodel info: This model calculates a monthly mean from the historic data and assigns this as the mean prediction for any day within that month. The standard deviation of the observations for that month is given as the standard deviation of the forecast.\n\nSites: fcre, tubr, bvre\n\nVariables: Daily Air temperature, Daily Inflow discharge, Daily Water_temperature, Daily oxygen_concentration, Daily oxygen % sat, Daily Chlorophyll-a, Daily Secchi, Daily fluorescent dissolved organic matter, Daily Bloom_binary, Daily Dissolved methane",
     "start_datetime": "2024-02-06",
-    "end_datetime": "2024-06-19",
+    "end_datetime": "2024-06-21",
     "providers": [
       {
         "url": "pending",
@@ -50,7 +50,8 @@
       "Daily Chlorophyll-a",
       "Daily Secchi",
       "Daily fluorescent dissolved organic matter",
-      "Daily Bloom_binary"
+      "Daily Bloom_binary",
+      "Daily Dissolved methane"
     ],
     "table:columns": [
       {
@@ -65,7 +66,7 @@
       },
       {
         "name": "datetime",
-        "type": "timestamp[us, tz=UTC]",
+        "type": "date32[day]",
         "description": "datetime of the forecasted value (ISO 8601)"
       },
       {
@@ -244,6 +245,12 @@
       "title": "Database Access for Daily Bloom_binary",
       "href": "s3://anonymous@project_id=vera4cast/duration=P1D/variable=Bloom_binary_mean/model_id=monthly_mean?endpoint_override=renc.osn.xsede.org",
       "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=P1D/variable=Bloom_binary_mean/model_id=monthly_mean?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+    },
+    "12": {
+      "type": "application/x-parquet",
+      "title": "Database Access for Daily Dissolved methane",
+      "href": "s3://anonymous@project_id=vera4cast/duration=P1D/variable=CH4_umolL_sample/model_id=monthly_mean?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=P1D/variable=CH4_umolL_sample/model_id=monthly_mean?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     }
   }
 }

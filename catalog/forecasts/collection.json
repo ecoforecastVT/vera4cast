@@ -71,16 +71,16 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-06-19T00:00:00Z"
+          "2024-06-21T00:00:00Z"
         ]
       ]
     }
   },
   "table:columns": [
     {
-      "name": "site_id",
-      "type": "string",
-      "description": "For forecasts that are not on a spatial grid, use of a site dimension that maps to a more detailed geometry (points, polygons, etc.) is allowable. In general this would be documented in the external metadata (e.g., alook-up table that provides lon and lat)"
+      "name": "datetime",
+      "type": "date32[day]",
+      "description": "datetime of the forecasted value (ISO 8601)"
     },
     {
       "name": "reference_datetime",
@@ -88,14 +88,9 @@
       "description": "datetime that the forecast was initiated (horizon = 0)"
     },
     {
-      "name": "datetime",
-      "type": "timestamp[us, tz=UTC]",
-      "description": "datetime of the forecasted value (ISO 8601)"
-    },
-    {
-      "name": "depth_m",
-      "type": "double",
-      "description": "depth (meters) in water column of prediction"
+      "name": "site_id",
+      "type": "string",
+      "description": "For forecasts that are not on a spatial grid, use of a site dimension that maps to a more detailed geometry (points, polygons, etc.) is allowable. In general this would be documented in the external metadata (e.g., alook-up table that provides lon and lat)"
     },
     {
       "name": "family",
@@ -111,6 +106,11 @@
       "name": "prediction",
       "type": "double",
       "description": "predicted value for variable"
+    },
+    {
+      "name": "depth_m",
+      "type": "double",
+      "description": "depth (meters) in water column of prediction"
     },
     {
       "name": "pub_datetime",
