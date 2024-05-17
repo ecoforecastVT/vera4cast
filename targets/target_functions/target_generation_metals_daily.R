@@ -5,18 +5,24 @@
 target_generation_metals_daily <- function(current_data_file, edi_data_file){
   
   ## read in current data file 
-  # ABP talk to Cece about getting a realtime metals files collated on GitHub 
+  # Make it flexible to read in the file or null when there is no file
+
+  if(is.null(current_data_file)){
+
   dt1 <-current_data_file
+  }else{
+    dt1 <- read_csv(current_data_file)
+   }
   
   # read in historical data file 
   # EDI
-  inUrl1 <- edi_data_file
-  infile1 <- tempfile()
-  try(download.file(inUrl1,infile1,method="curl"))
-  if (is.na(file.size(infile1))) download.file(inUrl1,infile1,method="auto")
+ # inUrl1 <- edi_data_file
+ # infile1 <- tempfile()
+ # try(download.file(inUrl1,infile1,method="curl"))
+ # if (is.na(file.size(infile1))) download.file(inUrl1,infile1,method="auto")
   
   # read in the data file downloaded from EDI
-  dt2 <-read_csv(infile1) 
+  dt2 <-read_csv(edi_data_file) 
   
   # Filter to what you need
   targets_df<-bind_rows(dt1,dt2)%>% # bind observations together
@@ -32,11 +38,11 @@ target_generation_metals_daily <- function(current_data_file, edi_data_file){
            Reservoir=ifelse(Reservoir=="BVR",'bvre',Reservoir))%>%
     select(-Date)%>%
     rename(site_id=Reservoir, # rename the columns for standard notation
-           depth=Depth_m)%>%
+           depth_m=Depth_m)%>%
     pivot_longer(cols=c(TFe_mgL:SMn_mgL), # make the wide data frame into a long one so each observation has a depth
                  names_to='variable',
                  values_to='observation')%>%
-    select(c('datetime', 'site_id', 'depth', "observation", 'variable')) # rearrange order of columns
+    select(c('datetime', 'site_id', 'depth_m', "observation", 'variable')) # rearrange order of columns
   
   
   
