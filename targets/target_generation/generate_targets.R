@@ -142,6 +142,8 @@ combined_targets_deduped <- combined_targets |>
   distinct(datetime, site_id, variable, depth_m, .keep_all = TRUE) |>
   select(project_id, site_id, datetime, duration, depth_m, variable, observation)
 
+combined_targets_deduped$project_id <- 'vera4cast'
+
 combined_dup_check <- combined_targets_deduped  %>%
   dplyr::group_by(datetime, site_id, variable, depth_m) %>%
   dplyr::summarise(n = dplyr::n(), .groups = "drop") %>%
