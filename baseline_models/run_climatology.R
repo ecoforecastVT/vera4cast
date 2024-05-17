@@ -58,6 +58,20 @@ climatology_insitu <- purrr::pmap_dfr(site_var_combinations,
                                                                          depth = 'target',
                                                                          ...))
 
+# Flux variables
+# get all combinations
+print('Flux model')
+
+site_var_combinations <- expand.grid(var = c('CO2flux_umolm2s_mean',
+                                             'CH4flux_umolm2s_mean'),
+                                     site = c('fcre'))
+
+purrr::map_dfr(.x = c('CO2flux_umolm2s_mean', 'CH4flux_umolm2s_mean'),
+               .f = ~ generate_baseline_climatology(targets = targets_insitu,
+                                                    h = 35,
+                                                    forecast_date = Sys.Date(),
+                                                    site = 'fcre', depth = 'target', var = .x))
+
 # Generate binary forecasts from continuous
 binary_site_var_comb <- data.frame(site = c('fcre', 'bvre'),
                                    depth = c(1.6, 1.5))
