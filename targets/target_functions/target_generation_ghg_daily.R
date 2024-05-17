@@ -41,6 +41,7 @@ target_generation_ghg_daily <- function(current_data_file, edi_data_file){
                  names_to='variable',
                  values_to='observation')%>%
     mutate(variable = paste0(variable,'_sample')) |>
+    mutate(duration = 'P1D') |>
     select(c('datetime', 'site_id', 'depth_m', "observation", 'variable', 'duration')) # rearrange order of columns
 
 
