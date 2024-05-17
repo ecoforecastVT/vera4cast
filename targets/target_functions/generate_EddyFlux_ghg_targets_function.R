@@ -213,6 +213,7 @@ generate_EddyFlux_ghg_targets_function <- function(flux_current_data_file,
     pivot_longer(cols=c(CO2flux_umolm2s_mean, CH4flux_umolm2s_mean), # make the wide data frame into a long one so each observation has a depth
                  names_to='variable',
                  values_to='observation')%>%
+    mutate(duration = 'P1D') |>
     select(c('datetime', 'site_id', 'depth_m', "observation", 'variable')) # rearrange order of columns
 
 

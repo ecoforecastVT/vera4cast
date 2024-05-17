@@ -49,7 +49,8 @@ target_generation_chemistry_daily <- function(current_data_file, historic_data_f
                    names_to='variable',
                    values_to='observation')%>%
       mutate(variable = paste0(variable,'_sample')) |>
-      select(c('datetime', 'site_id', 'depth_m', "observation", 'variable')) # rearrange order of columns
+      mutate(duration = 'P1D') |>
+      select(c('datetime', 'site_id', 'depth_m', "observation", 'variable', 'duration')) # rearrange order of columns
 
 
 
