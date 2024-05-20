@@ -15,6 +15,21 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "../../models/model_items/monthly_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/persistenceFO.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/persistenceRW.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "../../models/model_items/TESTclimatology.json"
     },
     {
@@ -118,21 +133,6 @@
       "href": "../../models/model_items/inflow_gefsClimAED.json"
     },
     {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/monthly_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/persistenceFO.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/persistenceRW.json"
-    },
-    {
       "rel": "parent",
       "type": "application/json",
       "href": "../collection.json"
@@ -175,7 +175,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-05-18T00:00:00Z"
+          "2024-05-19T00:00:00Z"
         ]
       ]
     }

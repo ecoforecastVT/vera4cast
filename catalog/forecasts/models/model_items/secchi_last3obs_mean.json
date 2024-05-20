@@ -17,7 +17,7 @@
   "properties": {
     "description": "\nmodel info: This forecast simply takes the mean of the last three secchi observations and uses the standard deviation of that mean for the uncertainty around the forecast.\n\nSites: fcre\n\nVariables: Daily Secchi",
     "start_datetime": "2024-05-02",
-    "end_datetime": "2024-06-17",
+    "end_datetime": "2024-06-18",
     "providers": [
       {
         "url": "pending",
