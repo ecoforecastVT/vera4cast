@@ -30,7 +30,17 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "../../models/model_items/asl.met.lm.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "../../models/model_items/asl.tbats.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/asl.temp.lm.json"
     },
     {
       "rel": "item",
@@ -83,16 +93,6 @@
       "href": "../../models/model_items/secchi_last3obs_mean.json"
     },
     {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/asl.temp.lm.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "../../models/model_items/asl.met.lm.json"
-    },
-    {
       "rel": "parent",
       "type": "application/json",
       "href": "../collection.json"
@@ -135,7 +135,7 @@
       "interval": [
         [
           "2023-10-14T00:00:00Z",
-          "2024-05-06T00:00:00Z"
+          "2024-05-13T00:00:00Z"
         ]
       ]
     }
