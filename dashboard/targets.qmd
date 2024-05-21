@@ -105,12 +105,21 @@ targets |>
   knitr::kable()
 ```
 ```{r echo = FALSE, warning = FALSE}
-targets |> 
+chem_targets <- targets|> 
   left_join(target_metadata, by = c("variable","duration")) |> 
   filter(class == "chemical" & priority) |> 
   select(-class,-priority) |> 
-  filter(depth_m %in% c(1.5, 1.6) | is.na(depth_m)) |> 
-  ggplot(aes(x = datetime, y = observation)) +
+  filter(depth_m %in% c(1.5, 1.6) | is.na(depth_m)) 
+
+bvr_ch4 <- targets |>
+  left_join(target_metadata, by = c("variable","duration")) |> 
+  filter(class == "chemical" & priority) |> 
+  filter(site_id == 'bvre' & depth_m == 3 & variable == 'CH4_umolL_sample')
+
+chem_targets <- dplyr::bind_rows(chem_targets, bvr_ch4) |>
+  filter(!(site_id == 'bvre' & depth_m != 3))
+
+chem_targets |> ggplot(aes(x = datetime, y = observation)) +
   geom_point() +
   facet_grid(variable~site_id, scales = "free_y") +
   theme_bw()
