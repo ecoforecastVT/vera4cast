@@ -117,7 +117,7 @@ bvr_ch4 <- targets |>
   filter(site_id == 'bvre' & depth_m == 3 & variable == 'CH4_umolL_sample')
 
 chem_targets <- dplyr::bind_rows(chem_targets, bvr_ch4) |>
-  filter(!(site_id == 'bvre' & depth_m != 3))
+  filter(!(site_id == 'bvre' & depth_m != 3 & variable == 'CH4_umolL_sample'))
 
 chem_targets |> ggplot(aes(x = datetime, y = observation)) +
   geom_point() +
