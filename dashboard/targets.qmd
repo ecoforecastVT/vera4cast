@@ -5,7 +5,7 @@ editor:
     wrap: sentence
 ---
 
-For the VERA Challenge, we are forecasting a range of physical, chemical, and biological reservoir variables. The variables we forecast are called **(target variables, or targets)**. The targets for the VERA Challenge are in a specific daily time step format. To see the current focal targets we are soliciting submissions for in the VERA Challenge, explore the variables described below. Note that additional target variables related to the primary inflow stream to Falling Creek Reservoir as well as meteorological variables at Falling Creek Reservoir are provided in separate files under the section “Additional target variables” below.
+For the VERA Challenge, we are forecasting a range of physical, chemical, and biological reservoir variables, called "targets". The targets for the VERA Challenge are in a specific daily time step format. To see the current focal targets we are soliciting submissions for in the VERA Challenge, explore the variables described below. Note that additional target variables related to the primary inflow stream to Falling Creek Reservoir as well as meteorological variables at Falling Creek Reservoir are provided in separate files under the section “Additional target variables” below.
 
 ## Targets Overview
 
@@ -22,7 +22,7 @@ url_inflow <- "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/p
 ```{r message=FALSE}
 library(tidyverse)
 targets <- read_csv(url, show_col_types = FALSE)
-inflow_targtes <- read_csv(url_inflow, show_col_types = FALSE)
+inflow_targets <- read_csv(url_inflow, show_col_types = FALSE)
 
 targets <- dplyr::bind_rows(targets, inflow_targtes)
 ```
@@ -59,7 +59,7 @@ site_list <- read_csv("https://raw.githubusercontent.com/LTREB-reservoirs/vera4c
 site_list |> knitr::kable()
 ```
 
-### Targert variable list 
+### Target variable list 
 
 ```{r message=FALSE, echo=FALSE}
 googlesheets4::gs4_deauth()
