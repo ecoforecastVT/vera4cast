@@ -6,7 +6,7 @@ editor:
     wrap: sentence
 ---
 
-## tl;dr: How to submit a forecast
+## Overview: How to submit a forecast
 
 We provide an overview of the steps for submitting with the details below:
 
