@@ -24,7 +24,7 @@ library(tidyverse)
 targets <- read_csv(url, show_col_types = FALSE)
 inflow_targets <- read_csv(url_inflow, show_col_types = FALSE)
 
-targets <- dplyr::bind_rows(targets, inflow_targtes)
+targets <- dplyr::bind_rows(targets, inflow_targets)
 ```
 
 ### Description of Target File Columns
