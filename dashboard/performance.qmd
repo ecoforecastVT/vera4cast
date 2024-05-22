@@ -27,7 +27,9 @@ config <- yaml::read_yaml("../challenge_configuration.yaml")
 
 s3 <- arrow::s3_bucket(paste0(config$summaries_bucket, "/project_id=", config$project_id, "/duration=P1D"), endpoint_override = config$endpoint, anonymous = TRUE)
 
-s3_scores <- arrow::s3_bucket(paste0(config$scores_bucket, "/project_id=", config$project_id, "/duration=P1D"), endpoint_override = config$endpoint, anonymous = TRUE)
+# s3_scores <- arrow::s3_bucket(paste0(config$scores_bucket, "/project_id=", config$project_id, "/duration=P1D"), endpoint_override = config$endpoint, anonymous = TRUE)
+
+s3_scores <- arrow::s3_bucket(paste0(config$scores_bucket), endpoint_override = config$endpoint, anonymous = TRUE)
 
 reference_datetimes <- arrow::open_dataset(s3) |> 
   dplyr::group_by(variable) |> 
@@ -63,7 +65,6 @@ reference_date <- max(lubridate::as_date(df$reference_datetime))
 Forecasts submitted on `r reference_date`
 
 ::: panel-tabset
-
 ### Chlorophyll-a
 
 ```{r}
@@ -177,6 +178,7 @@ df |>
 ```
 
 ### Methane Flux
+
 ```{r}
 if("CH4flux_umolm2s_mean" %in% unique(df$variable)){
 df |> 
@@ -197,13 +199,14 @@ df |>
   forecast_plots(ylabel = 'Flow (cms)')
 }
 ```
-
 :::
 
 ## Forecast analysis
 
 ```{r}
 df <- arrow::open_dataset(s3_scores) |> 
+  filter(duration == 'P1D', 
+         project_id == 'vera4cast') |> 
   left_join(sites, by = "site_id") |> 
   filter(site_id %in% sites$site_id) |> 
   mutate(reference_datetime = lubridate::as_datetime(reference_datetime),
@@ -230,7 +233,6 @@ ex <- df |>
 Below are forecasts submitted 30 days ago and include the observations used to evaluate them (black points). Mouse over the figure to see the team id, and scroll to zoom.
 
 ::: panel-tabset
-
 ### Chlorophyll-a
 
 ```{r}
@@ -289,6 +291,7 @@ ex |> filter(variable == "CH4_umolL_sample") |>
 ```
 
 ### Methane Flux
+
 ```{r}
 ex |> filter(variable == "CH4flux_umolm2s_mean") |> 
   forecast_plots(ylabel = 'CH4 Flux (umolm2s)')
