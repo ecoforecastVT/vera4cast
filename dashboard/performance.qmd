@@ -51,8 +51,8 @@ df <- arrow::open_dataset(s3) |>
   filter(reference_datetime == reference_datetime_max) |> 
   left_join(sites, by = "site_id") |> 
   filter(site_id %in% sites$site_id) |> 
-  mutate(reference_datetime = lubridate::as_datetime(reference_datetime),
-         datetime = lubridate::as_datetime(datetime)) |> 
+  # mutate(reference_datetime = lubridate::as_datetime(reference_datetime),
+  #        datetime = lubridate::as_datetime(datetime)) |> 
   filter((depth_m == 1.6 & site_id == "fcre") | (depth_m == 1.5 & site_id == "bvre") | is.na(depth_m),
          lubridate::as_date(datetime) > lubridate::as_date(reference_datetime)) |> 
   collect()
@@ -138,7 +138,7 @@ df |>
   forecast_plots(ylabel = 'Temp (degC)')
 ```
 
-### fDOM QSU
+### fDOM
 
 ```{r}
 
@@ -164,38 +164,6 @@ df |>
   
 }
 ```
-
-### Ice Cover Probability
-
-# ```{r}
-# if("IceCover_binary_max" %in% unique(df$variable)){
-#   
-#   ggobj_df <- df |> 
-#   filter(variable == c("IceCover_binary_max")) |> 
-#     mutate(observation = as.numeric(NA))
-#   
-# if(nrow(ggobj_df) > 0){
-# 
-# ggobj <- ggobj_df |> 
-# ggplot(aes(x = datetime, y = mean, color = model_id)) + 
-#   geom_line_interactive(aes(datetime, mean, col = model_id,
-#                               tooltip = model_id, data_id = model_id),
-#                         show.legend=FALSE) +
-#   facet_wrap(~site_id) +
-#   ylim(0,1) +
-#   labs(y = "Predicted probability") +
-#   theme_bw()
-# 
-# girafe(ggobj = ggobj,
-#          width_svg = 8, height_svg = 4,
-#          options = list(
-#            opts_hover_inv(css = "opacity:0.20;"),
-#            opts_hover(css = "stroke-width:2;"),
-#            opts_zoom(max = 4)
-#          ))
-# }
-# }
-#```
 
 ### Dissolved methane
 
@@ -349,6 +317,12 @@ Scores are averaged across all submissions of the model with a given horizon or 
 leaderboard_plots(df, "Chla_ugL_mean")
 ```
 
+## Chlorophyll-a bloom probability
+
+```{r}
+leaderboard_plots(df, "Bloom_binary_mean")
+```
+
 ## Water temperature
 
 ```{r}
@@ -359,6 +333,12 @@ leaderboard_plots(df, "Temp_C_mean")
 
 ```{r}
 leaderboard_plots(df, "DO_mgL_mean")
+```
+
+## Secchi depth
+
+```{r}
+leaderboard_plots(df, "Secchi_m_sample")
 ```
 
 ## Air temperature
@@ -377,6 +357,12 @@ leaderboard_plots(df, "fDOM_QSU_mean")
 
 ```{r}
 leaderboard_plots(df, "CH4_umolL_sample")
+```
+
+## Methane Flux
+
+```{r}
+leaderboard_plots(df, "CH4flux_umolm2s_mean")
 ```
 
 ## Inflow Discharge

@@ -23,8 +23,10 @@ forecast_ggobj <- function(df, ncol = NULL, show.legend = TRUE, ylabel = 'predic
 
 forecast_plots <- function(df, ncol = NULL, show.legend = TRUE, ylabel = 'predicted') {
 
-  if(nrow(df)==0) return(NULL)
 
+  if (nrow(df) == 0){
+    print('No scored forecasts are available for this period')
+  } else{
   ggobj <- forecast_ggobj(df, ncol, show.legend, ylabel)
   girafe(ggobj = ggobj,
          width_svg = 8, height_svg = 4,
@@ -35,7 +37,7 @@ forecast_plots <- function(df, ncol = NULL, show.legend = TRUE, ylabel = 'predic
          ))
 
 }
-
+}
 
 
 by_model_id <- function(df, show.legend = FALSE) {
@@ -130,8 +132,10 @@ leaderboard_plots <- function(df,
 
   df <- df |> filter(variable == var) |> filter(!is.na(observation))
   df <- horizon_filter(df, horizon_cutoff, horizon_units)
-  if(nrow(df)==0) return(NULL)
 
+  if (nrow(df) == 0){
+    print('No scored forecasts are available for this period')
+  } else{
   board1 <- by_model_id(df, show.legend = FALSE)
   board2 <- by_reference_datetime(df, show.legend = FALSE) + theme_bw()
   board3 <- by_horizon(df, show.legend = FALSE) + theme_bw()
@@ -149,4 +153,5 @@ leaderboard_plots <- function(df,
     )
   )
 
+  }
 }
