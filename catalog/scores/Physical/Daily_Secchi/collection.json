@@ -40,11 +40,6 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/asl.temp.lm.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
       "href": "../../models/model_items/climatology.json"
     },
     {
@@ -91,6 +86,11 @@
       "rel": "item",
       "type": "application/json",
       "href": "../../models/model_items/secchi_last3obs_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "../../models/model_items/asl.temp.lm.json"
     },
     {
       "rel": "parent",
