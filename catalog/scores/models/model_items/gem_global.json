@@ -17,7 +17,7 @@
   "properties": {
     "description": "\nmodel info: Candian GEM Global Ensemble model downloaded from open-meteo.com\n\nSites: fcre\n\nVariables: Daily Air temperature, Daily surface pressure, Daily Shortwave radiation, Daily Wind speed, Daily Relative humdity, Daily Precipitation",
     "start_datetime": "2023-10-14",
-    "end_datetime": "2024-05-21",
+    "end_datetime": "2024-05-22",
     "providers": [
       {
         "url": "pending",
