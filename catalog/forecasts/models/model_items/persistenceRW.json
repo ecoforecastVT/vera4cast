@@ -19,7 +19,7 @@
   "properties": {
     "description": "\nmodel info: Random walk from the fable package with ensembles used to represent uncertainty\n\nSites: bvre, fcre, tubr\n\nVariables: Daily Water_temperature, Daily Chlorophyll-a, Daily Inflow discharge, Daily oxygen_concentration, Daily oxygen % sat, Daily Secchi, Daily Air temperature, Daily fluorescent dissolved organic matter, Daily Bloom_binary, NA Dissolved methane, NA Dissolved carbon dioxide, NA ammonium concentration, Daily ammonium concentration, NA dissolved organic carbon concentration, Daily dissolved organic carbon concentration, NA Nitrate concentration, Daily Nitrate concentration, NA Total phosphorus concentration, Daily Total phosphorus concentration, NA Total nitrogen concentration, Daily Total nitrogen concentration, NA Surface CO2 flux, Daily Surface CO2 flux, NA Surface methane flux, Daily Surface methane flux",
     "start_datetime": "2023-09-21",
-    "end_datetime": "2435-07-19",
+    "end_datetime": "2439-08-21",
     "providers": [
       {
         "url": "pending",
