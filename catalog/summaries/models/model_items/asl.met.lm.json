@@ -18,7 +18,7 @@
   "properties": {
     "description": "\nmodel info: Linear regression with air temp, humidity, precip, and wind speed\n\nSites: bvre, fcre\n\nVariables: Daily Water_temperature, Daily Chlorophyll-a, Daily fluorescent dissolved organic matter, Daily oxygen_concentration, Daily Secchi, Daily Turbidity, Daily Specific conductance, Daily Bloom_binary, Daily Dissolved methane",
     "start_datetime": "2024-05-06",
-    "end_datetime": "2024-06-24",
+    "end_datetime": "2024-06-25",
     "providers": [
       {
         "url": "pending",
