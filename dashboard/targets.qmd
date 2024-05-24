@@ -209,9 +209,9 @@ inflow_targets |>
   theme_bw()
 ```
 
-Other variables measured in at the stream inflow
+Other variables measured in at the stream inflow:
 
-```{r}
+```{r, echo=FALSE}
 inflow_targets |> 
   distinct(variable, duration) |> 
   left_join(target_metadata, by = c("variable","duration")) |> 
