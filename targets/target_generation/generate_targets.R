@@ -163,7 +163,7 @@ source('targets/target_functions/inflow/target_generation_inflows.R')
 
 current_inflow <- 'https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-weir-data-qaqc/FCRWeir_L1.csv'
 
-historic_inflow <- "https://pasta.lternet.edu/package/data/eml/edi/202/11/aae7888d68753b276d1623680f81d5de"
+historic_inflow <- "https://pasta.lternet.edu/package/data/eml/edi/202/12/aae7888d68753b276d1623680f81d5de"
 
 historic_silica <- 'https://pasta.lternet.edu/package/data/eml/edi/542/1/791ec9ca0f1cb9361fa6a03fae8dfc95'
 
