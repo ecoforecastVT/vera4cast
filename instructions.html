@@ -210,7 +210,7 @@ background-size: cover;
   <li><a href="#forecasts-can-be-submitted-every-day" id="toc-forecasts-can-be-submitted-every-day" class="nav-link" data-scroll-target="#forecasts-can-be-submitted-every-day"><span class="header-section-number">2.5</span> Forecasts can be submitted every day</a></li>
   </ul></li>
   <li><a href="#forecast-file-format" id="toc-forecast-file-format" class="nav-link" data-scroll-target="#forecast-file-format"><span class="header-section-number">3</span> Forecast file format</a></li>
-  <li><a href="#representing-uncertainity" id="toc-representing-uncertainity" class="nav-link" data-scroll-target="#representing-uncertainity"><span class="header-section-number">4</span> Representing uncertainity</a>
+  <li><a href="#representing-uncertainty" id="toc-representing-uncertainty" class="nav-link" data-scroll-target="#representing-uncertainty"><span class="header-section-number">4</span> Representing uncertainty</a>
   <ul class="collapse">
   <li><a href="#example-forecasts" id="toc-example-forecasts" class="nav-link" data-scroll-target="#example-forecasts"><span class="header-section-number">4.1</span> Example forecasts</a></li>
   </ul></li>
@@ -256,7 +256,7 @@ background-size: cover;
 </section>
 <section id="any-model-driverscovariatesfeatures-are-welcome" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="any-model-driverscovariatesfeatures-are-welcome"><span class="header-section-number">2.3</span> Any model drivers/covariates/features are welcome</h3>
-<p>You can use any data as model inputs (including all of the forecast target data available to date). All sensor-based target data are available in near-real time (1-day latency). You may want to use the updated target data to re-train a model or for use in data assimilation.</p>
+<p>You can use any data as model inputs (including all of the forecast target data available to date). All sensor-based target data are available in near-real time (1-day latency). You may want to use the updated target data to re-train a model or for data assimilation.</p>
 <p>As VERA is a genuine forecasting challenge, you will need forecasted drivers if your model uses drivers as inputs. If you are interested in using forecasted meteorology for the VERA sites, we have developed an R package (<a href="https://github.com/FLARE-forecast/RopenMeteo">https://github.com/FLARE-forecast/RopenMeteo</a>) that can be used to access ensemble weather forecasts or seasonal forecasts for the sites. The R package is a wrapper around the open-meteo.com API. The README in the R package repo provides instructions for use.</p>
 </section>
 <section id="forecasts-can-be-for-a-range-of-horizons" class="level3" data-number="2.4">
@@ -275,7 +275,7 @@ background-size: cover;
 <li><p><code>project_id</code>: use <code>vera4cast</code></p></li>
 <li><p><code>model_id</code>: the short name of the model defined as the model_id in the file name (see below) and in your registration. The model_id should have no spaces. model_id should reflect a method to forecast one or a set of target variables and must be unique to the vera4cast challenge.</p></li>
 <li><p><code>datetime</code>: forecast timestamp. Format <code>%Y-%m-%d %H:%M:%S</code> with UTC as the time zone. Forecasts submitted with a <code>%Y-%m-%d</code> format will be converted to a full datetime assuming UTC midnight.</p></li>
-<li><p><code>reference_datetime</code>: The start of the forecast; this should be 0 times steps into the future. There should only be one value of <code>reference_datetime</code> in the file. Format is <code>%Y-%m-%d %H:%M:%S</code> with UTC as the time zone. Forecasts submitted with a <code>%Y-%m-%d</code> format will be converted to a full datetime assuming UTC mid-night.</p></li>
+<li><p><code>reference_datetime</code>: The start of the forecast; this should be 0 time steps into the future. There should only be one value of <code>reference_datetime</code> in the file. Format is <code>%Y-%m-%d %H:%M:%S</code> with UTC as the time zone. Forecasts submitted with a <code>%Y-%m-%d</code> format will be converted to a full datetime assuming UTC mid-night.</p></li>
 <li><p><code>duration</code>: the time-step of the forecast. Use the value of <code>P1D</code> for a daily forecast and <code>PT1H</code> for an hourly forecast. This value should match the duration of the target variable that you are forecasting. Formatted as <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations">ISO 8601 duration</a></p></li>
 <li><p><code>site_id</code>: code for site (<code>bvre</code>, <code>fcre</code>, or <code>tubr</code>) bvre = Beaverdam Reservoir, fcre = Falling Creek Reservoir, and tubr = Tunnel Branch, the stream that connects the two reservoirs</p></li>
 <li><p><code>depth_m</code>: the depth (meters) for the forecasted variable. Use <code>NA</code> for variables without a specified depth (i.e Secchi).</p></li>
@@ -285,13 +285,13 @@ background-size: cover;
 <li><p><code>prediction</code>: forecasted value for the parameter in the parameter column</p></li>
 </ul>
 </section>
-<section id="representing-uncertainity" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="representing-uncertainity"><span class="header-section-number">4</span> Representing uncertainity</h2>
+<section id="representing-uncertainty" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="representing-uncertainty"><span class="header-section-number">4</span> Representing uncertainty</h2>
 <p>Uncertainty is represented through the family and parameter columns.</p>
 <section id="parameteric-forecast" class="level4" data-number="4.0.1">
 <h4 data-number="4.0.1" class="anchored" data-anchor-id="parameteric-forecast"><span class="header-section-number">4.0.1</span> Parameteric forecast</h4>
 <p>Parametric forecasts describe uncertainty by providing the values of parameters for an uncertainty distribution representing the forecast. The name of the distribution is provided in the ‘family’ column and the names of the parameters for the distribution are provided in the ‘parameter’ column. The values of the parameters are provided in the ‘prediction’ column. For a parametric forecast with a normal distribution, the <code>family</code> column would have the word <code>normal</code> to designate a normal distribution and the parameter column must have values of <code>mu</code> and <code>sigma</code> for each forecasted variable, site_id, depth, and time combination.</p>
-<p>Parameteric forecasts for binary variables should use <code>bernoulli</code> as the distribution.</p>
+<p>Parametric forecasts for binary variables should use <code>bernoulli</code> as the distribution.</p>
 <p>The following names and parameterization of the distribution are currently supported by VERA (family: parameters):</p>
 <ul>
 <li><code>lognormal</code>: <code>mu</code>, <code>sigma</code></li>
@@ -382,7 +382,7 @@ $ duration           &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D"
 </section>
 <section id="evaluation" class="level3" data-number="6.2">
 <h3 data-number="6.2" class="anchored" data-anchor-id="evaluation"><span class="header-section-number">6.2</span> Evaluation</h3>
-<p>All forecasts are scored daily using new data until the full horizon of the forecast has been scored. Forecasts are scored using the <code>crps</code> and <code>logs</code> functions in the <a href="https://cran.r-project.org/web/packages/scoringRules/index.html"><code>scoringRules</code></a> R package. These scores evaluate both the accuracy and precision of the forecast distribution (how close was the forecast mean to the observation and how certain was the forecast).</p>
+<p>All forecasts are scored daily using new data until the full horizon of the forecast has been scored. Forecasts are scored using the <code>crps</code> and <code>logs</code> functions in the <a href="https://cran.r-project.org/web/packages/scoringRules/index.html"><code>scoringRules</code></a> R package. These scores evaluate both the accuracy and precision of the forecast distribution (i.e., how close was the forecast mean to the observation and how certain was the forecast).</p>
 </section>
 <section id="comparison" class="level3" data-number="6.3">
 <h3 data-number="6.3" class="anchored" data-anchor-id="comparison"><span class="header-section-number">6.3</span> Comparison</h3>

@@ -440,7 +440,12 @@ background-size: cover;
 <tr class="odd">
 <td style="text-align: left;">CH4_umolL_sample</td>
 <td style="text-align: left;">P1D</td>
-<td style="text-align: left;">daily sampled dissolved methane in umol/L</td>
+<td style="text-align: left;">daily sampled dissolved methane in umol/L, taken at the surface</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CO2_umolL_sample</td>
+<td style="text-align: left;">P1D</td>
+<td style="text-align: left;">daily sampled dissolved carbon dioxide in umol/L, taken at the surface</td>
 </tr>
 </tbody>
 </table>
@@ -449,6 +454,16 @@ background-size: cover;
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="targets_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="targets_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="targets_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -486,7 +501,7 @@ background-size: cover;
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="targets_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+<p><img src="targets_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -506,9 +521,9 @@ background-size: cover;
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
-<col style="width: 20%">
+<col style="width: 17%">
 <col style="width: 10%">
-<col style="width: 69%">
+<col style="width: 71%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -528,6 +543,39 @@ background-size: cover;
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily mean water temperature in degrees C</td>
 </tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="targets_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Other variables measured in at the stream inflow</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>inflow_targets <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(variable, duration) <span class="sc">|&gt;</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(target_metadata, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"variable"</span>,<span class="st">"duration"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>priority) <span class="sc">|&gt;</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Description =</span> <span class="fu">ifelse</span>(variable <span class="sc">==</span> <span class="st">'Temp_C_mean'</span>, <span class="st">'daily mean water temperature in degrees C'</span>, Description)) <span class="sc">|&gt;</span> </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>class, <span class="sc">-</span>priority) <span class="sc">|&gt;</span> </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 10%">
+<col style="width: 69%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">duration</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
 <td style="text-align: left;">TP_ugL_sample</td>
 <td style="text-align: left;">P1D</td>
@@ -564,21 +612,16 @@ background-size: cover;
 <td style="text-align: left;">daily sampled total nitrogen concentration mg/L</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">CH4_umolL_sample</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">daily sampled dissolved methane in umol/L</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">DIC_mgL_sample</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily sample dissolved organic carbon concentration in mg/L</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">DC_mgL_sample</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily sample dissolved carbon concentration in mg/L</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">DN_mgL_sample</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily sample dissolved nitrogen concentration in mg/L</td>
@@ -592,9 +635,9 @@ background-size: cover;
 <h3 class="anchored" data-anchor-id="falling-creek-reservoir-meteorology">Falling Creek Reservoir meteorology</h3>
 <p>Daily time-step variables measured at the meteorological station (located on the dam at Falling Creek Reservoir)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>url3 <span class="ot">&lt;-</span> <span class="st">"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-met-targets.csv.gz"</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>met_targets <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url3, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#glimpse(met_targets)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>url3 <span class="ot">&lt;-</span> <span class="st">"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-met-targets.csv.gz"</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>met_targets <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url3, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#glimpse(met_targets)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -668,7 +711,7 @@ background-size: cover;
 </div>
 <p>Hourly time-step variables measured at the meteorology station (located on the dam at Falling Creek Reservoir)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>url3 <span class="ot">&lt;-</span> <span class="st">"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=PT1H/hourly-met-targets.csv.gz"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>url3 <span class="ot">&lt;-</span> <span class="st">"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=PT1H/hourly-met-targets.csv.gz"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="other-variables-measured-in-the-reservoirs" class="level3">
@@ -790,26 +833,21 @@ background-size: cover;
 <td style="text-align: left;">daily sampled dissolved organic carbon concentration in mg/L</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">CO2_umolL_sample</td>
-<td style="text-align: left;">P1D</td>
-<td style="text-align: left;">daily sampled dissolved carbon dioxide in umol/L</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">DRSI_mgL_sample</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily sampled silica concentration in mg/L</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">DIC_mgL_sample</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily sample dissolved organic carbon concentration in mg/L</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">DC_mgL_sample</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily sample dissolved carbon concentration in mg/L</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">DN_mgL_sample</td>
 <td style="text-align: left;">P1D</td>
 <td style="text-align: left;">daily sample dissolved nitrogen concentration in mg/L</td>
