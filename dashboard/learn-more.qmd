@@ -11,6 +11,81 @@ Other tutorial materials about [ecological forecasting](https://ecoforecast.org/
 ## Research from the Virginia Ecoforecast Reservoir Analysis team  
 
 Publications about [forecasting and modeling](https://www.ltreb-reservoirs.org/products/#publications-forecasting-and-modeling)
+
+## NOAA Global Ensemble Forecasting System {#sec-noaa-downloads}
+
+Functions are provided in the `vera4castHelpers` package that access NOAA weather forecasts that have already been downloaded and standardized for the reservoirs.  To install the `vera4castHelpers` use
+
+```{r eval = FALSE}
+remotes::install_github("ltreb-reservoirs/vera4castHelpers")
+```
+
+Using the package, 31 ensemble member forecasts are provided at 1 hr time resolution
+
+Variables and units are:
+
+-   air_temperature (K)\
+-   air_pressure (Pa)\
+-   relative_humidity (proportion)\
+-   surface_downwelling_longwave_flux_in_air (W/m\^2)\
+-   surface_downwelling_shortwave_flux_in_air (W/m\^2) 
+-   precipitation_flux (kg/(m\^2 s))\
+-   eastward_wind (m/s)\
+-   northward_wind (m/s)\
+
+```{r eval = FALSE}
+weather <- vera4castHelpers::noaa_stage2(start_date = "2022-04-01")
+df_future <- weather |> 
+  dplyr::filter(site_id == "fcre") |>
+  dplyr::collect()
+```
+
+The data frame has following columns:
+
+`site_id: string` : NEON site ID\
+`prediction: double` : forecasted value\
+`variable: string` : weather variable\
+`horizon: double` : number of hours in the future\
+`family: string`: class of uncertainty (ensemble)\
+`parameter: int32` : ensemble member number\
+`reference_datetime: timestamp[us, tz=UTC]`: datetime of horizon 0\
+`datetime: timestamp[us, tz=UTC]` : datetime of forecast\
+
+### "Historical weather"
+
+Stage 3 can be viewed as the "historical" weather for site as simulated by NOAA GEFS. Stage 3 is useful for model training because it ensures that the magnitude and variability of the weather data used to train your model is similar to that in the NOAA GEFS weather forecast you may use as inputs to your forecast.
+
+Stage 3 uses CF variable names and 1 hr interval
+
+-   air_temperature (K)\
+-   air_pressure (Pa)\
+-   relative_humidity (proportion)\
+-   surface_downwelling_longwave_flux_in_air (W/m\^2)\
+-   surface_downwelling_shortwave_flux_in_air (W/m\^2) 
+-   precipitation_flux (kg/(m\^2 s))\
+-   eastward_wind (m/s)\
+-   northward_wind (m/s)\
+
+```{r eval = FALSE}
+weather_stage3 <- vera4castHelpers::noaa_stage3()
+df_historical <- weather_stage3 |> 
+  dplyr::filter(site_id == "fcre") |>
+  dplyr::collect()
+```
+
+Stage 3 has the following columns
+
+`site_id: string` : NEON site ID\
+`prediction: double` : forecasted value\
+`variable: string` : weather variable\
+`family: string`: class of uncertainty (ensemble)\
+`parameter: int32` : ensemble member number\
+`reference_datetime: timestamp[us, tz=UTC]`: always NA in Stage3
+`datetime: timestamp[us, tz=UTC]` : datetime of forecast\
+
+
+
+
  
 
 

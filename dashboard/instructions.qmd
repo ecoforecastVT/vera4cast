@@ -14,33 +14,47 @@ We provide an overview of the steps for submitting with the details below:
 2)  Generate a forecast!
 3)  Write the forecast output to a file that follows our standardized format (described below).
 4)  Submit your forecast using an R function (provided below).
-5)  Watch your forecast be evaluated as new data are collected. 
+5)  Watch your forecast be evaluated as new data are collected.
 
 ## Generating a forecast
 
 ### All forecasting approaches are welcome
 
-We encourage you to use any modeling approach to make a prediction about the future conditions at the two LTREB reservoirs or the stream that connects them.  
+We encourage you to use any modeling approach to make a prediction about the future conditions at the two LTREB reservoirs or the stream that connects them.
 
 ### Must include uncertainty
 
-Forecasts require you to make an assessment of the confidence in your prediction of the future. You can represent your confidence (i.e., uncertainty in the forecast) using a distribution or numerically using an ensemble (or sample) of predictions. 
+Forecasts require you to make an assessment of the confidence in your prediction of the future.
+You can represent your confidence (i.e., uncertainty in the forecast) using a distribution or numerically using an ensemble (or sample) of predictions.
 
 For new forecasters, as a first step, two possible approaches for quantifying forecast uncertainty are: 1) using the residuals from the model fitting/calibration period to generate a model process uncertainty distribution that can be applied to the forecast; or 2) for forecasts that use meteorological variables as drivers, using weather forecasts provided by the VERA challenge organizers to account for driver uncertainty in a forecast.
 
 ### Any model drivers/covariates/features are welcome
 
-You can use any data as model inputs (including all of the forecast target data available to date). All sensor-based target data are available in near-real time (1-day latency). You may want to use the updated target data to re-train a model or for data assimilation.
+You can use any data as model inputs (including all of the forecast target data available to date).
+All sensor-based target data are available in near-real time (1-day latency).
+You may want to use the updated target data to re-train a model or for data assimilation.
 
-As VERA is a genuine forecasting challenge, you will need forecasted drivers if your model uses drivers as inputs. If you are interested in using forecasted meteorology for the VERA sites, we have developed an R package ([https://github.com/FLARE-forecast/RopenMeteo](https://github.com/FLARE-forecast/RopenMeteo)) that can be used to access ensemble weather forecasts or seasonal forecasts for the sites. The R package is a wrapper around the open-meteo.com API. The README in the R package repo provides instructions for use.
+As VERA is a genuine forecasting challenge, you will need forecasted drivers if your model uses drivers as inputs.
+If you are interested in using forecasted meteorology for the VERA sites, we provide to two approaches:
+
+-   We provide weather forecasts from the NOAA Ensemble Forecasting System using custom functions in the `vera4castHelpers` R package.
+    You can learn more about accessing the weather forecasts using this method [here](learn-more.qmd#sec-noaa-downloads).
+    This approach provides access to weather forecasts back to September 2020.
+
+-   We have developed an R package (<https://github.com/FLARE-forecast/RopenMeteo>) that can be used to access ensemble weather forecasts or seasonal forecasts for the through the [open-meteo.com](open-meteo.com) API.
+    The README in the R package repo provides instructions for use.
+    This approach only provides the current forecast.
 
 ### Forecasts can be for a range of horizons
 
-Forecasts can be submitted at the daily time step for 1 day to 10 years ahead into the future. 
+Forecasts can be submitted at the daily time step for 1 day to 10 years ahead into the future.
 
 ### Forecasts can be submitted every day
 
-Since forecasts can be submitted every day, automation is important. We provide an example GitHub repository that can be used to automate your forecast with GitHub Actions. It also includes the use of a custom Docker Container [rqthomas/vera4cast:latest](https://github.com/LTREB-reservoirs/vera4cast/blob/main/Dockerfile) that has many of the R packages and functions needed to generate and submit forecasts. 
+Since forecasts can be submitted every day, automation is important.
+We provide an example GitHub repository that can be used to automate your forecast with GitHub Actions.
+It also includes the use of a custom Docker Container [rqthomas/vera4cast:latest](https://github.com/LTREB-reservoirs/vera4cast/blob/main/Dockerfile) that has many of the R packages and functions needed to generate and submit forecasts.
 
 ## Forecast file format
 
@@ -66,8 +80,7 @@ The forecast file should be in a csv format with the following columns:
     This value should match the duration of the target variable that you are forecasting.
     Formatted as [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations)
 
--   `site_id`: code for site (`bvre`, `fcre`, or `tubr`)
-    bvre = Beaverdam Reservoir, fcre = Falling Creek Reservoir, and tubr = Tunnel Branch, the stream that connects the two reservoirs
+-   `site_id`: code for site (`bvre`, `fcre`, or `tubr`) bvre = Beaverdam Reservoir, fcre = Falling Creek Reservoir, and tubr = Tunnel Branch, the stream that connects the two reservoirs
 
 -   `depth_m`: the depth (meters) for the forecasted variable.
     Use `NA` for variables without a specified depth (i.e Secchi).
@@ -82,13 +95,16 @@ The forecast file should be in a csv format with the following columns:
 
 -   `prediction`: forecasted value for the parameter in the parameter column
 
-## Representing uncertainty 
+## Representing uncertainty
 
 Uncertainty is represented through the family and parameter columns.
 
 #### Parameteric forecast
 
-Parametric forecasts describe uncertainty by providing the values of parameters for an uncertainty distribution representing the forecast. The name of the distribution is provided in the ‘family’ column and the names of the parameters for the distribution are provided in the ‘parameter’ column. The values of the parameters are provided in the ‘prediction’ column. For a parametric forecast with a normal distribution, the `family` column would have the word `normal` to designate a normal distribution and the parameter column must have values of `mu` and `sigma` for each forecasted variable, site_id, depth, and time combination.
+Parametric forecasts describe uncertainty by providing the values of parameters for an uncertainty distribution representing the forecast.
+The name of the distribution is provided in the ‘family’ column and the names of the parameters for the distribution are provided in the ‘parameter’ column.
+The values of the parameters are provided in the ‘prediction’ column.
+For a parametric forecast with a normal distribution, the `family` column would have the word `normal` to designate a normal distribution and the parameter column must have values of `mu` and `sigma` for each forecasted variable, site_id, depth, and time combination.
 
 Parametric forecasts for binary variables should use `bernoulli` as the distribution.
 
@@ -104,13 +120,17 @@ The following names and parameterization of the distribution are currently suppo
 -   `exponential`: `rate`
 -   `poisson`: `lambda`
 
-If you are submitting a forecast that is not in the supported list, we recommend using the ensemble format and sampling from your distribution to generate a set of ensemble members that represents your forecast distribution. 
+If you are submitting a forecast that is not in the supported list, we recommend using the ensemble format and sampling from your distribution to generate a set of ensemble members that represents your forecast distribution.
 
 #### Ensemble (or sample) forecast
 
-Ensemble, or sample, forecasts describe uncertainty by providing many predictions from multiple ensemble members, which altogether represent the uncertainty in the forecast. When submitting an ensemble forecast, the value of the ‘family’ column will be ‘ensemble’ and the ‘parameter’ column is used to index the ensemble members (e.g., 1-100 for a 100-member ensemble).
+Ensemble, or sample, forecasts describe uncertainty by providing many predictions from multiple ensemble members, which altogether represent the uncertainty in the forecast.
+When submitting an ensemble forecast, the value of the ‘family’ column will be ‘ensemble’ and the ‘parameter’ column is used to index the ensemble members (e.g., 1-100 for a 100-member ensemble).
 
-When forecasts using the ensemble family are scored, we assume that the ensemble is a set of equally likely realizations that are sampled from a distribution that is comparable to that of the observations (i.e., no broad adjustments are required to make the ensemble more consistent with observations). This is referred to as a "perfect ensemble" by [Bröcker and Smith (2007)](https://doi.org/10.1175/WAF993.1). Ensemble (or sample) forecasts are transformed to a probability distribution function (e.g., dressed) using the default methods in the `scoringRules` R package (empirical version of the quantile decomposition for the `crps` and kernel density estimation using a Gaussian kernel for the `logs`). Kernel density estimation uses the default bandwidth produced by the `bw.nrd` function in the R `stats` package.
+When forecasts using the ensemble family are scored, we assume that the ensemble is a set of equally likely realizations that are sampled from a distribution that is comparable to that of the observations (i.e., no broad adjustments are required to make the ensemble more consistent with observations).
+This is referred to as a "perfect ensemble" by [Bröcker and Smith (2007)](https://doi.org/10.1175/WAF993.1).
+Ensemble (or sample) forecasts are transformed to a probability distribution function (e.g., dressed) using the default methods in the `scoringRules` R package (empirical version of the quantile decomposition for the `crps` and kernel density estimation using a Gaussian kernel for the `logs`).
+Kernel density estimation uses the default bandwidth produced by the `bw.nrd` function in the R `stats` package.
 
 ### Example forecasts
 
@@ -158,25 +178,30 @@ vera4castHelpers::submit(forecast_file = "your_file.csv",
 
 ### Processing
 
-After submission, our servers will process uploaded files by converting them to a parquet format on our public s3 storage. A `pub_datetime` column will be added that denotes when a forecast was submitted.
+After submission, our servers will process uploaded files by converting them to a parquet format on our public s3 storage.
+A `pub_datetime` column will be added that denotes when a forecast was submitted.
 
 ### Evaluation
 
-All forecasts are scored daily using new data until the full horizon of the forecast has been scored. Forecasts are scored using the `crps` and `logs` functions in the [`scoringRules`](https://cran.r-project.org/web/packages/scoringRules/index.html) R package. These scores evaluate both the accuracy and precision of the forecast distribution (i.e., how close was the forecast mean to the observation and how certain was the forecast).
+All forecasts are scored daily using new data until the full horizon of the forecast has been scored.
+Forecasts are scored using the `crps` and `logs` functions in the [`scoringRules`](https://cran.r-project.org/web/packages/scoringRules/index.html) R package.
+These scores evaluate both the accuracy and precision of the forecast distribution (i.e., how close was the forecast mean to the observation and how certain was the forecast).
 
 ### Comparison
 
-Forecast performance can be compared to the performance of baseline models. We are automatically submitting the following baseline models:
+Forecast performance can be compared to the performance of baseline models.
+We are automatically submitting the following baseline models:
 
-- `climatology`: the normal distribution (mean and standard deviation) of that day-of-year in the historical observations
-- `persistenceRW`: a random walk model that assumes no change in the mean behavior. The random walk is initialized using the most resent observation.
+-   `climatology`: the normal distribution (mean and standard deviation) of that day-of-year in the historical observations
+-   `persistenceRW`: a random walk model that assumes no change in the mean behavior. The random walk is initialized using the most resent observation.
 
 Our [forecast performance](performance.qmd#performance) page includes evaluations of all submitted models.
 
 ### Catalog
 
-Information for accessing the forecasts and scores can be found on our [forecast catalog](catalog.qmd#sec-spatiotemporal-asset-catalog) page. 
+Information for accessing the forecasts and scores can be found on our [forecast catalog](catalog.qmd#sec-spatiotemporal-asset-catalog) page.
 
 ## Questions?
 
-Thanks for reading this document! If you still have questions about how to submit your forecast to the VERA Forecasting Challenge, we encourage you to email Dr. Quinn Thomas (rqthomas{at}vt.edu).
+Thanks for reading this document!
+If you still have questions about how to submit your forecast to the VERA Forecasting Challenge, we encourage you to email Dr. Quinn Thomas (rqthomas{at}vt.edu).
