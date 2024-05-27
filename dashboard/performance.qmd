@@ -195,6 +195,7 @@ df |>
 if("Flow_cms_mean" %in% unique(df$variable)){
 df |> 
   filter(variable == c("Flow_cms_mean"))  |> 
+    filter(!model_id == 'persistenceRW') |> ## uncertainty is too high -- remove for now
     mutate(observation = as.numeric(NA)) |> 
   forecast_plots(ylabel = 'Flow (cms)')
 }
@@ -300,7 +301,8 @@ ex |> filter(variable == "CH4flux_umolm2s_mean") |>
 ### Inflow Discharge
 
 ```{r}
-ex |> filter(variable == "Flow_cms_mean") |> 
+ex |> filter(variable == "Flow_cms_mean",
+            !model_id == 'persistenceRW') |> ## uncertainty is too high -- remove for now) |> 
   forecast_plots(ylabel = 'Flow (cms)')
 ```
 :::

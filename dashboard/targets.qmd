@@ -86,7 +86,8 @@ targets |>
 ```{r echo = FALSE, warning = FALSE}
 targets |> 
   left_join(target_metadata, by = c("variable","duration")) |> 
-  filter(class == "physical" & priority) |> 
+  filter(class == "physical" & priority, 
+         site_id != 'tubr') |> 
   select(-class,-priority) |> 
   filter(depth_m %in% c(1.5, 1.6) | is.na(depth_m)) |> 
   ggplot(aes(x = datetime, y = observation)) +
@@ -100,26 +101,53 @@ targets |>
 targets |> 
   distinct(variable, duration) |> 
   left_join(target_metadata, by = c("variable","duration")) |> 
-  filter(class == "chemical" & priority ) |> 
+  filter(class == "chemical" & priority) |> 
   select(-class,-priority) |> 
   knitr::kable()
 ```
 ```{r echo = FALSE, warning = FALSE}
 chem_targets <- targets|> 
   left_join(target_metadata, by = c("variable","duration")) |> 
-  filter(class == "chemical" & priority) |> 
+  filter(variable %in% c("fDOM_QSU_mean", "DO_mgL_mean"), 
+         site_id != 'tubr') |> 
   select(-class,-priority) |> 
   filter(depth_m %in% c(1.5, 1.6) | is.na(depth_m)) 
 
-bvr_ch4 <- targets |>
-  left_join(target_metadata, by = c("variable","duration")) |> 
-  filter(class == "chemical" & priority) |> 
-  filter(site_id == 'bvre' & depth_m == 3 & variable == 'CH4_umolL_sample')
-
-chem_targets <- dplyr::bind_rows(chem_targets, bvr_ch4) |>
-  filter(!(site_id == 'bvre' & depth_m != 3 & variable == 'CH4_umolL_sample'))
 
 chem_targets |> ggplot(aes(x = datetime, y = observation)) +
+  geom_point() +
+  facet_grid(variable~site_id, scales = "free_y") +
+  theme_bw()
+```
+
+```{r echo = FALSE, warning = FALSE}
+ghg_flux_df <- targets |> 
+  filter(variable %in% c("CO2flux_umolm2s_mean", "CH4flux_umolm2s_mean"), 
+         site_id != 'tubr')
+
+
+ghg_grab_df <- targets |> 
+  filter(variable %in% c("CH4_umolL_sample", "CO2_umolL_sample"), 
+         site_id != 'tubr', 
+         depth_m == 0.1)
+
+# bvr_ch4 <- targets |>
+#   left_join(target_metadata, by = c("variable","duration")) |> 
+#   filter(class == "chemical" & priority) |> 
+#   filter(site_id == 'bvre' & depth_m == 0.1 & variable == 'CH4_umolL_sample')
+
+ghg_targets <- dplyr::bind_rows(ghg_flux_df, ghg_grab_df)
+
+ghg_co2 <- ghg_targets |> filter(variable %in% c('CO2flux_umolm2s_mean', 'CO2_umolL_sample'))
+ghg_ch4 <- ghg_targets |> filter(variable %in% c('CH4flux_umolm2s_mean', 'CH4_umolL_sample'))
+
+ghg_co2 |> ggplot(aes(x = datetime, y = observation)) +
+  geom_point() +
+  facet_grid(variable~site_id, scales = "free_y") +
+  theme_bw()
+```
+```{r, echo=FALSE, warning=FALSE}
+ghg_ch4 |> ggplot(aes(x = datetime, y = observation)) +
   geom_point() +
   facet_grid(variable~site_id, scales = "free_y") +
   theme_bw()
@@ -163,11 +191,35 @@ inflow_targets <- read_csv(url2, show_col_types = FALSE)
 inflow_targets |> 
   distinct(variable, duration) |> 
   left_join(target_metadata, by = c("variable","duration")) |> 
+  filter(class == "physical" & priority) |> 
   mutate(Description = ifelse(variable == 'Temp_C_mean', 'daily mean water temperature in degrees C', Description)) |> 
   select(-class, -priority) |> 
   knitr::kable()
 ```
 
+```{r, echo=FALSE}
+inflow_targets |> 
+  left_join(target_metadata, by = c("variable","duration")) |> 
+  filter(class == "physical" & priority) |> 
+  select(-class,-priority) |> 
+  filter(depth_m %in% c(1.5, 1.6) | is.na(depth_m)) |> 
+  ggplot(aes(x = datetime, y = observation)) +
+  geom_point() +
+  facet_grid(variable~site_id, scales = "free_y") +
+  theme_bw()
+```
+
+Other variables measured in at the stream inflow:
+
+```{r, echo=FALSE}
+inflow_targets |> 
+  distinct(variable, duration) |> 
+  left_join(target_metadata, by = c("variable","duration")) |> 
+  filter(!priority) |> 
+  mutate(Description = ifelse(variable == 'Temp_C_mean', 'daily mean water temperature in degrees C', Description)) |> 
+  select(-class, -priority) |> 
+  knitr::kable()
+```
 ### Falling Creek Reservoir meteorology
 
 Daily time-step variables measured at the meteorological station (located on the dam at Falling Creek Reservoir)
