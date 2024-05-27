@@ -23,7 +23,7 @@ submit_met_forecast <- function(model_id){
               BP_kPa_mean = mean(surface_pressure * 0.1, na.rm = TRUE),
               .by = c("date","ensemble"))
   }else{
-    df <- df |>  dplyr::summarize(RH_percent_mean = mean(relativehumidity_2m, na.rm = TRUE),
+    df <- df |>  dplyr::summarize(RH_percent_mean = mean(relative_humidity_2m, na.rm = TRUE),
                                   Rain_mm_sum = sum(precipitation, na.rm = TRUE),
                                   WindSpeed_ms_mean = mean(wind_speed_10m, na.rm = TRUE),
                                   AirTemp_C_mean = mean(temperature_2m, na.rm = TRUE),
