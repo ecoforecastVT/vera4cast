@@ -317,7 +317,7 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
 
       forecast_sites <- c()
       ## LOOP OVER MODEL IDS AND CREATE JSONS
-      for (m in theme_models$model_id){
+      for (m in var_models$model_id){
 
         # make model items directory
         if (!dir.exists(paste0(catalog_config$forecast_path,names(config$variable_groups)[i],'/',var_formal_name,"/models"))){
@@ -372,6 +372,7 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
         stac_id <- paste0(m,'_',var_name,'_',duration_name,'_forecast')
 
         stac4cast::build_model(model_id = m,
+                               stac_id = stac_id,
                                team_name = registered_model_id$`Long name of the model (can include spaces)`[idx],
                                model_description = registered_model_id[idx,"Describe your modeling approach in your own words."][[1]],
                                start_date = model_min_date,
