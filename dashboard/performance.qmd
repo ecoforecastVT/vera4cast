@@ -245,7 +245,7 @@ ex |> filter(variable == "Chla_ugL_mean") |>
 
 ```{r}
 ex |> filter(variable == "Bloom_binary_mean") |> 
-  forecast_plots(ylabel = 'Percent Chance of Bloom')
+  forecast_plots(ylabel = 'Percent Chance of Bloom', binary = TRUE)
 ```
 
 ### Water temperature

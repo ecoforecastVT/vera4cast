@@ -4,15 +4,18 @@ library(tidyverse)
 library(score4cast)
 library(glue)
 
-forecast_ggobj <- function(df, ncol = NULL, show.legend = TRUE, ylabel = 'predicted') {
+forecast_ggobj <- function(df, ncol = NULL, show.legend = TRUE, ylabel = 'predicted', binary = FALSE) {
 
-    df |> collect() |>
+    p <- df |> collect() |>
     ggplot() +
-    geom_point(aes(datetime, observation)) +
-    geom_ribbon_interactive(aes(x = datetime, ymin = quantile02.5, ymax = quantile97.5,
+    geom_point(aes(datetime, observation))
+
+  if(!binary){
+    p <- p + geom_ribbon_interactive(aes(x = datetime, ymin = quantile02.5, ymax = quantile97.5,
                                 fill = model_id, data_id = model_id, tooltip = model_id),
-                            alpha = 0.2, show.legend=FALSE) +
-    geom_line_interactive(aes(datetime, mean, col = model_id,
+                            alpha = 0.2, show.legend=FALSE)
+  }
+    p + geom_line_interactive(aes(datetime, mean, col = model_id,
                               tooltip = model_id, data_id = model_id), show.legend=show.legend) +
     labs(x = 'datetime', y = ylabel) +
     facet_wrap(~site_id, scales = "free", ncol=ncol) +
@@ -21,13 +24,13 @@ forecast_ggobj <- function(df, ncol = NULL, show.legend = TRUE, ylabel = 'predic
 }
 
 
-forecast_plots <- function(df, ncol = NULL, show.legend = TRUE, ylabel = 'predicted') {
+forecast_plots <- function(df, ncol = NULL, show.legend = TRUE, ylabel = 'predicted', binary = FALSE) {
 
 
   if (nrow(df) == 0){
     print('No scored forecasts are available for this period')
   } else{
-  ggobj <- forecast_ggobj(df, ncol, show.legend, ylabel)
+  ggobj <- forecast_ggobj(df, ncol, show.legend, ylabel, binary = binary)
   girafe(ggobj = ggobj,
          width_svg = 8, height_svg = 4,
          options = list(

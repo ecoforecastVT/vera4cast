@@ -16,16 +16,16 @@ submit_met_forecast <- function(model_id){
     tidyr::pivot_wider(names_from = variable, values_from = prediction)
 
   if(model_id == "ecmwf_ifs04"){
-  df <- df |>  dplyr::summarize(RH_percent_mean = mean(relativehumidity_2m, na.rm = TRUE),
+  df <- df |>  dplyr::summarize(RH_percent_mean = mean(relative_humidity_2m, na.rm = TRUE),
               Rain_mm_sum = sum(precipitation, na.rm = TRUE),
-              WindSpeed_ms_mean = mean(windspeed_10m, na.rm = TRUE),
+              WindSpeed_ms_mean = mean(wind_speed_10m, na.rm = TRUE),
               AirTemp_C_mean = mean(temperature_2m, na.rm = TRUE),
               BP_kPa_mean = mean(surface_pressure * 0.1, na.rm = TRUE),
               .by = c("date","ensemble"))
   }else{
-    df <- df |>  dplyr::summarize(RH_percent_mean = mean(relativehumidity_2m, na.rm = TRUE),
+    df <- df |>  dplyr::summarize(RH_percent_mean = mean(relative_humidity_2m, na.rm = TRUE),
                                   Rain_mm_sum = sum(precipitation, na.rm = TRUE),
-                                  WindSpeed_ms_mean = mean(windspeed_10m, na.rm = TRUE),
+                                  WindSpeed_ms_mean = mean(wind_speed_10m, na.rm = TRUE),
                                   AirTemp_C_mean = mean(temperature_2m, na.rm = TRUE),
                                   ShortwaveRadiationUp_Wm2_mean = mean(shortwave_radiation, na.rm = TRUE),
                                   BP_kPa_mean = mean(surface_pressure * 0.1, na.rm = TRUE),
