@@ -15,6 +15,11 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "./models/climatology.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "./models/fableARIMA.json"
     },
     {
@@ -35,7 +40,12 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/climatology.json"
+      "href": "./models/persistenceRW.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "./models/climatology2.json"
     },
     {
       "rel": "item",
@@ -46,11 +56,6 @@
       "rel": "item",
       "type": "application/json",
       "href": "./models/monthly_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/persistenceRW.json"
     },
     {
       "rel": "item",
@@ -66,6 +71,11 @@
       "rel": "item",
       "type": "application/json",
       "href": "./models/asl.tbats.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "./models/gfs_seamless.json"
     },
     {
       "rel": "item",

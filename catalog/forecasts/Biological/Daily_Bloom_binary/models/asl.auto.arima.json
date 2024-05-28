@@ -16,7 +16,6 @@
     ]
   },
   "properties": {
-    "title": "Test Title"
     "description": "\nmodel info: forecast::auto.arima() function in R, fit individually at each site/depth\n\nSites: bvre, fcre\n\nVariables: Daily Bloom_binary",
     "start_datetime": "2024-04-29",
     "end_datetime": "2024-07-01",

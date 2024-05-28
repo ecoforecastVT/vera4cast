@@ -4,7 +4,7 @@
     "https://stac-extensions.github.io/table/v1.2.0/schema.json"
   ],
   "type": "Feature",
-  "id": "asl.met.lm_Bloom_binary_mean_P1D_forecast",
+  "id": "asl.met.lm_Chla_ugL_mean_P1D_forecast",
   "bbox": [
     [-79.8372, 37.3032, -79.8159, 37.3129]
   ],
@@ -16,8 +16,8 @@
     ]
   },
   "properties": {
-    "description": "\nmodel info: Linear regression with air temp, humidity, precip, and wind speed\n\nSites: bvre, fcre\n\nVariables: Daily Bloom_binary",
-    "start_datetime": "2024-05-14",
+    "description": "\nmodel info: Linear regression with air temp, humidity, precip, and wind speed\n\nSites: bvre, fcre\n\nVariables: Daily Chlorophyll-a",
+    "start_datetime": "2024-05-06",
     "end_datetime": "2024-06-27",
     "providers": [
       {
@@ -41,7 +41,7 @@
     "keywords": [
       "Forecasting",
       "vera4cast",
-      "Daily Bloom_binary"
+      "Daily Chlorophyll-a"
     ],
     "table:columns": [
       {
@@ -159,9 +159,9 @@
     },
     "3": {
       "type": "application/x-parquet",
-      "title": "Database Access for Daily Bloom_binary",
-      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Bloom_binary_mean/model_id=asl.met.lm?endpoint_override=renc.osn.xsede.org",
-      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Bloom_binary_mean/model_id=asl.met.lm?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+      "title": "Database Access for Daily Chlorophyll-a",
+      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Chla_ugL_mean/model_id=asl.met.lm?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Chla_ugL_mean/model_id=asl.met.lm?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     }
   }
 }
