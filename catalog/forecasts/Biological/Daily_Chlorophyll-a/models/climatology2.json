@@ -4,13 +4,16 @@
     "https://stac-extensions.github.io/table/v1.2.0/schema.json"
   ],
   "type": "Feature",
-  "id": "climatology2",
+  "id": "climatology2_Chla_ugL_mean_P1D_forecast",
   "bbox": [
     [-79.8372, 37.3032, -79.8159, 37.3129]
   ],
   "geometry": {
     "type": "MultiPoint",
-    "coordinates": []
+    "coordinates": [
+      [-79.8159, 37.3129],
+      [-79.8372, 37.3032]
+    ]
   },
   "properties": {
     "description": "\nmodel info: Same is the other climatology\n\nSites: bvre, fcre\n\nVariables: Daily Chlorophyll-a",
