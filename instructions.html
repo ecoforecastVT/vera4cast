@@ -257,7 +257,11 @@ background-size: cover;
 <section id="any-model-driverscovariatesfeatures-are-welcome" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="any-model-driverscovariatesfeatures-are-welcome"><span class="header-section-number">2.3</span> Any model drivers/covariates/features are welcome</h3>
 <p>You can use any data as model inputs (including all of the forecast target data available to date). All sensor-based target data are available in near-real time (1-day latency). You may want to use the updated target data to re-train a model or for data assimilation.</p>
-<p>As VERA is a genuine forecasting challenge, you will need forecasted drivers if your model uses drivers as inputs. If you are interested in using forecasted meteorology for the VERA sites, we have developed an R package (<a href="https://github.com/FLARE-forecast/RopenMeteo">https://github.com/FLARE-forecast/RopenMeteo</a>) that can be used to access ensemble weather forecasts or seasonal forecasts for the sites. The R package is a wrapper around the open-meteo.com API. The README in the R package repo provides instructions for use.</p>
+<p>As VERA is a genuine forecasting challenge, you will need forecasted drivers if your model uses drivers as inputs. If you are interested in using forecasted meteorology for the VERA sites, we provide to two approaches:</p>
+<ul>
+<li><p>We provide weather forecasts from the NOAA Ensemble Forecasting System using custom functions in the <code>vera4castHelpers</code> R package. You can learn more about accessing the weather forecasts using this method <a href="./learn-more.html#sec-noaa-downloads">here</a>. This approach provides access to weather forecasts back to September 2020.</p></li>
+<li><p>We have developed an R package (<a href="https://github.com/FLARE-forecast/RopenMeteo" class="uri">https://github.com/FLARE-forecast/RopenMeteo</a>) that can be used to access ensemble weather forecasts or seasonal forecasts for the through the <a href="open-meteo.com">open-meteo.com</a> API. The README in the R package repo provides instructions for use. This approach only provides the current forecast.</p></li>
+</ul>
 </section>
 <section id="forecasts-can-be-for-a-range-of-horizons" class="level3" data-number="2.4">
 <h3 data-number="2.4" class="anchored" data-anchor-id="forecasts-can-be-for-a-range-of-horizons"><span class="header-section-number">2.4</span> Forecasts can be for a range of horizons</h3>
