@@ -4,18 +4,21 @@
     "https://stac-extensions.github.io/table/v1.2.0/schema.json"
   ],
   "type": "Feature",
-  "id": "asl.auto.arima",
+  "id": "asl.auto.arima_Bloom_binary_mean_P1D_forecast",
   "bbox": [
     [-79.8372, 37.3032, -79.8159, 37.3129]
   ],
   "geometry": {
     "type": "MultiPoint",
-    "coordinates": []
+    "coordinates": [
+      [-79.8159, 37.3129],
+      [-79.8372, 37.3032]
+    ]
   },
   "properties": {
-    "description": "\nmodel info: forecast::auto.arima() function in R, fit individually at each site/depth\n\nSites: bvre, fcre\n\nVariables: Daily Chlorophyll-a",
-    "start_datetime": "2024-03-12",
-    "end_datetime": "2024-06-27",
+    "description": "\nmodel info: forecast::auto.arima() function in R, fit individually at each site/depth\n\nSites: bvre, fcre\n\nVariables: Daily Bloom_binary",
+    "start_datetime": "2024-04-29",
+    "end_datetime": "2024-07-01",
     "providers": [
       {
         "url": "pending",
@@ -38,7 +41,7 @@
     "keywords": [
       "Forecasting",
       "vera4cast",
-      "Daily Chlorophyll-a"
+      "Daily Bloom_binary"
     ],
     "table:columns": [
       {
@@ -156,9 +159,9 @@
     },
     "3": {
       "type": "application/x-parquet",
-      "title": "Database Access for Daily Chlorophyll-a",
-      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Chla_ugL_mean/model_id=asl.auto.arima?endpoint_override=renc.osn.xsede.org",
-      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Chla_ugL_mean/model_id=asl.auto.arima?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+      "title": "Database Access for Daily Bloom_binary",
+      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Bloom_binary_mean/model_id=asl.auto.arima?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Bloom_binary_mean/model_id=asl.auto.arima?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     }
   }
 }

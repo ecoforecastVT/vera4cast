@@ -4,13 +4,16 @@
     "https://stac-extensions.github.io/table/v1.2.0/schema.json"
   ],
   "type": "Feature",
-  "id": "gfs_seamless",
+  "id": "gfs_seamless_Chla_ugL_mean_P1D_forecast",
   "bbox": [
     [-79.8372, 37.3032, -79.8159, 37.3129]
   ],
   "geometry": {
     "type": "MultiPoint",
-    "coordinates": []
+    "coordinates": [
+      [-79.8159, 37.3129],
+      [-79.8372, 37.3032]
+    ]
   },
   "properties": {
     "description": "\nmodel info: NOAA Global Ensemble Forecasting Model downloaded using the https://open-meteo.com.  The seamless model combines the 0.25 and 0.5 degree resolution products to get a full 35-day ahead forecast\n\nSites: bvre, fcre\n\nVariables: Daily Chlorophyll-a",

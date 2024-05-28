@@ -4,20 +4,21 @@
     "https://stac-extensions.github.io/table/v1.2.0/schema.json"
   ],
   "type": "Feature",
-  "id": "secchi_example_forecast",
+  "id": "climatology_Bloom_binary_mean_P1D_forecast",
   "bbox": [
-    [-79.8372, 37.3032, -79.8372, 37.3032]
+    [-79.8372, 37.3032, -79.8159, 37.3129]
   ],
   "geometry": {
     "type": "MultiPoint",
     "coordinates": [
-      [-79.8372, 37.3032]
+      [-79.8372, 37.3032],
+      [-79.8159, 37.3129]
     ]
   },
   "properties": {
-    "description": [],
-    "start_datetime": "2024-04-11",
-    "end_datetime": "2024-05-11",
+    "description": "\nmodel info: Historical DOY mean and sd.  Assumes normal distribution\n\nSites: fcre, bvre\n\nVariables: Daily Bloom_binary",
+    "start_datetime": "2024-02-09",
+    "end_datetime": "2024-07-02",
     "providers": [
       {
         "url": "pending",
@@ -40,7 +41,7 @@
     "keywords": [
       "Forecasting",
       "vera4cast",
-      "Daily Secchi"
+      "Daily Bloom_binary"
     ],
     "table:columns": [
       {
@@ -116,7 +117,7 @@
       "rel": "collection",
       "href": "../collection.json",
       "type": "application/json",
-      "title": "secchi_example_forecast"
+      "title": "climatology"
     },
     {
       "rel": "root",
@@ -128,17 +129,17 @@
       "rel": "parent",
       "href": "../collection.json",
       "type": "application/json",
-      "title": "secchi_example_forecast"
+      "title": "climatology"
     },
     {
       "rel": "self",
-      "href": "secchi_example_forecast.json",
+      "href": "climatology.json",
       "type": "application/json",
       "title": "Model Forecast"
     },
     {
       "rel": "item",
-      "href": [],
+      "href": "https://github.com/LTREB-reservoirs/vera4cast/blob/main/models/run_terrestrial_baselines.R",
       "type": "text/html",
       "title": "Link for Model Code"
     }
@@ -147,20 +148,20 @@
     "1": {
       "type": "application/json",
       "title": "Model Metadata",
-      "href": "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/metadata/model_id/secchi_example_forecast.json",
-      "description": "Use `jsonlite::fromJSON()` to download the model metadata JSON file. This R code will return metadata provided during the model registration.\n      \n\n### R\n\n```{r}\n# Use code below\n\nmodel_metadata <- jsonlite::fromJSON(\"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/metadata/model_id/secchi_example_forecast.json\")\n\n"
+      "href": "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/metadata/model_id/climatology.json",
+      "description": "Use `jsonlite::fromJSON()` to download the model metadata JSON file. This R code will return metadata provided during the model registration.\n      \n\n### R\n\n```{r}\n# Use code below\n\nmodel_metadata <- jsonlite::fromJSON(\"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/metadata/model_id/climatology.json\")\n\n"
     },
     "2": {
       "type": "text/html",
       "title": "Link for Model Code",
-      "href": [],
+      "href": "https://github.com/LTREB-reservoirs/vera4cast/blob/main/models/run_terrestrial_baselines.R",
       "description": "The link to the model code provided by the model submission team"
     },
     "3": {
       "type": "application/x-parquet",
-      "title": "Database Access for Daily Secchi",
-      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Secchi_m_sample/model_id=secchi_example_forecast?endpoint_override=renc.osn.xsede.org",
-      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Secchi_m_sample/model_id=secchi_example_forecast?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+      "title": "Database Access for Daily Bloom_binary",
+      "href": "s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Bloom_binary_mean/model_id=climatology?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/forecasts/parquet/project_id=vera4cast/duration=P1D/variable=Bloom_binary_mean/model_id=climatology?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     }
   }
 }
