@@ -241,8 +241,8 @@ met_targets |>
 ```{r echo=FALSE}
 met_targets |>
   left_join(target_metadata, by = c("variable","duration")) |>
-  filter(variable == 'AirTemp_C_mean')
-  select(-class,-priority) |> 
+  filter(variable == 'AirTemp_C_mean') |> 
+  #select(-class,-priority) |> 
   ggplot(aes(x = datetime, y = observation)) +
   geom_point() +
   facet_grid(variable~site_id, scales = "free_y") +
