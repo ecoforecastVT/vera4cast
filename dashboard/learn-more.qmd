@@ -4,17 +4,19 @@ See below to access the cyberinfrastructure that underlies the VERA Challenge, h
 
 ## Tutorials
 
-Introductory tutorial for submitting to the Challenge: [https://github.com/OlssonF/vera4cast-example](https://github.com/OlssonF/vera4cast-example). [A webinar version of tutorial](https://www.youtube.com/watch?v=-5iPNr19g-4)
+We provide an introductory tutorial for submitting to the Challenge: [https://github.com/OlssonF/vera4cast-example](https://github.com/OlssonF/vera4cast-example). 
 
-Other tutorial materials about [ecological forecasting](https://ecoforecast.org/resources/educational-resources/)
+We provide a webinar version of the tutorial to guide you through the submission process.
+
+{{< video https://youtube.com/playlist?list=PLOv0if66u2-h0dLXknHm9MHtZGEX5kVuu&si=yND904cTLh2DheVW >}}
 
 ## Research from the Virginia Ecoforecast Reservoir Analysis team  
 
 Publications about [forecasting and modeling](https://www.ltreb-reservoirs.org/products/#publications-forecasting-and-modeling)
 
-## NOAA Global Ensemble Forecasting System {#sec-noaa-downloads}
+## Accessing NOAA Global Ensemble Forecasting System weather forecasts {#sec-noaa-downloads}
 
-Functions are provided in the `vera4castHelpers` package that access NOAA weather forecasts that have already been downloaded and standardized for the reservoirs.  To install the `vera4castHelpers` use
+Your forecast model may require weather as a driving variable.  We provide functions in the `vera4castHelpers` package that access NOAA weather forecasts that have already been downloaded and standardized for the reservoirs.  To install the `vera4castHelpers` use
 
 ```{r eval = FALSE}
 remotes::install_github("ltreb-reservoirs/vera4castHelpers")

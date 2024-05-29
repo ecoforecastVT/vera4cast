@@ -56,6 +56,10 @@ Since forecasts can be submitted every day, automation is important.
 We provide an example GitHub repository that can be used to automate your forecast with GitHub Actions.
 It also includes the use of a custom Docker Container [rqthomas/vera4cast:latest](https://github.com/LTREB-reservoirs/vera4cast/blob/main/Dockerfile) that has many of the R packages and functions needed to generate and submit forecasts.
 
+## Online resources
+
+We have prepared a [video playlist](https://youtube.com/playlist?list=PLOv0if66u2-h0dLXknHm9MHtZGEX5kVuu&si=yND904cTLh2DheVW) to guide you through the submission process
+
 ## Forecast file format
 
 The forecast file should be in a csv format with the following columns:
