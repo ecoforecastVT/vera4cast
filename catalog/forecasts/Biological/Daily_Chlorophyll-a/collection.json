@@ -15,82 +15,82 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/climatology.json"
+      "href": "./models/climatology.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/fableARIMA.json"
+      "href": "./models/fableARIMA.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/fableETS.json"
+      "href": "./models/fableETS.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/fableNNETAR.json"
+      "href": "./models/fableNNETAR.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/glm_aed_v1.json"
+      "href": "./models/glm_aed_v1.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/persistenceRW.json"
+      "href": "./models/persistenceRW.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/climatology2.json"
+      "href": "./models/climatology2.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/historic_mean.json"
+      "href": "./models/historic_mean.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/monthly_mean.json"
+      "href": "./models/monthly_mean.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/asl.auto.arima.json"
+      "href": "./models/asl.auto.arima.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/asl.ets.json"
+      "href": "./models/asl.ets.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/asl.tbats.json"
+      "href": "./models/asl.tbats.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/gfs_seamless.json"
+      "href": "./models/gfs_seamless.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/asl.met.lm.json"
+      "href": "./models/asl.met.lm.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/asl.met.lm.step.json"
+      "href": "./models/asl.met.lm.step.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "../../models/model_items/asl.temp.lm.json"
+      "href": "./models/asl.temp.lm.json"
     },
     {
       "rel": "parent",

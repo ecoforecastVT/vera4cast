@@ -4,7 +4,7 @@
     "https://stac-extensions.github.io/table/v1.2.0/schema.json"
   ],
   "type": "Feature",
-  "id": "ecmwf_ifs04_DO_mgL_mean_P1D_forecast",
+  "id": "ecmwf_ifs04_DO_mgL_mean_P1D_scores",
   "bbox": [
     ["Inf", "Inf", "-Inf", "-Inf"]
   ],
