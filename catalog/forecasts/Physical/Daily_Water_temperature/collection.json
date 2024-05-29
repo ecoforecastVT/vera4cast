@@ -175,12 +175,17 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-06-27T00:00:00Z"
+          "2024-07-03T00:00:00Z"
         ]
       ]
     }
   },
   "table:columns": [
+    {
+      "name": "13 columns",
+      "type": null,
+      "description": {}
+    },
     {
       "name": "datetime",
       "type": "date32[day]",
@@ -240,11 +245,6 @@
       "name": "model_id",
       "type": "string",
       "description": "unique model identifier"
-    },
-    {
-      "name": "reference_date",
-      "type": "string",
-      "description": "date that the forecast was initiated"
     }
   ],
   "assets": {

@@ -16,6 +16,7 @@
     ]
   },
   "properties": {
+    "title": "climatology2",
     "description": "\nmodel info: Same is the other climatology\n\nSites: bvre, fcre\n\nVariables: Daily Chlorophyll-a",
     "start_datetime": "2023-10-07",
     "end_datetime": "2023-11-10",
@@ -44,6 +45,11 @@
       "Daily Chlorophyll-a"
     ],
     "table:columns": [
+      {
+        "name": "13 columns",
+        "type": null,
+        "description": {}
+      },
       {
         "name": "datetime",
         "type": "date32[day]",
@@ -103,11 +109,6 @@
         "name": "model_id",
         "type": "string",
         "description": "unique model identifier"
-      },
-      {
-        "name": "reference_date",
-        "type": "string",
-        "description": "date that the forecast was initiated"
       }
     ]
   },

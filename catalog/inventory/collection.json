@@ -58,12 +58,17 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2439-08-21T00:00:00Z"
+          "2451-11-28T00:00:00Z"
         ]
       ]
     }
   },
   "table:columns": [
+    {
+      "name": "14 columns",
+      "type": null,
+      "description": {}
+    },
     {
       "name": "duration",
       "type": "string",
@@ -126,11 +131,6 @@
     },
     {
       "name": "latitude",
-      "type": "double",
-      "description": {}
-    },
-    {
-      "name": "longitude",
       "type": "double",
       "description": {}
     }

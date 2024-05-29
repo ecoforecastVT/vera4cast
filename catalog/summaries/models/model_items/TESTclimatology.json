@@ -4,21 +4,19 @@
     "https://stac-extensions.github.io/table/v1.2.0/schema.json"
   ],
   "type": "Feature",
-  "id": "TESTclimatology",
+  "id": "TESTclimatology_DO_mgL_mean_P1D_forecast",
   "bbox": [
-    [-79.8372, 37.3032, -79.8159, 37.3129]
+    ["Inf", "Inf", "-Inf", "-Inf"]
   ],
   "geometry": {
     "type": "MultiPoint",
-    "coordinates": [
-      [-79.8159, 37.3129],
-      [-79.8372, 37.3032]
-    ]
+    "coordinates": []
   },
   "properties": {
+    "title": "TESTclimatology",
     "description": [],
-    "start_datetime": "2023-09-22",
-    "end_datetime": "2023-10-27",
+    "start_datetime": "Inf",
+    "end_datetime": "-Inf",
     "providers": [
       {
         "url": "pending",
@@ -40,10 +38,14 @@
     "license": "CC0-1.0",
     "keywords": [
       "Forecasting",
-      "vera4cast",
-      "Daily Water_temperature"
+      "vera4cast"
     ],
     "table:columns": [
+      {
+        "name": "18 columns",
+        "type": null,
+        "description": {}
+      },
       {
         "name": "reference_datetime",
         "type": "timestamp[us, tz=UTC]",
@@ -128,11 +130,6 @@
         "name": "model_id",
         "type": "string",
         "description": "unique model identifier"
-      },
-      {
-        "name": "reference_date",
-        "type": "string",
-        "description": "date that the forecast was initiated"
       }
     ]
   },
@@ -184,9 +181,15 @@
     },
     "3": {
       "type": "application/x-parquet",
-      "title": "Database Access for Daily Water_temperature",
-      "href": "s3://anonymous@project_id=vera4cast/duration=P1D/variable=Temp_C_mean/model_id=TESTclimatology?endpoint_override=renc.osn.xsede.org",
-      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=P1D/variable=Temp_C_mean/model_id=TESTclimatology?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+      "title": "Database Access for NA",
+      "href": "s3://anonymous@project_id=NA/duration=NA/variable=NA/model_id=TESTclimatology?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=NA/duration=NA/variable=NA/model_id=TESTclimatology?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+    },
+    "4": {
+      "type": "application/x-parquet",
+      "title": "Database Access for ",
+      "href": "s3://anonymous@project_id=/duration=/variable=/model_id=TESTclimatology?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=/duration=/variable=/model_id=TESTclimatology?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     }
   }
 }

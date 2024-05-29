@@ -16,9 +16,10 @@
     ]
   },
   "properties": {
+    "title": "asl.tbats",
     "description": "\nmodel info: forecast::tbats() function in R, fit individually at each site/depth\n\nSites: bvre, fcre\n\nVariables: Daily Bloom_binary",
     "start_datetime": "2024-04-29",
-    "end_datetime": "2024-07-01",
+    "end_datetime": "2024-07-02",
     "providers": [
       {
         "url": "pending",
@@ -44,6 +45,11 @@
       "Daily Bloom_binary"
     ],
     "table:columns": [
+      {
+        "name": "13 columns",
+        "type": null,
+        "description": {}
+      },
       {
         "name": "datetime",
         "type": "date32[day]",
@@ -103,11 +109,6 @@
         "name": "model_id",
         "type": "string",
         "description": "unique model identifier"
-      },
-      {
-        "name": "reference_date",
-        "type": "string",
-        "description": "date that the forecast was initiated"
       }
     ]
   },

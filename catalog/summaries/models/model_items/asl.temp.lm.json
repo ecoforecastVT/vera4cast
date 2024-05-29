@@ -4,7 +4,7 @@
     "https://stac-extensions.github.io/table/v1.2.0/schema.json"
   ],
   "type": "Feature",
-  "id": "asl.temp.lm",
+  "id": "asl.temp.lm_DO_mgL_mean_P1D_forecast",
   "bbox": [
     [-79.8372, 37.3032, -79.8159, 37.3129]
   ],
@@ -16,9 +16,10 @@
     ]
   },
   "properties": {
-    "description": "\nmodel info: Linear regression with air temperature\n\nSites: bvre, fcre\n\nVariables: Daily Water_temperature, Daily Chlorophyll-a, Daily fluorescent dissolved organic matter, Daily oxygen_concentration, Daily Secchi, Daily Turbidity, Daily Specific conductance, Daily Bloom_binary, Daily Dissolved methane",
+    "title": "asl.temp.lm",
+    "description": "\nmodel info: Linear regression with air temperature\n\nSites: bvre, fcre\n\nVariables: Daily oxygen_concentration",
     "start_datetime": "2024-05-06",
-    "end_datetime": "2024-06-25",
+    "end_datetime": "2024-06-27",
     "providers": [
       {
         "url": "pending",
@@ -41,17 +42,14 @@
     "keywords": [
       "Forecasting",
       "vera4cast",
-      "Daily Water_temperature",
-      "Daily Chlorophyll-a",
-      "Daily fluorescent dissolved organic matter",
-      "Daily oxygen_concentration",
-      "Daily Secchi",
-      "Daily Turbidity",
-      "Daily Specific conductance",
-      "Daily Bloom_binary",
-      "Daily Dissolved methane"
+      "Daily oxygen_concentration"
     ],
     "table:columns": [
+      {
+        "name": "18 columns",
+        "type": null,
+        "description": {}
+      },
       {
         "name": "reference_datetime",
         "type": "timestamp[us, tz=UTC]",
@@ -136,11 +134,6 @@
         "name": "model_id",
         "type": "string",
         "description": "unique model identifier"
-      },
-      {
-        "name": "reference_date",
-        "type": "string",
-        "description": "date that the forecast was initiated"
       }
     ]
   },
@@ -192,57 +185,9 @@
     },
     "3": {
       "type": "application/x-parquet",
-      "title": "Database Access for Daily Water_temperature",
-      "href": "s3://anonymous@project_id=vera4cast/duration=P1D/variable=Temp_C_mean/model_id=asl.temp.lm?endpoint_override=renc.osn.xsede.org",
-      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=P1D/variable=Temp_C_mean/model_id=asl.temp.lm?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
-    },
-    "4": {
-      "type": "application/x-parquet",
-      "title": "Database Access for Daily Chlorophyll-a",
-      "href": "s3://anonymous@project_id=vera4cast/duration=P1D/variable=Chla_ugL_mean/model_id=asl.temp.lm?endpoint_override=renc.osn.xsede.org",
-      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=P1D/variable=Chla_ugL_mean/model_id=asl.temp.lm?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
-    },
-    "5": {
-      "type": "application/x-parquet",
-      "title": "Database Access for Daily fluorescent dissolved organic matter",
-      "href": "s3://anonymous@project_id=vera4cast/duration=P1D/variable=fDOM_QSU_mean/model_id=asl.temp.lm?endpoint_override=renc.osn.xsede.org",
-      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=P1D/variable=fDOM_QSU_mean/model_id=asl.temp.lm?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
-    },
-    "6": {
-      "type": "application/x-parquet",
       "title": "Database Access for Daily oxygen_concentration",
       "href": "s3://anonymous@project_id=vera4cast/duration=P1D/variable=DO_mgL_mean/model_id=asl.temp.lm?endpoint_override=renc.osn.xsede.org",
       "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=P1D/variable=DO_mgL_mean/model_id=asl.temp.lm?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
-    },
-    "7": {
-      "type": "application/x-parquet",
-      "title": "Database Access for Daily Secchi",
-      "href": "s3://anonymous@project_id=vera4cast/duration=P1D/variable=Secchi_m_sample/model_id=asl.temp.lm?endpoint_override=renc.osn.xsede.org",
-      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=P1D/variable=Secchi_m_sample/model_id=asl.temp.lm?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
-    },
-    "8": {
-      "type": "application/x-parquet",
-      "title": "Database Access for Daily Turbidity",
-      "href": "s3://anonymous@project_id=vera4cast/duration=P1D/variable=Turbidity_FNU_mean/model_id=asl.temp.lm?endpoint_override=renc.osn.xsede.org",
-      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=P1D/variable=Turbidity_FNU_mean/model_id=asl.temp.lm?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
-    },
-    "9": {
-      "type": "application/x-parquet",
-      "title": "Database Access for Daily Specific conductance",
-      "href": "s3://anonymous@project_id=vera4cast/duration=P1D/variable=SpCond_uScm_mean/model_id=asl.temp.lm?endpoint_override=renc.osn.xsede.org",
-      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=P1D/variable=SpCond_uScm_mean/model_id=asl.temp.lm?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
-    },
-    "10": {
-      "type": "application/x-parquet",
-      "title": "Database Access for Daily Bloom_binary",
-      "href": "s3://anonymous@project_id=vera4cast/duration=P1D/variable=Bloom_binary_mean/model_id=asl.temp.lm?endpoint_override=renc.osn.xsede.org",
-      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=P1D/variable=Bloom_binary_mean/model_id=asl.temp.lm?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
-    },
-    "11": {
-      "type": "application/x-parquet",
-      "title": "Database Access for Daily Dissolved methane",
-      "href": "s3://anonymous@project_id=vera4cast/duration=P1D/variable=CH4_umolL_sample/model_id=asl.temp.lm?endpoint_override=renc.osn.xsede.org",
-      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=P1D/variable=CH4_umolL_sample/model_id=asl.temp.lm?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     }
   }
 }

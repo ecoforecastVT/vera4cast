@@ -15,72 +15,72 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/fableARIMA.json"
+      "href": "../../models/model_items/fableARIMA.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/fableETS.json"
+      "href": "../../models/model_items/fableETS.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/fableNNETAR.json"
+      "href": "../../models/model_items/fableNNETAR.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/glm_aed_v1.json"
+      "href": "../../models/model_items/glm_aed_v1.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/climatology.json"
+      "href": "../../models/model_items/climatology.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/historic_mean.json"
+      "href": "../../models/model_items/historic_mean.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/monthly_mean.json"
+      "href": "../../models/model_items/monthly_mean.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/persistenceRW.json"
+      "href": "../../models/model_items/persistenceRW.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/asl.auto.arima.json"
+      "href": "../../models/model_items/asl.auto.arima.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/asl.ets.json"
+      "href": "../../models/model_items/asl.ets.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/asl.tbats.json"
+      "href": "../../models/model_items/asl.tbats.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/asl.met.lm.json"
+      "href": "../../models/model_items/asl.met.lm.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/asl.met.lm.step.json"
+      "href": "../../models/model_items/asl.met.lm.step.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/asl.temp.lm.json"
+      "href": "../../models/model_items/asl.temp.lm.json"
     },
     {
       "rel": "parent",
@@ -125,12 +125,17 @@
       "interval": [
         [
           "2023-10-01T00:00:00Z",
-          "2024-07-02T00:00:00Z"
+          "2024-07-03T00:00:00Z"
         ]
       ]
     }
   },
   "table:columns": [
+    {
+      "name": "13 columns",
+      "type": null,
+      "description": {}
+    },
     {
       "name": "datetime",
       "type": "date32[day]",
@@ -190,11 +195,6 @@
       "name": "model_id",
       "type": "string",
       "description": "unique model identifier"
-    },
-    {
-      "name": "reference_date",
-      "type": "string",
-      "description": "date that the forecast was initiated"
     }
   ],
   "assets": {

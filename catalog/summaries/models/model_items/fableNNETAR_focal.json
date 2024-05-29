@@ -4,7 +4,7 @@
     "https://stac-extensions.github.io/table/v1.2.0/schema.json"
   ],
   "type": "Feature",
-  "id": "fableNNETAR_focal",
+  "id": "fableNNETAR_focal_DO_mgL_mean_P1D_forecast",
   "bbox": [
     [-79.8372, 37.3032, -79.8159, 37.3129]
   ],
@@ -16,9 +16,10 @@
     ]
   },
   "properties": {
-    "description": "\nmodel info: autoregressive neural net fit using the NNETAR() function in the fable R package for VERA focal variables\n\nSites: bvre, fcre\n\nVariables: Daily Water_temperature, Daily oxygen_concentration, Daily Secchi, Daily fluorescent dissolved organic matter",
+    "title": "fableNNETAR_focal",
+    "description": "\nmodel info: autoregressive neural net fit using the NNETAR() function in the fable R package for VERA focal variables\n\nSites: bvre, fcre\n\nVariables: Daily oxygen_concentration",
     "start_datetime": "2024-04-26",
-    "end_datetime": "2024-06-26",
+    "end_datetime": "2024-07-01",
     "providers": [
       {
         "url": "pending",
@@ -41,12 +42,14 @@
     "keywords": [
       "Forecasting",
       "vera4cast",
-      "Daily Water_temperature",
-      "Daily oxygen_concentration",
-      "Daily Secchi",
-      "Daily fluorescent dissolved organic matter"
+      "Daily oxygen_concentration"
     ],
     "table:columns": [
+      {
+        "name": "18 columns",
+        "type": null,
+        "description": {}
+      },
       {
         "name": "reference_datetime",
         "type": "timestamp[us, tz=UTC]",
@@ -131,11 +134,6 @@
         "name": "model_id",
         "type": "string",
         "description": "unique model identifier"
-      },
-      {
-        "name": "reference_date",
-        "type": "string",
-        "description": "date that the forecast was initiated"
       }
     ]
   },
@@ -187,27 +185,9 @@
     },
     "3": {
       "type": "application/x-parquet",
-      "title": "Database Access for Daily Water_temperature",
-      "href": "s3://anonymous@project_id=vera4cast/duration=P1D/variable=Temp_C_mean/model_id=fableNNETAR_focal?endpoint_override=renc.osn.xsede.org",
-      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=P1D/variable=Temp_C_mean/model_id=fableNNETAR_focal?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
-    },
-    "4": {
-      "type": "application/x-parquet",
       "title": "Database Access for Daily oxygen_concentration",
       "href": "s3://anonymous@project_id=vera4cast/duration=P1D/variable=DO_mgL_mean/model_id=fableNNETAR_focal?endpoint_override=renc.osn.xsede.org",
       "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=P1D/variable=DO_mgL_mean/model_id=fableNNETAR_focal?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
-    },
-    "5": {
-      "type": "application/x-parquet",
-      "title": "Database Access for Daily Secchi",
-      "href": "s3://anonymous@project_id=vera4cast/duration=P1D/variable=Secchi_m_sample/model_id=fableNNETAR_focal?endpoint_override=renc.osn.xsede.org",
-      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=P1D/variable=Secchi_m_sample/model_id=fableNNETAR_focal?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
-    },
-    "6": {
-      "type": "application/x-parquet",
-      "title": "Database Access for Daily fluorescent dissolved organic matter",
-      "href": "s3://anonymous@project_id=vera4cast/duration=P1D/variable=fDOM_QSU_mean/model_id=fableNNETAR_focal?endpoint_override=renc.osn.xsede.org",
-      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@project_id=vera4cast/duration=P1D/variable=fDOM_QSU_mean/model_id=fableNNETAR_focal?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     }
   }
 }

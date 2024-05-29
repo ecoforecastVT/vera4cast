@@ -69,12 +69,17 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2439-08-21T00:00:00Z"
+          "2451-11-28T00:00:00Z"
         ]
       ]
     }
   },
   "table:columns": [
+    {
+      "name": "18 columns",
+      "type": null,
+      "description": {}
+    },
     {
       "name": "reference_datetime",
       "type": "timestamp[us, tz=UTC]",
@@ -159,11 +164,6 @@
       "name": "model_id",
       "type": "string",
       "description": "unique model identifier"
-    },
-    {
-      "name": "reference_date",
-      "type": "string",
-      "description": "date that the forecast was initiated"
     }
   ],
   "assets": {
