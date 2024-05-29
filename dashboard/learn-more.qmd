@@ -6,9 +6,12 @@ See below to access the cyberinfrastructure that underlies the VERA Challenge, h
 
 We provide an introductory tutorial for submitting to the Challenge: [https://github.com/OlssonF/vera4cast-example](https://github.com/OlssonF/vera4cast-example). 
 
-We provide a webinar version of the tutorial to guide you through the submission process.
+We provide [videos](https://youtube.com/playlist?list=PLOv0if66u2-h0dLXknHm9MHtZGEX5kVuu&si=yND904cTLh2DheVW of the tutorial to guide you through the submission process. The videos include an:
 
-{{< video https://youtube.com/playlist?list=PLOv0if66u2-h0dLXknHm9MHtZGEX5kVuu&si=yND904cTLh2DheVW >}}
+Anatomy of a VERA forecast
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/35Gmzls3rm4?si=WZDRiplNNvxw5uLb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 
 ## Research from the Virginia Ecoforecast Reservoir Analysis team  
 
