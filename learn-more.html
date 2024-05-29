@@ -73,6 +73,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -188,7 +190,7 @@ background-size: cover;
   <ul class="collapse">
   <li><a href="#tutorials" id="toc-tutorials" class="nav-link" data-scroll-target="#tutorials">Tutorials</a></li>
   <li><a href="#research-from-the-virginia-ecoforecast-reservoir-analysis-team" id="toc-research-from-the-virginia-ecoforecast-reservoir-analysis-team" class="nav-link" data-scroll-target="#research-from-the-virginia-ecoforecast-reservoir-analysis-team">Research from the Virginia Ecoforecast Reservoir Analysis team</a></li>
-  <li><a href="#sec-noaa-downloads" id="toc-sec-noaa-downloads" class="nav-link" data-scroll-target="#sec-noaa-downloads">NOAA Global Ensemble Forecasting System</a>
+  <li><a href="#sec-noaa-downloads" id="toc-sec-noaa-downloads" class="nav-link" data-scroll-target="#sec-noaa-downloads">Accessing NOAA Global Ensemble Forecasting System weather forecasts</a>
   <ul class="collapse">
   <li><a href="#historical-weather" id="toc-historical-weather" class="nav-link" data-scroll-target="#historical-weather">“Historical weather”</a></li>
   </ul></li>
@@ -206,16 +208,17 @@ background-size: cover;
 <p>See below to access the cyberinfrastructure that underlies the VERA Challenge, helpful tutorials for participating the VERA Challenge, and papers related to VERA.</p>
 <section id="tutorials" class="level2">
 <h2 class="anchored" data-anchor-id="tutorials">Tutorials</h2>
-<p>Introductory tutorial for submitting to the Challenge: <a href="https://github.com/OlssonF/vera4cast-example">https://github.com/OlssonF/vera4cast-example</a>. <a href="https://www.youtube.com/watch?v=-5iPNr19g-4">A webinar version of tutorial</a></p>
-<p>Other tutorial materials about <a href="https://ecoforecast.org/resources/educational-resources/">ecological forecasting</a></p>
+<p>We provide an introductory tutorial for submitting to the Challenge: <a href="https://github.com/OlssonF/vera4cast-example">https://github.com/OlssonF/vera4cast-example</a>.</p>
+<p>We provide a webinar version of the tutorial to guide you through the submission process.</p>
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="https://youtube.com/playlist?list=PLOv0if66u2-h0dLXknHm9MHtZGEX5kVuu&amp;si=yND904cTLh2DheVW"></video></div>
 </section>
 <section id="research-from-the-virginia-ecoforecast-reservoir-analysis-team" class="level2">
 <h2 class="anchored" data-anchor-id="research-from-the-virginia-ecoforecast-reservoir-analysis-team">Research from the Virginia Ecoforecast Reservoir Analysis team</h2>
 <p>Publications about <a href="https://www.ltreb-reservoirs.org/products/#publications-forecasting-and-modeling">forecasting and modeling</a></p>
 </section>
 <section id="sec-noaa-downloads" class="level2">
-<h2 class="anchored" data-anchor-id="sec-noaa-downloads">NOAA Global Ensemble Forecasting System</h2>
-<p>Functions are provided in the <code>vera4castHelpers</code> package that access NOAA weather forecasts that have already been downloaded and standardized for the reservoirs. To install the <code>vera4castHelpers</code> use</p>
+<h2 class="anchored" data-anchor-id="sec-noaa-downloads">Accessing NOAA Global Ensemble Forecasting System weather forecasts</h2>
+<p>Your forecast model may require weather as a driving variable. We provide functions in the <code>vera4castHelpers</code> package that access NOAA weather forecasts that have already been downloaded and standardized for the reservoirs. To install the <code>vera4castHelpers</code> use</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"ltreb-reservoirs/vera4castHelpers"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -614,6 +617,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script>videojs(video_shortcode_videojs_video1);</script>
 
 
 

@@ -209,20 +209,21 @@ background-size: cover;
   <li><a href="#forecasts-can-be-for-a-range-of-horizons" id="toc-forecasts-can-be-for-a-range-of-horizons" class="nav-link" data-scroll-target="#forecasts-can-be-for-a-range-of-horizons"><span class="header-section-number">2.4</span> Forecasts can be for a range of horizons</a></li>
   <li><a href="#forecasts-can-be-submitted-every-day" id="toc-forecasts-can-be-submitted-every-day" class="nav-link" data-scroll-target="#forecasts-can-be-submitted-every-day"><span class="header-section-number">2.5</span> Forecasts can be submitted every day</a></li>
   </ul></li>
-  <li><a href="#forecast-file-format" id="toc-forecast-file-format" class="nav-link" data-scroll-target="#forecast-file-format"><span class="header-section-number">3</span> Forecast file format</a></li>
-  <li><a href="#representing-uncertainty" id="toc-representing-uncertainty" class="nav-link" data-scroll-target="#representing-uncertainty"><span class="header-section-number">4</span> Representing uncertainty</a>
+  <li><a href="#online-resources" id="toc-online-resources" class="nav-link" data-scroll-target="#online-resources"><span class="header-section-number">3</span> Online resources</a></li>
+  <li><a href="#forecast-file-format" id="toc-forecast-file-format" class="nav-link" data-scroll-target="#forecast-file-format"><span class="header-section-number">4</span> Forecast file format</a></li>
+  <li><a href="#representing-uncertainty" id="toc-representing-uncertainty" class="nav-link" data-scroll-target="#representing-uncertainty"><span class="header-section-number">5</span> Representing uncertainty</a>
   <ul class="collapse">
-  <li><a href="#example-forecasts" id="toc-example-forecasts" class="nav-link" data-scroll-target="#example-forecasts"><span class="header-section-number">4.1</span> Example forecasts</a></li>
+  <li><a href="#example-forecasts" id="toc-example-forecasts" class="nav-link" data-scroll-target="#example-forecasts"><span class="header-section-number">5.1</span> Example forecasts</a></li>
   </ul></li>
-  <li><a href="#submission-process" id="toc-submission-process" class="nav-link" data-scroll-target="#submission-process"><span class="header-section-number">5</span> Submission process</a></li>
-  <li><a href="#post-submission" id="toc-post-submission" class="nav-link" data-scroll-target="#post-submission"><span class="header-section-number">6</span> Post-submission</a>
+  <li><a href="#submission-process" id="toc-submission-process" class="nav-link" data-scroll-target="#submission-process"><span class="header-section-number">6</span> Submission process</a></li>
+  <li><a href="#post-submission" id="toc-post-submission" class="nav-link" data-scroll-target="#post-submission"><span class="header-section-number">7</span> Post-submission</a>
   <ul class="collapse">
-  <li><a href="#processing" id="toc-processing" class="nav-link" data-scroll-target="#processing"><span class="header-section-number">6.1</span> Processing</a></li>
-  <li><a href="#evaluation" id="toc-evaluation" class="nav-link" data-scroll-target="#evaluation"><span class="header-section-number">6.2</span> Evaluation</a></li>
-  <li><a href="#comparison" id="toc-comparison" class="nav-link" data-scroll-target="#comparison"><span class="header-section-number">6.3</span> Comparison</a></li>
-  <li><a href="#catalog" id="toc-catalog" class="nav-link" data-scroll-target="#catalog"><span class="header-section-number">6.4</span> Catalog</a></li>
+  <li><a href="#processing" id="toc-processing" class="nav-link" data-scroll-target="#processing"><span class="header-section-number">7.1</span> Processing</a></li>
+  <li><a href="#evaluation" id="toc-evaluation" class="nav-link" data-scroll-target="#evaluation"><span class="header-section-number">7.2</span> Evaluation</a></li>
+  <li><a href="#comparison" id="toc-comparison" class="nav-link" data-scroll-target="#comparison"><span class="header-section-number">7.3</span> Comparison</a></li>
+  <li><a href="#catalog" id="toc-catalog" class="nav-link" data-scroll-target="#catalog"><span class="header-section-number">7.4</span> Catalog</a></li>
   </ul></li>
-  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions"><span class="header-section-number">7</span> Questions?</a></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions"><span class="header-section-number">8</span> Questions?</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/LTREB-reservoirs/vera4cast/blob/main/instructions.qmd" class="toc-action">View source</a></p><p><a href="https://github.com/LTREB-reservoirs/vera4cast/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -272,8 +273,12 @@ background-size: cover;
 <p>Since forecasts can be submitted every day, automation is important. We provide an example GitHub repository that can be used to automate your forecast with GitHub Actions. It also includes the use of a custom Docker Container <a href="https://github.com/LTREB-reservoirs/vera4cast/blob/main/Dockerfile">rqthomas/vera4cast:latest</a> that has many of the R packages and functions needed to generate and submit forecasts.</p>
 </section>
 </section>
-<section id="forecast-file-format" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="forecast-file-format"><span class="header-section-number">3</span> Forecast file format</h2>
+<section id="online-resources" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="online-resources"><span class="header-section-number">3</span> Online resources</h2>
+<p>We have prepared a <a href="https://youtube.com/playlist?list=PLOv0if66u2-h0dLXknHm9MHtZGEX5kVuu&amp;si=yND904cTLh2DheVW">video playlist</a> to guide you through the submission process</p>
+</section>
+<section id="forecast-file-format" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="forecast-file-format"><span class="header-section-number">4</span> Forecast file format</h2>
 <p>The forecast file should be in a csv format with the following columns:</p>
 <ul>
 <li><p><code>project_id</code>: use <code>vera4cast</code></p></li>
@@ -289,11 +294,11 @@ background-size: cover;
 <li><p><code>prediction</code>: forecasted value for the parameter in the parameter column</p></li>
 </ul>
 </section>
-<section id="representing-uncertainty" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="representing-uncertainty"><span class="header-section-number">4</span> Representing uncertainty</h2>
+<section id="representing-uncertainty" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="representing-uncertainty"><span class="header-section-number">5</span> Representing uncertainty</h2>
 <p>Uncertainty is represented through the family and parameter columns.</p>
-<section id="parameteric-forecast" class="level4" data-number="4.0.1">
-<h4 data-number="4.0.1" class="anchored" data-anchor-id="parameteric-forecast"><span class="header-section-number">4.0.1</span> Parameteric forecast</h4>
+<section id="parameteric-forecast" class="level4" data-number="5.0.1">
+<h4 data-number="5.0.1" class="anchored" data-anchor-id="parameteric-forecast"><span class="header-section-number">5.0.1</span> Parameteric forecast</h4>
 <p>Parametric forecasts describe uncertainty by providing the values of parameters for an uncertainty distribution representing the forecast. The name of the distribution is provided in the ‘family’ column and the names of the parameters for the distribution are provided in the ‘parameter’ column. The values of the parameters are provided in the ‘prediction’ column. For a parametric forecast with a normal distribution, the <code>family</code> column would have the word <code>normal</code> to designate a normal distribution and the parameter column must have values of <code>mu</code> and <code>sigma</code> for each forecasted variable, site_id, depth, and time combination.</p>
 <p>Parametric forecasts for binary variables should use <code>bernoulli</code> as the distribution.</p>
 <p>The following names and parameterization of the distribution are currently supported by VERA (family: parameters):</p>
@@ -310,13 +315,13 @@ background-size: cover;
 </ul>
 <p>If you are submitting a forecast that is not in the supported list, we recommend using the ensemble format and sampling from your distribution to generate a set of ensemble members that represents your forecast distribution.</p>
 </section>
-<section id="ensemble-or-sample-forecast" class="level4" data-number="4.0.2">
-<h4 data-number="4.0.2" class="anchored" data-anchor-id="ensemble-or-sample-forecast"><span class="header-section-number">4.0.2</span> Ensemble (or sample) forecast</h4>
+<section id="ensemble-or-sample-forecast" class="level4" data-number="5.0.2">
+<h4 data-number="5.0.2" class="anchored" data-anchor-id="ensemble-or-sample-forecast"><span class="header-section-number">5.0.2</span> Ensemble (or sample) forecast</h4>
 <p>Ensemble, or sample, forecasts describe uncertainty by providing many predictions from multiple ensemble members, which altogether represent the uncertainty in the forecast. When submitting an ensemble forecast, the value of the ‘family’ column will be ‘ensemble’ and the ‘parameter’ column is used to index the ensemble members (e.g., 1-100 for a 100-member ensemble).</p>
 <p>When forecasts using the ensemble family are scored, we assume that the ensemble is a set of equally likely realizations that are sampled from a distribution that is comparable to that of the observations (i.e., no broad adjustments are required to make the ensemble more consistent with observations). This is referred to as a “perfect ensemble” by <a href="https://doi.org/10.1175/WAF993.1">Bröcker and Smith (2007)</a>. Ensemble (or sample) forecasts are transformed to a probability distribution function (e.g., dressed) using the default methods in the <code>scoringRules</code> R package (empirical version of the quantile decomposition for the <code>crps</code> and kernel density estimation using a Gaussian kernel for the <code>logs</code>). Kernel density estimation uses the default bandwidth produced by the <code>bw.nrd</code> function in the R <code>stats</code> package.</p>
 </section>
-<section id="example-forecasts" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="example-forecasts"><span class="header-section-number">4.1</span> Example forecasts</h3>
+<section id="example-forecasts" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="example-forecasts"><span class="header-section-number">5.1</span> Example forecasts</h3>
 <p>Here is an example of a forecast that has a normal distribution:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/forecasts/raw/T20231001231345_daily-2023-10-01-climatology.csv.gz"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
@@ -359,8 +364,8 @@ $ duration           &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D"
 </div>
 </section>
 </section>
-<section id="submission-process" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="submission-process"><span class="header-section-number">5</span> Submission process</h2>
+<section id="submission-process" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="submission-process"><span class="header-section-number">6</span> Submission process</h2>
 <p>Individual forecast files can be uploaded any time.</p>
 <p>Teams will submit their forecast csv output files through an R function.</p>
 <p>The function is available using the following code:</p>
@@ -378,18 +383,18 @@ $ duration           &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D"
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">first_submission =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="post-submission" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="post-submission"><span class="header-section-number">6</span> Post-submission</h2>
-<section id="processing" class="level3" data-number="6.1">
-<h3 data-number="6.1" class="anchored" data-anchor-id="processing"><span class="header-section-number">6.1</span> Processing</h3>
+<section id="post-submission" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="post-submission"><span class="header-section-number">7</span> Post-submission</h2>
+<section id="processing" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="processing"><span class="header-section-number">7.1</span> Processing</h3>
 <p>After submission, our servers will process uploaded files by converting them to a parquet format on our public s3 storage. A <code>pub_datetime</code> column will be added that denotes when a forecast was submitted.</p>
 </section>
-<section id="evaluation" class="level3" data-number="6.2">
-<h3 data-number="6.2" class="anchored" data-anchor-id="evaluation"><span class="header-section-number">6.2</span> Evaluation</h3>
+<section id="evaluation" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="evaluation"><span class="header-section-number">7.2</span> Evaluation</h3>
 <p>All forecasts are scored daily using new data until the full horizon of the forecast has been scored. Forecasts are scored using the <code>crps</code> and <code>logs</code> functions in the <a href="https://cran.r-project.org/web/packages/scoringRules/index.html"><code>scoringRules</code></a> R package. These scores evaluate both the accuracy and precision of the forecast distribution (i.e., how close was the forecast mean to the observation and how certain was the forecast).</p>
 </section>
-<section id="comparison" class="level3" data-number="6.3">
-<h3 data-number="6.3" class="anchored" data-anchor-id="comparison"><span class="header-section-number">6.3</span> Comparison</h3>
+<section id="comparison" class="level3" data-number="7.3">
+<h3 data-number="7.3" class="anchored" data-anchor-id="comparison"><span class="header-section-number">7.3</span> Comparison</h3>
 <p>Forecast performance can be compared to the performance of baseline models. We are automatically submitting the following baseline models:</p>
 <ul>
 <li><code>climatology</code>: the normal distribution (mean and standard deviation) of that day-of-year in the historical observations</li>
@@ -397,13 +402,13 @@ $ duration           &lt;chr&gt; "P1D", "P1D", "P1D", "P1D", "P1D", "P1D", "P1D"
 </ul>
 <p>Our <a href="./performance.html#performance">forecast performance</a> page includes evaluations of all submitted models.</p>
 </section>
-<section id="catalog" class="level3" data-number="6.4">
-<h3 data-number="6.4" class="anchored" data-anchor-id="catalog"><span class="header-section-number">6.4</span> Catalog</h3>
+<section id="catalog" class="level3" data-number="7.4">
+<h3 data-number="7.4" class="anchored" data-anchor-id="catalog"><span class="header-section-number">7.4</span> Catalog</h3>
 <p>Information for accessing the forecasts and scores can be found on our <a href="./catalog.html#sec-spatiotemporal-asset-catalog">forecast catalog</a> page.</p>
 </section>
 </section>
-<section id="questions" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="questions"><span class="header-section-number">7</span> Questions?</h2>
+<section id="questions" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="questions"><span class="header-section-number">8</span> Questions?</h2>
 <p>Thanks for reading this document! If you still have questions about how to submit your forecast to the VERA Forecasting Challenge, we encourage you to email Dr.&nbsp;Quinn Thomas (rqthomas{at}vt.edu).</p>
 
 
