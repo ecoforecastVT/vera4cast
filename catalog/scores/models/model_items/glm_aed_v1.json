@@ -4,7 +4,7 @@
     "https://stac-extensions.github.io/table/v1.2.0/schema.json"
   ],
   "type": "Feature",
-  "id": "glm_aed_v1_DO_mgL_mean_P1D_forecast",
+  "id": "glm_aed_v1_DO_mgL_mean_P1D_scores",
   "bbox": [
     [-79.8372, 37.3032, -79.8372, 37.3032]
   ],
