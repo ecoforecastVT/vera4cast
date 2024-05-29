@@ -346,7 +346,7 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
         forecast_sites <- append(forecast_sites,  stac4cast::get_site_coords(site_metadata = catalog_config$site_metadata_url,
                                                                              sites = model_sites$site_id))
 
-        stac_id <- paste0(m,'_',var_name,'_',duration_name,'_forecast')
+        stac_id <- paste0(m,'_',var_name,'_',duration_name,'_summaries')
 
 
         idx = which(registered_model_id$model_id == m)
@@ -362,7 +362,7 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
                                site_values = model_sites$site_id,
                                site_table = catalog_config$site_metadata_url,
                                model_documentation = registered_model_id,
-                               destination_path = paste0(catalog_config$summaries_path,"models/model_items"),
+                               destination_path = paste0(catalog_config$summaries_path,names(config$variable_groups)[i],'/',var_formal_name,"/models"),
                                aws_download_path = catalog_config$summaries_download_path, # USE SCORES BUCKET FOR MODELS
                                collection_name = 'forecasts',
                                thumbnail_image_name = NULL,
@@ -371,7 +371,7 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
                                full_var_df = model_vars,
                                code_web_link = registered_model_id$`Web link to model code`[idx])
         #code_web_link = 'pending')
-      }
+      } # end model loop
 
     } ## end duration loop
 

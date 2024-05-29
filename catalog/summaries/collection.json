@@ -78,11 +78,6 @@
   },
   "table:columns": [
     {
-      "name": "18 columns",
-      "type": null,
-      "description": {}
-    },
-    {
       "name": "reference_datetime",
       "type": "timestamp[us, tz=UTC]",
       "description": "datetime that the forecast was initiated (horizon = 0)"
@@ -166,6 +161,11 @@
       "name": "model_id",
       "type": "string",
       "description": "unique model identifier"
+    },
+    {
+      "name": "reference_date",
+      "type": "string",
+      "description": "date that the forecast was initiated"
     }
   ],
   "assets": {

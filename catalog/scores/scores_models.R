@@ -386,7 +386,7 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
 
         idx = which(registered_model_id$model_id == m)
 
-        stac_id <- paste0(m,'_',var_name,'_',duration_name,'_forecast')
+        stac_id <- paste0(m,'_',var_name,'_',duration_name,'_scores')
 
         stac4cast::build_model(model_id = m,
                                stac_id = stac_id,
