@@ -346,9 +346,13 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
         forecast_sites <- append(forecast_sites,  stac4cast::get_site_coords(site_metadata = catalog_config$site_metadata_url,
                                                                              sites = model_sites$site_id))
 
+        stac_id <- paste0(m,'_',var_name,'_',duration_name,'_forecast')
+
+
         idx = which(registered_model_id$model_id == m)
 
         stac4cast::build_model(model_id = m,
+                               stac_id = stac_id,
                                team_name = registered_model_id$`Long name of the model (can include spaces)`[idx],
                                model_description = registered_model_id[idx,"Describe your modeling approach in your own words."][[1]],
                                start_date = model_min_date,
