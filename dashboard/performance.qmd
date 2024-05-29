@@ -290,6 +290,7 @@ ex |> filter(variable == "fDOM_QSU_mean") |>
 
 ```{r}
 ex |> filter(variable == "CH4_umolL_sample") |> 
+  filter(site_id != "tubr") |> ## We don't want inflow methane in plot
   forecast_plots(ylabel = 'CH4 (umolL)')
 ```
 
@@ -363,7 +364,7 @@ leaderboard_plots(df, "fDOM_QSU_mean")
 ## Dissolved Methane
 
 ```{r}
-leaderboard_plots(df, "CH4_umolL_sample")
+leaderboard_plots(df |> filter(site_id != "tubr"), "CH4_umolL_sample")
 ```
 
 ## Methane Flux
