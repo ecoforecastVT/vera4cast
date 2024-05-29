@@ -115,7 +115,8 @@ girafe(ggobj = ggobj,
 
 ```{r}
 df |> 
-  filter(variable == c("Temp_C_mean"))  |> 
+  filter(variable == c("Temp_C_mean"), 
+         site_id != 'tubr')  |> 
     mutate(observation = as.numeric(NA)) |> 
   forecast_plots(ylabel = 'Temp (degC)')
 ```
@@ -125,7 +126,8 @@ df |>
 ```{r}
 if("DO_mgL_mean" %in% unique(df$variable)){
 df |> 
-  filter(variable == c("DO_mgL_mean")) |> 
+  filter(variable == c("DO_mgL_mean"),
+         site_id != 'tubr') |> 
     mutate(observation = as.numeric(NA)) |> 
   forecast_plots(ylabel = 'DO (mgL)')
 }
@@ -172,7 +174,8 @@ df |>
 ```{r}
 if("CH4_umolL_sample" %in% unique(df$variable)){
 df |> 
-  filter(variable == c("CH4_umolL_sample"))  |> 
+  filter(variable == c("CH4_umolL_sample"),
+         site_id != 'tubr')  |> 
     mutate(observation = as.numeric(NA)) |> 
   forecast_plots(ylabel = 'CH4 (umolL)')
 }
@@ -253,7 +256,8 @@ ex |> filter(variable == "Bloom_binary_mean") |>
 ### Water temperature
 
 ```{r}
-ex |> filter(variable == "Temp_C_mean") |> 
+ex |> filter(variable == "Temp_C_mean", 
+             site_id != 'tubr') |> 
   forecast_plots(ylabel = 'Temp (degC)')
 ```
 
@@ -268,7 +272,8 @@ ex |> filter(variable == "DO_mgL_mean") |>
 
 ```{r}
 ex |> filter(variable == "Secchi_m_sample") |> 
-      filter(!model_id == 'secchi_last3obs_mean') |> ## remove KKH secchi model for now
+      filter(!model_id == 'secchi_last3obs_mean',
+             !grepl('example', model_id)) |> ## remove KKH secchi model for now
   forecast_plots(ylabel = 'Secchi (m)')
 ```
 
@@ -334,7 +339,8 @@ leaderboard_plots(df, "Bloom_binary_mean")
 ## Water temperature
 
 ```{r}
-leaderboard_plots(df, "Temp_C_mean")
+wt_df <- df |> filter(site_id != 'tubr')
+leaderboard_plots(wt_df, "Temp_C_mean")
 ```
 
 ## Dissolved oxygen
@@ -364,7 +370,8 @@ leaderboard_plots(df, "fDOM_QSU_mean")
 ## Dissolved Methane
 
 ```{r}
-leaderboard_plots(df |> filter(site_id != "tubr"), "CH4_umolL_sample")
+dm_df <- df |> filter(site_id != 'tubr')
+leaderboard_plots(dm_df, "CH4_umolL_sample")
 ```
 
 ## Methane Flux
