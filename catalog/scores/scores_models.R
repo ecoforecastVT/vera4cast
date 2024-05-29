@@ -399,7 +399,7 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
                                site_values = model_sites$site_id,
                                site_table = catalog_config$site_metadata_url,
                                model_documentation = registered_model_id,
-                               destination_path = paste0(catalog_config$scores_path,"models/model_items"),
+                               destination_path = paste0(catalog_config$scores_path,names(config$variable_groups)[i],'/',var_formal_name,"/models"),
                                aws_download_path = catalog_config$aws_download_path_scores, # CHANGE THIS BUCKET NAME
                                collection_name = 'scores',
                                thumbnail_image_name = NULL,
