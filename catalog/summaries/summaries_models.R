@@ -294,7 +294,7 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
                                        citation_values = var_citations,
                                        doi_values = var_doi)
 
-
+      forecast_sites <- c()
       ## LOOP OVER MODEL IDS AND CREATE JSONS
       for (m in theme_models$model_id){
 
