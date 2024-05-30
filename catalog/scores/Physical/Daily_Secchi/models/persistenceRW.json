@@ -19,7 +19,7 @@
     "title": "persistenceRW",
     "description": "\nmodel info: Random walk from the fable package with ensembles used to represent uncertainty\n\nSites: bvre, fcre\n\nVariables: Daily Secchi",
     "start_datetime": "2024-02-06",
-    "end_datetime": "2024-05-20",
+    "end_datetime": "2024-05-27",
     "providers": [
       {
         "url": "pending",

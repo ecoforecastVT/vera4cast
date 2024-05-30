@@ -19,7 +19,7 @@
     "title": "gfs_seamless",
     "description": "\nmodel info: NOAA Global Ensemble Forecasting Model downloaded using the https://open-meteo.com.  The seamless model combines the 0.25 and 0.5 degree resolution products to get a full 35-day ahead forecast\n\nSites: bvre, fcre\n\nVariables: Daily Secchi",
     "start_datetime": "2024-04-09",
-    "end_datetime": "2024-05-20",
+    "end_datetime": "2024-05-27",
     "providers": [
       {
         "url": "pending",

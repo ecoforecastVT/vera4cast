@@ -11,15 +11,15 @@
   "geometry": {
     "type": "MultiPoint",
     "coordinates": [
-      [-79.8159, 37.3129],
-      [-79.8372, 37.3032]
+      [-79.8372, 37.3032],
+      [-79.8159, 37.3129]
     ]
   },
   "properties": {
     "title": "climatology",
-    "description": "\nmodel info: Historical DOY mean and sd.  Assumes normal distribution\n\nSites: bvre, fcre\n\nVariables: Daily Secchi",
+    "description": "\nmodel info: Historical DOY mean and sd.  Assumes normal distribution\n\nSites: fcre, bvre\n\nVariables: Daily Secchi",
     "start_datetime": "2024-02-06",
-    "end_datetime": "2024-05-20",
+    "end_datetime": "2024-05-27",
     "providers": [
       {
         "url": "pending",

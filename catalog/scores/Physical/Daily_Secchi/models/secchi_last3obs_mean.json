@@ -18,7 +18,7 @@
     "title": "secchi_last3obs_mean",
     "description": "\nmodel info: This forecast simply takes the mean of the last three secchi observations and uses the standard deviation of that mean for the uncertainty around the forecast.\n\nSites: fcre\n\nVariables: Daily Secchi",
     "start_datetime": "2024-05-02",
-    "end_datetime": "2024-05-20",
+    "end_datetime": "2024-05-27",
     "providers": [
       {
         "url": "pending",

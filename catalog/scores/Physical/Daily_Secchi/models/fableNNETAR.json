@@ -19,7 +19,7 @@
     "title": "fableNNETAR",
     "description": "\nmodel info: autoregressive neural net fit using the NNETAR() function in the fable R package\n\nSites: bvre, fcre\n\nVariables: Daily Secchi",
     "start_datetime": "2024-04-26",
-    "end_datetime": "2024-05-20",
+    "end_datetime": "2024-05-27",
     "providers": [
       {
         "url": "pending",

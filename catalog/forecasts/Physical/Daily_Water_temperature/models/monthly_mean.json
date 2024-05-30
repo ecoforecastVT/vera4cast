@@ -20,7 +20,7 @@
     "title": "monthly_mean",
     "description": "\nmodel info: This model calculates a monthly mean from the historic data and assigns this as the mean prediction for any day within that month. The standard deviation of the observations for that month is given as the standard deviation of the forecast.\n\nSites: tubr, fcre, bvre\n\nVariables: Daily Water_temperature",
     "start_datetime": "2024-02-06",
-    "end_datetime": "2024-07-03",
+    "end_datetime": "2024-07-04",
     "providers": [
       {
         "url": "pending",
