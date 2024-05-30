@@ -8,23 +8,23 @@ We provide an introductory tutorial for submitting to the Challenge: [https://gi
 
 We provide [videos](https://youtube.com/playlist?list=PLOv0if66u2-h0dLXknHm9MHtZGEX5kVuu&si=yND904cTLh2DheVW) of the tutorial to guide you through the submission process. The videos include an:
 
-### Anatomy of a VERA forecast
+#### Anatomy of a VERA forecast
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/35Gmzls3rm4?si=WZDRiplNNvxw5uLb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-### Setting up your R environment
+#### Setting up your R Environment
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JXm-JedJqfs?si=U_iHt2gmMToHCwI3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-### R markdown Walkthrough Part 1
+#### Generating a Forecast Part 1
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Gl5Y-To6tDI?si=OQwV2eEA5F-j6UOa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-### R markdown Walkthrough Part 2
+#### Generating a Forecast Part 1
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/E-OBNKRKUBA?si=z6KChFrQzh5mGUrP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-### Automating Your Forecast
+#### Automating Your Forecast
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/x8oQpod7db4?si=2NFWgY99iBHgaiIK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
