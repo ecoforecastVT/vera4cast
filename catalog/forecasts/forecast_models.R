@@ -356,6 +356,8 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
                  duration == duration_name) |>
           distinct(site_id)
 
+        model_site_text <- paste(as.character(model_sites$site_id), sep="' '", collapse=", ")
+
         model_vars <- forecast_data_df |>
           filter(model_id == m,
                  variable == var_name,
@@ -372,12 +374,17 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
 
         stac_id <- paste0(m,'_',var_name,'_',duration_name,'_forecast')
 
+
         model_description <- paste0("This page includes forecasts for the ",
                                     var_formal_name,
                                     ' variable for the ',
                                     m,
                                     ' model. Information for the model is provided as follows: ',
-                                    registered_model_id[idx,"Describe your modeling approach in your own words."][[1]], '.
+                                    registered_model_id[idx,"Describe your modeling approach in your own words."][[1]],
+                                    '.
+                                    The model predicts this variable at the following sites: ',
+                                    model_site_text,
+                                    '.
                                     Forecasts are the raw forecasts that includes all ensemble members or distribution parameters. Due to the size of the raw forecasts, we recommend accessing the forecast summaries or scores to analyze forecasts (unless you need the individual ensemble members). We provide the code to access the forecast data as an asset')
 
         stac4cast::build_model(model_id = m,
