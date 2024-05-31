@@ -19,7 +19,7 @@
     "title": "climatology",
     "description": "\nmodel info: Historical DOY mean and sd.  Assumes normal distribution\n\nSites: bvre, fcre\n\nVariables: Daily Bloom_binary",
     "start_datetime": "2024-02-09",
-    "end_datetime": "2024-05-29",
+    "end_datetime": "2024-05-30",
     "providers": [
       {
         "url": "pending",

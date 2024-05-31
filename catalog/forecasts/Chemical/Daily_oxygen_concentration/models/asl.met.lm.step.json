@@ -17,7 +17,7 @@
   },
   "properties": {
     "title": "asl.met.lm.step",
-    "description": "\nmodel info: Linear regression with air temp, humidity, precip, and wind speed. Model selected using AIC\n\nSites: bvre, fcre\n\nVariables: Daily oxygen_concentration",
+    "description": "\nmodel info: This page includes forecasts for the Daily_oxygen_concentration variable for the asl.met.lm.step model. Information for the model is provided as follows: Linear regression with air temp, humidity, precip, and wind speed. Model selected using AIC.\n                                    The model predicts this variable at the following sites: bvre, fcre.\n                                    Forecasts are the raw forecasts that includes all ensemble members or distribution parameters. Due to the size of the raw forecasts, we recommend accessing the forecast summaries or scores to analyze forecasts (unless you need the individual ensemble members). We provide the code to access the forecast data as an asset\n\nSites: bvre, fcre\n\nVariables: Daily oxygen_concentration",
     "start_datetime": "2024-05-06",
     "end_datetime": "2024-06-19",
     "providers": [

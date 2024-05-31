@@ -17,9 +17,9 @@
   },
   "properties": {
     "title": "climatology",
-    "description": "\nmodel info: Historical DOY mean and sd.  Assumes normal distribution\n\nSites: fcre, bvre\n\nVariables: Daily Bloom_binary",
+    "description": "\nmodel info: This page includes forecasts for the Daily_Bloom_binary variable for the climatology model. Information for the model is provided as follows: Historical DOY mean and sd.  Assumes normal distribution.\n                                    The model predicts this variable at the following sites: fcre, bvre.\n                                    Forecasts are the raw forecasts that includes all ensemble members or distribution parameters. Due to the size of the raw forecasts, we recommend accessing the forecast summaries or scores to analyze forecasts (unless you need the individual ensemble members). We provide the code to access the forecast data as an asset\n\nSites: fcre, bvre\n\nVariables: Daily Bloom_binary",
     "start_datetime": "2024-02-09",
-    "end_datetime": "2024-07-04",
+    "end_datetime": "2024-07-05",
     "providers": [
       {
         "url": "pending",

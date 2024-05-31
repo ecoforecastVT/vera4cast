@@ -19,7 +19,7 @@
     "title": "asl.met.lm.step",
     "description": "\nmodel info: Linear regression with air temp, humidity, precip, and wind speed. Model selected using AIC\n\nSites: bvre, fcre\n\nVariables: Daily Chlorophyll-a",
     "start_datetime": "2024-05-06",
-    "end_datetime": "2024-05-29",
+    "end_datetime": "2024-05-30",
     "providers": [
       {
         "url": "pending",
