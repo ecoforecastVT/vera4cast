@@ -19,7 +19,7 @@
     "title": "asl.auto.arima",
     "description": "\nmodel info: forecast::auto.arima() function in R, fit individually at each site/depth\n\nSites: bvre, fcre\n\nVariables: Daily Chlorophyll-a",
     "start_datetime": "2024-03-12",
-    "end_datetime": "2024-07-03",
+    "end_datetime": "2024-07-04",
     "providers": [
       {
         "url": "pending",

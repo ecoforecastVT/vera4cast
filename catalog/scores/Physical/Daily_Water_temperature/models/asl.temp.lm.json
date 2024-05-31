@@ -19,7 +19,7 @@
     "title": "asl.temp.lm",
     "description": "\nmodel info: Linear regression with air temperature\n\nSites: bvre, fcre\n\nVariables: Daily Water_temperature",
     "start_datetime": "2024-05-06",
-    "end_datetime": "2024-05-29",
+    "end_datetime": "2024-05-30",
     "providers": [
       {
         "url": "pending",

@@ -17,9 +17,9 @@
   },
   "properties": {
     "title": "fableNNETAR_focal",
-    "description": "\nmodel info: autoregressive neural net fit using the NNETAR() function in the fable R package for VERA focal variables\n\nSites: bvre, fcre\n\nVariables: Daily Water_temperature",
+    "description": "\nmodel info: This page includes forecasts for the Daily_Water_temperature variable for the fableNNETAR_focal model. Information for the model is provided as follows: autoregressive neural net fit using the NNETAR() function in the fable R package for VERA focal variables.\n                                    The model predicts this variable at the following sites: bvre, fcre.\n                                    Forecasts are the raw forecasts that includes all ensemble members or distribution parameters. Due to the size of the raw forecasts, we recommend accessing the forecast summaries or scores to analyze forecasts (unless you need the individual ensemble members). We provide the code to access the forecast data as an asset\n\nSites: bvre, fcre\n\nVariables: Daily Water_temperature",
     "start_datetime": "2024-04-26",
-    "end_datetime": "2024-07-03",
+    "end_datetime": "2024-07-04",
     "providers": [
       {
         "url": "pending",

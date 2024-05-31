@@ -16,9 +16,9 @@
   },
   "properties": {
     "title": "secchi_last3obs_mean",
-    "description": "\nmodel info: This forecast simply takes the mean of the last three secchi observations and uses the standard deviation of that mean for the uncertainty around the forecast.\n\nSites: fcre\n\nVariables: Daily Secchi",
+    "description": "\nmodel info: This page includes forecasts for the Daily_Secchi variable for the secchi_last3obs_mean model. Information for the model is provided as follows: This forecast simply takes the mean of the last three secchi observations and uses the standard deviation of that mean for the uncertainty around the forecast..\n                                    The model predicts this variable at the following sites: fcre.\n                                    Forecasts are the raw forecasts that includes all ensemble members or distribution parameters. Due to the size of the raw forecasts, we recommend accessing the forecast summaries or scores to analyze forecasts (unless you need the individual ensemble members). We provide the code to access the forecast data as an asset\n\nSites: fcre\n\nVariables: Daily Secchi",
     "start_datetime": "2024-05-02",
-    "end_datetime": "2024-06-28",
+    "end_datetime": "2024-06-29",
     "providers": [
       {
         "url": "pending",
