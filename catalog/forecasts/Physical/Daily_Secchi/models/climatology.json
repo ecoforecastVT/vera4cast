@@ -19,7 +19,7 @@
     "title": "climatology",
     "description": "\nmodel info: Historical DOY mean and sd.  Assumes normal distribution\n\nSites: fcre, bvre\n\nVariables: Daily Secchi",
     "start_datetime": "2024-02-06",
-    "end_datetime": "2024-07-03",
+    "end_datetime": "2024-07-04",
     "providers": [
       {
         "url": "pending",
