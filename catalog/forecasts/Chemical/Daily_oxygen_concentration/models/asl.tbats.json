@@ -19,7 +19,7 @@
     "title": "asl.tbats",
     "description": "\nmodel info: forecast::tbats() function in R, fit individually at each site/depth\n\nSites: bvre, fcre\n\nVariables: Daily oxygen_concentration",
     "start_datetime": "2024-03-20",
-    "end_datetime": "2024-07-02",
+    "end_datetime": "2024-07-03",
     "providers": [
       {
         "url": "pending",
