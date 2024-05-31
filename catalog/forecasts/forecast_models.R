@@ -387,6 +387,8 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
                                     '.
                                     Forecasts are the raw forecasts that includes all ensemble members or distribution parameters. Due to the size of the raw forecasts, we recommend accessing the forecast summaries or scores to analyze forecasts (unless you need the individual ensemble members). We provide the code to access the forecast data as an asset')
 
+        model_keywords <- list('Forecasts',config$project_id, names(config$variable_groups)[i], m, var_name_full[j], duration_value)
+
         stac4cast::build_model(model_id = m,
                                stac_id = stac_id,
                                team_name = registered_model_id$`Long name of the model (can include spaces)`[idx],
@@ -406,7 +408,8 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
                                table_schema = forecast_theme_df,
                                table_description = forecast_description_create,
                                full_var_df = model_vars,
-                               code_web_link = registered_model_id$`Web link to model code`[idx])
+                               code_web_link = registered_model_id$`Web link to model code`[idx],
+                               model_keywords = model_keywords)
       } ## end model loop
     } ## end duration loop
 
