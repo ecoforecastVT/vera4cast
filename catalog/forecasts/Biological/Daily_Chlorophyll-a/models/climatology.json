@@ -17,9 +17,9 @@
   },
   "properties": {
     "title": "climatology",
-    "description": "\nmodel info: Historical DOY mean and sd.  Assumes normal distribution\n\nSites: bvre, fcre\n\nVariables: Daily Chlorophyll-a",
+    "description": "\nmodel info: This page includes forecasts for the Daily_Chlorophyll-a variable for the climatology model. Information for the model is provided as follows: Historical DOY mean and sd.  Assumes normal distribution. \n                                    Forecasts are the raw forecasts that includes all ensemble members or distribution parameters. Due to the size of the raw forecasts, we recommend accessing the forecast summaries or scores to analyze forecasts (unless you need the individual ensemble members). We provide the code to access the forecast data as an asset\n\nSites: bvre, fcre\n\nVariables: Daily Chlorophyll-a",
     "start_datetime": "2023-10-02",
-    "end_datetime": "2024-07-03",
+    "end_datetime": "2024-07-05",
     "providers": [
       {
         "url": "pending",
@@ -45,11 +45,6 @@
       "Daily Chlorophyll-a"
     ],
     "table:columns": [
-      {
-        "name": "13 columns",
-        "type": null,
-        "description": {}
-      },
       {
         "name": "datetime",
         "type": "date32[day]",
@@ -109,6 +104,11 @@
         "name": "model_id",
         "type": "string",
         "description": "unique model identifier"
+      },
+      {
+        "name": "reference_date",
+        "type": "string",
+        "description": "date that the forecast was initiated"
       }
     ]
   },
