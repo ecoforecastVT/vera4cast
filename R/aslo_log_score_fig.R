@@ -39,8 +39,8 @@ fcr_score_summary <- df_var_logs |>
          !is.nan(logs),
          horizon < 60,
          site_id == 'fcre',
-         !(variable %in% met_vars),
-         variable != 'Turbidity_FNU_mean') |>
+         !(variable %in% met_vars)) |> #,
+         #variable != 'Turbidity_FNU_mean') |>
   group_by(variable, horizon, class) |>
   summarise(logs = mean(logs, na.rm=TRUE),
             #crps = mean(crps, na.rm=TRUE),
@@ -54,6 +54,7 @@ fcr_score_summary |>
   geom_line() +
   facet_wrap(~metric, scales='free') +
   scale_y_log10(labels = function(x) format(x, scientific = FALSE)) +
+  scale_y_log10(limits = c(0.1,250)) +
   labs(title = 'FCRE') +
   theme(plot.title = element_text(hjust = 0.5)) +
   theme_bw()
@@ -64,8 +65,8 @@ bvr_score_summary <- df_var_logs |>
          !is.nan(logs),
          horizon < 60,
          site_id == 'bvre',
-         !(variable %in% met_vars),
-         variable != 'Turbidity_FNU_mean') |>
+         !(variable %in% met_vars)) |> #,
+         #variable != 'Turbidity_FNU_mean') |>
   group_by(variable, horizon, class) |>
   summarise(logs = mean(logs, na.rm=TRUE),
             #crps = mean(crps, na.rm=TRUE),
@@ -79,6 +80,7 @@ bvr_score_summary |>
   geom_line() +
   facet_wrap(~metric, scales='free') +
   scale_y_log10(labels = function(x) format(x, scientific = FALSE)) +
+  scale_y_log10(limits = c(0.1,250)) +
   labs(title = 'BVRE') +
   theme(plot.title = element_text(hjust = 0.5)) +
   theme_bw() +
