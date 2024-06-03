@@ -272,8 +272,8 @@ ex |> filter(variable == "DO_mgL_mean") |>
 
 ```{r}
 ex |> filter(variable == "Secchi_m_sample") |> 
-      filter(grepl('example', model_id) |> ## remove KKH secchi model for now
-        !model_id == 'secchi_last3obs_mean',
+      filter(#!grepl('example', model_id) |> ## remove KKH secchi model for now
+        model_id != 'secchi_last3obs_mean',
              !grepl('example', model_id)) |> ## remove KKH secchi model for now
   forecast_plots(ylabel = 'Secchi (m)')
 ```
