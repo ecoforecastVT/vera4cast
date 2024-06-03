@@ -372,6 +372,8 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
                  duration == duration_name) |>
           distinct(site_id)
 
+        model_site_text <- paste(as.character(model_sites$site_id), sep="' '", collapse=", ")
+
         model_vars <- scores_data_df |>
           filter(model_id == m,
                  variable == var_name,
