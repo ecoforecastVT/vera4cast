@@ -39,9 +39,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
+      "Summaries",
       "vera4cast",
-      "Daily Secchi"
+      "Physical",
+      "secchi_example_forecast",
+      "Secchi",
+      "Daily"
     ],
     "table:columns": [
       {

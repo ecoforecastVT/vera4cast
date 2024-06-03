@@ -37,8 +37,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
-      "vera4cast"
+      "Summaries",
+      "vera4cast",
+      "Biological",
+      "example_forecast",
+      "Chlorophyll-a",
+      "Daily"
     ],
     "table:columns": [
       {

@@ -14,7 +14,7 @@
   },
   "properties": {
     "title": "climatology",
-    "description": "\nmodel info: Historical DOY mean and sd.  Assumes normal distribution\n\nSites: \n\nVariables: ",
+    "description": "Historical DOY mean and sd.  Assumes normal distribution",
     "start_datetime": "Inf",
     "end_datetime": "-Inf",
     "providers": [
@@ -37,8 +37,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
-      "vera4cast"
+      "Summaries",
+      "vera4cast",
+      "Physical",
+      "climatology",
+      "Water_temperature",
+      "Hourly"
     ],
     "table:columns": [
       {

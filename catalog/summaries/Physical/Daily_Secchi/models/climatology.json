@@ -17,9 +17,9 @@
   },
   "properties": {
     "title": "climatology",
-    "description": "\nmodel info: Historical DOY mean and sd.  Assumes normal distribution\n\nSites: fcre, bvre\n\nVariables: Daily Secchi",
+    "description": "Historical DOY mean and sd.  Assumes normal distribution",
     "start_datetime": "2024-02-06",
-    "end_datetime": "2024-07-05",
+    "end_datetime": "2024-07-08",
     "providers": [
       {
         "url": "pending",
@@ -40,9 +40,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
+      "Summaries",
       "vera4cast",
-      "Daily Secchi"
+      "Physical",
+      "climatology",
+      "Secchi",
+      "Daily"
     ],
     "table:columns": [
       {

@@ -14,7 +14,7 @@
   },
   "properties": {
     "title": "persistenceRW",
-    "description": "\nmodel info: Random walk from the fable package with ensembles used to represent uncertainty\n\nSites: \n\nVariables: ",
+    "description": "Random walk from the fable package with ensembles used to represent uncertainty",
     "start_datetime": "Inf",
     "end_datetime": "-Inf",
     "providers": [
@@ -37,8 +37,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
-      "vera4cast"
+      "Summaries",
+      "vera4cast",
+      "Physical",
+      "persistenceRW",
+      "Water_temperature",
+      "Hourly"
     ],
     "table:columns": [
       {

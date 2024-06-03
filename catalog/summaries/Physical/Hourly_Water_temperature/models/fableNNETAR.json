@@ -14,7 +14,7 @@
   },
   "properties": {
     "title": "fableNNETAR",
-    "description": "\nmodel info: autoregressive neural net fit using the NNETAR() function in the fable R package\n\nSites: \n\nVariables: ",
+    "description": "autoregressive neural net fit using the NNETAR() function in the fable R package",
     "start_datetime": "Inf",
     "end_datetime": "-Inf",
     "providers": [
@@ -37,8 +37,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
-      "vera4cast"
+      "Summaries",
+      "vera4cast",
+      "Physical",
+      "fableNNETAR",
+      "Water_temperature",
+      "Hourly"
     ],
     "table:columns": [
       {

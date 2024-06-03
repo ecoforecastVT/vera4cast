@@ -14,7 +14,7 @@
   },
   "properties": {
     "title": "cfs",
-    "description": "\nmodel info: NOAA Climate Forecasting System forecasts as downloaded from open-meteo.com.  Submitted forecasts only include the first ~6 months because there are 4 ensemble members available (only 1 is available from 6 - 9 months).\n\nSites: \n\nVariables: ",
+    "description": "NOAA Climate Forecasting System forecasts as downloaded from open-meteo.com.  Submitted forecasts only include the first ~6 months because there are 4 ensemble members available (only 1 is available from 6 - 9 months).",
     "start_datetime": "Inf",
     "end_datetime": "-Inf",
     "providers": [
@@ -37,8 +37,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
-      "vera4cast"
+      "Summaries",
+      "vera4cast",
+      "Biological",
+      "cfs",
+      "Bloom_binary",
+      "Daily"
     ],
     "table:columns": [
       {

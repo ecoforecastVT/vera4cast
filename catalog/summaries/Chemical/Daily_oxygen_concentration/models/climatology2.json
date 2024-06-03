@@ -14,7 +14,7 @@
   },
   "properties": {
     "title": "climatology2",
-    "description": "\nmodel info: Same is the other climatology\n\nSites: \n\nVariables: ",
+    "description": "Same is the other climatology",
     "start_datetime": "Inf",
     "end_datetime": "-Inf",
     "providers": [
@@ -37,8 +37,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
-      "vera4cast"
+      "Summaries",
+      "vera4cast",
+      "Chemical",
+      "climatology2",
+      "oxygen_concentration",
+      "Daily"
     ],
     "table:columns": [
       {

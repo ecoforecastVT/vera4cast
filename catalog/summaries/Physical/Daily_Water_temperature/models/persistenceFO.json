@@ -16,7 +16,7 @@
   },
   "properties": {
     "title": "persistenceFO",
-    "description": "\nmodel info: another persistence forecast\n\nSites: bvre\n\nVariables: Daily Water_temperature",
+    "description": "another persistence forecast",
     "start_datetime": "2023-09-27",
     "end_datetime": "2023-10-30",
     "providers": [
@@ -39,9 +39,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
+      "Summaries",
       "vera4cast",
-      "Daily Water_temperature"
+      "Physical",
+      "persistenceFO",
+      "Water_temperature",
+      "Daily"
     ],
     "table:columns": [
       {

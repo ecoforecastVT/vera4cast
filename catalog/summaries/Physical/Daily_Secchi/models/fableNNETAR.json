@@ -17,7 +17,7 @@
   },
   "properties": {
     "title": "fableNNETAR",
-    "description": "\nmodel info: autoregressive neural net fit using the NNETAR() function in the fable R package\n\nSites: bvre, fcre\n\nVariables: Daily Secchi",
+    "description": "autoregressive neural net fit using the NNETAR() function in the fable R package",
     "start_datetime": "2024-04-26",
     "end_datetime": "2024-06-03",
     "providers": [
@@ -40,9 +40,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
+      "Summaries",
       "vera4cast",
-      "Daily Secchi"
+      "Physical",
+      "fableNNETAR",
+      "Secchi",
+      "Daily"
     ],
     "table:columns": [
       {

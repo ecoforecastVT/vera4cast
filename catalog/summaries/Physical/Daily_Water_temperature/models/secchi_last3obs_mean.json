@@ -14,7 +14,7 @@
   },
   "properties": {
     "title": "secchi_last3obs_mean",
-    "description": "\nmodel info: This forecast simply takes the mean of the last three secchi observations and uses the standard deviation of that mean for the uncertainty around the forecast.\n\nSites: \n\nVariables: ",
+    "description": "This forecast simply takes the mean of the last three secchi observations and uses the standard deviation of that mean for the uncertainty around the forecast.",
     "start_datetime": "Inf",
     "end_datetime": "-Inf",
     "providers": [
@@ -37,8 +37,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
-      "vera4cast"
+      "Summaries",
+      "vera4cast",
+      "Physical",
+      "secchi_last3obs_mean",
+      "Water_temperature",
+      "Daily"
     ],
     "table:columns": [
       {

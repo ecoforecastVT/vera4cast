@@ -14,7 +14,7 @@
   },
   "properties": {
     "title": "ecmwf_ifs04",
-    "description": "\nmodel info: ECMWF IFS Ensemble weather model downloaded from open-meteo.com.  Since ECMWF IFS Ensemble does output solar radiation on open-meteo.com,  the solar radiation from GFS seamless is used.\n\nSites: \n\nVariables: ",
+    "description": "This page includes scores for the Daily_oxygen_concentration variable for the ecmwf_ifs04 model. Information for the model is provided as follows: ECMWF IFS Ensemble weather model downloaded from open-meteo.com.  Since ECMWF IFS Ensemble does output solar radiation on open-meteo.com,  the solar radiation from GFS seamless is used..\n                                    The model predicts this variable at the following sites: .\n                                    Scores are metrics that describe how well forecasts compare to observations. The scores catalog includes are summaries of the forecasts (i.e., mean, median, confidence intervals), matched observations (if available), and scores (metrics of how well the model distribution compares to observations). We provide the code to access the scores data as an asset",
     "start_datetime": "Inf",
     "end_datetime": "-Inf",
     "providers": [
@@ -37,8 +37,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
-      "vera4cast"
+      "Scores",
+      "vera4cast",
+      "Chemical",
+      "ecmwf_ifs04",
+      "oxygen_concentration",
+      "Daily"
     ],
     "table:columns": [
       {

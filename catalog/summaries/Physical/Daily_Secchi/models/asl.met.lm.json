@@ -17,7 +17,7 @@
   },
   "properties": {
     "title": "asl.met.lm",
-    "description": "\nmodel info: Linear regression with air temp, humidity, precip, and wind speed\n\nSites: bvre, fcre\n\nVariables: Daily Secchi",
+    "description": "Linear regression with air temp, humidity, precip, and wind speed",
     "start_datetime": "2024-05-06",
     "end_datetime": "2024-06-27",
     "providers": [
@@ -40,9 +40,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
+      "Summaries",
       "vera4cast",
-      "Daily Secchi"
+      "Physical",
+      "asl.met.lm",
+      "Secchi",
+      "Daily"
     ],
     "table:columns": [
       {

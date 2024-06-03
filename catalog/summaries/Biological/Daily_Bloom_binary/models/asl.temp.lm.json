@@ -17,7 +17,7 @@
   },
   "properties": {
     "title": "asl.temp.lm",
-    "description": "\nmodel info: Linear regression with air temperature\n\nSites: bvre, fcre\n\nVariables: Daily Bloom_binary",
+    "description": "Linear regression with air temperature",
     "start_datetime": "2024-05-14",
     "end_datetime": "2024-06-27",
     "providers": [
@@ -40,9 +40,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
+      "Summaries",
       "vera4cast",
-      "Daily Bloom_binary"
+      "Biological",
+      "asl.temp.lm",
+      "Bloom_binary",
+      "Daily"
     ],
     "table:columns": [
       {

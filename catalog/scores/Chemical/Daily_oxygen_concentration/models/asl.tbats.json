@@ -17,9 +17,9 @@
   },
   "properties": {
     "title": "asl.tbats",
-    "description": "\nmodel info: forecast::tbats() function in R, fit individually at each site/depth\n\nSites: bvre, fcre\n\nVariables: Daily oxygen_concentration",
+    "description": "This page includes scores for the Daily_oxygen_concentration variable for the asl.tbats model. Information for the model is provided as follows: forecast::tbats() function in R, fit individually at each site/depth.\n                                    The model predicts this variable at the following sites: bvre, fcre.\n                                    Scores are metrics that describe how well forecasts compare to observations. The scores catalog includes are summaries of the forecasts (i.e., mean, median, confidence intervals), matched observations (if available), and scores (metrics of how well the model distribution compares to observations). We provide the code to access the scores data as an asset",
     "start_datetime": "2024-03-20",
-    "end_datetime": "2024-05-30",
+    "end_datetime": "2024-06-02",
     "providers": [
       {
         "url": "pending",
@@ -40,9 +40,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
+      "Scores",
       "vera4cast",
-      "Daily oxygen_concentration"
+      "Chemical",
+      "asl.tbats",
+      "oxygen_concentration",
+      "Daily"
     ],
     "table:columns": [
       {

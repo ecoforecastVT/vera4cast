@@ -18,9 +18,9 @@
   },
   "properties": {
     "title": "persistenceRW",
-    "description": "\nmodel info: Random walk from the fable package with ensembles used to represent uncertainty\n\nSites: bvre, fcre, tubr\n\nVariables: Daily Water_temperature",
+    "description": "Random walk from the fable package with ensembles used to represent uncertainty",
     "start_datetime": "2023-09-21",
-    "end_datetime": "2024-07-03",
+    "end_datetime": "2024-07-06",
     "providers": [
       {
         "url": "pending",
@@ -41,9 +41,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
+      "Summaries",
       "vera4cast",
-      "Daily Water_temperature"
+      "Physical",
+      "persistenceRW",
+      "Water_temperature",
+      "Daily"
     ],
     "table:columns": [
       {
