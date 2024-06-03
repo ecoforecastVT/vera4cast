@@ -390,7 +390,7 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
 
         stac_id <- paste0(m,'_',var_name,'_',duration_name,'_scores')
 
-        model_description <- paste0("This page includes scores for the ",
+        model_description <- paste0("This database includes scores for the ",
                                     var_formal_name,
                                     ' variable for the ',
                                     m,
@@ -402,7 +402,8 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
                                     '.
                                     Scores are metrics that describe how well forecasts compare to observations. The scores catalog includes are summaries of the forecasts (i.e., mean, median, confidence intervals), matched observations (if available), and scores (metrics of how well the model distribution compares to observations). We provide the code to access the scores data as an asset')
 
-        model_keywords <- list('Scores',config$project_id, names(config$variable_groups)[i], m, var_name_full[j], duration_value)
+        model_keywords <- c(list('Scores',config$project_id, names(config$variable_groups)[i], m, var_name_full[j], var_name, duration_value),
+                            as.list(model_sites$site_id))
 
         stac4cast::build_model(model_id = m,
                                stac_id = stac_id,
