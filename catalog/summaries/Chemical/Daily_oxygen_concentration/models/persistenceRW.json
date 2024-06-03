@@ -17,9 +17,9 @@
   },
   "properties": {
     "title": "persistenceRW",
-    "description": "\nmodel info: Random walk from the fable package with ensembles used to represent uncertainty\n\nSites: fcre, bvre\n\nVariables: Daily oxygen_concentration",
+    "description": "Random walk from the fable package with ensembles used to represent uncertainty",
     "start_datetime": "2024-02-06",
-    "end_datetime": "2024-07-03",
+    "end_datetime": "2024-07-06",
     "providers": [
       {
         "url": "pending",
@@ -40,9 +40,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
+      "Summaries",
       "vera4cast",
-      "Daily oxygen_concentration"
+      "Chemical",
+      "persistenceRW",
+      "oxygen_concentration",
+      "Daily"
     ],
     "table:columns": [
       {

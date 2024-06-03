@@ -18,9 +18,9 @@
   },
   "properties": {
     "title": "monthly_mean",
-    "description": "\nmodel info: This model calculates a monthly mean from the historic data and assigns this as the mean prediction for any day within that month. The standard deviation of the observations for that month is given as the standard deviation of the forecast.\n\nSites: tubr, fcre, bvre\n\nVariables: Daily Water_temperature",
+    "description": "This model calculates a monthly mean from the historic data and assigns this as the mean prediction for any day within that month. The standard deviation of the observations for that month is given as the standard deviation of the forecast.",
     "start_datetime": "2024-02-06",
-    "end_datetime": "2024-07-05",
+    "end_datetime": "2024-07-08",
     "providers": [
       {
         "url": "pending",
@@ -41,9 +41,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
+      "Summaries",
       "vera4cast",
-      "Daily Water_temperature"
+      "Physical",
+      "monthly_mean",
+      "Water_temperature",
+      "Daily"
     ],
     "table:columns": [
       {

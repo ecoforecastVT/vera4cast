@@ -14,7 +14,7 @@
   },
   "properties": {
     "title": "flareSimstrat",
-    "description": "\nmodel info: FLARE-Simstrat combines the 1D process-based model Simstrat, a data assimilation algorithm (EnKF) and NOAA driver weather data to make predictions of water column temperatures.\n\nSites: \n\nVariables: ",
+    "description": "FLARE-Simstrat combines the 1D process-based model Simstrat, a data assimilation algorithm (EnKF) and NOAA driver weather data to make predictions of water column temperatures.",
     "start_datetime": "Inf",
     "end_datetime": "-Inf",
     "providers": [
@@ -37,8 +37,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
-      "vera4cast"
+      "Summaries",
+      "vera4cast",
+      "Biological",
+      "flareSimstrat",
+      "Bloom_binary",
+      "Daily"
     ],
     "table:columns": [
       {

@@ -37,8 +37,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
-      "vera4cast"
+      "Summaries",
+      "vera4cast",
+      "Chemical",
+      "example_ID",
+      "oxygen_concentration",
+      "Daily"
     ],
     "table:columns": [
       {

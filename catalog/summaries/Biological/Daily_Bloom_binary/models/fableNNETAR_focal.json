@@ -14,7 +14,7 @@
   },
   "properties": {
     "title": "fableNNETAR_focal",
-    "description": "\nmodel info: autoregressive neural net fit using the NNETAR() function in the fable R package for VERA focal variables\n\nSites: \n\nVariables: ",
+    "description": "autoregressive neural net fit using the NNETAR() function in the fable R package for VERA focal variables",
     "start_datetime": "Inf",
     "end_datetime": "-Inf",
     "providers": [
@@ -37,8 +37,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
-      "vera4cast"
+      "Summaries",
+      "vera4cast",
+      "Biological",
+      "fableNNETAR_focal",
+      "Bloom_binary",
+      "Daily"
     ],
     "table:columns": [
       {

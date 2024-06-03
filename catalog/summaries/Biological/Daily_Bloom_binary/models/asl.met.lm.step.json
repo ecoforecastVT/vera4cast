@@ -17,7 +17,7 @@
   },
   "properties": {
     "title": "asl.met.lm.step",
-    "description": "\nmodel info: Linear regression with air temp, humidity, precip, and wind speed. Model selected using AIC\n\nSites: bvre, fcre\n\nVariables: Daily Bloom_binary",
+    "description": "Linear regression with air temp, humidity, precip, and wind speed. Model selected using AIC",
     "start_datetime": "2024-05-14",
     "end_datetime": "2024-06-19",
     "providers": [
@@ -40,9 +40,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
+      "Summaries",
       "vera4cast",
-      "Daily Bloom_binary"
+      "Biological",
+      "asl.met.lm.step",
+      "Bloom_binary",
+      "Daily"
     ],
     "table:columns": [
       {

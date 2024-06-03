@@ -40,9 +40,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
+      "Summaries",
       "vera4cast",
-      "Daily Water_temperature"
+      "Physical",
+      "TESTclimatology",
+      "Water_temperature",
+      "Daily"
     ],
     "table:columns": [
       {

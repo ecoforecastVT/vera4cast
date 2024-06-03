@@ -14,7 +14,7 @@
   },
   "properties": {
     "title": "icon_seamless",
-    "description": "\nmodel info: The DWD Icon EPS Seamless model downloaded from open-meteo.com\n\nSites: \n\nVariables: ",
+    "description": "The DWD Icon EPS Seamless model downloaded from open-meteo.com",
     "start_datetime": "Inf",
     "end_datetime": "-Inf",
     "providers": [
@@ -37,8 +37,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
-      "vera4cast"
+      "Summaries",
+      "vera4cast",
+      "Biological",
+      "icon_seamless",
+      "Bloom_binary",
+      "Daily"
     ],
     "table:columns": [
       {

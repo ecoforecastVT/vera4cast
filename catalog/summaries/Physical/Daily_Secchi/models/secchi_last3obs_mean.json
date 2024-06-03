@@ -16,9 +16,9 @@
   },
   "properties": {
     "title": "secchi_last3obs_mean",
-    "description": "\nmodel info: This forecast simply takes the mean of the last three secchi observations and uses the standard deviation of that mean for the uncertainty around the forecast.\n\nSites: fcre\n\nVariables: Daily Secchi",
+    "description": "This forecast simply takes the mean of the last three secchi observations and uses the standard deviation of that mean for the uncertainty around the forecast.",
     "start_datetime": "2024-05-02",
-    "end_datetime": "2024-06-29",
+    "end_datetime": "2024-07-02",
     "providers": [
       {
         "url": "pending",
@@ -39,9 +39,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
+      "Summaries",
       "vera4cast",
-      "Daily Secchi"
+      "Physical",
+      "secchi_last3obs_mean",
+      "Secchi",
+      "Daily"
     ],
     "table:columns": [
       {

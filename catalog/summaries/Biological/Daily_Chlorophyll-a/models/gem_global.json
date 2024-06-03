@@ -14,7 +14,7 @@
   },
   "properties": {
     "title": "gem_global",
-    "description": "\nmodel info: Candian GEM Global Ensemble model downloaded from open-meteo.com\n\nSites: \n\nVariables: ",
+    "description": "Candian GEM Global Ensemble model downloaded from open-meteo.com",
     "start_datetime": "Inf",
     "end_datetime": "-Inf",
     "providers": [
@@ -37,8 +37,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
-      "vera4cast"
+      "Summaries",
+      "vera4cast",
+      "Biological",
+      "gem_global",
+      "Chlorophyll-a",
+      "Daily"
     ],
     "table:columns": [
       {

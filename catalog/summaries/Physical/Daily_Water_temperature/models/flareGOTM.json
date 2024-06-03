@@ -16,7 +16,7 @@
   },
   "properties": {
     "title": "flareGOTM",
-    "description": "\nmodel info: FLARE-GOTM combines the 1D hydrodynamic process-based model GOTM, a data assimilation algorithm, and NOAA weather data to forecast water column temperatures.\n\nSites: fcre\n\nVariables: Daily Water_temperature",
+    "description": "FLARE-GOTM combines the 1D hydrodynamic process-based model GOTM, a data assimilation algorithm, and NOAA weather data to forecast water column temperatures.",
     "start_datetime": "2024-01-21",
     "end_datetime": "2024-03-19",
     "providers": [
@@ -39,9 +39,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
+      "Summaries",
       "vera4cast",
-      "Daily Water_temperature"
+      "Physical",
+      "flareGOTM",
+      "Water_temperature",
+      "Daily"
     ],
     "table:columns": [
       {

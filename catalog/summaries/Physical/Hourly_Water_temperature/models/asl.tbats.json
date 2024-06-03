@@ -14,7 +14,7 @@
   },
   "properties": {
     "title": "asl.tbats",
-    "description": "\nmodel info: forecast::tbats() function in R, fit individually at each site/depth\n\nSites: \n\nVariables: ",
+    "description": "forecast::tbats() function in R, fit individually at each site/depth",
     "start_datetime": "Inf",
     "end_datetime": "-Inf",
     "providers": [
@@ -37,8 +37,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
-      "vera4cast"
+      "Summaries",
+      "vera4cast",
+      "Physical",
+      "asl.tbats",
+      "Water_temperature",
+      "Hourly"
     ],
     "table:columns": [
       {

@@ -17,9 +17,9 @@
   },
   "properties": {
     "title": "persistenceRW",
-    "description": "\nmodel info: Random walk from the fable package with ensembles used to represent uncertainty\n\nSites: bvre, fcre\n\nVariables: Daily Chlorophyll-a",
+    "description": "Random walk from the fable package with ensembles used to represent uncertainty",
     "start_datetime": "2023-10-01",
-    "end_datetime": "2024-07-03",
+    "end_datetime": "2024-07-06",
     "providers": [
       {
         "url": "pending",
@@ -40,9 +40,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
+      "Summaries",
       "vera4cast",
-      "Daily Chlorophyll-a"
+      "Biological",
+      "persistenceRW",
+      "Chlorophyll-a",
+      "Daily"
     ],
     "table:columns": [
       {

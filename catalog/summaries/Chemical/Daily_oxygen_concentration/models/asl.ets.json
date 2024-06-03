@@ -17,9 +17,9 @@
   },
   "properties": {
     "title": "asl.ets",
-    "description": "\nmodel info: forecast::ets() function in R, fit individually at each site/depth\n\nSites: bvre, fcre\n\nVariables: Daily oxygen_concentration",
+    "description": "forecast::ets() function in R, fit individually at each site/depth",
     "start_datetime": "2024-03-12",
-    "end_datetime": "2024-07-04",
+    "end_datetime": "2024-07-07",
     "providers": [
       {
         "url": "pending",
@@ -40,9 +40,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
+      "Summaries",
       "vera4cast",
-      "Daily oxygen_concentration"
+      "Chemical",
+      "asl.ets",
+      "oxygen_concentration",
+      "Daily"
     ],
     "table:columns": [
       {

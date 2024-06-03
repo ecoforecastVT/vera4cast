@@ -17,7 +17,7 @@
   },
   "properties": {
     "title": "climatology2",
-    "description": "\nmodel info: Same is the other climatology\n\nSites: bvre, fcre\n\nVariables: Daily Chlorophyll-a",
+    "description": "This page includes scores for the Daily_Chlorophyll-a variable for the climatology2 model. Information for the model is provided as follows: Same is the other climatology.\n                                    The model predicts this variable at the following sites: bvre, fcre.\n                                    Scores are metrics that describe how well forecasts compare to observations. The scores catalog includes are summaries of the forecasts (i.e., mean, median, confidence intervals), matched observations (if available), and scores (metrics of how well the model distribution compares to observations). We provide the code to access the scores data as an asset",
     "start_datetime": "2023-10-07",
     "end_datetime": "2023-11-10",
     "providers": [
@@ -40,9 +40,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
+      "Scores",
       "vera4cast",
-      "Daily Chlorophyll-a"
+      "Biological",
+      "climatology2",
+      "Chlorophyll-a",
+      "Daily"
     ],
     "table:columns": [
       {

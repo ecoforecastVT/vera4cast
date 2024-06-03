@@ -14,7 +14,7 @@
   },
   "properties": {
     "title": "fableETS",
-    "description": "\nmodel info: fable package exponential smoothing model fable::ETS()\n\nSites: \n\nVariables: ",
+    "description": "fable package exponential smoothing model fable::ETS()",
     "start_datetime": "Inf",
     "end_datetime": "-Inf",
     "providers": [
@@ -37,8 +37,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
-      "vera4cast"
+      "Summaries",
+      "vera4cast",
+      "Chemical",
+      "fableETS",
+      "oxygen_concentration",
+      "Daily"
     ],
     "table:columns": [
       {

@@ -17,9 +17,9 @@
   },
   "properties": {
     "title": "asl.tbats",
-    "description": "\nmodel info: forecast::tbats() function in R, fit individually at each site/depth\n\nSites: bvre, fcre\n\nVariables: Daily Water_temperature",
+    "description": "forecast::tbats() function in R, fit individually at each site/depth",
     "start_datetime": "2024-03-20",
-    "end_datetime": "2024-07-04",
+    "end_datetime": "2024-07-07",
     "providers": [
       {
         "url": "pending",
@@ -40,9 +40,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
+      "Summaries",
       "vera4cast",
-      "Daily Water_temperature"
+      "Physical",
+      "asl.tbats",
+      "Water_temperature",
+      "Daily"
     ],
     "table:columns": [
       {

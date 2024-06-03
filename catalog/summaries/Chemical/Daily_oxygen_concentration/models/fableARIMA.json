@@ -14,7 +14,7 @@
   },
   "properties": {
     "title": "fableARIMA",
-    "description": "\nmodel info: ARIMA fit using the ARIMA() function in the fable R package\n\nSites: \n\nVariables: ",
+    "description": "ARIMA fit using the ARIMA() function in the fable R package",
     "start_datetime": "Inf",
     "end_datetime": "-Inf",
     "providers": [
@@ -37,8 +37,12 @@
     ],
     "license": "CC0-1.0",
     "keywords": [
-      "Forecasting",
-      "vera4cast"
+      "Summaries",
+      "vera4cast",
+      "Chemical",
+      "fableARIMA",
+      "oxygen_concentration",
+      "Daily"
     ],
     "table:columns": [
       {
