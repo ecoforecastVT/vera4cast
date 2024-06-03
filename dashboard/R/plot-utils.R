@@ -48,24 +48,32 @@ by_model_id <- function(df, show.legend = FALSE) {
     df |>
     group_by(model_id) |>
     summarise(crps = mean(crps, na.rm=TRUE),
-              logs = mean(logs, na.rm=TRUE),
+              #logs = mean(logs, na.rm=TRUE),
               .groups = "drop") |>
-    collect() |>
+    collect()
+
+  if (TRUE %in% is.nan(leaderboard$crps)){
+    missing_model <- leaderboard[which(is.nan(leaderboard$crps)), 1][[1]]
+    warning(paste0('Missing CRPS score for model: "',missing_model, '"'))
+  }
+
+  leaderboard <- leaderboard |>
+    filter(!is.nan(crps)) |>
     mutate(model_id = fct_rev(fct_reorder(model_id, crps)))
 
   leaderboard |>
-    pivot_longer(cols = c(crps, logs), names_to="metric", values_to="score") |>
+    pivot_longer(cols = c(crps), names_to="metric", values_to="score") |>
 
     ggplot(aes(x = model_id, y= score,  fill=model_id)) +
     geom_col_interactive(aes(tooltip = model_id, data_id = model_id),
-                           show.legend = FALSE) +
-   # scale_y_log10() +
+                         show.legend = FALSE) +
+    # scale_y_log10() +
     coord_flip() +
     facet_wrap(~metric, scales='free') +
     theme_bw() +
-   theme(axis.text.y = element_blank()) # don't show model_id twice
+    theme(axis.text.y = element_blank()) # don't show model_id twice
 
-  }
+}
 
 
 
@@ -79,6 +87,7 @@ by_reference_datetime <- function(df, show.legend = FALSE) {
               .groups = "drop") |>
     mutate(reference_datetime = lubridate::as_datetime(reference_datetime)) |>
     collect() |>
+    filter(!is.nan(crps)) |>
     mutate(model_id = fct_rev(fct_reorder(model_id, crps)))
 
   leaderboard |>
@@ -103,6 +112,7 @@ by_horizon <- function(df, show.legend=FALSE) {
             logs = mean(logs, na.rm=TRUE),
             .groups = "drop") |>
   collect() |>
+    filter(!is.nan(crps)) |>
   mutate(model_id = fct_rev(fct_reorder(model_id, crps)))  # sort by score
 
   leaderboard2 |>
