@@ -162,7 +162,7 @@ if("Secchi_m_sample" %in% unique(df$variable)){
 
 df |> 
   filter(variable == c("Secchi_m_sample")) |>
-    #filter(!model_id == 'secchi_last3obs_mean') |> ## remove KKH secchi model for now
+    filter(!model_id == 'secchi_last3obs_mean') |> ## remove KKH secchi model for now
     mutate(observation = as.numeric(NA)) |> 
   forecast_plots(ylabel = 'Secchi Depth (m)')
   
@@ -272,9 +272,9 @@ ex |> filter(variable == "DO_mgL_mean") |>
 
 ```{r}
 ex |> filter(variable == "Secchi_m_sample") |> 
-      filter(grepl('example', model_id)) |> ## remove KKH secchi model for now
-        #!model_id == 'secchi_last3obs_mean',
-             #!grepl('example', model_id)) |> ## remove KKH secchi model for now
+      filter(grepl('example', model_id) |> ## remove KKH secchi model for now
+        !model_id == 'secchi_last3obs_mean',
+             !grepl('example', model_id)) |> ## remove KKH secchi model for now
   forecast_plots(ylabel = 'Secchi (m)')
 ```
 
