@@ -45,7 +45,10 @@
       "Chemical",
       "asl.met.lm.step",
       "oxygen_concentration",
-      "Daily"
+      "DO_mgL_mean",
+      "Daily",
+      "bvre",
+      "fcre"
     ],
     "table:columns": [
       {

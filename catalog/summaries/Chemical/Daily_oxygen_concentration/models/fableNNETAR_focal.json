@@ -19,7 +19,7 @@
     "title": "fableNNETAR_focal",
     "description": "autoregressive neural net fit using the NNETAR() function in the fable R package for VERA focal variables",
     "start_datetime": "2024-04-26",
-    "end_datetime": "2024-07-07",
+    "end_datetime": "2024-07-08",
     "providers": [
       {
         "url": "pending",
@@ -45,7 +45,10 @@
       "Chemical",
       "fableNNETAR_focal",
       "oxygen_concentration",
-      "Daily"
+      "DO_mgL_mean",
+      "Daily",
+      "bvre",
+      "fcre"
     ],
     "table:columns": [
       {

@@ -42,6 +42,7 @@
       "Physical",
       "ecmwf_ifs04",
       "Water_temperature",
+      "Temp_C_mean",
       "Daily"
     ],
     "table:columns": [

@@ -44,7 +44,9 @@
       "Physical",
       "example_ID",
       "Water_temperature",
-      "Daily"
+      "Temp_C_mean",
+      "Daily",
+      "fcre"
     ],
     "table:columns": [
       {

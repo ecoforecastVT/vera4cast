@@ -45,7 +45,10 @@
       "Biological",
       "gfs_seamless",
       "Chlorophyll-a",
-      "Daily"
+      "Chla_ugL_mean",
+      "Daily",
+      "bvre",
+      "fcre"
     ],
     "table:columns": [
       {

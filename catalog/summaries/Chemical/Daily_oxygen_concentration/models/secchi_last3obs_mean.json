@@ -42,6 +42,7 @@
       "Chemical",
       "secchi_last3obs_mean",
       "oxygen_concentration",
+      "DO_mgL_mean",
       "Daily"
     ],
     "table:columns": [

@@ -42,6 +42,7 @@
       "Biological",
       "example_ID",
       "Bloom_binary",
+      "Bloom_binary_mean",
       "Daily"
     ],
     "table:columns": [

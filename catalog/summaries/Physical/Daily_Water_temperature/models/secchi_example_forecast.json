@@ -42,6 +42,7 @@
       "Physical",
       "secchi_example_forecast",
       "Water_temperature",
+      "Temp_C_mean",
       "Daily"
     ],
     "table:columns": [

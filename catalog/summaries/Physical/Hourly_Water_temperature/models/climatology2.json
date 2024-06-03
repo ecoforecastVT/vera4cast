@@ -42,6 +42,7 @@
       "Physical",
       "climatology2",
       "Water_temperature",
+      "Temp_C_mean",
       "Hourly"
     ],
     "table:columns": [

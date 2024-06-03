@@ -42,6 +42,7 @@
       "Biological",
       "cfs",
       "Bloom_binary",
+      "Bloom_binary_mean",
       "Daily"
     ],
     "table:columns": [

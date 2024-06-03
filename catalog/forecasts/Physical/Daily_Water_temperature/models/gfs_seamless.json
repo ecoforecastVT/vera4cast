@@ -17,7 +17,7 @@
   },
   "properties": {
     "title": "gfs_seamless",
-    "description": "This page includes forecasts for the Daily_Water_temperature variable for the gfs_seamless model. Information for the model is provided as follows: NOAA Global Ensemble Forecasting Model downloaded using the https://open-meteo.com.  The seamless model combines the 0.25 and 0.5 degree resolution products to get a full 35-day ahead forecast.\n                                    The model predicts this variable at the following sites: bvre, fcre.\n                                    Forecasts are the raw forecasts that includes all ensemble members or distribution parameters. Due to the size of the raw forecasts, we recommend accessing the forecast summaries or scores to analyze forecasts (unless you need the individual ensemble members). We provide the code to access the forecast data as an asset",
+    "description": "This database includes forecasts for the Daily_Water_temperature variable for the gfs_seamless model. Information for the model is provided as follows: NOAA Global Ensemble Forecasting Model downloaded using the https://open-meteo.com.  The seamless model combines the 0.25 and 0.5 degree resolution products to get a full 35-day ahead forecast.\n                                    The model predicts this variable at the following sites: bvre, fcre.\n                                    Forecasts are the raw forecasts that includes all ensemble members or distribution parameters. Due to the size of the raw forecasts, we recommend accessing the forecast summaries or scores to analyze forecasts (unless you need the individual ensemble members). We provide the code to access the forecast data as an asset",
     "start_datetime": "2024-04-09",
     "end_datetime": "2024-06-08",
     "providers": [
@@ -45,7 +45,10 @@
       "Physical",
       "gfs_seamless",
       "Water_temperature",
-      "Daily"
+      "Temp_C_mean",
+      "Daily",
+      "bvre",
+      "fcre"
     ],
     "table:columns": [
       {

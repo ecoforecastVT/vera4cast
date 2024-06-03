@@ -42,6 +42,7 @@
       "Chemical",
       "persistenceFO",
       "oxygen_concentration",
+      "DO_mgL_mean",
       "Daily"
     ],
     "table:columns": [

@@ -17,7 +17,7 @@
   },
   "properties": {
     "title": "asl.ets",
-    "description": "This page includes forecasts for the Daily_Bloom_binary variable for the asl.ets model. Information for the model is provided as follows: forecast::ets() function in R, fit individually at each site/depth.\n                                    The model predicts this variable at the following sites: bvre, fcre.\n                                    Forecasts are the raw forecasts that includes all ensemble members or distribution parameters. Due to the size of the raw forecasts, we recommend accessing the forecast summaries or scores to analyze forecasts (unless you need the individual ensemble members). We provide the code to access the forecast data as an asset",
+    "description": "This database includes forecasts for the Daily_Bloom_binary variable for the asl.ets model. Information for the model is provided as follows: forecast::ets() function in R, fit individually at each site/depth.\n                                    The model predicts this variable at the following sites: bvre, fcre.\n                                    Forecasts are the raw forecasts that includes all ensemble members or distribution parameters. Due to the size of the raw forecasts, we recommend accessing the forecast summaries or scores to analyze forecasts (unless you need the individual ensemble members). We provide the code to access the forecast data as an asset",
     "start_datetime": "2024-04-29",
     "end_datetime": "2024-07-07",
     "providers": [
@@ -45,7 +45,10 @@
       "Biological",
       "asl.ets",
       "Bloom_binary",
-      "Daily"
+      "Bloom_binary_mean",
+      "Daily",
+      "bvre",
+      "fcre"
     ],
     "table:columns": [
       {

@@ -20,7 +20,7 @@
     "title": "persistenceRW",
     "description": "Random walk from the fable package with ensembles used to represent uncertainty",
     "start_datetime": "2023-09-21",
-    "end_datetime": "2024-07-06",
+    "end_datetime": "2024-07-07",
     "providers": [
       {
         "url": "pending",
@@ -46,7 +46,11 @@
       "Physical",
       "persistenceRW",
       "Water_temperature",
-      "Daily"
+      "Temp_C_mean",
+      "Daily",
+      "bvre",
+      "fcre",
+      "tubr"
     ],
     "table:columns": [
       {

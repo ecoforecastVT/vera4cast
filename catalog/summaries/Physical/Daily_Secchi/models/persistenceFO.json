@@ -42,6 +42,7 @@
       "Physical",
       "persistenceFO",
       "Secchi",
+      "Secchi_m_sample",
       "Daily"
     ],
     "table:columns": [

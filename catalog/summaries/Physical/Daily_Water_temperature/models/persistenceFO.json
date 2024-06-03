@@ -44,7 +44,9 @@
       "Physical",
       "persistenceFO",
       "Water_temperature",
-      "Daily"
+      "Temp_C_mean",
+      "Daily",
+      "bvre"
     ],
     "table:columns": [
       {

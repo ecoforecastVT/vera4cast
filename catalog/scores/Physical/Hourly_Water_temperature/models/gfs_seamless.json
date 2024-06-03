@@ -14,7 +14,7 @@
   },
   "properties": {
     "title": "gfs_seamless",
-    "description": "This page includes scores for the Hourly_Water_temperature variable for the gfs_seamless model. Information for the model is provided as follows: NOAA Global Ensemble Forecasting Model downloaded using the https://open-meteo.com.  The seamless model combines the 0.25 and 0.5 degree resolution products to get a full 35-day ahead forecast.\n                                    The model predicts this variable at the following sites: .\n                                    Scores are metrics that describe how well forecasts compare to observations. The scores catalog includes are summaries of the forecasts (i.e., mean, median, confidence intervals), matched observations (if available), and scores (metrics of how well the model distribution compares to observations). We provide the code to access the scores data as an asset",
+    "description": "This database includes scores for the Hourly_Water_temperature variable for the gfs_seamless model. Information for the model is provided as follows: NOAA Global Ensemble Forecasting Model downloaded using the https://open-meteo.com.  The seamless model combines the 0.25 and 0.5 degree resolution products to get a full 35-day ahead forecast.\n                                    The model predicts this variable at the following sites: .\n                                    Scores are metrics that describe how well forecasts compare to observations. The scores catalog includes are summaries of the forecasts (i.e., mean, median, confidence intervals), matched observations (if available), and scores (metrics of how well the model distribution compares to observations). We provide the code to access the scores data as an asset",
     "start_datetime": "Inf",
     "end_datetime": "-Inf",
     "providers": [
@@ -42,6 +42,7 @@
       "Physical",
       "gfs_seamless",
       "Water_temperature",
+      "Temp_C_mean",
       "Hourly"
     ],
     "table:columns": [

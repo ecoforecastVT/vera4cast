@@ -44,7 +44,9 @@
       "Biological",
       "glm_aed_v1",
       "Bloom_binary",
-      "Daily"
+      "Bloom_binary_mean",
+      "Daily",
+      "fcre"
     ],
     "table:columns": [
       {

@@ -42,6 +42,7 @@
       "Biological",
       "climatology2",
       "Bloom_binary",
+      "Bloom_binary_mean",
       "Daily"
     ],
     "table:columns": [

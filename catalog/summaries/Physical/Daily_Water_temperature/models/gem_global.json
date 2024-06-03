@@ -42,6 +42,7 @@
       "Physical",
       "gem_global",
       "Water_temperature",
+      "Temp_C_mean",
       "Daily"
     ],
     "table:columns": [

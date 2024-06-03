@@ -42,6 +42,7 @@
       "Biological",
       "gem_global",
       "Bloom_binary",
+      "Bloom_binary_mean",
       "Daily"
     ],
     "table:columns": [

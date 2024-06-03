@@ -44,7 +44,9 @@
       "Biological",
       "glm_aed_v1",
       "Chlorophyll-a",
-      "Daily"
+      "Chla_ugL_mean",
+      "Daily",
+      "fcre"
     ],
     "table:columns": [
       {
