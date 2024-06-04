@@ -353,7 +353,8 @@ leaderboard_plots(df, "DO_mgL_mean")
 ## Secchi depth
 
 ```{r}
-leaderboard_plots(df, "Secchi_m_sample")
+secchi_leaders <- df |> filter(model_id != 'secchi_last3obs_mean')
+leaderboard_plots(secchi_leaders, "Secchi_m_sample")
 ```
 
 ## Air temperature
