@@ -42,6 +42,7 @@
       "Biological",
       "flareGOTM",
       "Bloom_binary",
+      "Bloom_binary_mean",
       "Daily"
     ],
     "table:columns": [

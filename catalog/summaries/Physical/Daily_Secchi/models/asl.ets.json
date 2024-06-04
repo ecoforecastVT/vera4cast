@@ -45,7 +45,10 @@
       "Physical",
       "asl.ets",
       "Secchi",
-      "Daily"
+      "Secchi_m_sample",
+      "Daily",
+      "bvre",
+      "fcre"
     ],
     "table:columns": [
       {

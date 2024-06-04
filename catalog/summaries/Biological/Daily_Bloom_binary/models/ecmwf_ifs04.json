@@ -42,6 +42,7 @@
       "Biological",
       "ecmwf_ifs04",
       "Bloom_binary",
+      "Bloom_binary_mean",
       "Daily"
     ],
     "table:columns": [

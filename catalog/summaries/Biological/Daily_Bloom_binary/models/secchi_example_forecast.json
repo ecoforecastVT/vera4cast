@@ -42,6 +42,7 @@
       "Biological",
       "secchi_example_forecast",
       "Bloom_binary",
+      "Bloom_binary_mean",
       "Daily"
     ],
     "table:columns": [

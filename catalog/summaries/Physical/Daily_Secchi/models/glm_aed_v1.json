@@ -44,7 +44,9 @@
       "Physical",
       "glm_aed_v1",
       "Secchi",
-      "Daily"
+      "Secchi_m_sample",
+      "Daily",
+      "fcre"
     ],
     "table:columns": [
       {

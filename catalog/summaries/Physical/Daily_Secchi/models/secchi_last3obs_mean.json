@@ -18,7 +18,7 @@
     "title": "secchi_last3obs_mean",
     "description": "This forecast simply takes the mean of the last three secchi observations and uses the standard deviation of that mean for the uncertainty around the forecast.",
     "start_datetime": "2024-05-02",
-    "end_datetime": "2024-07-02",
+    "end_datetime": "2024-07-03",
     "providers": [
       {
         "url": "pending",
@@ -44,7 +44,9 @@
       "Physical",
       "secchi_last3obs_mean",
       "Secchi",
-      "Daily"
+      "Secchi_m_sample",
+      "Daily",
+      "fcre"
     ],
     "table:columns": [
       {

@@ -44,7 +44,9 @@
       "Physical",
       "Temp_C_mean",
       "Water_temperature",
-      "Daily"
+      "Temp_C_mean",
+      "Daily",
+      "tubr"
     ],
     "table:columns": [
       {

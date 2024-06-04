@@ -44,7 +44,9 @@
       "Chemical",
       "glm_aed_v1",
       "oxygen_concentration",
-      "Daily"
+      "DO_mgL_mean",
+      "Daily",
+      "fcre"
     ],
     "table:columns": [
       {

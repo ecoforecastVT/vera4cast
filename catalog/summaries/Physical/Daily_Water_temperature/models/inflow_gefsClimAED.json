@@ -44,7 +44,9 @@
       "Physical",
       "inflow_gefsClimAED",
       "Water_temperature",
-      "Daily"
+      "Temp_C_mean",
+      "Daily",
+      "tubr"
     ],
     "table:columns": [
       {

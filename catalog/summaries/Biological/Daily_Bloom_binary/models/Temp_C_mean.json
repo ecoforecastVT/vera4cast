@@ -42,6 +42,7 @@
       "Biological",
       "Temp_C_mean",
       "Bloom_binary",
+      "Bloom_binary_mean",
       "Daily"
     ],
     "table:columns": [

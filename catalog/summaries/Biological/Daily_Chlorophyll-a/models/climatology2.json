@@ -45,7 +45,10 @@
       "Biological",
       "climatology2",
       "Chlorophyll-a",
-      "Daily"
+      "Chla_ugL_mean",
+      "Daily",
+      "bvre",
+      "fcre"
     ],
     "table:columns": [
       {

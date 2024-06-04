@@ -42,6 +42,7 @@
       "Biological",
       "persistenceFO",
       "Chlorophyll-a",
+      "Chla_ugL_mean",
       "Daily"
     ],
     "table:columns": [

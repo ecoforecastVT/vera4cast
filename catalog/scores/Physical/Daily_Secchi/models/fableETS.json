@@ -14,7 +14,7 @@
   },
   "properties": {
     "title": "fableETS",
-    "description": "This page includes scores for the Daily_Secchi variable for the fableETS model. Information for the model is provided as follows: fable package exponential smoothing model fable::ETS().\n                                    The model predicts this variable at the following sites: .\n                                    Scores are metrics that describe how well forecasts compare to observations. The scores catalog includes are summaries of the forecasts (i.e., mean, median, confidence intervals), matched observations (if available), and scores (metrics of how well the model distribution compares to observations). We provide the code to access the scores data as an asset",
+    "description": "This database includes scores for the Daily_Secchi variable for the fableETS model. Information for the model is provided as follows: fable package exponential smoothing model fable::ETS().\n                                    The model predicts this variable at the following sites: .\n                                    Scores are metrics that describe how well forecasts compare to observations. The scores catalog includes are summaries of the forecasts (i.e., mean, median, confidence intervals), matched observations (if available), and scores (metrics of how well the model distribution compares to observations). We provide the code to access the scores data as an asset",
     "start_datetime": "Inf",
     "end_datetime": "-Inf",
     "providers": [
@@ -42,6 +42,7 @@
       "Physical",
       "fableETS",
       "Secchi",
+      "Secchi_m_sample",
       "Daily"
     ],
     "table:columns": [

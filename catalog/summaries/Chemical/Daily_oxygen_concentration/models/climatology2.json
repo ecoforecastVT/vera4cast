@@ -42,6 +42,7 @@
       "Chemical",
       "climatology2",
       "oxygen_concentration",
+      "DO_mgL_mean",
       "Daily"
     ],
     "table:columns": [

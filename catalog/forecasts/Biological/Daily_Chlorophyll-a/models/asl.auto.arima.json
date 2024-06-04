@@ -17,7 +17,7 @@
   },
   "properties": {
     "title": "asl.auto.arima",
-    "description": "This page includes forecasts for the Daily_Chlorophyll-a variable for the asl.auto.arima model. Information for the model is provided as follows: forecast::auto.arima() function in R, fit individually at each site/depth.\n                                    The model predicts this variable at the following sites: bvre, fcre.\n                                    Forecasts are the raw forecasts that includes all ensemble members or distribution parameters. Due to the size of the raw forecasts, we recommend accessing the forecast summaries or scores to analyze forecasts (unless you need the individual ensemble members). We provide the code to access the forecast data as an asset",
+    "description": "This database includes forecasts for the Daily_Chlorophyll-a variable for the asl.auto.arima model. Information for the model is provided as follows: forecast::auto.arima() function in R, fit individually at each site/depth.\n                                    The model predicts this variable at the following sites: bvre, fcre.\n                                    Forecasts are the raw forecasts that includes all ensemble members or distribution parameters. Due to the size of the raw forecasts, we recommend accessing the forecast summaries or scores to analyze forecasts (unless you need the individual ensemble members). We provide the code to access the forecast data as an asset",
     "start_datetime": "2024-03-12",
     "end_datetime": "2024-07-07",
     "providers": [
@@ -45,7 +45,10 @@
       "Biological",
       "asl.auto.arima",
       "Chlorophyll-a",
-      "Daily"
+      "Chla_ugL_mean",
+      "Daily",
+      "bvre",
+      "fcre"
     ],
     "table:columns": [
       {

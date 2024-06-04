@@ -42,6 +42,7 @@
       "Physical",
       "fableNNETAR_focal",
       "Water_temperature",
+      "Temp_C_mean",
       "Hourly"
     ],
     "table:columns": [

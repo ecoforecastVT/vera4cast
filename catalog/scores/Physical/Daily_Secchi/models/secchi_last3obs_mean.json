@@ -16,7 +16,7 @@
   },
   "properties": {
     "title": "secchi_last3obs_mean",
-    "description": "This page includes scores for the Daily_Secchi variable for the secchi_last3obs_mean model. Information for the model is provided as follows: This forecast simply takes the mean of the last three secchi observations and uses the standard deviation of that mean for the uncertainty around the forecast..\n                                    The model predicts this variable at the following sites: fcre.\n                                    Scores are metrics that describe how well forecasts compare to observations. The scores catalog includes are summaries of the forecasts (i.e., mean, median, confidence intervals), matched observations (if available), and scores (metrics of how well the model distribution compares to observations). We provide the code to access the scores data as an asset",
+    "description": "This database includes scores for the Daily_Secchi variable for the secchi_last3obs_mean model. Information for the model is provided as follows: This forecast simply takes the mean of the last three secchi observations and uses the standard deviation of that mean for the uncertainty around the forecast..\n                                    The model predicts this variable at the following sites: fcre.\n                                    Scores are metrics that describe how well forecasts compare to observations. The scores catalog includes are summaries of the forecasts (i.e., mean, median, confidence intervals), matched observations (if available), and scores (metrics of how well the model distribution compares to observations). We provide the code to access the scores data as an asset",
     "start_datetime": "2024-05-02",
     "end_datetime": "2024-05-27",
     "providers": [
@@ -44,7 +44,9 @@
       "Physical",
       "secchi_last3obs_mean",
       "Secchi",
-      "Daily"
+      "Secchi_m_sample",
+      "Daily",
+      "fcre"
     ],
     "table:columns": [
       {

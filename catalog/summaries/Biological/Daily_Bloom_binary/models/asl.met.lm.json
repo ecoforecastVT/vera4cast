@@ -45,7 +45,10 @@
       "Biological",
       "asl.met.lm",
       "Bloom_binary",
-      "Daily"
+      "Bloom_binary_mean",
+      "Daily",
+      "bvre",
+      "fcre"
     ],
     "table:columns": [
       {

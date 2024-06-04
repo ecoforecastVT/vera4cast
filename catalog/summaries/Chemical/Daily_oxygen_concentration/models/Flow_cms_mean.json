@@ -42,6 +42,7 @@
       "Chemical",
       "Flow_cms_mean",
       "oxygen_concentration",
+      "DO_mgL_mean",
       "Daily"
     ],
     "table:columns": [

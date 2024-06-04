@@ -42,6 +42,7 @@
       "Biological",
       "inflow_gefsClimAED",
       "Bloom_binary",
+      "Bloom_binary_mean",
       "Daily"
     ],
     "table:columns": [

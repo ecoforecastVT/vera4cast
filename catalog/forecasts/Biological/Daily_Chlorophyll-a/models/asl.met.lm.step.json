@@ -17,7 +17,7 @@
   },
   "properties": {
     "title": "asl.met.lm.step",
-    "description": "This page includes forecasts for the Daily_Chlorophyll-a variable for the asl.met.lm.step model. Information for the model is provided as follows: Linear regression with air temp, humidity, precip, and wind speed. Model selected using AIC.\n                                    The model predicts this variable at the following sites: bvre, fcre.\n                                    Forecasts are the raw forecasts that includes all ensemble members or distribution parameters. Due to the size of the raw forecasts, we recommend accessing the forecast summaries or scores to analyze forecasts (unless you need the individual ensemble members). We provide the code to access the forecast data as an asset",
+    "description": "This database includes forecasts for the Daily_Chlorophyll-a variable for the asl.met.lm.step model. Information for the model is provided as follows: Linear regression with air temp, humidity, precip, and wind speed. Model selected using AIC.\n                                    The model predicts this variable at the following sites: bvre, fcre.\n                                    Forecasts are the raw forecasts that includes all ensemble members or distribution parameters. Due to the size of the raw forecasts, we recommend accessing the forecast summaries or scores to analyze forecasts (unless you need the individual ensemble members). We provide the code to access the forecast data as an asset",
     "start_datetime": "2024-05-06",
     "end_datetime": "2024-06-19",
     "providers": [
@@ -45,7 +45,10 @@
       "Biological",
       "asl.met.lm.step",
       "Chlorophyll-a",
-      "Daily"
+      "Chla_ugL_mean",
+      "Daily",
+      "bvre",
+      "fcre"
     ],
     "table:columns": [
       {

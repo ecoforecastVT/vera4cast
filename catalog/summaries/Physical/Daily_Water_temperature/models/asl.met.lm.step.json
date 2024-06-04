@@ -45,7 +45,10 @@
       "Physical",
       "asl.met.lm.step",
       "Water_temperature",
-      "Daily"
+      "Temp_C_mean",
+      "Daily",
+      "bvre",
+      "fcre"
     ],
     "table:columns": [
       {

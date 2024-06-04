@@ -19,7 +19,7 @@
     "title": "persistenceRW",
     "description": "Random walk from the fable package with ensembles used to represent uncertainty",
     "start_datetime": "2023-10-01",
-    "end_datetime": "2024-07-06",
+    "end_datetime": "2024-07-07",
     "providers": [
       {
         "url": "pending",
@@ -45,7 +45,10 @@
       "Biological",
       "persistenceRW",
       "Chlorophyll-a",
-      "Daily"
+      "Chla_ugL_mean",
+      "Daily",
+      "bvre",
+      "fcre"
     ],
     "table:columns": [
       {

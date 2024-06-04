@@ -42,6 +42,7 @@
       "Physical",
       "flareSimstrat",
       "Secchi",
+      "Secchi_m_sample",
       "Daily"
     ],
     "table:columns": [

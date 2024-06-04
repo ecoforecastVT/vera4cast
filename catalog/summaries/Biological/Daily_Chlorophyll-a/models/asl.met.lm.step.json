@@ -45,7 +45,10 @@
       "Biological",
       "asl.met.lm.step",
       "Chlorophyll-a",
-      "Daily"
+      "Chla_ugL_mean",
+      "Daily",
+      "bvre",
+      "fcre"
     ],
     "table:columns": [
       {

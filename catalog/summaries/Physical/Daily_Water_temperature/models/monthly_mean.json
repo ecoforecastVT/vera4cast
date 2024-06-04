@@ -20,7 +20,7 @@
     "title": "monthly_mean",
     "description": "This model calculates a monthly mean from the historic data and assigns this as the mean prediction for any day within that month. The standard deviation of the observations for that month is given as the standard deviation of the forecast.",
     "start_datetime": "2024-02-06",
-    "end_datetime": "2024-07-08",
+    "end_datetime": "2024-07-09",
     "providers": [
       {
         "url": "pending",
@@ -46,7 +46,11 @@
       "Physical",
       "monthly_mean",
       "Water_temperature",
-      "Daily"
+      "Temp_C_mean",
+      "Daily",
+      "tubr",
+      "fcre",
+      "bvre"
     ],
     "table:columns": [
       {

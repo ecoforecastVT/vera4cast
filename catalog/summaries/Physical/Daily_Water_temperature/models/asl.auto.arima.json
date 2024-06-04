@@ -45,7 +45,10 @@
       "Physical",
       "asl.auto.arima",
       "Water_temperature",
-      "Daily"
+      "Temp_C_mean",
+      "Daily",
+      "bvre",
+      "fcre"
     ],
     "table:columns": [
       {

@@ -44,7 +44,9 @@
       "Physical",
       "secchi_example_forecast",
       "Secchi",
-      "Daily"
+      "Secchi_m_sample",
+      "Daily",
+      "fcre"
     ],
     "table:columns": [
       {

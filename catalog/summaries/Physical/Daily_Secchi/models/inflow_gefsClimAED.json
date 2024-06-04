@@ -42,6 +42,7 @@
       "Physical",
       "inflow_gefsClimAED",
       "Secchi",
+      "Secchi_m_sample",
       "Daily"
     ],
     "table:columns": [
