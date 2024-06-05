@@ -300,7 +300,7 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
         filter(model_id %in% registered_model_id)
 
       ## LOOP OVER MODEL IDS AND CREATE JSONS
-      for (m in theme_models$model_id){
+      for (m in var_models$model_id){
 
         # make model items directory
         if (!dir.exists(paste0(catalog_config$summaries_path,'/',names(config$variable_groups)[i],'/',var_formal_name,"/models"))){
