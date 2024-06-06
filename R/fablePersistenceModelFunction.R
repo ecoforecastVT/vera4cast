@@ -19,6 +19,10 @@ generate_baseline_persistenceRW <- function(targets,
     target_depths <- depth
   }
 
+  if (site == 'bvre'){
+    target_depths <- c(0.1, 3, NA)
+  }
+
   targets_ts <- targets |>
     mutate(datetime = lubridate::as_date(datetime)) |>
     filter(variable %in% var,
