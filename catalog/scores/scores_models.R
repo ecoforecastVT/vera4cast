@@ -236,7 +236,7 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
   var_name_full <- var_gsheet_arrange[which(var_gsheet_arrange$`"official" targets name` %in% var_values),1][[1]]
 
   ## CREATE VARIABLE GROUP JSONS
-  group_description <- paste0('This page includes variables for the ',names(config$variable_groups[i]),' group.')
+  group_description <- paste0('All variables for the ',names(config$variable_groups[i]),' group.')
 
   ## find group sites
   find_group_sites <- scores_data_df |>
@@ -297,7 +297,7 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
         filter(variable == var_name) |>
         distinct(site_id)
 
-      var_description <- paste0('This page includes all models for the ',var_formal_name,' variable.')
+      var_description <- paste0('All models for the ',var_formal_name,' variable.')
 
       var_path <- gsub('forecasts','scores',var_data$path[1])
 
@@ -326,8 +326,8 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
                                        destination_path = file.path(catalog_config$scores_path,names(config$variable_groups)[i],var_formal_name),
                                        aws_download_path = var_path,
                                        group_var_items = stac4cast::generate_variable_model_items(model_list = var_models$model_id),
-                                       thumbnail_link = 'pending',
-                                       thumbnail_title = 'pending',
+                                       thumbnail_link = config$variable_groups[[i]]$thumbnail_link,
+                                       thumbnail_title = "Thumbnail Image",
                                        group_var_vector = NULL,
                                        group_sites = find_var_sites$site_id,
                                        citation_values = var_citations,
@@ -394,7 +394,7 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
 
         stac_id <- paste0(m,'_',var_name,'_',duration_name,'_scores')
 
-        model_description <- paste0("This database includes scores for the ",
+        model_description <- paste0("All scores for the ",
                                     var_formal_name,
                                     ' variable for the ',
                                     m,
