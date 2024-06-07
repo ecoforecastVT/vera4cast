@@ -272,8 +272,9 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
       var_max_date <- var_date_range$`max(date)`
 
       var_models <- var_data |>
-        filter(model_id %in% registered_model_id$model_id) |>
-        distinct(model_id)
+        distinct(model_id) |>
+        filter(model_id %in% registered_model_id$model_id,
+               !grepl("example",model_id))
 
       find_var_sites <- forecast_data_df |>
         filter(variable == var_name) |>
