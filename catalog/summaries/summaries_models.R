@@ -253,6 +253,9 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
 
       var_models <- var_data |> distinct(model_id)
 
+      var_models <- var_models |>
+        filter(model_id %in% registered_model_id$model_id)
+
       find_var_sites <- summaries_data_df |>
         filter(variable == var_name) |>
         distinct(site_id)
@@ -295,9 +298,6 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
                                        doi_values = var_doi)
 
       forecast_sites <- c()
-
-      var_models <- var_models |>
-        filter(model_id %in% registered_model_id$model_id)
 
       ## LOOP OVER MODEL IDS AND CREATE JSONS
       for (m in var_models$model_id){
