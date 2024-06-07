@@ -19,7 +19,7 @@
     "title": "persistenceRW",
     "description": "Random walk from the fable package with ensembles used to represent uncertainty",
     "start_datetime": "2024-02-06",
-    "end_datetime": "2024-07-08",
+    "end_datetime": "2024-07-09",
     "providers": [
       {
         "url": "rqthomas@vt.edu",
@@ -31,8 +31,8 @@
         ]
       },
       {
-        "url": "https://www.ecoforecastprojectvt.org",
-        "name": "Ecoforecast Challenge",
+        "url": "http://ecoforecast.centers.vt.edu/",
+        "name": "Virginia Tech Center for Ecosystem Forecasting",
         "roles": [
           "host"
         ]
