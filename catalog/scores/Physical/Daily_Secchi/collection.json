@@ -85,11 +85,6 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/secchi_example_forecast.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
       "href": "./models/secchi_last3obs_mean.json"
     },
     {

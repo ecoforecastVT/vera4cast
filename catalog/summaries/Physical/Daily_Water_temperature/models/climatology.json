@@ -20,7 +20,7 @@
     "title": "climatology",
     "description": "Historical DOY mean and sd.  Assumes normal distribution",
     "start_datetime": "2023-09-21",
-    "end_datetime": "2024-07-11",
+    "end_datetime": "2024-07-12",
     "providers": [
       {
         "url": "rqthomas@vt.edu",
