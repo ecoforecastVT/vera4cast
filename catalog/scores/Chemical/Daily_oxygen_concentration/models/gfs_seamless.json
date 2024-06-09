@@ -19,7 +19,7 @@
     "title": "gfs_seamless",
     "description": "All scores for the Daily_oxygen_concentration variable for the gfs_seamless model. Information for the model is provided as follows: NOAA Global Ensemble Forecasting Model downloaded using the https://open-meteo.com.  The seamless model combines the 0.25 and 0.5 degree resolution products to get a full 35-day ahead forecast.\n                                    The model predicts this variable at the following sites: bvre, fcre.\n                                    Scores are metrics that describe how well forecasts compare to observations. The scores catalog includes are summaries of the forecasts (i.e., mean, median, confidence intervals), matched observations (if available), and scores (metrics of how well the model distribution compares to observations). We provide the code to access the scores data as an asset",
     "start_datetime": "2024-04-09",
-    "end_datetime": "2024-06-07",
+    "end_datetime": "2024-06-08",
     "providers": [
       {
         "url": "rqthomas@vt.edu",
