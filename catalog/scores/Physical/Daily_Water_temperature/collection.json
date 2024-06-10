@@ -15,17 +15,7 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/TESTclimatology.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/TempC_mean_example_forecast.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/Temp_C_mean.json"
+      "href": "./models/persistenceRW.json"
     },
     {
       "rel": "item",
@@ -66,16 +56,6 @@
       "rel": "item",
       "type": "application/json",
       "href": "./models/climatology2.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/example_ID.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/example_forecast.json"
     },
     {
       "rel": "item",
@@ -128,11 +108,6 @@
       "href": "./models/persistenceFO.json"
     },
     {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/persistenceRW.json"
-    },
-    {
       "rel": "parent",
       "type": "application/json",
       "href": "../collection.json"
@@ -175,7 +150,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-06-05T00:00:00Z"
+          "2024-06-08T00:00:00Z"
         ]
       ]
     }
