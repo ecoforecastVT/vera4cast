@@ -15,6 +15,7 @@ minioclient::mc_alias_set("osn",
 googlesheets4::gs4_deauth()
 registered_models <- googlesheets4::read_sheet(config$model_metadata_gsheet) |>
   dplyr::filter(`What forecasting challenge are you registering for?` == config$project_id)
+
 for(i in 1:nrow(registered_models)){
 
   #Need to get from forecast output
@@ -33,11 +34,11 @@ for(i in 1:nrow(registered_models)){
 
   # Initial Conditions
 
-  if(registered_models$`Do your forecasts include uncertainty from initial conditions?`[i] == "Yes and they were estimated from data"){
+  if(registered_models$`Do your forecasts include uncertainty from initial conditions?`[i] %in% c("Yes and they were estimated from data", "Yes")){
     metadata$uncertainty$initial_conditions$present <- TRUE
     metadata$uncertainty$initial_conditions$data_driven <- TRUE
     metadata$uncertainty$initial_conditions$progagates$type <- progagates_method
-  }else if(registered_models$`Do your forecasts include uncertainty from initial conditions?`[i] == "Yes and they were not estimated from data (e.g., assumed initial conditions were the model equilibrium)"){
+  }else if(registered_models$`Do your forecasts include uncertainty from initial conditions?`[i] %in% c("Yes and they were not estimated from data (e.g., assumed initial conditions were the model equilibrium)", "Yes")){
     metadata$uncertainty$initial_conditions$present <- TRUE
     metadata$uncertainty$initial_conditions$data_driven <- FALSE
     metadata$uncertainty$initial_conditions$progagates$type <- progagates_method
@@ -59,13 +60,13 @@ for(i in 1:nrow(registered_models)){
 
   #Parameters
 
-  if(registered_models$`Does your model include parameters?`[i] == "Yes and they are not estimated from data"){
+  if(registered_models$`Does your model include parameters?`[i] %in% c("Yes and they are not estimated from data", "Yes")){
     metadata$uncertainty$parameters$present <- TRUE
     metadata$uncertainty$parameters$data_driven <- FALSE
     if(registered_models$`Does your forecast include uncertainty from the model parameters?`[i] == "Yes"){
       metadata$uncertainty$parameters$progagates$type <- progagates_method
     }
-  }else if(registered_models$`Does your forecast include uncertainty from the model parameters?`[i] == "Yes and at least one is estimated from data"){
+  }else if(registered_models$`Does your forecast include uncertainty from the model parameters?`[i] %in% c("Yes and at least one is estimated from data", "Yes")){
     metadata$uncertainty$parameters$present <- TRUE
     metadata$uncertainty$parameters$data_driven <- TRUE
     if(registered_models$`Does your forecast include uncertainty from the model parameters?`[i] == "Yes"){
@@ -97,11 +98,11 @@ for(i in 1:nrow(registered_models)){
 
   #Process model
 
-  if(registered_models$`Does your forecast include uncertainty from the model (process uncertainty)?`[i] == "Yes and the uncertainty was estimated from data"){
+  if(registered_models$`Does your forecast include uncertainty from the model (process uncertainty)?`[i] %in% c("Yes and the uncertainty was estimated from data", "Yes")){
     metadata$uncertainty$process_error$present <- TRUE
     metadata$uncertainty$process_error$data_driven <- TRUE
     metadata$uncertainty$process_error$progagates$type <- progagates_method
-  }else if(registered_models$`Does your forecast include uncertainty from the model (process uncertainty)?`[i] == "Yes and the uncertainty was not estimated from data"){
+  }else if(registered_models$`Does your forecast include uncertainty from the model (process uncertainty)?`[i] == c("Yes and the uncertainty was not estimated from data","Yes")){
     metadata$uncertainty$process_error$present <- TRUE
     metadata$uncertainty$process_error$data_driven <- FALSE
     metadata$uncertainty$process_error$progagates$type <- progagates_method
@@ -113,11 +114,11 @@ for(i in 1:nrow(registered_models)){
 
   # Measurement error
 
-  if(registered_models$`Does your forecast include uncertainty from measurement noise?`[i] == "Yes and the noise was estimated from data"){
+  if(registered_models$`Does your forecast include uncertainty from measurement noise?`[i] %in% c("Yes and the noise was estimated from data", "Yes")){
     metadata$uncertainty$obs_error$present <- TRUE
     metadata$uncertainty$obs_error$data_driven <- TRUE
     metadata$uncertainty$obs_error$progagates$type <- progagates_method
-  }else if(registered_models$`Does your forecast include uncertainty from measurement noise?`[i] == "Yes and the noise was not estimated from data"){
+  }else if(registered_models$`Does your forecast include uncertainty from measurement noise?`[i] == c("Yes and the noise was not estimated from data", "Yes")){
     metadata$uncertainty$obs_error$present <- TRUE
     metadata$uncertainty$obs_error$data_driven <- FALSE
     metadata$uncertainty$obs_error$progagates$type <- progagates_method
@@ -143,11 +144,11 @@ for(i in 1:nrow(registered_models)){
 
   # Random effects
 
-  if(registered_models$`Does your forecast include uncertainty from parameter random effects?`[i] == "Yes and the uncertainty was estimated from data"){
+  if(registered_models$`Does your forecast include uncertainty from parameter random effects?`[i] %in% c("Yes and the uncertainty was estimated from data", "Yes")){
     metadata$uncertainty$random_effects$present <- TRUE
     metadata$uncertainty$random_effects$data_driven <- TRUE
     metadata$uncertainty$random_effects$progagates$type <- progagates_method
-  }else if(registered_models$`Does your forecast include uncertainty from parameter random effects?`[i] == "Yes and the uncertainty was not estimated from data (uncommon)"){
+  }else if(registered_models$`Does your forecast include uncertainty from parameter random effects?`[i] %in% c("Yes and the uncertainty was not estimated from data (uncommon)", "Yes")){
     metadata$uncertainty$random_effects$present <- TRUE
     metadata$uncertainty$random_effects$data_driven <- FALSE
     metadata$uncertainty$random_effects$progagates$type <- progagates_method
