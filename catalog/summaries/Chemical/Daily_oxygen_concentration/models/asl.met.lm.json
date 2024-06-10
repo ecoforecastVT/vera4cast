@@ -47,6 +47,7 @@
       "oxygen_concentration",
       "DO_mgL_mean",
       "Daily",
+      "P1D",
       "bvre",
       "fcre"
     ],

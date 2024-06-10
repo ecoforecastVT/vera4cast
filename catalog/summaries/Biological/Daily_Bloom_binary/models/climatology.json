@@ -19,7 +19,7 @@
     "title": "climatology",
     "description": "Historical DOY mean and sd.  Assumes normal distribution",
     "start_datetime": "2024-02-09",
-    "end_datetime": "2024-07-14",
+    "end_datetime": "2024-07-15",
     "providers": [
       {
         "url": "rqthomas@vt.edu",
@@ -47,6 +47,7 @@
       "Bloom_binary",
       "Bloom_binary_mean",
       "Daily",
+      "P1D",
       "fcre",
       "bvre"
     ],
