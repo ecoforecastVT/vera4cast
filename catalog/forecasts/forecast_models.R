@@ -389,7 +389,7 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
                                     The model predicts this variable at the following sites: ',
                                     model_site_text,
                                     '.
-                                    Forecasts are the raw forecasts that includes all ensemble members or distribution parameters. Due to the size of the raw forecasts, we recommend accessing the forecast summaries or scores to analyze forecasts (unless you need the individual ensemble members). We provide the code to access the forecast data as an asset')
+                                    Forecasts are the raw forecasts that includes all ensemble members or distribution parameters. Due to the size of the raw forecasts, we recommend accessing the forecast summaries or scores to analyze forecasts (unless you need the individual ensemble members)')
 
 
         model_keywords <- c(list('Forecasts',config$project_id, names(config$variable_groups)[i], m, var_name_full[j], var_name, duration_value),
