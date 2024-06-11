@@ -1,6 +1,6 @@
 {
   "id": "Daily_oxygen_concentration",
-  "description": "All models for the Daily_oxygen_concentration variable.",
+  "description": "All models for the Daily_oxygen_concentration variable. The variable description is as follows: daily mean oxygen in milligrams per liter from EXO;  focal depths bvre = 1.5 m, fcre = 1.6 m, measured using EXO and RDO",
   "stac_version": "1.0.0",
   "license": "CC0-1.0",
   "stac_extensions": [
@@ -21,6 +21,26 @@
     }
   ],
   "links": [
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "./models/glm_aed_v1.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "./models/historic_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "./models/monthly_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "./models/persistenceRW.json"
+    },
     {
       "rel": "item",
       "type": "application/json",
@@ -72,26 +92,6 @@
       "href": "./models/gfs_seamless.json"
     },
     {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/glm_aed_v1.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/historic_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/monthly_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/persistenceRW.json"
-    },
-    {
       "rel": "parent",
       "type": "application/json",
       "href": "../collection.json"
@@ -134,7 +134,7 @@
       "interval": [
         [
           "2023-10-14T00:00:00Z",
-          "2024-06-09T00:00:00Z"
+          "2024-06-10T00:00:00Z"
         ]
       ]
     }
