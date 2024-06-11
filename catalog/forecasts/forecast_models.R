@@ -115,8 +115,9 @@ stac4cast::build_forecast_scores(table_schema = forecast_theme_df,
 #                       group_var_vector = NULL,
 #                       group_sites = NULL)
 
-## CREATE MODELS
+## READ IN GSHEET FILES
 variable_gsheet <- gsheet2tbl(config$target_metadata_gsheet)
+target_metadata <- gsheet2tbl(config$target_metadata_gsheet)
 
 ## READ IN MODEL METADATA
 # googlesheets4::gs4_deauth()
@@ -280,7 +281,12 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
         filter(variable == var_name) |>
         distinct(site_id)
 
-      var_description <- paste0('All models for the ',var_formal_name,' variable.')
+      var_metadata <- variable_gsheet |>
+        filter(`"official" targets name` == var_name,
+               duration == duration_name)
+
+      var_description <- paste0('All models for the ',var_formal_name,' variable. The variable description is as follows: ',
+                                var_metadata$Description)
 
       #var_path <- gsub('forecasts','scores',var_data$path[1])
 
