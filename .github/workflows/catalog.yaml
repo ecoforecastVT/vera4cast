@@ -1,56 +1,56 @@
-on:
-  schedule:
-    - cron: '0 23 * * *'
-  workflow_dispatch:
-
-name: catalog
-
-jobs:
-  docker:
-    runs-on: ubuntu-latest
-    env:
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      OSN_KEY: ${{ secrets.OSN_KEY }}
-      OSN_SECRET: ${{ secrets.OSN_SECRET }}
-    #container: rocker/geospatial:latest
-    container: rocker/ml-verse
-    steps:
-      - run: git config --system --add safe.directory '*'
-
-      - uses: actions/checkout@v4
-        with:
-           fetch-depth: 0
-           set-safe-directory: '*'
-
-      - name: install deps
-        shell: Rscript {0}
-        run: |
-          remotes::install_deps(".", dep=TRUE)
-          install.packages("bench")
-          install.packages("aws.s3")
-          #reticulate::install_python(version = '3.11.5')
-
-      - name: install validator
-        run: |
-          pip install stac-validator
-
-
-      - name: Render
-        shell: Rscript {0}
-        run: |
-         source("catalog/update_stac.R")
-
-      - name: Commit and Push
-        run: |
-          git pull
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add catalog/* .
-          git commit -a -m "update catalog" || echo "nothing to commit"
-          git push https://${GITHUB_PAT}:${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}
-
-      - name: Healthcheck
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y curl
-          curl -m 10 --retry 5 https://hc-ping.com/3ca7c26c-243e-4405-a3e9-a8381a923def
+# on:
+#   schedule:
+#     - cron: '0 23 * * *'
+#   workflow_dispatch:
+#
+# name: catalog
+#
+# jobs:
+#   docker:
+#     runs-on: ubuntu-latest
+#     env:
+#       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+#       OSN_KEY: ${{ secrets.OSN_KEY }}
+#       OSN_SECRET: ${{ secrets.OSN_SECRET }}
+#     #container: rocker/geospatial:latest
+#     container: rocker/ml-verse
+#     steps:
+#       - run: git config --system --add safe.directory '*'
+#
+#       - uses: actions/checkout@v4
+#         with:
+#            fetch-depth: 0
+#            set-safe-directory: '*'
+#
+#       - name: install deps
+#         shell: Rscript {0}
+#         run: |
+#           remotes::install_deps(".", dep=TRUE)
+#           install.packages("bench")
+#           install.packages("aws.s3")
+#           #reticulate::install_python(version = '3.11.5')
+#
+#       - name: install validator
+#         run: |
+#           pip install stac-validator
+#
+#
+#       - name: Render
+#         shell: Rscript {0}
+#         run: |
+#          source("catalog/update_stac.R")
+#
+#       - name: Commit and Push
+#         run: |
+#           git pull
+#           git config user.name github-actions
+#           git config user.email github-actions@github.com
+#           git add catalog/* .
+#           git commit -a -m "update catalog" || echo "nothing to commit"
+#           git push https://${GITHUB_PAT}:${GITHUB_PAT}@github.com/${GITHUB_REPOSITORY}
+#
+#       - name: Healthcheck
+#         run: |
+#           sudo apt-get update
+#           sudo apt-get install -y curl
+#           curl -m 10 --retry 5 https://hc-ping.com/3ca7c26c-243e-4405-a3e9-a8381a923def
