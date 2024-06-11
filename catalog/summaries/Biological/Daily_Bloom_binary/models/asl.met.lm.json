@@ -47,6 +47,7 @@
       "Bloom_binary",
       "Bloom_binary_mean",
       "Daily",
+      "P1D",
       "bvre",
       "fcre"
     ],

@@ -46,6 +46,7 @@
       "Water_temperature",
       "Temp_C_mean",
       "Daily",
+      "P1D",
       "fcre"
     ],
     "table:columns": [

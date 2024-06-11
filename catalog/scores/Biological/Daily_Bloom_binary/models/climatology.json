@@ -17,9 +17,9 @@
   },
   "properties": {
     "title": "climatology",
-    "description": "All scores for the Daily_Bloom_binary variable for the climatology model. Information for the model is provided as follows: Historical DOY mean and sd.  Assumes normal distribution.\n                                    The model predicts this variable at the following sites: bvre, fcre.\n                                    Scores are metrics that describe how well forecasts compare to observations. The scores catalog includes are summaries of the forecasts (i.e., mean, median, confidence intervals), matched observations (if available), and scores (metrics of how well the model distribution compares to observations). We provide the code to access the scores data as an asset",
+    "description": "All scores for the Daily_Bloom_binary variable for the climatology model. Information for the model is provided as follows: Historical DOY mean and sd.  Assumes normal distribution.\n                                    The model predicts this variable at the following sites: bvre, fcre.\n                                    Scores are metrics that describe how well forecasts compare to observations. The scores catalog includes are summaries of the forecasts (i.e., mean, median, confidence intervals), matched observations (if available), and scores (metrics of how well the model distribution compares to observations)",
     "start_datetime": "2024-02-09",
-    "end_datetime": "2024-06-08",
+    "end_datetime": "2024-06-09",
     "providers": [
       {
         "url": "rqthomas@vt.edu",
@@ -47,6 +47,7 @@
       "Bloom_binary",
       "Bloom_binary_mean",
       "Daily",
+      "P1D",
       "bvre",
       "fcre"
     ],

@@ -17,9 +17,9 @@
   },
   "properties": {
     "title": "asl.tbats",
-    "description": "All forecasts for the Daily_Bloom_binary variable for the asl.tbats model. Information for the model is provided as follows: forecast::tbats() function in R, fit individually at each site/depth.\n                                    The model predicts this variable at the following sites: bvre, fcre.\n                                    Forecasts are the raw forecasts that includes all ensemble members or distribution parameters. Due to the size of the raw forecasts, we recommend accessing the forecast summaries or scores to analyze forecasts (unless you need the individual ensemble members). We provide the code to access the forecast data as an asset",
+    "description": "All forecasts for the Daily_Bloom_binary variable for the asl.tbats model. Information for the model is provided as follows: forecast::tbats() function in R, fit individually at each site/depth.\n                                    The model predicts this variable at the following sites: bvre, fcre.\n                                    Forecasts are the raw forecasts that includes all ensemble members or distribution parameters. Due to the size of the raw forecasts, we recommend accessing the forecast summaries or scores to analyze forecasts (unless you need the individual ensemble members)",
     "start_datetime": "2024-04-29",
-    "end_datetime": "2024-07-13",
+    "end_datetime": "2024-07-14",
     "providers": [
       {
         "url": "aslewis@vt.edu",
@@ -47,6 +47,7 @@
       "Bloom_binary",
       "Bloom_binary_mean",
       "Daily",
+      "P1D",
       "bvre",
       "fcre"
     ],
