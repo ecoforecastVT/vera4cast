@@ -1,6 +1,6 @@
 {
   "id": "Hourly_Water_temperature",
-  "description": "All models for the Hourly_Water_temperature variable.",
+  "description": "All models for the Hourly_Water_temperature variable. The variable description is as follows: hourly mean water temperature in degrees C, focal depths bvre = 1.5 m, fcre = 1.6 m, measured using EXO and thermistor",
   "stac_version": "1.0.0",
   "license": "CC0-1.0",
   "stac_extensions": [
