@@ -46,6 +46,7 @@
       "oxygen_concentration",
       "DO_mgL_mean",
       "Daily",
+      "P1D",
       "fcre"
     ],
     "table:columns": [

@@ -19,7 +19,7 @@
     "title": "persistenceRW",
     "description": "Random walk from the fable package with ensembles used to represent uncertainty",
     "start_datetime": "2024-02-06",
-    "end_datetime": "2024-07-12",
+    "end_datetime": "2024-07-13",
     "providers": [
       {
         "url": "rqthomas@vt.edu",
@@ -47,6 +47,7 @@
       "oxygen_concentration",
       "DO_mgL_mean",
       "Daily",
+      "P1D",
       "fcre",
       "bvre"
     ],
