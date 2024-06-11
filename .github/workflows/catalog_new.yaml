@@ -22,6 +22,13 @@ jobs:
            fetch-depth: 0
            set-safe-directory: '*'
 
+      - name: install deps
+        shell: Rscript {0}
+        run: |
+          remotes::install_deps(".", dep=TRUE)
+          install.packages("bench")
+          install.packages("aws.s3")
+
       - name: install validator
         run: |
           pip install stac-validator
@@ -65,6 +72,13 @@ jobs:
         run: |
           pip install stac-validator
 
+      - name: install deps
+        shell: Rscript {0}
+        run: |
+          remotes::install_deps(".", dep=TRUE)
+          install.packages("bench")
+          install.packages("aws.s3")
+
       - name: Render
         shell: Rscript {0}
         run: source('catalog/forecasts/forecast_models.R')
@@ -99,6 +113,13 @@ jobs:
       - name: install validator
         run: |
           pip install stac-validator
+
+      - name: install deps
+        shell: Rscript {0}
+        run: |
+          remotes::install_deps(".", dep=TRUE)
+          install.packages("bench")
+          install.packages("aws.s3")
 
       - name: Render
         shell: Rscript {0}
@@ -135,6 +156,13 @@ jobs:
         run: |
           pip install stac-validator
 
+      - name: install deps
+        shell: Rscript {0}
+        run: |
+          remotes::install_deps(".", dep=TRUE)
+          install.packages("bench")
+          install.packages("aws.s3")
+
       - name: Render
         shell: Rscript {0}
         run: source('catalog/inventory/create_inventory_page.R')
@@ -169,6 +197,13 @@ jobs:
       - name: install validator
         run: |
           pip install stac-validator
+
+      - name: install deps
+        shell: Rscript {0}
+        run: |
+          remotes::install_deps(".", dep=TRUE)
+          install.packages("bench")
+          install.packages("aws.s3")
 
       - name: Render
         shell: Rscript {0}
@@ -205,6 +240,13 @@ jobs:
         run: |
           pip install stac-validator
 
+      - name: install deps
+        shell: Rscript {0}
+        run: |
+          remotes::install_deps(".", dep=TRUE)
+          install.packages("bench")
+          install.packages("aws.s3")
+
       - name: Render
         shell: Rscript {0}
         run: source('catalog/noaa_forecasts/noaa_forecasts.R')
@@ -239,6 +281,13 @@ jobs:
       - name: install validator
         run: |
           pip install stac-validator
+
+      - name: install deps
+        shell: Rscript {0}
+        run: |
+          remotes::install_deps(".", dep=TRUE)
+          install.packages("bench")
+          install.packages("aws.s3")
 
       - name: Render targets
         shell: Rscript {0}
