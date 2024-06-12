@@ -1,4 +1,3 @@
-library(tidyverse)
 library(RCurl)
 
 ## set destination s3 paths
@@ -80,10 +79,10 @@ secchi_daily$project_id <- 'vera4cast'
 print( 'Eddy Flux')
 source('targets/target_functions/generate_EddyFlux_ghg_targets_function.R')
 eddy_flux <- generate_EddyFlux_ghg_targets_function(
-flux_current_data_file = "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-eddyflux-data-qaqc/EddyFlux_streaming_L1.csv",
-flux_edi_data_file = "https://pasta.lternet.edu/package/data/eml/edi/1061/3/e0976e7a6543fada4cbf5a1bb168713b",
-met_current_data_file = "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-metstation-data-qaqc/FCRmet_L1.csv",
-met_edi_data_file = "https://pasta.lternet.edu/package/data/eml/edi/389/8/d4c74bbb3b86ea293e5c52136347fbb0")
+  flux_current_data_file = "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-eddyflux-data-qaqc/EddyFlux_streaming_L1.csv",
+  flux_edi_data_file = "https://pasta.lternet.edu/package/data/eml/edi/1061/3/e0976e7a6543fada4cbf5a1bb168713b",
+  met_current_data_file = "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-metstation-data-qaqc/FCRmet_L1.csv",
+  met_edi_data_file = "https://pasta.lternet.edu/package/data/eml/edi/389/8/d4c74bbb3b86ea293e5c52136347fbb0")
 
 eddy_flux$datetime <- lubridate::as_datetime(eddy_flux$datetime)
 
@@ -155,51 +154,3 @@ if (nrow(combined_dup_check) != 0){
 }
 
 arrow::write_csv_arrow(combined_targets_deduped, sink = s3_daily$path("daily-insitu-targets.csv.gz"))
-
-
-## INFLOWS
-print('Inflows')
-source('targets/target_functions/inflow/target_generation_inflows.R')
-
-current_inflow <- 'https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-weir-data-qaqc/FCRWeir_L1.csv'
-
-historic_inflow <- "https://pasta.lternet.edu/package/data/eml/edi/202/12/aae7888d68753b276d1623680f81d5de"
-
-historic_silica <- 'https://pasta.lternet.edu/package/data/eml/edi/542/1/791ec9ca0f1cb9361fa6a03fae8dfc95'
-
-historic_nutrients <- "https://pasta.lternet.edu/package/data/eml/edi/199/12/a33a5283120c56e90ea414e76d5b7ddb"
-
-historic_ghg <- "https://pasta.lternet.edu/package/data/eml/edi/551/8/454c11035c491710243cae0423efbe7b"
-
-
-inflow_daily <- target_generation_inflows(historic_inflow = historic_inflow,
-                                          current_inflow = current_inflow,
-                                          historic_nutrients = historic_nutrients,
-                                          historic_silica = historic_silica,
-                                          historic_ghg = historic_ghg)
-
-inflow_daily <- inflow_daily |> select(column_names)
-
-arrow::write_csv_arrow(inflow_daily, sink = s3_daily$path("daily-inflow-targets.csv.gz"))
-
-
-# MET TARGETS
-print('Met Targets')
-current_met <- 'https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-metstation-data-qaqc/FCRmet_L1.csv'
-historic_met <- 'https://pasta.lternet.edu/package/data/eml/edi/389/8/d4c74bbb3b86ea293e5c52136347fbb0'
-
-source('targets/target_functions/meteorology/target_generation_met.R')
-
-met_daily <- target_generation_met(current_met = current_met, historic_met = historic_met, time_interval = 'daily')
-
-met_daily <- met_daily |>
-  select(all_of(column_names))
-
-arrow::write_csv_arrow(met_daily, sink = s3_daily$path("daily-met-targets.csv.gz"))
-
-met_hourly <- target_generation_met(current_met = current_met, historic_met = historic_met, time_interval = 'hourly')
-
-met_hourly <- met_hourly |>
-  select(all_of(column_names))
-
-arrow::write_csv_arrow(met_hourly, sink = s3_hourly$path("hourly-met-targets.csv.gz"))

@@ -52,7 +52,7 @@ jobs:
 
   forecasts:
     needs: metadata_catalog
-    if: always()
+    if: success() || failure()
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -94,7 +94,7 @@ jobs:
 
   scores:
     needs: forecasts
-    if: always()
+    if: success() || failure()
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -136,7 +136,7 @@ jobs:
 
   inventory:
     needs: scores
-    if: always()
+    if: success() || failure()
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -178,7 +178,7 @@ jobs:
 
   summaries:
     needs: inventory
-    if: always()
+    if: success() || failure()
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -220,7 +220,7 @@ jobs:
 
   noaa:
     needs: summaries
-    if: always()
+    if: success() || failure()
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -262,7 +262,7 @@ jobs:
 
   targets_sites:
     needs: noaa
-    if: always()
+    if: success() || failure()
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -315,4 +315,4 @@ jobs:
     steps:
       - name: Call Healthcheck
         run: |
-          curl -m 10 --retry 5 https://hc-ping.com/22fcd257-7930-455c-948d-0f913743b0c3
+          curl -m 10 --retry 5 https://hc-ping.com/3ca7c26c-243e-4405-a3e9-a8381a923def

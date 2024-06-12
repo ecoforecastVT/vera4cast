@@ -9,7 +9,7 @@ on:
 name: target-generation
 
 jobs:
-  targets:
+  insitu:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -22,11 +22,44 @@ jobs:
       - name: Generate targets
         shell: Rscript {0}
         run: |
-          source('targets/target_generation/generate_targets.R')
+          source('targets/target_generation/insitu_targets.R')
+  inflow:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.OSN_KEY }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.OSN_SECRET }}
+    container: rqthomas/vera-rocker:latest
+    steps:
+      - uses: actions/checkout@v4
 
-      - name: Healthcheck
+      - name: Generate targets
+        shell: Rscript {0}
         run: |
-          sudo apt-get update
-          sudo apt-get install -y curl
+          source('targets/target_generation/inflow_targets.R')
+  met:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.OSN_KEY }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.OSN_SECRET }}
+    container: rqthomas/vera-rocker:latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate targets
+        shell: Rscript {0}
+        run: |
+          source('targets/target_generation/met_targets.R')
+
+  Healthcheck:
+    needs: [insitu, inflow, met]
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    container: rqthomas/vera-rocker:latest
+    steps:
+      - name: Call Healthcheck
+        run: |
           curl -m 10 --retry 5 https://hc-ping.com/251672ee-2233-4335-85b9-2133ff15c46b
 

@@ -1,3 +1,6 @@
+library(minioclient)
+library(googlesheets4)
+
 Sys.setenv(AWS_ACCESS_KEY_ID=Sys.getenv("OSN_KEY"),
            AWS_SECRET_ACCESS_KEY=Sys.getenv("OSN_SECRET"))
 
