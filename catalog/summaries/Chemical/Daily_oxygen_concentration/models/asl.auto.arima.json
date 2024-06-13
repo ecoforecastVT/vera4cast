@@ -19,7 +19,7 @@
     "title": "asl.auto.arima",
     "description": "forecast::auto.arima() function in R, fit individually at each site/depth",
     "start_datetime": "2024-03-12",
-    "end_datetime": "2024-07-16",
+    "end_datetime": "2024-07-17",
     "providers": [
       {
         "url": "aslewis@vt.edu",
@@ -52,11 +52,6 @@
       "fcre"
     ],
     "table:columns": [
-      {
-        "name": "18 columns",
-        "type": null,
-        "description": {}
-      },
       {
         "name": "reference_datetime",
         "type": "timestamp[us, tz=UTC]",
