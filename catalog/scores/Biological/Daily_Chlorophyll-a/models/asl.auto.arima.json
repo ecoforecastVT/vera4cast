@@ -19,7 +19,7 @@
     "title": "asl.auto.arima",
     "description": "All scores for the Daily_Chlorophyll-a variable for the asl.auto.arima model. Information for the model is provided as follows: forecast::auto.arima() function in R, fit individually at each site/depth.\n                                    The model predicts this variable at the following sites: bvre, fcre.\n                                    Scores are metrics that describe how well forecasts compare to observations. The scores catalog includes are summaries of the forecasts (i.e., mean, median, confidence intervals), matched observations (if available), and scores (metrics of how well the model distribution compares to observations)",
     "start_datetime": "2024-03-12",
-    "end_datetime": "2024-06-11",
+    "end_datetime": "2024-06-13",
     "providers": [
       {
         "url": "aslewis@vt.edu",
@@ -52,11 +52,6 @@
       "fcre"
     ],
     "table:columns": [
-      {
-        "name": "21 columns",
-        "type": null,
-        "description": {}
-      },
       {
         "name": "reference_datetime",
         "type": "timestamp[us, tz=UTC]",
