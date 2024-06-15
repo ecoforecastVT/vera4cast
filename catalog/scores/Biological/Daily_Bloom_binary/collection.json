@@ -65,6 +65,11 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "./models/glm_aed_v1.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "./models/historic_mean.json"
     },
     {
@@ -76,11 +81,6 @@
       "rel": "item",
       "type": "application/json",
       "href": "./models/persistenceRW.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/glm_aed_v1.json"
     },
     {
       "rel": "parent",
@@ -125,7 +125,7 @@
       "interval": [
         [
           "2023-10-01T00:00:00Z",
-          "2024-06-13T00:00:00Z"
+          "2024-06-14T00:00:00Z"
         ]
       ]
     }
