@@ -70,6 +70,16 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "./models/monthly_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "./models/persistenceRW.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "./models/gfs_seamless.json"
     },
     {
@@ -81,16 +91,6 @@
       "rel": "item",
       "type": "application/json",
       "href": "./models/historic_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/monthly_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/persistenceRW.json"
     },
     {
       "rel": "parent",
@@ -135,7 +135,7 @@
       "interval": [
         [
           "2023-10-01T00:00:00Z",
-          "2024-06-15T00:00:00Z"
+          "2024-06-16T00:00:00Z"
         ]
       ]
     }
