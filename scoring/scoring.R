@@ -93,6 +93,7 @@ furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, con
     dplyr::filter(variable == curr_variable, duration == curr_duration) |>
     dplyr::select(-site_id) |>
     dplyr::collect() |>
+    dplyr::filter(!(model_id %in% c('asl.met.lm', 'asl.tbats', 'asl.temp.lm', "asl.auto.arima", "asl.ets", "asl.met.lm.step"))) |> # remove ASL models for now to get scores back up
     dplyr::distinct() |>
     dplyr::filter(date > Sys.Date() - lubridate::days(past_days),
                   date <= lubridate::as_date(max(target$datetime))) |>
