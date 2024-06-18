@@ -89,11 +89,26 @@ furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, con
   curr_duration <- duration
   curr_project_id <- project_id
 
+  if (curr_variable == 'Bloom_binary_mean'){
+    groupings <- arrow::open_dataset(s3_inv) |>
+      dplyr::filter(variable == curr_variable, duration == curr_duration) |>
+      dplyr::select(-site_id) |>
+      dplyr::collect() |>
+      dplyr::filter(!(model_id %in% c('asl.met.lm', 'asl.tbats', 'asl.temp.lm', "asl.auto.arima", "asl.ets", "asl.met.lm.step"))) |> # remove ASL models for now to get scores back up
+      dplyr::distinct() |>
+      dplyr::filter(date > Sys.Date() - lubridate::days(past_days),
+                    date <= lubridate::as_date(max(target$datetime))) |>
+      dplyr::group_by(model_id, date, duration, path, endpoint) |>
+      dplyr::arrange(reference_date, pub_date) |>
+      dplyr::summarise(reference_date = paste(unique(reference_date), collapse=","),
+                       pub_date = paste(unique(pub_date), collapse=","),
+                       .groups = "drop")
+  }else{
+
   groupings <- arrow::open_dataset(s3_inv) |>
     dplyr::filter(variable == curr_variable, duration == curr_duration) |>
     dplyr::select(-site_id) |>
     dplyr::collect() |>
-    dplyr::filter(!(model_id %in% c('asl.met.lm', 'asl.tbats', 'asl.temp.lm', "asl.auto.arima", "asl.ets", "asl.met.lm.step"))) |> # remove ASL models for now to get scores back up
     dplyr::distinct() |>
     dplyr::filter(date > Sys.Date() - lubridate::days(past_days),
                   date <= lubridate::as_date(max(target$datetime))) |>
@@ -102,6 +117,7 @@ furrr::future_walk(1:nrow(variable_duration), function(k, variable_duration, con
     dplyr::summarise(reference_date = paste(unique(reference_date), collapse=","),
                      pub_date = paste(unique(pub_date), collapse=","),
                      .groups = "drop")
+  }
 
   if(nrow(groupings) > 0){
 
