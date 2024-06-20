@@ -19,7 +19,7 @@
     "title": "asl.auto.arima",
     "description": "forecast::auto.arima() function in R, fit individually at each site/depth",
     "start_datetime": "2024-04-29",
-    "end_datetime": "2024-07-23",
+    "end_datetime": "2024-07-24",
     "providers": [
       {
         "url": "aslewis@vt.edu",
