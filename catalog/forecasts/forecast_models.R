@@ -294,10 +294,25 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
                                     '.
                                     Forecasts are the raw forecasts that includes all ensemble members or distribution parameters. Due to the size of the raw forecasts, we recommend accessing the forecast summaries or scores to analyze forecasts (unless you need the individual ensemble members)')
 
+        model_type <- registered_model_id$`Which category best matches your modeling approach?`[idx]
 
-        model_keywords <- c(list('Forecasts',config$project_id, names(config$variable_groups)[i], m, var_name_full[j], var_name, duration_value, duration_name),
-                                 as.list(model_sites$site_id))
+        if(model_type %in% c('Empirical (a statistical model)', 'Empirical', 'empirical')){
+          model_type_keyword <- "empirical"
+        } else if(model_type %in% c('Machine Learning', 'ML', 'Machine learning', 'machine learning')){
+          model_type_keyword <- 'machine learning'
+        } else if (model_type %in% c('Process Based', 'Process based', 'process based')){
+          model_type_keyword <- 'process based'
+        } else{
+          model_type_keyword <- NA
+        }
 
+        if (is.na(model_type_keyword)){
+          model_keywords <- c(list('Forecasts',config$project_id, names(config$variable_groups)[i], m, var_name_full[j], var_name, duration_value, duration_name),
+                              as.list(model_sites$site_id))
+        }else{
+          model_keywords <- c(list('Forecasts',config$project_id, names(config$variable_groups)[i], m, var_name_full[j], var_name, duration_value, duration_name),
+                              as.list(model_sites$site_id), model_type_keyword)
+        }
 
         stac4cast::build_model(model_id = m,
                                stac_id = stac_id,
