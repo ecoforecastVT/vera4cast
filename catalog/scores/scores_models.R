@@ -109,7 +109,7 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
   var_name_full <- var_gsheet_arrange[which(var_gsheet_arrange$`"official" targets name` %in% var_values),1][[1]]
 
   ## CREATE VARIABLE GROUP JSONS
-  group_description <- paste0('All variables for the ',names(config$variable_groups[i]),' group.')
+  group_description <- paste0('All ',names(config$variable_groups[i]),' variables for the forecasting challenge')
 
   ## find group sites
   find_group_sites <- scores_data_df |>
@@ -177,7 +177,7 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
         filter(`"official" targets name` == var_name,
                duration == duration_name)
 
-      var_description <- paste0('All models for the ',var_formal_name,' variable. The variable description is as follows: ',
+      var_description <- paste0('All models for the ',var_formal_name,' variable. This variable describes the ',
                                 var_metadata$Description)
 
       var_path <- gsub('forecasts','scores',var_data$path[1])
