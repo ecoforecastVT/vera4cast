@@ -47,7 +47,8 @@
       "Temp_C_mean",
       "Daily",
       "P1D",
-      "bvre"
+      "bvre",
+      "empirical"
     ],
     "table:columns": [
       {
