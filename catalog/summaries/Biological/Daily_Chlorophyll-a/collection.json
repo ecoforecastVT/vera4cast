@@ -1,6 +1,6 @@
 {
   "id": "Daily_Chlorophyll-a",
-  "description": "All models for the Daily_Chlorophyll-a variable. The variable description is as follows: daily mean chlorophyll a in micrograms per liter from Exo;  focal depths bvre = 1.5 m, fcre = 1.6 m",
+  "description": "All models for the Daily_Chlorophyll-a variable. This variable describes the daily mean chlorophyll a in micrograms per liter from Exo;  focal depths bvre = 1.5 m, fcre = 1.6 m",
   "stac_version": "1.0.0",
   "license": "CC0-1.0",
   "stac_extensions": [
@@ -135,7 +135,7 @@
       "interval": [
         [
           "2023-10-01T00:00:00Z",
-          "2024-07-30T00:00:00Z"
+          "2024-08-01T00:00:00Z"
         ]
       ]
     }

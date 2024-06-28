@@ -1,6 +1,6 @@
 {
   "id": "Daily_Bloom_binary",
-  "description": "All models for the Daily_Bloom_binary variable. The variable description is as follows: binary indicator of bloom occurrence (Chla_ugL_mean > 20 ugL)",
+  "description": "All models for the Daily_Bloom_binary variable. This variable describes the binary indicator of bloom occurrence (Chla_ugL_mean > 20 ugL)",
   "stac_version": "1.0.0",
   "license": "CC0-1.0",
   "stac_extensions": [
@@ -125,7 +125,7 @@
       "interval": [
         [
           "2023-10-01T00:00:00Z",
-          "2024-06-24T00:00:00Z"
+          "2024-06-26T00:00:00Z"
         ]
       ]
     }
