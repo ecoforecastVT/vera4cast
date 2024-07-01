@@ -334,6 +334,7 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
                                    thumbnail_link = config$variable_groups[[i]]$thumbnail_link,
                                    thumbnail_title = config$variable_groups[[i]]$thumbnail_title,
                                    group_var_vector = unique(var_values),
+                                   single_var_name = NULL,
                                    group_duration_value = NULL,
                                    group_sites = find_group_sites$site_id,
                                    citation_values = citation_build,
