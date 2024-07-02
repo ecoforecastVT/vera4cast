@@ -19,7 +19,7 @@
     "title": "asl.tbats",
     "description": "forecast::tbats() function in R, fit individually at each site/depth",
     "start_datetime": "2024-03-20",
-    "end_datetime": "2024-08-04",
+    "end_datetime": "2024-08-05",
     "providers": [
       {
         "url": "aslewis@vt.edu",
