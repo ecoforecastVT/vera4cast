@@ -19,7 +19,7 @@
     "title": "persistenceRW",
     "description": "Random walk from the fable package with ensembles used to represent uncertainty",
     "start_datetime": "2024-02-09",
-    "end_datetime": "2024-08-06",
+    "end_datetime": "2024-08-07",
     "providers": [
       {
         "url": "rqthomas@vt.edu",
