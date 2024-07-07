@@ -19,7 +19,7 @@
     "title": "fableETS",
     "description": "fable package exponential smoothing model fable::ETS()",
     "start_datetime": "2023-10-01",
-    "end_datetime": "2024-08-09",
+    "end_datetime": "2024-08-10",
     "providers": [
       {
         "url": "melofton@vt.edu",
