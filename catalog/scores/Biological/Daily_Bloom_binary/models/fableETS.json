@@ -11,15 +11,15 @@
   "geometry": {
     "type": "MultiPoint",
     "coordinates": [
-      [-79.8372, 37.3032],
-      [-79.8159, 37.3129]
+      [-79.8159, 37.3129],
+      [-79.8372, 37.3032]
     ]
   },
   "properties": {
     "title": "fableETS",
-    "description": "All scores for the Daily_Bloom_binary variable for the fableETS model. Information for the model is provided as follows: fable package exponential smoothing model fable::ETS().\n                                    The model predicts this variable at the following sites: fcre, bvre.\n                                    Scores are metrics that describe how well forecasts compare to observations. The scores catalog includes are summaries of the forecasts (i.e., mean, median, confidence intervals), matched observations (if available), and scores (metrics of how well the model distribution compares to observations)",
+    "description": "All scores for the Daily_Bloom_binary variable for the fableETS model. Information for the model is provided as follows: fable package exponential smoothing model fable::ETS().\n                                    The model predicts this variable at the following sites: bvre, fcre.\n                                    Scores are metrics that describe how well forecasts compare to observations. The scores catalog includes are summaries of the forecasts (i.e., mean, median, confidence intervals), matched observations (if available), and scores (metrics of how well the model distribution compares to observations)",
     "start_datetime": "2023-10-01",
-    "end_datetime": "2024-07-11",
+    "end_datetime": "2024-07-13",
     "providers": [
       {
         "url": "melofton@vt.edu",
@@ -48,8 +48,8 @@
       "Bloom_binary_mean",
       "Daily",
       "P1D",
-      "fcre",
-      "bvre"
+      "bvre",
+      "fcre"
     ],
     "table:columns": [
       {
