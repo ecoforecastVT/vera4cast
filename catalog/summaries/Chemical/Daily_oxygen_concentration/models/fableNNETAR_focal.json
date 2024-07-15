@@ -19,7 +19,7 @@
     "title": "fableNNETAR_focal",
     "description": "autoregressive neural net fit using the NNETAR() function in the fable R package for VERA focal variables",
     "start_datetime": "2024-04-26",
-    "end_datetime": "2024-08-18",
+    "end_datetime": "2024-08-19",
     "providers": [
       {
         "url": "addelany@vt.edu",
