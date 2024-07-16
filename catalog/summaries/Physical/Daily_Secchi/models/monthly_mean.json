@@ -5,9 +5,7 @@
   ],
   "type": "Feature",
   "id": "monthly_mean_Secchi_m_sample_P1D_summaries",
-  "bbox": [
-    [-79.8372, 37.3032, -79.8159, 37.3129]
-  ],
+  "bbox": [-79.8372, 37.3032, -79.8159, 37.3129],
   "geometry": {
     "type": "MultiPoint",
     "coordinates": [
@@ -19,7 +17,7 @@
     "title": "monthly_mean",
     "description": "This model calculates a monthly mean from the historic data and assigns this as the mean prediction for any day within that month. The standard deviation of the observations for that month is given as the standard deviation of the forecast.",
     "start_datetime": "2024-02-06",
-    "end_datetime": "2024-08-19",
+    "end_datetime": "2024-08-20",
     "providers": [
       {
         "url": "freyao@vt.edu",

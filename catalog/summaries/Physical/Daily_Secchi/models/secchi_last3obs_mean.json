@@ -5,9 +5,7 @@
   ],
   "type": "Feature",
   "id": "secchi_last3obs_mean_Secchi_m_sample_P1D_summaries",
-  "bbox": [
-    [-79.8372, 37.3032, -79.8372, 37.3032]
-  ],
+  "bbox": [-79.8372, 37.3032, -79.8372, 37.3032],
   "geometry": {
     "type": "MultiPoint",
     "coordinates": [
@@ -18,7 +16,7 @@
     "title": "secchi_last3obs_mean",
     "description": "This forecast simply takes the mean of the last three secchi observations and uses the standard deviation of that mean for the uncertainty around the forecast.",
     "start_datetime": "2024-05-02",
-    "end_datetime": "2024-08-13",
+    "end_datetime": "2024-08-14",
     "providers": [
       {
         "url": "kkhoffman@vt.edu",

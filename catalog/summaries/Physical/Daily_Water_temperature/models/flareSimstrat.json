@@ -5,9 +5,7 @@
   ],
   "type": "Feature",
   "id": "flareSimstrat_Temp_C_mean_P1D_summaries",
-  "bbox": [
-    [-79.8372, 37.3032, -79.8372, 37.3032]
-  ],
+  "bbox": [-79.8372, 37.3032, -79.8372, 37.3032],
   "geometry": {
     "type": "MultiPoint",
     "coordinates": [
