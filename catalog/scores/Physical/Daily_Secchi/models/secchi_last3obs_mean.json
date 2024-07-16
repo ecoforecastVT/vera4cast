@@ -5,9 +5,7 @@
   ],
   "type": "Feature",
   "id": "secchi_last3obs_mean_Secchi_m_sample_P1D_scores",
-  "bbox": [
-    [-79.8372, 37.3032, -79.8372, 37.3032]
-  ],
+  "bbox": [-79.8372, 37.3032, -79.8372, 37.3032],
   "geometry": {
     "type": "MultiPoint",
     "coordinates": [

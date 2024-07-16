@@ -4,8 +4,6 @@
   "stac_version": "1.0.0",
   "license": "CC0-1.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/scientific/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json",
     "https://stac-extensions.github.io/table/v1.2.0/schema.json"
   ],
   "type": "Collection",
@@ -71,7 +69,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-07-14T00:00:00Z"
+          "2024-07-16T00:00:00Z"
         ]
       ]
     }
