@@ -5,9 +5,7 @@
   ],
   "type": "Feature",
   "id": "asl.ets_Bloom_binary_mean_P1D_forecast",
-  "bbox": [
-    [-79.8372, 37.3032, -79.8159, 37.3129]
-  ],
+  "bbox": [-79.8372, 37.3032, -79.8159, 37.3129],
   "geometry": {
     "type": "MultiPoint",
     "coordinates": [
