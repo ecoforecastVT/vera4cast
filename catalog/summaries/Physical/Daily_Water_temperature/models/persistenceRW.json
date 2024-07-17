@@ -5,9 +5,7 @@
   ],
   "type": "Feature",
   "id": "persistenceRW_Temp_C_mean_P1D_summaries",
-  "bbox": [
-    [-79.8372, 37.3032, -79.8159, 37.3129]
-  ],
+  "bbox": [-79.8372, 37.3032, -79.8159, 37.3129],
   "geometry": {
     "type": "MultiPoint",
     "coordinates": [
@@ -20,7 +18,7 @@
     "title": "persistenceRW",
     "description": "Random walk from the fable package with ensembles used to represent uncertainty",
     "start_datetime": "2023-09-21",
-    "end_datetime": "2024-07-30",
+    "end_datetime": "2024-08-19",
     "providers": [
       {
         "url": "rqthomas@vt.edu",

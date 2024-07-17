@@ -5,9 +5,7 @@
   ],
   "type": "Feature",
   "id": "asl.auto.arima_Bloom_binary_mean_P1D_summaries",
-  "bbox": [
-    [-79.8372, 37.3032, -79.8159, 37.3129]
-  ],
+  "bbox": [-79.8372, 37.3032, -79.8159, 37.3129],
   "geometry": {
     "type": "MultiPoint",
     "coordinates": [
@@ -19,7 +17,7 @@
     "title": "asl.auto.arima",
     "description": "forecast::auto.arima() function in R, fit individually at each site/depth",
     "start_datetime": "2024-04-29",
-    "end_datetime": "2024-07-31",
+    "end_datetime": "2024-08-17",
     "providers": [
       {
         "url": "aslewis@vt.edu",

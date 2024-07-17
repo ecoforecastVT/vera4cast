@@ -5,9 +5,7 @@
   ],
   "type": "Feature",
   "id": "fableNNETAR_Bloom_binary_mean_P1D_forecast",
-  "bbox": [
-    [-79.8372, 37.3032, -79.8159, 37.3129]
-  ],
+  "bbox": [-79.8372, 37.3032, -79.8159, 37.3129],
   "geometry": {
     "type": "MultiPoint",
     "coordinates": [
@@ -19,7 +17,7 @@
     "title": "fableNNETAR",
     "description": "All forecasts for the Daily_Bloom_binary variable for the fableNNETAR model. Information for the model is provided as follows: autoregressive neural net fit using the NNETAR() function in the fable R package.\n                                    The model predicts this variable at the following sites: bvre, fcre.\n                                    Forecasts are the raw forecasts that includes all ensemble members or distribution parameters. Due to the size of the raw forecasts, we recommend accessing the forecast summaries or scores to analyze forecasts (unless you need the individual ensemble members)",
     "start_datetime": "2023-10-01",
-    "end_datetime": "2024-08-04",
+    "end_datetime": "2024-08-20",
     "providers": [
       {
         "url": "melofton@vt.edu",

@@ -5,9 +5,7 @@
   ],
   "type": "Feature",
   "id": "fableNNETAR_Bloom_binary_mean_P1D_summaries",
-  "bbox": [
-    [-79.8372, 37.3032, -79.8159, 37.3129]
-  ],
+  "bbox": [-79.8372, 37.3032, -79.8159, 37.3129],
   "geometry": {
     "type": "MultiPoint",
     "coordinates": [
@@ -19,7 +17,7 @@
     "title": "fableNNETAR",
     "description": "autoregressive neural net fit using the NNETAR() function in the fable R package",
     "start_datetime": "2023-10-01",
-    "end_datetime": "2024-07-31",
+    "end_datetime": "2024-08-20",
     "providers": [
       {
         "url": "melofton@vt.edu",

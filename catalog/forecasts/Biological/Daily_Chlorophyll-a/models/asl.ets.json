@@ -5,9 +5,7 @@
   ],
   "type": "Feature",
   "id": "asl.ets_Chla_ugL_mean_P1D_forecast",
-  "bbox": [
-    [-79.8372, 37.3032, -79.8159, 37.3129]
-  ],
+  "bbox": [-79.8372, 37.3032, -79.8159, 37.3129],
   "geometry": {
     "type": "MultiPoint",
     "coordinates": [
@@ -19,7 +17,7 @@
     "title": "asl.ets",
     "description": "All forecasts for the Daily_Chlorophyll-a variable for the asl.ets model. Information for the model is provided as follows: forecast::ets() function in R, fit individually at each site/depth.\n                                    The model predicts this variable at the following sites: bvre, fcre.\n                                    Forecasts are the raw forecasts that includes all ensemble members or distribution parameters. Due to the size of the raw forecasts, we recommend accessing the forecast summaries or scores to analyze forecasts (unless you need the individual ensemble members)",
     "start_datetime": "2024-03-12",
-    "end_datetime": "2024-08-04",
+    "end_datetime": "2024-08-17",
     "providers": [
       {
         "url": "aslewis@vt.edu",
