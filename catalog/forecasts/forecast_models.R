@@ -124,8 +124,8 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
     distinct(site_id)
 
   ## create empty vector to track publication information
-  citation_build <- c()
-  doi_build <- c()
+  citation_build <- c(catalog_config$citation_text)
+  doi_build <- c(catalog_config$citation_doi)
 
   ## create empty vector to track variable information
   variable_name_build <- c()
