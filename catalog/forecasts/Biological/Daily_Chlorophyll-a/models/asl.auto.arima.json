@@ -20,7 +20,7 @@
     "end_datetime": "2024-08-17T00:00:00Z",
     "providers": [
       {
-        "url": "aslewis@vt.edu",
+        "url": "https://github.com/abbylewis/vera_meteor_strike",
         "name": "Abigail Lewis",
         "roles": [
           "producer",
