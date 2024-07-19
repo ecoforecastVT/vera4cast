@@ -331,6 +331,21 @@ ex |> filter(variable == "CH4flux_umolm2s_mean") |>
   forecast_plots(ylabel = 'CH4 Flux (umolm2s)')
 ```
 
+### Dissolved Methane
+
+```{r}
+ex |> filter(variable == "CO2_umolL_sample") |> 
+  filter(site_id != "tubr") |> ## We don't want inflow methane in plot
+  forecast_plots(ylabel = 'CO2 (umolL)')
+```
+
+### Methane Flux
+
+```{r}
+ex |> filter(variable == "CO2flux_umolm2s_mean") |> 
+  forecast_plots(ylabel = 'CO2 Flux (umolm2s)')
+```
+
 ### Inflow Discharge
 
 ```{r}
