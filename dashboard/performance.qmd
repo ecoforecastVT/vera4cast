@@ -331,7 +331,7 @@ ex |> filter(variable == "CH4flux_umolm2s_mean") |>
   forecast_plots(ylabel = 'CH4 Flux (umolm2s)')
 ```
 
-### Dissolved Methane
+### Dissolved CO2
 
 ```{r}
 ex |> filter(variable == "CO2_umolL_sample") |> 
@@ -339,7 +339,7 @@ ex |> filter(variable == "CO2_umolL_sample") |>
   forecast_plots(ylabel = 'CO2 (umolL)')
 ```
 
-### Methane Flux
+### CO2 Flux
 
 ```{r}
 ex |> filter(variable == "CO2flux_umolm2s_mean") |> 
