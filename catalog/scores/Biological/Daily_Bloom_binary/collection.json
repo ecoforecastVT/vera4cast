@@ -36,6 +36,11 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "./models/asl.temp.lm.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "./models/climatology.json"
     },
     {
@@ -47,11 +52,6 @@
       "rel": "item",
       "type": "application/json",
       "href": "./models/fableETS.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/asl.temp.lm.json"
     },
     {
       "rel": "item",
@@ -121,7 +121,7 @@
       "interval": [
         [
           "2023-10-01T00:00:00Z",
-          "2024-07-26T00:00:00Z"
+          "2024-07-27T00:00:00Z"
         ]
       ]
     }
