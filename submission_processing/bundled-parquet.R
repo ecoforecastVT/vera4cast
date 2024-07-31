@@ -1,7 +1,6 @@
 library(dplyr)
 library(duckdbfs)
 library(minioclient)
-library(bench)
 
 config <- yaml::read_yaml("challenge_configuration.yaml")
 
