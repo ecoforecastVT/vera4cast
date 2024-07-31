@@ -15,7 +15,7 @@ message('FORECASTS')
 # Sync local scores, fastest way to access all the bytes.
 
 mc_mirror(paste0("osn/",config$forecasts_bucket,"/parquet/project_id=",config$project_id),
-        paste0("project_id=",config$project_id))
+        paste0("/project_id=",config$project_id))
 
 
 # Merely write out locally with new partition via duckdb, fast!
@@ -36,7 +36,7 @@ message('SCORES')
 # Sync local scores, fastest way to access all the bytes.
 
 mc_mirror(paste0("osn/",config$scores_bucket,"/parquet/project_id=",config$project_id),
-          paste0("project_id=",config$project_id,"/scores"))
+          paste0("/project_id=",config$project_id,"/scores"))
 
 # Merely write out locally with new partition via duckdb, fast!
 # Sync bytes in bulk again, faster.
@@ -55,7 +55,7 @@ message('SUMMARIES')
 
 # Sync local scores, fastest way to access all the bytes.
 mc_mirror(paste0("osn/",config$summaries_bucket,"/project_id=",config$project_id),
-          paste0("project_id=",config$project_id,"/summaries"))
+          paste0("/project_id=",config$project_id,"/summaries"))
 
 # Merely write out locally with new partition via duckdb, fast!
 # Sync bytes in bulk again, faster.
