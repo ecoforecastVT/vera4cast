@@ -22,7 +22,7 @@ mc_mirror(paste0("osn/",config$forecasts_bucket,"/parquet/project_id=",config$pr
 # Sync bytes in bulk again, faster.
 fs::dir_create(paste0("bundled-parquet"))
 
-open_dataset(paste0("project_id=",config$project_id,"/**")) |>
+open_dataset(paste0("/project_id=",config$project_id,"/**")) |>
 select(-date) |> # (date is a short version of datetime from partitioning, drop it)
 write_dataset(paste0("bundled-parquet/forecasts/project_id=",config$project_id),
               partitioning = c("duration", 'variable', "model_id"))
@@ -42,7 +42,7 @@ mc_mirror(paste0("osn/",config$scores_bucket,"/parquet/project_id=",config$proje
 # Sync bytes in bulk again, faster.
 fs::dir_create("bundled-parquet/scores")
 
-open_dataset(paste0("project_id=",config$project_id,"/scores/**")) |>
+open_dataset(paste0("/project_id=",config$project_id,"/scores/**")) |>
 select(-date) |> # (date is a short version of datetime from partitioning, drop it)
 write_dataset(paste0("bundled-parquet/scores/project_id=",config$project_id),
               partitioning = c("duration", 'variable', "model_id"))
@@ -61,7 +61,7 @@ mc_mirror(paste0("osn/",config$summaries_bucket,"/project_id=",config$project_id
 # Sync bytes in bulk again, faster.
 fs::dir_create("bundled-parquet/summaries")
 
-open_dataset(paste0("project_id=",config$project_id,"/scores/**")) |>
+open_dataset(paste0("/project_id=",config$project_id,"/scores/**")) |>
   select(-date) |> # (date is a short version of datetime from partitioning, drop it)
   write_dataset(paste0("bundled-parquet/summaries/project_id=",config$project_id),
                 partitioning = c("duration", 'variable', "model_id"))
