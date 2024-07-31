@@ -2,6 +2,8 @@ library(dplyr)
 library(duckdbfs)
 library(minioclient)
 
+install_mc()
+
 config <- yaml::read_yaml("challenge_configuration.yaml")
 
 mc_alias_set("osn", config$endpoint, Sys.getenv("OSN_KEY"), Sys.getenv("OSN_SECRET"))
