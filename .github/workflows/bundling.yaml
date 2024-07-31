@@ -27,4 +27,4 @@ jobs:
       - name: Generate scores
         shell: Rscript {0}
         run: |
-          source("submission_processing/bundled-scores.R")
+          source("submission_processing/bundled-parquet.R")
