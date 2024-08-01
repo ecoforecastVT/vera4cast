@@ -120,6 +120,16 @@
       "description": {}
     },
     {
+      "name": "path_bundled",
+      "type": null,
+      "description": {}
+    },
+    {
+      "name": "path_bundled_summaries",
+      "type": null,
+      "description": {}
+    },
+    {
       "name": "endpoint",
       "type": "string",
       "description": "storage location for forecast data"
