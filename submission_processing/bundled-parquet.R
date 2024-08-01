@@ -20,14 +20,14 @@ mc_mirror(paste0("osn/",config$forecasts_bucket,"/parquet/project_id=",config$pr
 
 # Merely write out locally with new partition via duckdb, fast!
 # Sync bytes in bulk again, faster.
-fs::dir_create(paste0("bundling/forecasts"))
+fs::dir_create(paste0("bundling-forecasts"))
 
 open_dataset(paste0("/project_id=",config$project_id,"/forecasts/**")) |>
 #select(-date) |> # (date is a short version of datetime from partitioning, drop it)
-write_dataset(paste0("bundling/forecasts/project_id=",config$project_id),
+write_dataset(paste0("bundling-forecasts/project_id=",config$project_id),
               partitioning = c("duration", 'variable', "model_id"))
 
-mc_mirror("bundling/forecasts",
+mc_mirror("bundling-forecasts",
         paste0("osn/",config$forecasts_bucket,"/bundled-parquet"))
 
 
