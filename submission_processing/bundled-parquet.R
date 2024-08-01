@@ -36,7 +36,7 @@ message('SCORES')
 # Sync local scores, fastest way to access all the bytes.
 
 mc_mirror(paste0("osn/",config$scores_bucket,"/parquet/project_id=",config$project_id),
-          paste0("/project_id=",config$project_id,"/scores"))
+          paste0("/project_id=",config$project_id,"/scores"), overwrite = TRUE)
 
 # Merely write out locally with new partition via duckdb, fast!
 # Sync bytes in bulk again, faster.
@@ -48,7 +48,7 @@ write_dataset(paste0("bundling/scores/project_id=",config$project_id),
               partitioning = c("duration", 'variable', "model_id"))
 
 mc_mirror("bundling/scores/",
-          paste0("osn/",config$scores_bucket,"/bundled-parquet"))
+          paste0("osn/",config$scores_bucket,"/bundled-parquet"), overwrite = TRUE)
 
 
 message('SUMMARIES')
@@ -67,5 +67,5 @@ open_dataset(paste0("/project_id=",config$project_id,"/summaries/**")) |>
                 partitioning = c("duration", 'variable', "model_id"))
 
 mc_mirror("bundling/summaries/",
-          paste0("osn/",config$forecasts_bucket,"/bundled-summaries"))
+          paste0("osn/",config$forecasts_bucket,"/bundled-summaries"), overwrite = TRUE)
 
