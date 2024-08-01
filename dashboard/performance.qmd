@@ -25,11 +25,11 @@ This page visualizes the forecasts and forecast performance for the focal target
 ```{r}
 config <- yaml::read_yaml("../challenge_configuration.yaml")
 
-s3 <- arrow::s3_bucket(paste0(config$summaries_bucket, "/project_id=", config$project_id, "/duration=P1D"), endpoint_override = config$endpoint, anonymous = TRUE)
+s3 <- arrow::s3_bucket(paste0(config$forecasts_bucket, "/bundled-summaries/project_id=", config$project_id, "/duration=P1D"), endpoint_override = config$endpoint, anonymous = TRUE)
 
 # s3_scores <- arrow::s3_bucket(paste0(config$scores_bucket, "/project_id=", config$project_id, "/duration=P1D"), endpoint_override = config$endpoint, anonymous = TRUE)
 
-s3_scores <- arrow::s3_bucket(paste0(config$scores_bucket), endpoint_override = config$endpoint, anonymous = TRUE)
+s3_scores <- arrow::s3_bucket(file.path(paste0(config$scores_bucket), "bundled-parquet"), endpoint_override = config$endpoint, anonymous = TRUE)
 
 reference_datetimes <- arrow::open_dataset(s3) |> 
   dplyr::group_by(variable) |> 

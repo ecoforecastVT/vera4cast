@@ -30,7 +30,6 @@ jobs:
         run: |
           source("submission_processing/build_forecast_inventory.R")
 
-
   scores:
     needs: submissions
     runs-on: ubuntu-latest
