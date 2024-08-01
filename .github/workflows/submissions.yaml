@@ -30,7 +30,7 @@ jobs:
 
       - name: Process submissions
         shell: Rscript {0}
-        run: 
+        run:
           source("submission_processing/process_submissions.R")
 
       - name: Ping Healthchecks

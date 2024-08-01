@@ -1,7 +1,7 @@
 library(tidyverse)
 config <- yaml::read_yaml("challenge_configuration.yaml")
 
-s3 <- arrow::s3_bucket(paste0(config$scores_bucket, "/parquet"), endpoint_override = config$endpoint, anonymous = TRUE)
+s3 <- arrow::s3_bucket(paste0(config$scores_bucket, "/bundled-parquet"), endpoint_override = config$endpoint, anonymous = TRUE)
 
 bucket <- config$scores_bucket
 inventory_df <- arrow::open_dataset(s3) |>
@@ -12,6 +12,7 @@ inventory_df <- arrow::open_dataset(s3) |>
   collect() |>
   mutate(path = glue::glue("{bucket}/parquet/project_id={project_id}/duration={duration}/variable={variable}"),
          path_full = glue::glue("{bucket}/parquet/project_id={project_id}/duration={duration}/variable={variable}/model_id={model_id}/date={date}/part-0.parquet"),
+         path_bundled = glue::glue("{bucket}/bundled-scores/project_id={project_id}/duration={duration}/variable={variable}/model_id={model_id}/data_0.parquet"),
          endpoint =config$endpoint)
 
 sites <- readr::read_csv(config$site_table,show_col_types = FALSE) |>

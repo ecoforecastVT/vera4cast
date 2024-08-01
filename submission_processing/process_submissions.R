@@ -125,23 +125,6 @@ if(length(submissions) > 0){
                                                 "model_id",
                                                 "reference_date"))
 
-        bucket <- config$forecasts_bucket
-        curr_inventory <- fc |>
-          mutate(reference_date = lubridate::as_date(reference_datetime),
-                 date = lubridate::as_date(datetime),
-                 pub_date = lubridate::as_date(pub_datetime)) |>
-          distinct(duration, model_id, site_id, reference_date, variable, date, project_id, pub_date) |>
-          mutate(path = glue::glue("{bucket}/parquet/project_id={project_id}/duration={duration}/variable={variable}"),
-                 path_full = glue::glue("{bucket}/parquet/project_id={project_id}/duration={duration}/variable={variable}/model_id={model_id}/reference_date={reference_date}/part-0.parquet"),
-                 path_summaries = glue::glue("{bucket}/summaries/project_id={project_id}/duration={duration}/variable={variable}/model_id={model_id}/reference_date={reference_date}/part-0.parquet"),
-                 endpoint =config$endpoint)
-
-        curr_inventory <- dplyr::left_join(curr_inventory, sites, by = "site_id")
-
-        inventory_df <- dplyr::bind_rows(inventory_df, curr_inventory)
-
-        arrow::write_dataset(inventory_df, path = s3_inventory)
-
         submission_timestamp <- paste0(submission_dir,"/T", time_stamp, "_", basename(submissions[i]))
         fs::file_copy(submissions[i], submission_timestamp)
         raw_bucket_object <- paste0("s3_store/",config$forecasts_bucket,"/raw/",basename(submission_timestamp))
@@ -166,16 +149,6 @@ if(length(submissions) > 0){
       }
     }
   }
-
-  arrow::write_dataset(inventory_df, path = s3_inventory)
-
-  s3_inventory <- arrow::s3_bucket(paste0(config$inventory_bucket),
-                                   endpoint_override = config$endpoint,
-                                   access_key = Sys.getenv("OSN_KEY"),
-                                   secret_key = Sys.getenv("OSN_SECRET"))
-
-  inventory_df |> dplyr::distinct(model_id, project_id) |>
-    arrow::write_csv_arrow(s3_inventory$path("model_id/model_id-project_id-inventory.csv"))
 
 }
 
