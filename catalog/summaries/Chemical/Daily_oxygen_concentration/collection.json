@@ -11,47 +11,12 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/glm_aed_v1.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/climatology.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/historic_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/monthly_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/persistenceRW.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
       "href": "./models/asl.auto.arima.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/asl.ets.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/asl.tbats.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/gfs_seamless.json"
+      "href": "./models/asl.met.lm.json"
     },
     {
       "rel": "item",
@@ -66,17 +31,47 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/asl.met.lm.json"
+      "href": "./models/glm_aed_v1.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/asl.met.lm.step.json"
+      "href": "./models/asl.ets.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "./models/historic_mean.json"
     },
     {
       "rel": "item",
       "type": "application/json",
       "href": "./models/asl.temp.lm.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "./models/climatology.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "./models/monthly_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "./models/persistenceRW.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "./models/asl.tbats.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "./models/asl.met.lm.step.json"
     },
     {
       "rel": "parent",
@@ -139,7 +134,7 @@
     },
     {
       "name": "datetime",
-      "type": "date32[day]",
+      "type": "timestamp[us, tz=UTC]",
       "description": "datetime of the forecasted value (ISO 8601)"
     },
     {
