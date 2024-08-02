@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
       <loc>https://www.ltreb-reservoirs.org/vera4cast//catalog.html</loc>
-      <lastmod>2024-07-30</lastmod>
+      <lastmod>2024-07-31</lastmod>
    </url>
    <url>
       <loc>https://www.ltreb-reservoirs.org/vera4cast//instructions.html</loc>
-      <lastmod>2024-07-30</lastmod>
+      <lastmod>2024-07-31</lastmod>
    </url>
    <url>
       <loc>https://www.ltreb-reservoirs.org/vera4cast//performance.html</loc>
-      <lastmod>2024-07-30</lastmod>
+      <lastmod>2024-07-31</lastmod>
    </url>
    <url>
       <loc>https://www.ltreb-reservoirs.org/vera4cast//index.html</loc>
-      <lastmod>2024-07-30</lastmod>
+      <lastmod>2024-07-31</lastmod>
    </url>
    <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/catalog.json</loc>
@@ -493,10 +493,6 @@
       <lastmod>2024-07-09</lastmod>
    </url>
    <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Biological/Daily_Chlorophyll-a/models/climatology2.json</loc>
-      <lastmod>2024-07-09</lastmod>
-   </url>
-   <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Biological/Daily_Chlorophyll-a/models/fableARIMA.json</loc>
       <lastmod>2024-07-09</lastmod>
    </url>
@@ -506,10 +502,6 @@
    </url>
    <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Biological/Daily_Chlorophyll-a/models/fableNNETAR.json</loc>
-      <lastmod>2024-07-09</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Biological/Daily_Chlorophyll-a/models/gfs_seamless.json</loc>
       <lastmod>2024-07-09</lastmod>
    </url>
    <url>
@@ -573,10 +565,6 @@
       <lastmod>2024-07-09</lastmod>
    </url>
    <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Chemical/Daily_oxygen_concentration/models/gfs_seamless.json</loc>
-      <lastmod>2024-07-09</lastmod>
-   </url>
-   <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Chemical/Daily_oxygen_concentration/models/glm_aed_v1.json</loc>
       <lastmod>2024-07-09</lastmod>
    </url>
@@ -637,10 +625,6 @@
       <lastmod>2024-07-09</lastmod>
    </url>
    <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Physical/Daily_Secchi/models/gfs_seamless.json</loc>
-      <lastmod>2024-07-09</lastmod>
-   </url>
-   <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Physical/Daily_Secchi/models/glm_aed_v1.json</loc>
       <lastmod>2024-07-09</lastmod>
    </url>
@@ -693,10 +677,6 @@
       <lastmod>2024-07-09</lastmod>
    </url>
    <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Physical/Daily_Water_temperature/models/climatology2.json</loc>
-      <lastmod>2024-07-09</lastmod>
-   </url>
-   <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Physical/Daily_Water_temperature/models/fableNNETAR.json</loc>
       <lastmod>2024-07-09</lastmod>
    </url>
@@ -710,10 +690,6 @@
    </url>
    <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Physical/Daily_Water_temperature/models/flareSimstrat.json</loc>
-      <lastmod>2024-07-09</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Physical/Daily_Water_temperature/models/gfs_seamless.json</loc>
       <lastmod>2024-07-09</lastmod>
    </url>
    <url>
@@ -849,10 +825,6 @@
       <lastmod>2024-07-09</lastmod>
    </url>
    <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/summaries/Biological/Daily_Chlorophyll-a/models/climatology2.json</loc>
-      <lastmod>2024-07-09</lastmod>
-   </url>
-   <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/summaries/Biological/Daily_Chlorophyll-a/models/fableARIMA.json</loc>
       <lastmod>2024-07-09</lastmod>
    </url>
@@ -862,10 +834,6 @@
    </url>
    <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/summaries/Biological/Daily_Chlorophyll-a/models/fableNNETAR.json</loc>
-      <lastmod>2024-07-09</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/summaries/Biological/Daily_Chlorophyll-a/models/gfs_seamless.json</loc>
       <lastmod>2024-07-09</lastmod>
    </url>
    <url>
@@ -929,10 +897,6 @@
       <lastmod>2024-07-09</lastmod>
    </url>
    <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/summaries/Chemical/Daily_oxygen_concentration/models/gfs_seamless.json</loc>
-      <lastmod>2024-07-09</lastmod>
-   </url>
-   <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/summaries/Chemical/Daily_oxygen_concentration/models/glm_aed_v1.json</loc>
       <lastmod>2024-07-09</lastmod>
    </url>
@@ -993,10 +957,6 @@
       <lastmod>2024-07-09</lastmod>
    </url>
    <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/summaries/Physical/Daily_Secchi/models/gfs_seamless.json</loc>
-      <lastmod>2024-07-09</lastmod>
-   </url>
-   <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/summaries/Physical/Daily_Secchi/models/glm_aed_v1.json</loc>
       <lastmod>2024-07-09</lastmod>
    </url>
@@ -1049,10 +1009,6 @@
       <lastmod>2024-07-09</lastmod>
    </url>
    <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/summaries/Physical/Daily_Water_temperature/models/climatology2.json</loc>
-      <lastmod>2024-07-09</lastmod>
-   </url>
-   <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/summaries/Physical/Daily_Water_temperature/models/fableNNETAR.json</loc>
       <lastmod>2024-07-09</lastmod>
    </url>
@@ -1066,10 +1022,6 @@
    </url>
    <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/summaries/Physical/Daily_Water_temperature/models/flareSimstrat.json</loc>
-      <lastmod>2024-07-09</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/summaries/Physical/Daily_Water_temperature/models/gfs_seamless.json</loc>
       <lastmod>2024-07-09</lastmod>
    </url>
    <url>
