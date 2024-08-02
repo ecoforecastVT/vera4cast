@@ -94,7 +94,7 @@ ggobj <- ggobj_df |>
 ggplot(aes(x = datetime, y = mean, color = model_id)) + 
   geom_line_interactive(aes(datetime, mean, col = model_id,
                               tooltip = model_id, data_id = model_id),
-                        show.legend=FALSE) +
+                        show.legend=TRUE) +
   facet_wrap(~site_id) +
   ylim(0,1) +
   labs(y = "Predicted probability") +
