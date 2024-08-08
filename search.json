@@ -11,14 +11,35 @@
     "href": "index.html#why-a-forecasting-challenge",
     "title": "Forecasting Challenge",
     "section": "Why a forecasting challenge?",
-    "text": "Why a forecasting challenge?\nWe are using forecasts to compare the predictability of different physical, chemical, and biological variables across varying environmental conditions to identify the fundamental predictability of freshwater ecosystems.\nThe VERA forecasting challenge is one component of the Virginia Reservoirs LTREB project, which is monitoring two connected drinking water supply reservoirs with contrasting dissolved oxygen conditions to broadly advance our understanding of freshwater ecosystem processes.\n \n\n\n\n\n\n\n\n\n\nTotal forecasts submitted to the VERA Challenge\n4532\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMost recent data for model training\n2024-08-07\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of years of data for model training\n11.43\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of variables being forecasted\n29"
+    "text": "Why a forecasting challenge?\nWe are using forecasts to compare the predictability of different physical, chemical, and biological variables across varying environmental conditions to identify the fundamental predictability of freshwater ecosystems.\nThe VERA forecasting challenge is one component of the Virginia Reservoirs LTREB project, which is monitoring two connected drinking water supply reservoirs with contrasting dissolved oxygen conditions to broadly advance our understanding of freshwater ecosystem processes.\n \n\n\n\n\n\n\n\n\n\nTotal forecasts submitted to the VERA Challenge\n4532\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMost recent data for model training\n2024-08-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of years of data for model training\n11.43\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of variables being forecasted\n29"
   },
   {
     "objectID": "index.html#what-sites-are-being-forecasted",
     "href": "index.html#what-sites-are-being-forecasted",
     "title": "Forecasting Challenge",
     "section": "What sites are being forecasted?",
-    "text": "What sites are being forecasted?\n\n\n\n\n\n\n  This material is based upon work supported by the National Science Foundation under Grant DEB-2327030. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.   Page last updated on 2024-08-07"
+    "text": "What sites are being forecasted?\n\n\n\n\n\n\n  This material is based upon work supported by the National Science Foundation under Grant DEB-2327030. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.   Page last updated on 2024-08-08"
+  },
+  {
+    "objectID": "catalog.html",
+    "href": "catalog.html",
+    "title": "Forecast catalog",
+    "section": "",
+    "text": "The catalog of submitted forecasts, evaluations of the forecasts (“scores”), and summarized forecasts are available through the SpatioTemporal Asset Catalogs browser (below). The catalog also contains information and access to the metadata for the forecast sites, the NOAA weather forecasts at the forecast sites, and the targets (observational data) collected at the forecast sites. The full-page version can be found here"
+  },
+  {
+    "objectID": "catalog.html#what-types-of-models-are-submitting-forecasts",
+    "href": "catalog.html#what-types-of-models-are-submitting-forecasts",
+    "title": "Forecast catalog",
+    "section": "What types of models are submitting forecasts?",
+    "text": "What types of models are submitting forecasts?"
+  },
+  {
+    "objectID": "catalog.html#sec-spatiotemporal-asset-catalog",
+    "href": "catalog.html#sec-spatiotemporal-asset-catalog",
+    "title": "Forecast catalog",
+    "section": "Catalog of forecast submissions and evaluations",
+    "text": "Catalog of forecast submissions and evaluations"
   },
   {
     "objectID": "learn-more.html",
@@ -47,55 +68,6 @@
     "title": "Learn more",
     "section": "",
     "text": "Your forecast model may require weather as a driving variable. We provide functions in the vera4castHelpers package that access NOAA weather forecasts that have already been downloaded and standardized for the reservoirs. To install the vera4castHelpers use\n\nremotes::install_github(\"ltreb-reservoirs/vera4castHelpers\")\n\nUsing the package, 31 ensemble member forecasts are provided at 1 hr time resolution\nVariables and units are:\n\nair_temperature (K)\n\nair_pressure (Pa)\n\nrelative_humidity (proportion)\n\nsurface_downwelling_longwave_flux_in_air (W/m^2)\n\nsurface_downwelling_shortwave_flux_in_air (W/m^2)\nprecipitation_flux (kg/(m^2 s))\n\neastward_wind (m/s)\n\nnorthward_wind (m/s)\n\n\n\nweather &lt;- vera4castHelpers::noaa_stage2(start_date = \"2022-04-01\")\ndf_future &lt;- weather |&gt; \n  dplyr::filter(site_id == \"fcre\") |&gt;\n  dplyr::collect()\n\nThe data frame has following columns:\nsite_id: string : NEON site ID\nprediction: double : forecasted value\nvariable: string : weather variable\nhorizon: double : number of hours in the future\nfamily: string: class of uncertainty (ensemble)\nparameter: int32 : ensemble member number\nreference_datetime: timestamp[us, tz=UTC]: datetime of horizon 0\ndatetime: timestamp[us, tz=UTC] : datetime of forecast\n\n\n\nStage 3 can be viewed as the “historical” weather for site as simulated by NOAA GEFS. Stage 3 is useful for model training because it ensures that the magnitude and variability of the weather data used to train your model is similar to that in the NOAA GEFS weather forecast you may use as inputs to your forecast.\nStage 3 uses CF variable names and 1 hr interval\n\nair_temperature (K)\n\nair_pressure (Pa)\n\nrelative_humidity (proportion)\n\nsurface_downwelling_longwave_flux_in_air (W/m^2)\n\nsurface_downwelling_shortwave_flux_in_air (W/m^2)\nprecipitation_flux (kg/(m^2 s))\n\neastward_wind (m/s)\n\nnorthward_wind (m/s)\n\n\n\nweather_stage3 &lt;- vera4castHelpers::noaa_stage3()\ndf_historical &lt;- weather_stage3 |&gt; \n  dplyr::filter(site_id == \"fcre\") |&gt;\n  dplyr::collect()\n\nStage 3 has the following columns\nsite_id: string : NEON site ID\nprediction: double : forecasted value\nvariable: string : weather variable\nfamily: string: class of uncertainty (ensemble)\nparameter: int32 : ensemble member number\nreference_datetime: timestamp[us, tz=UTC]: always NA in Stage3 datetime: timestamp[us, tz=UTC] : datetime of forecast"
-  },
-  {
-    "objectID": "catalog.html",
-    "href": "catalog.html",
-    "title": "Forecast catalog",
-    "section": "",
-    "text": "The catalog of submitted forecasts, evaluations of the forecasts (“scores”), and summarized forecasts are available through the SpatioTemporal Asset Catalogs browser (below). The catalog also contains information and access to the metadata for the forecast sites, the NOAA weather forecasts at the forecast sites, and the targets (observational data) collected at the forecast sites. The full-page version can be found here"
-  },
-  {
-    "objectID": "catalog.html#what-types-of-models-are-submitting-forecasts",
-    "href": "catalog.html#what-types-of-models-are-submitting-forecasts",
-    "title": "Forecast catalog",
-    "section": "What types of models are submitting forecasts?",
-    "text": "What types of models are submitting forecasts?"
-  },
-  {
-    "objectID": "catalog.html#sec-spatiotemporal-asset-catalog",
-    "href": "catalog.html#sec-spatiotemporal-asset-catalog",
-    "title": "Forecast catalog",
-    "section": "Catalog of forecast submissions and evaluations",
-    "text": "Catalog of forecast submissions and evaluations"
-  },
-  {
-    "objectID": "performance.html",
-    "href": "performance.html",
-    "title": "Forecast performance",
-    "section": "",
-    "text": "This page visualizes the forecasts and forecast performance for the focal target variables."
-  },
-  {
-    "objectID": "performance.html#sec-performance",
-    "href": "performance.html#sec-performance",
-    "title": "Forecast performance",
-    "section": "Most recent forecasts",
-    "text": "Most recent forecasts\nForecasts submitted on 2024-08-06\n\nChlorophyll-aChlorophyll-a bloom probabilityWater temperatureDissolved oxygenAir temperaturefDOMSecchi depthDissolved methaneMethane FluxDissolved CO2CO2 FluxInflow discharge\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[1] \"No scored forecasts are available for this period\""
-  },
-  {
-    "objectID": "performance.html#forecast-analysis",
-    "href": "performance.html#forecast-analysis",
-    "title": "Forecast performance",
-    "section": "Forecast analysis",
-    "text": "Forecast analysis\nBelow are forecasts submitted 30 days ago and include the observations used to evaluate them (black points). Mouse over the figure to see the team id, and scroll to zoom.\n\nChlorophyll-aChlorophyll-a bloom probabilityWater temperatureDissolved oxygenSecchi depthAir TemperaturefDOMDissolved MethaneMethane FluxDissolved CO2CO2 FluxInflow Discharge\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[1] \"No scored forecasts are available for this period\""
-  },
-  {
-    "objectID": "performance.html#aggregated-scores",
-    "href": "performance.html#aggregated-scores",
-    "title": "Forecast performance",
-    "section": "Aggregated scores",
-    "text": "Aggregated scores\nAverage skill scores of each model are shown for each target variable, aggregated across model (top), time of year (middle), and forecast horizon (bottom). The evaluation metrics being used here are Continuous Ranked Probability Score (CRPS) and log score (logs).\n\nScores are shown by reference date and forecast horizon (in days).\n\nScores are averaged across all submissions of the model with a given horizon or a given reference_datetime using submissions made since 2024-07-08.\n\n\nChlorophyll-aChlorophyll-a bloom probabilityWater temperatureDissolved oxygenSecchi depthAir temperaturefDOMDissolved MethaneMethane FluxInflow Discharge"
   },
   {
     "objectID": "instructions.html",
@@ -159,6 +131,34 @@
     "title": "How to forecast",
     "section": "8 Questions?",
     "text": "8 Questions?\nThanks for reading this document! If you still have questions about how to submit your forecast to the VERA Forecasting Challenge, we encourage you to email Dr. Quinn Thomas (rqthomas{at}vt.edu)."
+  },
+  {
+    "objectID": "performance.html",
+    "href": "performance.html",
+    "title": "Forecast performance",
+    "section": "",
+    "text": "This page visualizes the forecasts and forecast performance for the focal target variables."
+  },
+  {
+    "objectID": "performance.html#sec-performance",
+    "href": "performance.html#sec-performance",
+    "title": "Forecast performance",
+    "section": "Most recent forecasts",
+    "text": "Most recent forecasts\nForecasts submitted on 2024-08-07\n\nChlorophyll-aChlorophyll-a bloom probabilityWater temperatureDissolved oxygenAir temperaturefDOMSecchi depthDissolved methaneMethane FluxDissolved CO2CO2 FluxInflow discharge\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[1] \"No scored forecasts are available for this period\""
+  },
+  {
+    "objectID": "performance.html#forecast-analysis",
+    "href": "performance.html#forecast-analysis",
+    "title": "Forecast performance",
+    "section": "Forecast analysis",
+    "text": "Forecast analysis\nBelow are forecasts submitted 30 days ago and include the observations used to evaluate them (black points). Mouse over the figure to see the team id, and scroll to zoom.\n\nChlorophyll-aChlorophyll-a bloom probabilityWater temperatureDissolved oxygenSecchi depthAir TemperaturefDOMDissolved MethaneMethane FluxDissolved CO2CO2 FluxInflow Discharge\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[1] \"No scored forecasts are available for this period\""
+  },
+  {
+    "objectID": "performance.html#aggregated-scores",
+    "href": "performance.html#aggregated-scores",
+    "title": "Forecast performance",
+    "section": "Aggregated scores",
+    "text": "Aggregated scores\nAverage skill scores of each model are shown for each target variable, aggregated across model (top), time of year (middle), and forecast horizon (bottom). The evaluation metrics being used here are Continuous Ranked Probability Score (CRPS) and log score (logs).\n\nScores are shown by reference date and forecast horizon (in days).\n\nScores are averaged across all submissions of the model with a given horizon or a given reference_datetime using submissions made since 2024-07-09.\n\n\nChlorophyll-aChlorophyll-a bloom probabilityWater temperatureDissolved oxygenSecchi depthAir temperaturefDOMDissolved MethaneMethane FluxInflow Discharge"
   },
   {
     "objectID": "targets.html",
