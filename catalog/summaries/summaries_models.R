@@ -57,7 +57,7 @@ stac4cast::build_forecast_scores(table_schema = summaries_theme_df,
                                  about_title = catalog_config$about_title,
                                  theme_title = "Forecast Summaries",
                                  destination_path = catalog_config$summaries_path,
-                                 aws_download_path = catalog_config$summaries_download_path,
+                                 aws_download_path = catalog_config$aws_download_path_summaries,
                                  link_items = stac4cast::generate_group_values(group_values = names(config$variable_groups)),
                                  thumbnail_link = catalog_config$summaries_thumbnail,
                                  thumbnail_title = catalog_config$summaries_thumbnail_title,
@@ -299,7 +299,7 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
                                site_table = catalog_config$site_metadata_url,
                                model_documentation = registered_model_id,
                                destination_path = paste0(catalog_config$summaries_path,'/',names(config$variable_groups)[i],'/',var_formal_name,"/models"),
-                               aws_download_path = catalog_config$summaries_download_path, # USE SCORES BUCKET FOR MODELS
+                               aws_download_path = catalog_config$aws_download_path_summaries, # USE SCORES BUCKET FOR MODELS
                                collection_name = 'forecasts',
                                thumbnail_image_name = NULL,
                                table_schema = summaries_theme_df,
