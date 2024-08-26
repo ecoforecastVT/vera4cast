@@ -1,3 +1,5 @@
+remotes::install_github('cboettig/duckdbfs')
+
 library(dplyr)
 library(duckdbfs)
 library(minioclient)
