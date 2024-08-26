@@ -1,4 +1,4 @@
-remotes::install_github('cboettig/duckdbfs')
+devtools::install_github('cboettig/duckdbfs')
 
 library(dplyr)
 library(duckdbfs)
