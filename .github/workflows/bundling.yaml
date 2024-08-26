@@ -23,6 +23,7 @@ jobs:
         run: |
           print(options("repos"))
           remotes::install_deps(".", dep=TRUE)
+          remotes::install_github('cboettig/duckdbfs')
 
       - name: Generate scores
         shell: Rscript {0}
