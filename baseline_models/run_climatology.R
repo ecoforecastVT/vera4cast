@@ -63,7 +63,7 @@ climatology_insitu <- purrr::pmap_dfr(site_var_combinations,
 # get all combinations
 print('Flux model')
 
-purrr::map_dfr(.x = c('CO2flux_umolm2s_mean', 'CH4flux_umolm2s_mean'),
+climatology_flux <- purrr::map_dfr(.x = c('CO2flux_umolm2s_mean', 'CH4flux_umolm2s_mean'),
                .f = ~ generate_baseline_climatology(targets = targets_insitu,
                                                     h = 35,
                                                     forecast_date = Sys.Date(),
@@ -82,7 +82,7 @@ climatology_insitu_binary <- purrr::pmap_dfr(binary_site_var_comb,
                                                                              ...))
 
 # combine and submit
-combined_climatology <- bind_rows(climatology_met, climatology_inflow, climatology_insitu, climatology_insitu_binary)
+combined_climatology <- bind_rows(climatology_met, climatology_inflow, climatology_insitu, climatology_insitu_binary, climatology_flux)
 
 # 4. Write forecast file
 file_date <- combined_climatology$reference_datetime[1]
