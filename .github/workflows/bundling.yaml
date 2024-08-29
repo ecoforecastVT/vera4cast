@@ -25,7 +25,7 @@ jobs:
           remotes::install_deps(".", dep=TRUE)
 #          remotes::install_github('cboettig/duckdbfs')
 
-      - name: Generate scores
+      - name: Generate bundles
         shell: Rscript {0}
         run: |
           source("submission_processing/bundled-parquet.R")
