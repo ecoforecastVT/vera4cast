@@ -22,13 +22,13 @@ download_seasonal_forecast <- function(){
 
     print(site_list$site_id[i])
 
-    RopenMeteo::get_seasonal_forecast(
+    ropenmeteo::get_seasonal_forecast(
       latitude = site_list$latitude[i],
       longitude = site_list$longitude[i],
       site_id = site_list$site_id[i],
       forecast_days = 274,
       past_days = 92,
-      variables = RopenMeteo::glm_variables(product = "seasonal_forecast",
+      variables = ropenmeteo::glm_variables(product = "seasonal_forecast",
                                             time_step = "6hourly")) |>
       dplyr::mutate(reference_date = lubridate::as_date(reference_datetime)) |>
       arrow::write_dataset(s3, format = 'parquet',
