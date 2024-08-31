@@ -23,14 +23,14 @@ download_ensemble_forecast <- function(model, forecast_horizon = 35, sites = NUL
 
     print(site_list$site_id[i])
 
-    RopenMeteo::get_ensemble_forecast(
+    ropenmeteo::get_ensemble_forecast(
       latitude = site_list$latitude[i],
       longitude = site_list$longitude[i],
       site_id = site_list$site_id[i],
       forecast_days = forecast_horizon,
       past_days = 0,
       model = model,
-      variables = RopenMeteo::glm_variables(product = "ensemble_forecast",
+      variables = ropenmeteo::glm_variables(product = "ensemble_forecast",
                                             time_step = "hourly")) |>
       dplyr::mutate(reference_date = lubridate::as_date(reference_datetime)) |>
       arrow::write_dataset(s3, format = 'parquet',
