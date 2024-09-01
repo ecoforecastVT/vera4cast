@@ -11,14 +11,14 @@
     "href": "index.html#why-a-forecasting-challenge",
     "title": "Forecasting Challenge",
     "section": "Why a forecasting challenge?",
-    "text": "Why a forecasting challenge?\nWe are using forecasts to compare the predictability of different physical, chemical, and biological variables across varying environmental conditions to identify the fundamental predictability of freshwater ecosystems.\nThe VERA forecasting challenge is one component of the Virginia Reservoirs LTREB project, which is monitoring two connected drinking water supply reservoirs with contrasting dissolved oxygen conditions to broadly advance our understanding of freshwater ecosystem processes.\n \n\n\n\n\n\n\n\n\n\nTotal forecasts submitted to the VERA Challenge\n5143\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMost recent data for model training\n2024-08-31\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of years of data for model training\n11.49\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of variables being forecasted\n31"
+    "text": "Why a forecasting challenge?\nWe are using forecasts to compare the predictability of different physical, chemical, and biological variables across varying environmental conditions to identify the fundamental predictability of freshwater ecosystems.\nThe VERA forecasting challenge is one component of the Virginia Reservoirs LTREB project, which is monitoring two connected drinking water supply reservoirs with contrasting dissolved oxygen conditions to broadly advance our understanding of freshwater ecosystem processes.\n \n\n\n\n\n\n\n\n\n\nTotal forecasts submitted to the VERA Challenge\n5163\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMost recent data for model training\n2024-09-01\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of years of data for model training\n11.5\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of variables being forecasted\n31"
   },
   {
     "objectID": "index.html#what-sites-are-being-forecasted",
     "href": "index.html#what-sites-are-being-forecasted",
     "title": "Forecasting Challenge",
     "section": "What sites are being forecasted?",
-    "text": "What sites are being forecasted?\n\n\n\n\n\n\n  This material is based upon work supported by the National Science Foundation under Grant DEB-2327030. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.   Page last updated on 2024-08-31"
+    "text": "What sites are being forecasted?\n\n\n\n\n\n\n  This material is based upon work supported by the National Science Foundation under Grant DEB-2327030. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.   Page last updated on 2024-09-01"
   },
   {
     "objectID": "catalog.html",
@@ -144,7 +144,7 @@
     "href": "performance.html#sec-performance",
     "title": "Forecast performance",
     "section": "Most recent forecasts",
-    "text": "Most recent forecasts\nForecasts submitted on 2024-08-30\n\nChlorophyll-aChlorophyll-a bloom probabilityWater temperatureDissolved oxygenAir temperaturefDOMSecchi depthDissolved methaneMethane FluxDissolved CO2CO2 FluxInflow discharge\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[1] \"No scored forecasts are available for this period\""
+    "text": "Most recent forecasts\nForecasts submitted on 2024-08-31\n\nChlorophyll-aChlorophyll-a bloom probabilityWater temperatureDissolved oxygenAir temperaturefDOMSecchi depthDissolved methaneMethane FluxDissolved CO2CO2 FluxInflow discharge\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[1] \"No scored forecasts are available for this period\""
   },
   {
     "objectID": "performance.html#forecast-analysis",
@@ -158,7 +158,7 @@
     "href": "performance.html#aggregated-scores",
     "title": "Forecast performance",
     "section": "Aggregated scores",
-    "text": "Aggregated scores\nAverage skill scores of each model are shown for each target variable, aggregated across model (top), time of year (middle), and forecast horizon (bottom). The evaluation metrics being used here are Continuous Ranked Probability Score (CRPS) and log score (logs).\n\nScores are shown by reference date and forecast horizon (in days).\n\nScores are averaged across all submissions of the model with a given horizon or a given reference_datetime using submissions made since 2024-08-01.\n\n\nChlorophyll-aChlorophyll-a bloom probabilityWater temperatureDissolved oxygenSecchi depthAir temperaturefDOMDissolved MethaneMethane FluxInflow Discharge"
+    "text": "Aggregated scores\nAverage skill scores of each model are shown for each target variable, aggregated across model (top), time of year (middle), and forecast horizon (bottom). The evaluation metrics being used here are Continuous Ranked Probability Score (CRPS) and log score (logs).\n\nScores are shown by reference date and forecast horizon (in days).\n\nScores are averaged across all submissions of the model with a given horizon or a given reference_datetime using submissions made since 2024-08-02.\n\n\nChlorophyll-aChlorophyll-a bloom probabilityWater temperatureDissolved oxygenSecchi depthAir temperaturefDOMDissolved MethaneMethane FluxInflow Discharge"
   },
   {
     "objectID": "targets.html",
