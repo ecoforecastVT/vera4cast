@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
       <loc>https://www.ltreb-reservoirs.org/vera4cast//catalog.html</loc>
-      <lastmod>2024-09-06</lastmod>
+      <lastmod>2024-09-07</lastmod>
    </url>
    <url>
       <loc>https://www.ltreb-reservoirs.org/vera4cast//instructions.html</loc>
-      <lastmod>2024-09-06</lastmod>
+      <lastmod>2024-09-07</lastmod>
    </url>
    <url>
       <loc>https://www.ltreb-reservoirs.org/vera4cast//performance.html</loc>
-      <lastmod>2024-09-06</lastmod>
+      <lastmod>2024-09-07</lastmod>
    </url>
    <url>
       <loc>https://www.ltreb-reservoirs.org/vera4cast//index.html</loc>
-      <lastmod>2024-09-06</lastmod>
+      <lastmod>2024-09-07</lastmod>
    </url>
    <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/catalog.json</loc>
@@ -441,6 +441,10 @@
       <lastmod>2024-08-09</lastmod>
    </url>
    <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Biological/Daily_Bloom_binary/models/asl.persistence.json</loc>
+      <lastmod>2024-08-09</lastmod>
+   </url>
+   <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Biological/Daily_Bloom_binary/models/asl.tbats.json</loc>
       <lastmod>2024-08-09</lastmod>
    </url>
@@ -502,6 +506,10 @@
    </url>
    <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Biological/Daily_Chlorophyll-a/models/asl.met.lm.step.json</loc>
+      <lastmod>2024-08-09</lastmod>
+   </url>
+   <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Biological/Daily_Chlorophyll-a/models/asl.persistence.json</loc>
       <lastmod>2024-08-09</lastmod>
    </url>
    <url>
@@ -570,6 +578,10 @@
    </url>
    <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Chemical/Daily_oxygen_concentration/models/asl.met.lm.step.json</loc>
+      <lastmod>2024-08-09</lastmod>
+   </url>
+   <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Chemical/Daily_oxygen_concentration/models/asl.persistence.json</loc>
       <lastmod>2024-08-09</lastmod>
    </url>
    <url>
@@ -694,6 +706,10 @@
    </url>
    <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Physical/Daily_Water_temperature/models/asl.met.lm.step.json</loc>
+      <lastmod>2024-08-09</lastmod>
+   </url>
+   <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Physical/Daily_Water_temperature/models/asl.persistence.json</loc>
       <lastmod>2024-08-09</lastmod>
    </url>
    <url>
