@@ -4,24 +4,25 @@
     "https://stac-extensions.github.io/table/v1.2.0/schema.json"
   ],
   "type": "Feature",
-  "id": "flareGOTM_Temp_C_mean_P1D_scores",
-  "bbox": [-79.8372, 37.3032, -79.8372, 37.3032],
+  "id": "asl.persistence_Secchi_m_sample_P1D_scores",
+  "bbox": [-79.8372, 37.3032, -79.8159, 37.3129],
   "geometry": {
     "type": "MultiPoint",
     "coordinates": [
+      [-79.8159, 37.3129],
       [-79.8372, 37.3032]
     ]
   },
   "properties": {
-    "title": "flareGOTM",
-    "description": "All scores for the Daily_Water_temperature variable for the flareGOTM model. Information for the model is provided as follows: FLARE-GOTM combines the 1D hydrodynamic process-based model GOTM, a data assimilation algorithm, and NOAA weather data to forecast water column temperatures..\n                                    The model predicts this variable at the following sites: fcre.\n                                    Scores are metrics that describe how well forecasts compare to observations. The scores catalog includes are summaries of the forecasts (i.e., mean, median, confidence intervals), matched observations (if available), and scores (metrics of how well the model distribution compares to observations)",
+    "title": "asl.persistence",
+    "description": "All scores for the Daily_Secchi variable for the asl.persistence model. Information for the model is provided as follows: The random walk persistence model has massive uncertainty at long horizons, but you could instead re-fit the persistence model for every forecast horizon to get a more precise forecast (i.e., not dynamic). I did this for my work at SERC, and am submitting here in case it is helpful.\n                                    The model predicts this variable at the following sites: bvre, fcre.\n                                    Scores are metrics that describe how well forecasts compare to observations. The scores catalog includes are summaries of the forecasts (i.e., mean, median, confidence intervals), matched observations (if available), and scores (metrics of how well the model distribution compares to observations)",
     "datetime": "2024-09-14T00:00:00Z",
-    "start_datetime": "2024-01-21T00:00:00Z",
-    "end_datetime": "2024-09-12T00:00:00Z",
+    "start_datetime": "2024-09-05T00:00:00Z",
+    "end_datetime": "2024-09-09T00:00:00Z",
     "providers": [
       {
-        "url": null,
-        "name": "Freya Olsson",
+        "url": "https://projects.ecoforecast.org/neon4cast-ci/",
+        "name": "NEON Ecological Forecasting Project",
         "roles": [
           "producer",
           "processor",
@@ -41,13 +42,14 @@
       "Scores",
       "vera4cast",
       "Physical",
-      "flareGOTM",
-      "Water_temperature",
-      "Temp_C_mean",
+      "asl.persistence",
+      "Secchi",
+      "Secchi_m_sample",
       "Daily",
       "P1D",
+      "bvre",
       "fcre",
-      "process based"
+      "empirical"
     ],
     "table:columns": [
       {
@@ -158,7 +160,7 @@
       "rel": "collection",
       "href": "../collection.json",
       "type": "application/json",
-      "title": "flareGOTM"
+      "title": "asl.persistence"
     },
     {
       "rel": "root",
@@ -170,11 +172,11 @@
       "rel": "parent",
       "href": "../collection.json",
       "type": "application/json",
-      "title": "flareGOTM"
+      "title": "asl.persistence"
     },
     {
       "rel": "self",
-      "href": "flareGOTM.json",
+      "href": "asl.persistence.json",
       "type": "application/json",
       "title": "Model Forecast"
     },
@@ -186,13 +188,13 @@
     },
     {
       "rel": "item",
-      "href": "https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Physical/Daily_Water_temperature/models/flareGOTM.json",
+      "href": "https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Physical/Daily_Secchi/models/asl.persistence.json",
       "type": "text/html",
       "title": "Link for rendered STAC item"
     },
     {
       "rel": "item",
-      "href": "https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Physical/Daily_Water_temperature/models/flareGOTM.json",
+      "href": "https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Physical/Daily_Secchi/models/asl.persistence.json",
       "type": "text/html",
       "title": "Link for raw JSON file"
     }
@@ -201,8 +203,8 @@
     "1": {
       "type": "application/json",
       "title": "Model Metadata",
-      "href": "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/metadata/model_id/flareGOTM.json",
-      "description": "Use `jsonlite::fromJSON()` to download the model metadata JSON file. This R code will return metadata provided during the model registration.\n      \n\n### R\n\n```{r}\n# Use code below\n\nmodel_metadata <- jsonlite::fromJSON(\"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/metadata/model_id/flareGOTM.json\")\n\n"
+      "href": "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/metadata/model_id/asl.persistence.json",
+      "description": "Use `jsonlite::fromJSON()` to download the model metadata JSON file. This R code will return metadata provided during the model registration.\n      \n\n### R\n\n```{r}\n# Use code below\n\nmodel_metadata <- jsonlite::fromJSON(\"https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/metadata/model_id/asl.persistence.json\")\n\n"
     },
     "2": {
       "type": "text/html",
@@ -212,9 +214,9 @@
     },
     "3": {
       "type": "application/x-parquet",
-      "title": "Database Access for Daily Water_temperature",
-      "href": "s3://anonymous@bio230121-bucket01/vera4cast/scores/bundled-parquetproject_id=vera4cast/duration=P1D/variable=Temp_C_mean/model_id=flareGOTM?endpoint_override=renc.osn.xsede.org",
-      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/scores/bundled-parquetproject_id=vera4cast/duration=P1D/variable=Temp_C_mean/model_id=flareGOTM?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
+      "title": "Database Access for Daily Secchi",
+      "href": "s3://anonymous@bio230121-bucket01/vera4cast/scores/bundled-parquetproject_id=vera4cast/duration=P1D/variable=Secchi_m_sample/model_id=asl.persistence?endpoint_override=renc.osn.xsede.org",
+      "description": "Use `arrow` for remote access to the database. This R code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/scores/bundled-parquetproject_id=vera4cast/duration=P1D/variable=Secchi_m_sample/model_id=asl.persistence?endpoint_override=renc.osn.xsede.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n"
     }
   }
 }
