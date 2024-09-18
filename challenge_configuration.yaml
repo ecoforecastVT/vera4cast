@@ -88,7 +88,7 @@ catalog_config:
   targets_thumbnail: 'https://raw.githubusercontent.com/addelany/vera4cast/main/catalog/thumbnail_plots/carvens_full.jpg'
   targets_thumbnail_title: "CCRE Reservoir Image"
   aws_download_path_forecasts: 'bio230121-bucket01/vera4cast/forecasts/bundled-parquet'
-  aws_download_path_scores: 'bio230121-bucket01/vera4cast/scores/bundled_parquet'
+  aws_download_path_scores: 'bio230121-bucket01/vera4cast/scores/bundled-parquet'
   aws_download_path_summaries: 'bio230121-bucket01/vera4cast/forecasts/bundled-summaries'
   host_url: "http://ecoforecast.centers.vt.edu/"
   host_name: "Virginia Tech Center for Ecosystem Forecasting"

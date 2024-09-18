@@ -24,7 +24,7 @@ dates <- df |> filter(reference_date == max_reference_date &
   filter(n > 1) |>
   pull(date)
 
-#The dates object will be length 0 if there are not multiple ensemble members in the seasonal forecast due to issues on the RopenMeteo end
+#The dates object will be length 0 if there are not multiple ensemble members in the seasonal forecast due to issues on the ropenmeteo end
 if(length(as.numeric(dates)) > 0){
   df <- df |> filter(reference_date == max_reference_date &
                        datetime > reference_datetime) |>

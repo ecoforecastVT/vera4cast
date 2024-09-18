@@ -1,7 +1,7 @@
 library(tidyverse)
 config <- yaml::read_yaml("challenge_configuration.yaml")
 
-s3 <- arrow::s3_bucket(paste0(config$forecasts_bucket, "/bundled-parquet"), endpoint_override = config$endpoint, anonymous = TRUE)
+s3 <- arrow::s3_bucket(paste0(config$forecasts_bucket, "/parquet"), endpoint_override = config$endpoint, anonymous = TRUE)
 
 bucket <- config$forecasts_bucket
 inventory_df <- arrow::open_dataset(s3) |>

@@ -25,7 +25,7 @@ jobs:
         run: |
           source("submission_processing/process_submissions.R")
 
-      - name: Process submissions
+      - name: Build inventory
         shell: Rscript {0}
         run: |
           source("submission_processing/build_forecast_inventory.R")
