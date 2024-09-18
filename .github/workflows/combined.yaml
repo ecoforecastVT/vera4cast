@@ -51,8 +51,30 @@ jobs:
         run: |
           source("scoring/build_score_inventory.R")
 
-  dashboard:
+  bundling:
     needs: scores
+    runs-on:  ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      OSN_KEY: ${{ secrets.OSN_KEY }}
+      OSN_SECRET: ${{ secrets.OSN_SECRET }}
+    container: rqthomas/vera-rocker:latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install
+        shell: Rscript {0}
+        run: |
+          print(options("repos"))
+          remotes::install_deps(".", dep=TRUE)
+
+      - name: Generate scores
+        shell: Rscript {0}
+        run: |
+          source("submission_processing/bundled-parquet.R")
+
+  dashboard:
+    needs: bundling
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
