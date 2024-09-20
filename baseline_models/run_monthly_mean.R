@@ -48,7 +48,8 @@ site_var_combinations <- expand.grid(var = c('DO_mgL_mean',
                                              'Secchi_m_sample',
                                              'Temp_C_mean',
                                              'fDOM_QSU_mean',
-                                             'CH4_umolL_sample'),
+                                             'CH4_umolL_sample',
+                                             'CO2_umolL_sample'),
                                      site = c('fcre',
                                               'bvre'))
 
@@ -70,8 +71,21 @@ monthly_mean_insitu_binary <- purrr::pmap_dfr(binary_site_var_comb,
                                                                              threshold = 20,
                                                                              ...))
 
+# Flux variables
+# get all combinations
+flux_var_combinations <- expand.grid(var = c('CH4flux_umolm2s_mean',
+                                             'CO2flux_umolm2s_mean'),
+                                     site = c('fcre'))
+
+monthly_mean_flux <- purrr::pmap_dfr(flux_var_combinations,
+                                       .f = ~ generate_baseline_monthly_mean(targets = targets_insitu,
+                                                                             h = 35,
+                                                                             forecast_date = Sys.Date(),
+                                                                             model_id = team_name,
+                                                                             depth = 'target', ...))
+
 # combine and submit
-combined_monthly_mean <- bind_rows(monthly_mean_met, monthly_mean_inflow, monthly_mean_insitu, monthly_mean_insitu_binary)
+combined_monthly_mean <- bind_rows(monthly_mean_met, monthly_mean_inflow, monthly_mean_insitu, monthly_mean_insitu_binary, monthly_mean_flux)
 
 # 4. Write forecast file
 file_date <- combined_monthly_mean$reference_datetime[1]
