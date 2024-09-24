@@ -68,7 +68,7 @@ jobs:
           print(options("repos"))
           remotes::install_deps(".", dep=TRUE)
 
-      - name: Generate scores
+      - name: Create bundles
         shell: Rscript {0}
         run: |
           source("submission_processing/bundled-parquet.R")
