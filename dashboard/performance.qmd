@@ -215,7 +215,6 @@ df |>
 if("CO2flux_umolm2s_mean" %in% unique(df$variable)){
 df |> 
   filter(variable == c("CO2flux_umolm2s_mean"))  |> 
-    dplyr::mutate(duration = ifelse(model_id == 'persistenceRW', 'P1D', duration)) |> 
     mutate(observation = as.numeric(NA)) |> 
   forecast_plots(ylabel = 'CO2 Flux (umolm2s)')
 }
