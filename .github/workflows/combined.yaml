@@ -74,7 +74,7 @@ jobs:
           source("submission_processing/bundled-parquet.R")
 
   dashboard:
-    needs: scores
+    needs: bundling
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
