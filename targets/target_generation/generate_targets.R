@@ -132,15 +132,20 @@ schmidt_stability <- generate_schmidt.stability(current_file = fcr_files[2], his
 
 ## MIXED BINARY
 print('Mixed Binary')
-source('targets/target_functions/target_generation_mixed_binary.R')
+source('targets/target_functions/target_generation_mixed_binary_daily.R')
+source('targets/target_functions/target_generation_mixed_binary_hourly.R')
+
 bvr_current <- c("https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-platform-data-qaqc/bvre-waterquality_L1.csv")
 bvr_historic <- c("https://pasta.lternet.edu/package/data/eml/edi/725/3/a9a7ff6fe8dc20f7a8f89447d4dc2038")
 
 fcr_current <- "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv"
 fcr_historic <- "https://pasta.lternet.edu/package/data/eml/edi/271/7/71e6b946b751aa1b966ab5653b01077f"
 
-mixed_binary_targets <- dplyr::bind_rows(target_generation_mixed_binary(current_file = fcr_current, historic_file = fcr_historic),
-                                         target_generation_mixed_binary(current_file = bvr_current, historic_file = bvr_historic))
+mixed_binary_targets_daily <- dplyr::bind_rows(target_generation_mixed_binary_daily(current_file = fcr_current, historic_file = fcr_historic),
+                                         target_generation_mixed_binary_daily(current_file = bvr_current, historic_file = bvr_historic))
+
+mixed_binary_targets_hourly <- dplyr::bind_rows(target_generation_mixed_binary_hourly(current_file = fcr_current, historic_file = fcr_historic),
+                                         target_generation_mixed_binary_hourly(current_file = bvr_current, historic_file = bvr_historic))
 
 ## combine the data and perform final adjustments (depth, etc.)
 

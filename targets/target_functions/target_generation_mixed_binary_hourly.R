@@ -1,12 +1,12 @@
 # FO
 
-# bvr_current <- c("https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-platform-data-qaqc/bvre-waterquality_L1.csv")
-# bvr_historic <- c("https://pasta.lternet.edu/package/data/eml/edi/725/3/a9a7ff6fe8dc20f7a8f89447d4dc2038")
-#
-# fcr_current <- "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv"
-# fcr_historic <- "https://pasta.lternet.edu/package/data/eml/edi/271/7/71e6b946b751aa1b966ab5653b01077f"
+bvr_current <- c("https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-platform-data-qaqc/bvre-waterquality_L1.csv")
+bvr_historic <- c("https://pasta.lternet.edu/package/data/eml/edi/725/3/a9a7ff6fe8dc20f7a8f89447d4dc2038")
 
-target_generation_mixed_binary <- function(current_file, historic_file){
+fcr_current <- "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv"
+fcr_historic <- "https://pasta.lternet.edu/package/data/eml/edi/271/7/71e6b946b751aa1b966ab5653b01077f"
+
+target_generation_mixed_binary_hourly <- function(current_file, historic_file){
   ## read in current data file
   # Github, Googlesheet, etc.
   current_df <- readr::read_csv(current_file, show_col_types = F)|>
@@ -21,12 +21,13 @@ target_generation_mixed_binary <- function(current_file, historic_file){
                                      'fcre',
                                      ifelse(Reservoir == 'BVR',
                                             'bvre', NA)),
-                  date = lubridate::as_date(DateTime)) |>
-    dplyr::group_by(date, Reservoir, depth) |>
+                  date = lubridate::as_date(DateTime),
+                  hour = lubridate::hour(DateTime)) |>
+    dplyr::group_by(date, Reservoir, depth, hour) |>
     dplyr::summarise(observation = mean(observation, na.rm = T),
                      n = dplyr::n(),
                      .groups = 'drop') |>
-    dplyr::mutate(observation = ifelse(n < 144/2, NA, observation)) |> # 144 = 24 * 6(10 minute intervals/hr)
+    #dplyr::mutate(observation = ifelse(n < 144/2, NA, observation)) |> # 144 = 24 * 6(10 minute intervals/hr)
     dplyr::rename(site_id = Reservoir,
                   datetime = date)
 
@@ -49,12 +50,13 @@ target_generation_mixed_binary <- function(current_file, historic_file){
                                      'fcre',
                                      ifelse(Reservoir == 'BVR',
                                             'bvre', NA)),
-                  date = lubridate::as_date(DateTime)) |>
-    dplyr::group_by(date, Reservoir, depth) |>
+                  date = lubridate::as_date(DateTime),
+                  hour = lubridate::hour(DateTime)) |>
+    dplyr::group_by(date, Reservoir, depth, hour) |>
     dplyr::summarise(observation = mean(observation, na.rm = T),
                      n = dplyr::n(),
                      .groups = 'drop') |>
-    dplyr::mutate(observation = ifelse(n < 144/2, NA, observation)) |> # 144 = 24 * 6(10 minute intervals/hr)
+    #dplyr::mutate(observation = ifelse(n < 144/2, NA, observation)) |> # 144 = 24 * 6(10 minute intervals/hr)
     dplyr::rename(site_id = Reservoir,
                   datetime = date)
   message('EDI file ready')
@@ -63,6 +65,7 @@ target_generation_mixed_binary <- function(current_file, historic_file){
   depths_use <- dplyr::bind_rows(historic_df, current_df)  |>
     dplyr::mutate(depth = ifelse(depth == "surface", 0, depth)) |>
     na.omit() |>
+    dplyr::mutate(datetime = lubridate::as_datetime(paste0(datetime," ", hour,":00:00"))) |>
     dplyr::group_by(datetime) |>
     dplyr::summarise(top = min(as.numeric(depth)),
                      bottom = max(as.numeric(depth))) |>
@@ -71,6 +74,7 @@ target_generation_mixed_binary <- function(current_file, historic_file){
 
   ## bind the two files using row.bind()
   final_df <- dplyr::bind_rows(historic_df, current_df) |>
+    dplyr::mutate(datetime = lubridate::as_datetime(paste0(datetime," ", hour,":00:00"))) |>
     dplyr::mutate(depth = as.numeric(ifelse(depth == "surface", 0, depth))) |>
     dplyr::right_join(depths_use, by = c('datetime', 'depth')) |>
     dplyr::mutate(density = rLakeAnalyzer::water.density(observation)) |>
@@ -85,9 +89,9 @@ target_generation_mixed_binary <- function(current_file, historic_file){
                         names_to = 'variable',
                         values_to = 'observation')
 
-  final_df$variable <- 'Mixed_binary_sample'
+  final_df$variable <- 'Mixed_binary_mean'
   final_df$depth_m <- NA
-  final_df$duration <- 'P1D'
+  final_df$duration <- 'PT1H'
   final_df$project_id <- 'vera4cast'
 
 
