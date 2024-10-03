@@ -2,11 +2,11 @@
 
 # bvr_current <- c("https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-platform-data-qaqc/bvre-waterquality_L1.csv")
 # bvr_historic <- c("https://pasta.lternet.edu/package/data/eml/edi/725/3/a9a7ff6fe8dc20f7a8f89447d4dc2038")
+#
+# fcr_current <- "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv"
+# fcr_historic <- "https://pasta.lternet.edu/package/data/eml/edi/271/7/71e6b946b751aa1b966ab5653b01077f"
 
-#fcr_current <- "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv"
-#fcr_historic <- "https://pasta.lternet.edu/package/data/eml/edi/271/7/71e6b946b751aa1b966ab5653b01077f"
-
-target_generation_NotStratified_binary <- function(current_file, historic_file){
+target_generation_mixed_binary <- function(current_file, historic_file){
   ## read in current data file
   # Github, Googlesheet, etc.
   current_df <- readr::read_csv(current_file, show_col_types = F)|>
@@ -85,7 +85,11 @@ target_generation_NotStratified_binary <- function(current_file, historic_file){
                         names_to = 'variable',
                         values_to = 'observation')
 
-  depth_m <- NA
+  final_df$variable <- 'Mixed_binary_sample'
+  final_df$depth_m <- NA
+  final_df$duration <- 'P1D'
+  final_df$project_id <- 'vera4cast'
+
 
   ## Match data to flare targets file
   # Use pivot_longer to create a long-format table
@@ -96,4 +100,4 @@ target_generation_NotStratified_binary <- function(current_file, historic_file){
   return(final_df)
 }
 
-a <- target_generation_NotStratified_binary(current_file = fcr_current, historic_file = fcr_historic)
+#a <- target_generation_mixed_binary(current_file = fcr_current, historic_file = fcr_historic)
