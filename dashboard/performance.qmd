@@ -196,19 +196,6 @@ df |>
 }
 ```
 
-
-### Dissolved CO2
-
-```{r}
-if("CO2_umolL_sample" %in% unique(df$variable)){
-df |> 
-  filter(variable == c("CO2_umolL_sample"),
-         site_id != 'tubr')  |> 
-    mutate(observation = as.numeric(NA)) |> 
-  forecast_plots(ylabel = 'CO2 (umolL)')
-}
-```
-
 ### CO2 Flux
 
 ```{r}
@@ -333,14 +320,6 @@ ex |> filter(variable == "CH4flux_umolm2s_mean") |>
   forecast_plots(ylabel = 'CH4 Flux (umolm2s)')
 ```
 
-### Dissolved CO2
-
-```{r}
-ex |> filter(variable == "CO2_umolL_sample") |> 
-  filter(site_id != "tubr") |> ## We don't want inflow methane in plot
-  forecast_plots(ylabel = 'CO2 (umolL)')
-```
-
 ### CO2 Flux
 
 ```{r}
@@ -422,6 +401,12 @@ leaderboard_plots(dm_df, "CH4_umolL_sample")
 
 ```{r}
 leaderboard_plots(df, "CH4flux_umolm2s_mean")
+```
+
+## CO2 Flux
+
+```{r}
+leaderboard_plots(df, "CO2flux_umolm2s_mean")
 ```
 
 ## Inflow Discharge
