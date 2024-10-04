@@ -150,9 +150,9 @@ leaderboard_plots <- function(df,
   if (nrow(df) == 0){
     print('No scored forecasts are available for this period')
   } else{
-  board1 <- by_model_id(df, show.legend = TRUE)
-  board2 <- by_reference_datetime(df, show.legend = TRUE) + theme_bw()
-  board3 <- by_horizon(df, show.legend = TRUE) + theme_bw()
+  board1 <- by_model_id(df, show.legend = FALSE)
+  board2 <- by_reference_datetime(df, show.legend = FALSE) + theme_bw()
+  board3 <- by_horizon(df, show.legend = FALSE) + theme_bw()
 
   ggob <- board1 / board2 / board3 # patchwork stack
 
