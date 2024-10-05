@@ -14,9 +14,14 @@ library(duckdbfs)
 library(dplyr)
 install.packages("nycflights13")
 library(nycflights13)
+print("here")
 nycflights13::flights |> group_by(year) |> write_dataset("testing")
+print("here2")
 
-list.files("testing/year=2013")
+
+print(list.files("testing/year=2013"))
+
+print("here3")
 
 stop()
 
