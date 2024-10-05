@@ -16,7 +16,7 @@ install.packages("nycflights13")
 library(nycflights13)
 nycflights13::flights |> group_by(year) |> write_dataset("testing")
 
-list.files("testing/year=13")
+list.files("testing/year=2013")
 
 stop()
 
