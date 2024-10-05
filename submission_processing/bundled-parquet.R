@@ -10,6 +10,15 @@ config <- yaml::read_yaml("challenge_configuration.yaml")
 
 mc_alias_set("osn", config$endpoint, Sys.getenv("OSN_KEY"), Sys.getenv("OSN_SECRET"))
 
+library(duckdbfs)
+library(dplyr)
+install.package("nycflights13")
+library(nycflights13)
+nycflights13::flights |> group_by(year) |> write_dataset("testing")
+
+list.files("testing/year=13")
+
+stop()
 
 
 message('FORECASTS')
