@@ -12,7 +12,7 @@ mc_alias_set("osn", config$endpoint, Sys.getenv("OSN_KEY"), Sys.getenv("OSN_SECR
 
 library(duckdbfs)
 library(dplyr)
-install.package("nycflights13")
+install.packages("nycflights13")
 library(nycflights13)
 nycflights13::flights |> group_by(year) |> write_dataset("testing")
 
