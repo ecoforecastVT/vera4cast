@@ -9,8 +9,8 @@
   "geometry": {
     "type": "MultiPoint",
     "coordinates": [
-      [-79.8159, 37.3129],
-      [-79.8372, 37.3032]
+      [-79.8372, 37.3032],
+      [-79.8159, 37.3129]
     ]
   },
   "properties": {
@@ -48,8 +48,8 @@
       "Temp_C_mean",
       "Daily",
       "P1D",
-      "bvre",
       "fcre",
+      "bvre",
       "machine learning"
     ],
     "table:columns": [
