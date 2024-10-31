@@ -32,11 +32,6 @@ scores_description_create <- data.frame(reference_datetime ='datetime that the f
 print('FIND SCORES TABLE SCHEMA')
 scores_theme_df <- arrow::open_dataset(arrow::s3_bucket(paste0(config$scores_bucket,'/bundled-parquet'), endpoint_override = config$endpoint, anonymous = TRUE)) #|>
 
-print('OPEN INVENTORY BUCKET')
-scores_date_range <- arrow::open_dataset(arrow::s3_bucket(paste0(config$scores_bucket,'/bundled-parquet'), endpoint_override = config$endpoint, anonymous = TRUE)) |>
-  summarize(across(all_of(c('datetime')), list(min = min, max = max))) |>
-  collect()
-
 theme_models <- arrow::open_dataset(arrow::s3_bucket(paste0(config$scores_bucket,'/bundled-parquet'), endpoint_override = config$endpoint, anonymous = TRUE)) |>
   distinct(model_id) |>
   collect()
@@ -48,8 +43,8 @@ scores_sites <- arrow::open_dataset(arrow::s3_bucket(paste0(config$scores_bucket
 scores_date_range <- arrow::open_dataset(arrow::s3_bucket(paste0(config$forecasts_bucket,'/bundled-parquet'), endpoint_override = config$endpoint, anonymous = TRUE)) |>
   summarize(across(all_of(c('datetime')), list(min = min, max = max))) |>
   collect()
-scores_min_date <- forecast_date_range$datetime_min
-scores_max_date <- forecast_date_range$datetime_max
+scores_min_date <- scores_date_range$datetime_min
+scores_max_date <- scores_date_range$datetime_max
 
 build_description <- paste0("Scores are metrics that describe how well forecasts compare to observations. The scores catalog includes are summaries of the forecasts (i.e., mean, median, confidence intervals), matched observations (if available), and scores (metrics of how well the model distribution compares to observations). You can access the scores at the top level of the dataset where all models, variables, and dates that forecasts were produced (reference_datetime) are available. The code to access the entire dataset is provided as an asset. Given the size of the scores catalog, it can be time-consuming to access the data at the full dataset level. For quicker access to the scores for a particular model (model_id), we also provide the code to access the data at the model_id level as an asset for each model.")
 
@@ -252,11 +247,11 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
           summarize(across(all_of(c('datetime','reference_date','pub_datetime')), list(min = min, max = max))) |>
           collect()
 
-        model_min_date <- model_date_range$`min(date)`
-        model_max_date <- model_date_range$`max(date)`
+        model_min_date <- model_date_range$datetime_min
+        model_max_date <- model_date_range$datetime_max
 
-        model_reference_date <- model_date_range$`max(reference_date)`
-        model_pub_date <- model_date_range$`max(pub_date)`
+        model_reference_date <- model_date_range$reference_date_max
+        model_pub_date <- model_date_range$pub_datetime_max
 
         model_var_duration_df <-  arrow::open_dataset(arrow::s3_bucket(paste0(config$scores_bucket,'/bundled-parquet'), endpoint_override = config$endpoint, anonymous = TRUE)) |>
           filter(model_id == m,
