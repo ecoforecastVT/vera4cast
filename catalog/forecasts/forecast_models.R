@@ -43,9 +43,7 @@ forecast_theme_df <- arrow::open_dataset(arrow::s3_bucket(paste0(config$forecast
 
 
 forecast_date_range <- arrow::open_dataset(arrow::s3_bucket(paste0(config$forecasts_bucket,'/bundled-parquet'), endpoint_override = config$endpoint, anonymous = TRUE)) |>
-  summarize(across(all_of(c('datetime')), list(min = min, max = max))
-            #across(all_of(c('datetime')), ~ min(.))
-            ) |>
+  summarize(across(all_of(c('datetime')), list(min = min, max = max))) |>
   collect()
 
 
