@@ -134,8 +134,7 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
 
 
   ## find group sites
-  find_group_sites <- arrow::open_dataset(arrow::s3_bucket(paste0(config$forecasts_bucket,'/bundled-parquet'),
-                                                           endpoint_override = config$endpoint, anonymous = TRUE)) |>
+  find_group_sites <- arrow::open_dataset(arrow::s3_bucket(paste0(config$forecasts_bucket,'/bundled-parquet'), endpoint_override = config$endpoint, anonymous = TRUE)) |>
     filter(variable %in% var_values) |>
     distinct(site_id) |>
     collect()
