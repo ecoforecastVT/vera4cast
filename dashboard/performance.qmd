@@ -62,8 +62,8 @@ df <- arrow::open_dataset(s3) |>
          lubridate::as_date(datetime) > lubridate::as_date(reference_datetime)) |> 
   collect()
 
-reference_date <- max(lubridate::as_date(df$reference_datetime))
-#reference_date <- max(lubridate::as_date(df$reference_datetime) - lubridate::days(1))
+#reference_date <- max(lubridate::as_date(df$reference_datetime))
+reference_date <- max(lubridate::as_date(df$reference_datetime) - lubridate::days(1))
 ```
 
 Forecasts submitted on `r reference_date`
