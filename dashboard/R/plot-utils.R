@@ -26,6 +26,7 @@ forecast_ggobj <- function(df, ncol = NULL, show.legend = TRUE, ylabel = 'predic
 
 forecast_plots <- function(df, ncol = NULL, show.legend = TRUE, ylabel = 'predicted', binary = FALSE) {
 
+  df <- df |> filter(model_id != 'persistenceRW')
 
   if (nrow(df) == 0){
     print('No scored forecasts are available for this period')
