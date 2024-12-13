@@ -36,12 +36,27 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/glm_aed_flare_v3.json"
+      "href": "./models/glm_aed_v1.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/glm_aed_v1.json"
+      "href": "./models/inflow_gefsClimAED.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "./models/monthly_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "./models/persistenceFO.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "./models/persistenceRW.json"
     },
     {
       "rel": "item",
@@ -81,27 +96,12 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "./models/glm_aed_flare_v3.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "./models/historic_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/inflow_gefsClimAED.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/monthly_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/persistenceFO.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/persistenceRW.json"
     },
     {
       "rel": "item",
@@ -151,7 +151,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2024-11-26T00:00:00Z"
+          "2024-12-11T00:00:00Z"
         ]
       ]
     }
