@@ -8,7 +8,7 @@ pacman::p_load(utils, tidyverse)
 # historic_file  <- "https://pasta.lternet.edu/package/data/eml/edi/200/13/27ceda6bc7fdec2e7d79a6e4fe16ffdf"
 # current_file <-  "https://raw.githubusercontent.com/CareyLabVT/Reservoirs/master/Data/DataNotYetUploadedToEDI/Raw_CTD/ctd_L1.csv"
 
-targets_generation_daily_MOM <- function(current_file, historic_file){
+targets_generation_daily_MOM_bounds <- function(current_file, historic_file){
 
   #read in current CTD data
   current_df <- readr::read_csv(current_file, show_col_types = F) |>
@@ -47,15 +47,15 @@ targets_generation_daily_MOM <- function(current_file, historic_file){
 
   #now calculate MOM bounds
   MOM_bounds <- DO |> dplyr::group_by(datetime, site_id, variable) |>
-    dplyr::summarise(MetalimneticOxygenMinimum_upperbound =
+    dplyr::summarise(MOM_min_sample =
                        round(first(depth_m[observation < 2]),1),
-                     MetalimneticOxygenMinimum_lowerbound =
+                     MOM_max_sample =
                        round(last(depth_m[observation < 2]),1))
 
   #wide to long
   MOM_bounds_long <- MOM_bounds |> select(-variable) |>
-    tidyr::pivot_longer(cols = MetalimneticOxygenMinimum_upperbound:
-                          MetalimneticOxygenMinimum_lowerbound, names_to = "variable")
+    tidyr::pivot_longer(cols = MOM_max_sample:
+                          MOM_min_sample, names_to = "variable")
 
   #rename columns to match targets file
   MOM_bounds_long <- MOM_bounds_long |>
