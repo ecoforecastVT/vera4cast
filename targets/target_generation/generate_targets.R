@@ -112,7 +112,7 @@ current_file <-  "https://raw.githubusercontent.com/CareyLabVT/Reservoirs/master
 
 mom_daily_targets <- targets_generation_daily_MOM(current_file = current_file, historic_file = historic_file)
 
-## CTD  - MOM
+## CTD  - MOM BOUNDS
 print('CTD - MOM BOUNDS')
 source('targets/target_functions/targets_generation_MOM_bounds_daily.R')
 historic_file  <- "https://pasta.lternet.edu/package/data/eml/edi/200/13/27ceda6bc7fdec2e7d79a6e4fe16ffdf"
