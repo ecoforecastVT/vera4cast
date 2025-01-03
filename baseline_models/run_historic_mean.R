@@ -51,8 +51,9 @@ site_var_combinations <- expand.grid(var = c('DO_mgL_mean',
                                              'Chla_ugL_mean',
                                              'Secchi_m_sample',
                                              'Temp_C_mean',
-                                             'fDOM_QSU_mean'),
-                                             #'CH4_umolL_sample'),
+                                             'fDOM_QSU_mean',
+                                             'CH4_umolL_sample',
+                                             'CO2_umolL_sample'),
                                      site = c('fcre',
                                               'bvre'))
 
@@ -63,6 +64,88 @@ historic_mean_insitu <- purrr::pmap_dfr(site_var_combinations,
                                                                     forecast_date = Sys.Date(),
                                                                     depth = 'target',
                                                                     ...))
+
+
+## Productivity variables
+site_var_combinations_productivity <- expand.grid(var = c('DeepChlorophyllMaximum_binary',
+                                                          'TotalConc_ugL_sample',
+                                                          'GreenAlgae_ugL_sample',
+                                                          'Bluegreens_ugL_sample',
+                                                          'BrownAlgae_ugL_sample',
+                                                          'MixedAlgae_ugL_sample',
+                                                          'TotalConcCM_ugL_sample',
+                                                          'GreenAlgaeCM_ugL_sample',
+                                                          'BluegreensCM_ugL_sample',
+                                                          'BrownAlgaeCM_ugL_sample',
+                                                          'MixedAlgaeCM_ugL_sample',
+                                                          'ChlorophyllMaximum_depth_sample',
+                                                          'MOM_binary_sample'),
+                                                  site = c('fcre',
+                                                           'bvre'))
+
+historic_insitu_productivity <- purrr::pmap_dfr(site_var_combinations_productivity,
+                                                   .f = ~ generate_baseline_mean(targets = targets_insitu,
+                                                                                        h = 35,
+                                                                                        forecast_date = Sys.Date(),
+                                                                                        depth = 'target',
+                                                                                        ...))
+
+## CHEM variables
+site_var_combinations_chem <- expand.grid(var = c('TN_ugL_sample',
+                                                  'TP_ugL_sample',
+                                                  'SRP_ugL_sample',
+                                                  'NO3NO2_ugL_sample',
+                                                  'NH4_ugL_sample',
+                                                  'DOC_mgL_sample'),
+                                          site = c('fcre',
+                                                   'bvre'))
+
+historic_insitu_chem <- purrr::pmap_dfr(site_var_combinations_chem,
+                                           .f = ~ generate_baseline_mean(targets = targets_insitu,
+                                                                                h = 35,
+                                                                                forecast_date = Sys.Date(),
+                                                                                depth = 'target',
+                                                                                ...))
+
+## Physical variables
+site_var_combinations_physical <- expand.grid(var = c('ThermoclineDepth_m_mean',
+                                                      'SchmidtStability_Jm2_mean'),
+                                              site = c('fcre',
+                                                       'bvre'))
+
+historic_insitu_physical <- purrr::pmap_dfr(site_var_combinations_physical,
+                                               .f = ~ generate_baseline_mean(targets = targets_insitu,
+                                                                                    h = 35,
+                                                                                    forecast_date = Sys.Date(),
+                                                                                    depth = 'target',
+                                                                                    ...))
+
+# ## Generate Metals
+print('Metals model')
+
+site_var_combinations_metals <- expand.grid(var = c('TFe_mgL_sample',
+                                                    'SFe_mgL_sample',
+                                                    'TMn_mgL_sample',
+                                                    'SMn_mgL_sample',
+                                                    ''),
+                                            site = c('fcre',
+                                                     'bvre'))
+
+historic_insitu_metals <- purrr::pmap_dfr(site_var_combinations_metals,
+                                             .f = ~ generate_baseline_mean(targets = targets_insitu,
+                                                                                  h = 35,
+                                                                                  forecast_date = Sys.Date(),
+                                                                                  depth = 'target',
+                                                                                  ...))
+# Flux variables
+# get all combinations
+print('Flux model')
+
+historic_flux <- purrr::map_dfr(.x = c('CO2flux_umolm2s_mean', 'CH4flux_umolm2s_mean'),
+                                   .f = ~ generate_baseline_mean(targets = targets_insitu,
+                                                                        h = 35,
+                                                                        forecast_date = Sys.Date(),
+                                                                        site = 'fcre', depth = 'target', var = .x))
 
 # Generate binary forecasts from continuous
 binary_site_var_comb <- data.frame(site = c('fcre', 'bvre'),
@@ -77,7 +160,8 @@ historic_mean_insitu_binary <- purrr::pmap_dfr(binary_site_var_comb,
                                                                              ...))
 
 # combine and submit
-combined_historic_mean <- bind_rows(historic_mean_inflow, historic_mean_insitu, historic_mean_met, historic_mean_insitu_binary)
+combined_historic_mean <- bind_rows(historic_mean_inflow, historic_mean_insitu, historic_mean_met, historic_mean_insitu_binary, historic_flux,
+                                    historic_insitu_physical, historic_insitu_chem, historic_insitu_physical, historic_insitu_metals)
 
 # write forecast file
 file_date <- combined_historic_mean$reference_datetime[1]
