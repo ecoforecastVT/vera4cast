@@ -58,23 +58,96 @@ site_var_combinations <- expand.grid(var = c('DO_mgL_mean',
                                              'Temp_C_mean',
                                              'fDOM_QSU_mean',
                                              'CH4_umolL_sample',
-                                             'CO2_umolL_sample',
-                                             'NH4_ugL_sample',
-                                             'DOC_mgL_sample',
-                                             'NO3NO2_ugL_sample',
-                                             'TP_ugL_sample',
-                                             'TN_ugL_sample',
-                                             'DIC_mgL_sample'),
+                                             'CO2_umolL_sample'),
+                                     # 'NH4_ugL_sample',
+                                     # 'DOC_mgL_sample',
+                                     # 'NO3NO2_ugL_sample',
+                                     # 'TP_ugL_sample',
+                                     # 'TN_ugL_sample',
+                                     # 'DIC_mgL_sample'),
                                      site = c('fcre',
                                               'bvre'))
 
 persistenceRW_insitu <- purrr::pmap_dfr(site_var_combinations,
-                                      .f = ~ generate_baseline_persistenceRW(targets = targets_insitu,
-                                                                         h = 35,
-                                                                         model_id = 'persistenceRW',
-                                                                         forecast_date = Sys.Date(),
-                                                                         depth = 'target',
-                                                                         ...))
+                                        .f = ~ generate_baseline_persistenceRW(targets = targets_insitu,
+                                                                               h = 35,
+                                                                               model_id = 'persistenceRW',
+                                                                               forecast_date = Sys.Date(),
+                                                                               depth = 'target',
+                                                                               ...))
+
+
+## Productivity variables
+site_var_combinations_productivity <- expand.grid(var = c('DeepChlorophyllMaximum_binary',
+                                                          'TotalConc_ugL_sample',
+                                                          'GreenAlgae_ugL_sample',
+                                                          'Bluegreens_ugL_sample',
+                                                          'BrownAlgae_ugL_sample',
+                                                          'MixedAlgae_ugL_sample',
+                                                          'TotalConcCM_ugL_sample',
+                                                          'GreenAlgaeCM_ugL_sample',
+                                                          'BluegreensCM_ugL_sample',
+                                                          'BrownAlgaeCM_ugL_sample',
+                                                          'MixedAlgaeCM_ugL_sample',
+                                                          'ChlorophyllMaximum_depth_sample',
+                                                          'MOM_binary_sample'),
+                                                  site = c('fcre',
+                                                           'bvre'))
+
+persistenceRW_insitu_productivity <- purrr::pmap_dfr(site_var_combinations_productivity,
+                                               .f = ~ generate_baseline_persistenceRW(targets = targets_insitu,
+                                                                                     h = 35,
+                                                                                     forecast_date = Sys.Date(),
+                                                                                     depth = 'target',
+                                                                                     ...))
+
+## CHEM variables
+site_var_combinations_chem <- expand.grid(var = c('TN_ugL_sample',
+                                                  'TP_ugL_sample',
+                                                  'SRP_ugL_sample',
+                                                  'NO3NO2_ugL_sample',
+                                                  'NH4_ugL_sample',
+                                                  'DOC_mgL_sample'),
+                                          site = c('fcre',
+                                                   'bvre'))
+
+persistenceRW_insitu_chem <- purrr::pmap_dfr(site_var_combinations_chem,
+                                       .f = ~ generate_baseline_persistenceRW(targets = targets_insitu,
+                                                                             h = 35,
+                                                                             forecast_date = Sys.Date(),
+                                                                             depth = 'target',
+                                                                             ...))
+
+## Physical variables
+site_var_combinations_physical <- expand.grid(var = c('ThermoclineDepth_m_mean',
+                                                      'SchmidtStability_Jm2_mean'),
+                                              site = c('fcre',
+                                                       'bvre'))
+
+persistenceRW_insitu_physical <- purrr::pmap_dfr(site_var_combinations_physical,
+                                           .f = ~ generate_baseline_persistenceRW(targets = targets_insitu,
+                                                                                 h = 35,
+                                                                                 forecast_date = Sys.Date(),
+                                                                                 depth = 'target',
+                                                                                 ...))
+
+# ## Generate Metals
+print('Metals model')
+
+site_var_combinations_metals <- expand.grid(var = c('TFe_mgL_sample',
+                                                    'SFe_mgL_sample',
+                                                    'TMn_mgL_sample',
+                                                    'SMn_mgL_sample',
+                                                    ''),
+                                            site = c('fcre',
+                                                     'bvre'))
+
+persistenceRW_insitu_metals <- purrr::pmap_dfr(site_var_combinations_metals,
+                                         .f = ~ generate_baseline_persistenceRW(targets = targets_insitu,
+                                                                               h = 35,
+                                                                               forecast_date = Sys.Date(),
+                                                                               depth = 'target',
+                                                                               ...))
 
 # Flux variables
 # get all combinations
@@ -105,7 +178,8 @@ persistenceRW_insitu_binary <- purrr::pmap_dfr(binary_site_var_comb,
                                                                              ...))
 
 # combine and submit
-combined_persistenceRW <- bind_rows(persistenceRW_inflow, persistenceRW_insitu, persistenceRW_met, persistenceRW_flux, persistenceRW_insitu_binary)
+combined_persistenceRW <- bind_rows(persistenceRW_inflow, persistenceRW_insitu, persistenceRW_met, persistenceRW_flux, persistenceRW_insitu_binary,
+                                    persistence_insitu_physical, persistence_insitu_chem, persistence_insitu_physical, persistence_insitu_metals)
 
 # write forecast file
 file_date <- combined_persistenceRW$reference_datetime[1]

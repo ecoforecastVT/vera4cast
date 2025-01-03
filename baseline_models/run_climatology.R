@@ -41,7 +41,7 @@ climatology_met <- generate_baseline_climatology(targets = targets_met,
 
 # Insitu variables
 # get all combinations
-site_var_combinations <- expand.grid(var = c('DO_mgL_mean',
+site_var_combinations_focal <- expand.grid(var = c('DO_mgL_mean',
                                              'DOsat_percent_mean',
                                              'Chla_ugL_mean',
                                              'Secchi_m_sample',
@@ -52,12 +52,85 @@ site_var_combinations <- expand.grid(var = c('DO_mgL_mean',
                                      site = c('fcre',
                                               'bvre'))
 
-climatology_insitu <- purrr::pmap_dfr(site_var_combinations,
+climatology_insitu_focal <- purrr::pmap_dfr(site_var_combinations_focal,
                                       .f = ~ generate_baseline_climatology(targets = targets_insitu,
                                                                          h = 35,
                                                                          forecast_date = Sys.Date(),
                                                                          depth = 'target',
                                                                          ...))
+
+
+## Productivity variables
+site_var_combinations_productivity <- expand.grid(var = c('DeepChlorophyllMaximum_binary',
+                                                   'TotalConc_ugL_sample',
+                                                   'GreenAlgae_ugL_sample',
+                                                   'Bluegreens_ugL_sample',
+                                                   'BrownAlgae_ugL_sample',
+                                                   'MixedAlgae_ugL_sample',
+                                                   'TotalConcCM_ugL_sample',
+                                                   'GreenAlgaeCM_ugL_sample',
+                                                   'BluegreensCM_ugL_sample',
+                                                   'BrownAlgaeCM_ugL_sample',
+                                                   'MixedAlgaeCM_ugL_sample',
+                                                   'ChlorophyllMaximum_depth_sample',
+                                                   'MOM_binary_sample'),
+                                           site = c('fcre',
+                                                    'bvre'))
+
+climatology_insitu_productivity <- purrr::pmap_dfr(site_var_combinations_productivity,
+                                            .f = ~ generate_baseline_climatology(targets = targets_insitu,
+                                                                                 h = 35,
+                                                                                 forecast_date = Sys.Date(),
+                                                                                 depth = 'target',
+                                                                                 ...))
+
+## CHEM variables
+site_var_combinations_chem <- expand.grid(var = c('TN_ugL_sample',
+                                                          'TP_ugL_sample',
+                                                          'SRP_ugL_sample',
+                                                          'NO3NO2_ugL_sample',
+                                                          'NH4_ugL_sample',
+                                                          'DOC_mgL_sample'),
+                                                  site = c('fcre',
+                                                           'bvre'))
+
+climatology_insitu_chem <- purrr::pmap_dfr(site_var_combinations_chem,
+                                                   .f = ~ generate_baseline_climatology(targets = targets_insitu,
+                                                                                        h = 35,
+                                                                                        forecast_date = Sys.Date(),
+                                                                                        depth = 'target',
+                                                                                        ...))
+
+## Physical variables
+site_var_combinations_physical <- expand.grid(var = c('ThermoclineDepth_m_mean',
+                                                  'SchmidtStability_Jm2_mean'),
+                                          site = c('fcre',
+                                                   'bvre'))
+
+climatology_insitu_physical <- purrr::pmap_dfr(site_var_combinations_physical,
+                                           .f = ~ generate_baseline_climatology(targets = targets_insitu,
+                                                                                h = 35,
+                                                                                forecast_date = Sys.Date(),
+                                                                                depth = 'target',
+                                                                                ...))
+
+# ## Generate Metals
+print('Metals model')
+
+site_var_combinations_metals <- expand.grid(var = c('TFe_mgL_sample',
+                                                    'SFe_mgL_sample',
+                                                    'TMn_mgL_sample',
+                                                    'SMn_mgL_sample',
+                                                    ''),
+                                            site = c('fcre',
+                                                     'bvre'))
+
+climatology_insitu_metals <- purrr::pmap_dfr(site_var_combinations_metals,
+                                             .f = ~ generate_baseline_climatology(targets = targets_insitu,
+                                                                                  h = 35,
+                                                                                  forecast_date = Sys.Date(),
+                                                                                  depth = 'target',
+                                                                                  ...))
 
 # Flux variables
 # get all combinations
@@ -76,13 +149,15 @@ binary_site_var_comb <- data.frame(site = c('fcre', 'bvre'),
 climatology_insitu_binary <- purrr::pmap_dfr(binary_site_var_comb,
                                              .f = ~convert_continuous_binary(continuous_var = 'Chla_ugL_mean',
                                                                              binary_var = 'Bloom_binary_mean',
-                                                                             forecast = climatology_insitu,
+                                                                             forecast = climatology_insitu_focal,
                                                                              targets = targets_insitu,
                                                                              threshold = 20,
                                                                              ...))
 
+
 # combine and submit
-combined_climatology <- bind_rows(climatology_met, climatology_inflow, climatology_insitu, climatology_insitu_binary, climatology_flux)
+combined_climatology <- bind_rows(climatology_met, climatology_inflow, climatology_insitu_focal, climatology_insitu_binary, climatology_flux,
+                                  climatology_insitu_physical, climatology_insitu_chem, climatology_insitu_physical, climatology_insitu_metals)
 
 # 4. Write forecast file
 file_date <- combined_climatology$reference_datetime[1]

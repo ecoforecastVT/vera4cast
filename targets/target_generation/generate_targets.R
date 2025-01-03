@@ -112,6 +112,15 @@ current_file <-  "https://raw.githubusercontent.com/CareyLabVT/Reservoirs/master
 
 mom_daily_targets <- targets_generation_daily_MOM(current_file = current_file, historic_file = historic_file)
 
+
+## METALS
+print('METALS')
+source('targets/target_functions/target_generation_metals_daily.R')
+current_file <- 'https://raw.githubusercontent.com/CareyLabVT/Reservoirs/refs/heads/master/Data/DataNotYetUploadedToEDI/Metals_Data/metals_L1.csv'
+historic_file <- "https://pasta.lternet.edu/package/data/eml/edi/455/8/9c8c61b003923f4f03ebfe55cea8bbfd"
+
+metals_daily_targets <- target_generation_metals_daily(current_data_file = current_file, edi_data_file = historic_file)
+
 ## Thermocline Depth
 print('Thermocline Depth')
 source('targets/target_functions/generate_thermoclineD.R')
@@ -150,7 +159,7 @@ mixed_binary_targets_hourly <- dplyr::bind_rows(target_generation_mixed_binary_h
 ## combine the data and perform final adjustments (depth, etc.)
 
 combined_targets <- bind_rows(exo_daily, fluoro_daily, fcr_thermistor_temp_daily, bvr_thermistor_temp_daily, secchi_daily,
-                              mom_daily_targets, thermocline_depth, schmidt_stability, eddy_flux, chem_data, ghg_data, mixed_binary_targets) |>
+                              mom_daily_targets, thermocline_depth, schmidt_stability, eddy_flux, chem_data, ghg_data, mixed_binary_targets, metals_daily_targets) |>
   select(all_of(column_names))
 
 combined_targets_deduped <- combined_targets |>

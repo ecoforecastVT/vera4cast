@@ -59,6 +59,80 @@ monthly_mean_insitu <- purrr::pmap_dfr(site_var_combinations,
                                                                              forecast_date = Sys.Date(),
                                                                              model_id = team_name,
                                                                              depth = 'target', ...))
+
+## Productivity variables
+site_var_combinations_productivity <- expand.grid(var = c('DeepChlorophyllMaximum_binary',
+                                                          'TotalConc_ugL_sample',
+                                                          'GreenAlgae_ugL_sample',
+                                                          'Bluegreens_ugL_sample',
+                                                          'BrownAlgae_ugL_sample',
+                                                          'MixedAlgae_ugL_sample',
+                                                          'TotalConcCM_ugL_sample',
+                                                          'GreenAlgaeCM_ugL_sample',
+                                                          'BluegreensCM_ugL_sample',
+                                                          'BrownAlgaeCM_ugL_sample',
+                                                          'MixedAlgaeCM_ugL_sample',
+                                                          'ChlorophyllMaximum_depth_sample',
+                                                          'MOM_binary_sample'),
+                                                  site = c('fcre',
+                                                           'bvre'))
+
+monthly_insitu_productivity <- purrr::pmap_dfr(site_var_combinations_productivity,
+                                                .f = ~ generate_baseline_monthly_mean(targets = targets_insitu,
+                                                                              h = 35,
+                                                                              forecast_date = Sys.Date(),
+                                                                              depth = 'target',
+                                                                              ...))
+
+## CHEM variables
+site_var_combinations_chem <- expand.grid(var = c('TN_ugL_sample',
+                                                  'TP_ugL_sample',
+                                                  'SRP_ugL_sample',
+                                                  'NO3NO2_ugL_sample',
+                                                  'NH4_ugL_sample',
+                                                  'DOC_mgL_sample'),
+                                          site = c('fcre',
+                                                   'bvre'))
+
+monthly_insitu_chem <- purrr::pmap_dfr(site_var_combinations_chem,
+                                        .f = ~ generate_baseline_monthly_mean(targets = targets_insitu,
+                                                                      h = 35,
+                                                                      forecast_date = Sys.Date(),
+                                                                      depth = 'target',
+                                                                      ...))
+
+## Physical variables
+site_var_combinations_physical <- expand.grid(var = c('ThermoclineDepth_m_mean',
+                                                      'SchmidtStability_Jm2_mean'),
+                                              site = c('fcre',
+                                                       'bvre'))
+
+monthly_insitu_physical <- purrr::pmap_dfr(site_var_combinations_physical,
+                                            .f = ~ generate_baseline_monthly_mean(targets = targets_insitu,
+                                                                          h = 35,
+                                                                          forecast_date = Sys.Date(),
+                                                                          depth = 'target',
+                                                                          ...))
+
+# ## Generate Metals
+print('Metals model')
+
+site_var_combinations_metals <- expand.grid(var = c('TFe_mgL_sample',
+                                                    'SFe_mgL_sample',
+                                                    'TMn_mgL_sample',
+                                                    'SMn_mgL_sample',
+                                                    ''),
+                                            site = c('fcre',
+                                                     'bvre'))
+
+monthly_insitu_metals <- purrr::pmap_dfr(site_var_combinations_metals,
+                                          .f = ~ generate_baseline_monthly_mean(targets = targets_insitu,
+                                                                        h = 35,
+                                                                        forecast_date = Sys.Date(),
+                                                                        depth = 'target',
+                                                                        ...))
+
+
 # Generate binary forecasts from continuous
 binary_site_var_comb <- data.frame(site = c('fcre', 'bvre'),
                                    depth = c(1.6, 1.5))
@@ -85,7 +159,8 @@ monthly_mean_flux <- purrr::pmap_dfr(flux_var_combinations,
                                                                              depth = 'target', ...))
 
 # combine and submit
-combined_monthly_mean <- bind_rows(monthly_mean_met, monthly_mean_inflow, monthly_mean_insitu, monthly_mean_insitu_binary, monthly_mean_flux)
+combined_monthly_mean <- bind_rows(monthly_mean_met, monthly_mean_inflow, monthly_mean_insitu, monthly_mean_insitu_binary, monthly_mean_flux,
+                                   monthly_insitu_physical, monthly_insitu_chem, monthly_insitu_physical, monthly_insitu_metals)
 
 # 4. Write forecast file
 file_date <- combined_monthly_mean$reference_datetime[1]
