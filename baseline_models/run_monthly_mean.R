@@ -73,7 +73,9 @@ site_var_combinations_productivity <- expand.grid(var = c('DeepChlorophyllMaximu
                                                           'BrownAlgaeCM_ugL_sample',
                                                           'MixedAlgaeCM_ugL_sample',
                                                           'ChlorophyllMaximum_depth_sample',
-                                                          'MOM_binary_sample'),
+                                                          'MOM_binary_sample',
+                                                          'MOM_min_sample',
+                                                          'MOM_max_sample'),
                                                   site = c('fcre',
                                                            'bvre'))
 
