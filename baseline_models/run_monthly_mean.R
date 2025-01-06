@@ -47,9 +47,9 @@ site_var_combinations <- expand.grid(var = c('DO_mgL_mean',
                                              'Chla_ugL_mean',
                                              'Secchi_m_sample',
                                              'Temp_C_mean',
-                                             'fDOM_QSU_mean',
-                                             'CH4_umolL_sample',
-                                             'CO2_umolL_sample'),
+                                             'fDOM_QSU_mean'),
+                                             #'CH4_umolL_sample',
+                                             #'CO2_umolL_sample'),
                                      site = c('fcre',
                                               'bvre'))
 
@@ -60,6 +60,19 @@ monthly_mean_insitu <- purrr::pmap_dfr(site_var_combinations,
                                                                              model_id = team_name,
                                                                              depth = 'target', ...))
 
+## GHG VARIABLES (TAKEN FROM DIFFERENT DEPTH)
+site_var_combinations_ghg_insitu <- expand.grid(var = c('CH4_umolL_sample',
+                                                        'CO2_umolL_sample'),
+                                                site = c('fcre',
+                                                         'bvre'))
+
+monthly_mean_ghg_insitu <- purrr::pmap_dfr(site_var_combinations_ghg_insitu,
+                                          .f = ~ generate_baseline_climatology(targets = targets_insitu,
+                                                                               h = 35,
+                                                                               model_id = team_name,
+                                                                               forecast_date = Sys.Date(),
+                                                                               depth = c(0.1),
+                                                                               ...))
 ## Productivity variables
 site_var_combinations_productivity <- expand.grid(var = c('DeepChlorophyllMaximum_binary',
                                                           'TotalConc_ugL_sample',
@@ -162,7 +175,7 @@ monthly_mean_flux <- purrr::pmap_dfr(flux_var_combinations,
 
 # combine and submit
 combined_monthly_mean <- bind_rows(monthly_mean_met, monthly_mean_inflow, monthly_mean_insitu, monthly_mean_insitu_binary, monthly_mean_flux,
-                                   monthly_insitu_physical, monthly_insitu_chem, monthly_insitu_physical, monthly_insitu_metals)
+                                   monthly_insitu_productivity, monthly_mean_ghg_insitu, monthly_insitu_chem, monthly_insitu_physical, monthly_insitu_metals)
 
 # 4. Write forecast file
 file_date <- combined_monthly_mean$reference_datetime[1]

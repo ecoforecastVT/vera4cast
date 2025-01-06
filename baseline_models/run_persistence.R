@@ -56,9 +56,9 @@ site_var_combinations <- expand.grid(var = c('DO_mgL_mean',
                                              'Chla_ugL_mean',
                                              'Secchi_m_sample',
                                              'Temp_C_mean',
-                                             'fDOM_QSU_mean',
-                                             'CH4_umolL_sample',
-                                             'CO2_umolL_sample'),
+                                             'fDOM_QSU_mean'),
+                                             #'CH4_umolL_sample',
+                                             #'CO2_umolL_sample'),
                                      # 'NH4_ugL_sample',
                                      # 'DOC_mgL_sample',
                                      # 'NO3NO2_ugL_sample',
@@ -76,6 +76,19 @@ persistenceRW_insitu <- purrr::pmap_dfr(site_var_combinations,
                                                                                depth = 'target',
                                                                                ...))
 
+## GHG VARIABLES (TAKEN FROM DIFFERENT DEPTH)
+site_var_combinations_ghg_insitu <- expand.grid(var = c('CH4_umolL_sample',
+                                                        'CO2_umolL_sample'),
+                                                site = c('fcre',
+                                                         'bvre'))
+
+persistenceRW_ghg_insitu <- purrr::pmap_dfr(site_var_combinations_ghg_insitu,
+                                            .f = ~ generate_baseline_persistenceRW(targets = targets_insitu,
+                                                                          h = 35,
+                                                                          model_id = team_name,
+                                                                          forecast_date = Sys.Date(),
+                                                                          depth = c(0.1),
+                                                                          ...))
 
 ## Productivity variables
 site_var_combinations_productivity <- expand.grid(var = c('DeepChlorophyllMaximum_binary',
@@ -181,7 +194,7 @@ persistenceRW_insitu_binary <- purrr::pmap_dfr(binary_site_var_comb,
 
 # combine and submit
 combined_persistenceRW <- bind_rows(persistenceRW_inflow, persistenceRW_insitu, persistenceRW_met, persistenceRW_flux, persistenceRW_insitu_binary,
-                                    persistenceRW_insitu_productivity, persistenceRW_insitu_chem, persistenceRW_insitu_physical, persistenceRW_insitu_metals)
+                                    persistenceRW_ghg_insitu, persistenceRW_insitu_productivity, persistenceRW_insitu_chem, persistenceRW_insitu_physical, persistenceRW_insitu_metals)
 
 # write forecast file
 file_date <- combined_persistenceRW$reference_datetime[1]
