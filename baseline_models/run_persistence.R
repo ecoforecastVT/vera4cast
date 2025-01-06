@@ -181,7 +181,7 @@ persistenceRW_insitu_binary <- purrr::pmap_dfr(binary_site_var_comb,
 
 # combine and submit
 combined_persistenceRW <- bind_rows(persistenceRW_inflow, persistenceRW_insitu, persistenceRW_met, persistenceRW_flux, persistenceRW_insitu_binary,
-                                    persistence_insitu_physical, persistence_insitu_chem, persistence_insitu_physical, persistence_insitu_metals)
+                                    persistenceRW_insitu_productivity, persistenceRW_insitu_chem, persistenceRW_insitu_physical, persistenceRW_insitu_metals)
 
 # write forecast file
 file_date <- combined_persistenceRW$reference_datetime[1]
