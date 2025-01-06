@@ -51,9 +51,9 @@ site_var_combinations <- expand.grid(var = c('DO_mgL_mean',
                                              'Chla_ugL_mean',
                                              'Secchi_m_sample',
                                              'Temp_C_mean',
-                                             'fDOM_QSU_mean',
-                                             'CH4_umolL_sample',
-                                             'CO2_umolL_sample'),
+                                             'fDOM_QSU_mean'),#,
+                                             #'CH4_umolL_sample',
+                                             #'CO2_umolL_sample'),
                                      site = c('fcre',
                                               'bvre'))
 
@@ -65,6 +65,18 @@ historic_mean_insitu <- purrr::pmap_dfr(site_var_combinations,
                                                                     depth = 'target',
                                                                     ...))
 
+site_var_combinations_ghg_insitu <- expand.grid(var = c('CH4_umolL_sample',
+                                                        'CO2_umolL_sample'),
+                                                site = c('fcre',
+                                                         'bvre'))
+
+historic_mean_ghg_insitu <- purrr::pmap_dfr(site_var_combinations_ghg_insitu,
+                                            .f = ~ generate_baseline_mean(targets = targets_insitu,
+                                                                          h = 35,
+                                                                          model_id = team_name,
+                                                                          forecast_date = Sys.Date(),
+                                                                          depth = c(0.1),
+                                                                          ...))
 
 ## Productivity variables
 site_var_combinations_productivity <- expand.grid(var = c('DeepChlorophyllMaximum_binary',
@@ -163,7 +175,7 @@ historic_mean_insitu_binary <- purrr::pmap_dfr(binary_site_var_comb,
 
 # combine and submit
 combined_historic_mean <- bind_rows(historic_mean_inflow, historic_mean_insitu, historic_mean_met, historic_mean_insitu_binary, historic_flux,
-                                    historic_insitu_physical, historic_insitu_chem, historic_insitu_physical, historic_insitu_metals)
+                                    historic_insitu_productivity, historic_mean_ghg_insitu, historic_insitu_chem, historic_insitu_physical, historic_insitu_metals)
 
 # write forecast file
 file_date <- combined_historic_mean$reference_datetime[1]
