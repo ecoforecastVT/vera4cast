@@ -152,8 +152,7 @@ print('Metals model')
 site_var_combinations_metals <- expand.grid(var = c('TFe_mgL_sample',
                                                     'SFe_mgL_sample',
                                                     'TMn_mgL_sample',
-                                                    'SMn_mgL_sample',
-                                                    ''),
+                                                    'SMn_mgL_sample'),
                                             site = c('fcre',
                                                      'bvre'))
 
