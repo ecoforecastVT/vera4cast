@@ -67,7 +67,7 @@ site_var_combinations_ghg_insitu <- expand.grid(var = c('CH4_umolL_sample',
                                                          'bvre'))
 
 monthly_mean_ghg_insitu <- purrr::pmap_dfr(site_var_combinations_ghg_insitu,
-                                          .f = ~ generate_baseline_climatology(targets = targets_insitu,
+                                          .f = ~ generate_baseline_monthly_mean(targets = targets_insitu,
                                                                                h = 35,
                                                                                model_id = team_name,
                                                                                forecast_date = Sys.Date(),
