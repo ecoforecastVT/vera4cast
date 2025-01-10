@@ -65,7 +65,7 @@ bvr_thermistor_temp_daily$project_id <- 'vera4cast'
 print('Secchi')
 source('targets/target_functions/target_generation_daily_secchi_m.R')
 current = "https://raw.githubusercontent.com/CareyLabVT/Reservoirs/master/Data/DataNotYetUploadedToEDI/Secchi/secchi_L1.csv"
-edi = "https://pasta.lternet.edu/package/data/eml/edi/198/11/81f396b3e910d3359907b7264e689052"
+edi = "https://pasta.lternet.edu/package/data/eml/edi/198/12/80bec97dc53d85b0298a72bb1a098442"
 
 secchi_daily <- target_generation_daily_secchi_m(current = current, edi = edi) |>
   filter(site_id %in% c('fcre', 'bvre'))
