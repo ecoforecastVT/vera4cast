@@ -94,7 +94,7 @@ find_depths <- function(data_file, # data_file = the file of most recent data ei
 
     post_depth <- long |>
       dplyr::filter(DateTime > lubridate::ymd(date_offset)) |>
-      dplyr::mutate(sensor_depth = Depth_m - get(offset_column1)) |>
+      dplyr::mutate(sensor_depth = Depth_m - get(offset_column2)) |>
       # this gives you the depth of the thermistor from the surface
       dplyr::mutate(rounded_depth = round(sensor_depth, round_digits),
                     cuts = cut(sensor_depth,
