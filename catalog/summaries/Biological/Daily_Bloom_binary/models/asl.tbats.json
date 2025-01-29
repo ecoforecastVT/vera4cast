@@ -16,10 +16,10 @@
   "properties": {
     "title": "asl.tbats",
     "description": "forecast::tbats() function in R, fit individually at each site/depth",
-    "datetime": "2025-01-22",
-    "updated": "2025-01-23 07:37:30",
+    "datetime": "2025-01-27",
+    "updated": "2025-01-28 14:03:56",
     "start_datetime": "2024-04-29T00:00:00Z",
-    "end_datetime": "2025-02-26T00:00:00Z",
+    "end_datetime": "2025-03-03T00:00:00Z",
     "providers": [
       {
         "url": "https://github.com/abbylewis/vera_meteor_strike",
