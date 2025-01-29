@@ -16,7 +16,7 @@
     "title": "flareSimstrat",
     "description": "FLARE-Simstrat combines the 1D process-based model Simstrat, a data assimilation algorithm (EnKF) and NOAA driver weather data to make predictions of water column temperatures.",
     "datetime": "2025-01-28",
-    "updated": "2025-01-28 14:20:11",
+    "updated": "2025-01-29 08:06:07",
     "start_datetime": "2024-01-21T00:00:00Z",
     "end_datetime": "2025-02-27T00:00:00Z",
     "providers": [
