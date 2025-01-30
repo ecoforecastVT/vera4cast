@@ -16,6 +16,11 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "./models/asl.climate.window.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "./models/asl.ets.json"
     },
     {
@@ -76,17 +81,12 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/monthly_mean.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
       "href": "./models/persistenceRW.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/asl.climate.window.json"
+      "href": "./models/monthly_mean.json"
     },
     {
       "rel": "parent",
@@ -131,7 +131,7 @@
       "interval": [
         [
           "2023-10-14T00:00:00Z",
-          "2025-03-05T00:00:00Z"
+          "2025-03-06T00:00:00Z"
         ]
       ]
     }
