@@ -13,11 +13,11 @@ column_names <- c("project_id", "site_id","datetime","duration", "depth_m","vari
 ## EXO
 print('EXO')
 source('targets/target_functions/target_generation_exo_daily.R')
-fcr_files <- c("https://pasta.lternet.edu/package/data/eml/edi/271/8/fbb8c7a0230f4587f1c6e11417fe9dce",
+fcr_files <- c("https://pasta.lternet.edu/package/data/eml/edi/271/9/f23d27b67f71c25cb8e6232af739f986",
                "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv")
 
 bvr_files <- c("https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-platform-data-qaqc/bvre-waterquality_L1.csv",
-               "https://pasta.lternet.edu/package/data/eml/edi/725/4/9adadd2a7c2319e54227ab31a161ea12")
+               "https://pasta.lternet.edu/package/data/eml/edi/725/5/f649de0e8a468922b40dcfa34285055e")
 
 exo_daily <- target_generation_exo_daily(fcr_files, bvr_files)
 
@@ -31,7 +31,7 @@ exo_daily$project_id <- 'vera4cast'
 ## FLUOROPROBE
 print('Fluoroprobe')
 source('targets/target_functions/target_generation_FluoroProbe.R')
-historic_data <- "https://pasta.lternet.edu/package/data/eml/edi/272/8/0359840d24028e6522f8998bd41b544e"
+historic_data <- "https://pasta.lternet.edu/package/data/eml/edi/272/9/f246b36c591a888cc70ebc87a5abbcb7"
 current_data <- "https://raw.githubusercontent.com/CareyLabVT/Reservoirs/refs/heads/master/Data/DataNotYetUploadedToEDI/FluoroProbe/fluoroprobe_L1.csv"
 
 fluoro_daily <- target_generation_FluoroProbe(current_file = current_data, historic_file = historic_data)
@@ -45,7 +45,7 @@ source('targets/target_functions/target_generation_ThermistorTemp_C_daily.R')
 #
 print('FCR Thermistor')
 fcr_latest <- "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv"
-fcr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/271/8/fbb8c7a0230f4587f1c6e11417fe9dce"
+fcr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/271/9/f23d27b67f71c25cb8e6232af739f986"
 
 fcr_thermistor_temp_daily <- target_generation_ThermistorTemp_C_daily(current_file = fcr_latest, historic_file = fcr_edi)
 fcr_thermistor_temp_daily$duration <- 'P1D'
@@ -54,7 +54,7 @@ fcr_thermistor_temp_daily$project_id <- 'vera4cast'
 # BVR
 print('BVR Thermistor')
 bvr_latest <- "https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-platform-data-qaqc/bvre-waterquality_L1.csv"
-bvr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/725/4/9adadd2a7c2319e54227ab31a161ea12"
+bvr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/725/5/f649de0e8a468922b40dcfa34285055e"
 
 bvr_thermistor_temp_daily <- target_generation_ThermistorTemp_C_daily(current_file = bvr_latest, historic_file = bvr_edi)
 bvr_thermistor_temp_daily$duration <- 'P1D'
@@ -65,7 +65,7 @@ bvr_thermistor_temp_daily$project_id <- 'vera4cast'
 print('Secchi')
 source('targets/target_functions/target_generation_daily_secchi_m.R')
 current = "https://raw.githubusercontent.com/CareyLabVT/Reservoirs/master/Data/DataNotYetUploadedToEDI/Secchi/secchi_L1.csv"
-edi = "https://pasta.lternet.edu/package/data/eml/edi/198/12/80bec97dc53d85b0298a72bb1a098442"
+edi = "https://pasta.lternet.edu/package/data/eml/edi/198/13/3ee0ddb9f2183ad4d8c955d50d1b8fba"
 
 secchi_daily <- target_generation_daily_secchi_m(current = current, edi = edi) |>
   filter(site_id %in% c('fcre', 'bvre'))
@@ -80,7 +80,7 @@ print( 'Eddy Flux')
 source('targets/target_functions/generate_EddyFlux_ghg_targets_function.R')
 eddy_flux <- generate_EddyFlux_ghg_targets_function(
   flux_current_data_file = "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-eddyflux-data-qaqc/EddyFlux_streaming_L1.csv",
-  flux_edi_data_file = "https://pasta.lternet.edu/package/data/eml/edi/1061/3/e0976e7a6543fada4cbf5a1bb168713b",
+  flux_edi_data_file = "https://pasta.lternet.edu/package/data/eml/edi/1061/4/311d766dd7275d578699380f8996f089",
   met_current_data_file = "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-metstation-data-qaqc/FCRmet_L1.csv",
   met_edi_data_file = "https://pasta.lternet.edu/package/data/eml/edi/389/8/d4c74bbb3b86ea293e5c52136347fbb0")
 
@@ -99,7 +99,7 @@ chem_data$datetime <- lubridate::as_datetime(chem_data$datetime)
 print('GHG')
 source('targets/target_functions/target_generation_ghg_daily.R')
 ghg_data <- target_generation_ghg_daily(current_data_file = 'https://raw.githubusercontent.com/CareyLabVT/Reservoirs/master/Data/DataNotYetUploadedToEDI/Raw_GHG/L1_manual_GHG.csv',
-                                        edi_data_file = 'https://pasta.lternet.edu/package/data/eml/edi/551/8/454c11035c491710243cae0423efbe7b')
+                                        edi_data_file = 'https://pasta.lternet.edu/package/data/eml/edi/551/9/98f19e7acae8bea7d127c463b1bb5fbc')
 ghg_data$datetime <- lubridate::as_datetime(ghg_data$datetime)
 
 
@@ -115,7 +115,7 @@ mom_daily_targets <- targets_generation_daily_MOM(current_file = current_file, h
 print('Thermocline Depth')
 source('targets/target_functions/generate_thermoclineD.R')
 fcr_latest <- "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv"
-fcr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/271/8/fbb8c7a0230f4587f1c6e11417fe9dce"
+fcr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/271/9/f23d27b67f71c25cb8e6232af739f986"
 
 thermocline_depth <- generate_thermocline_depth(current_file = fcr_latest,
                                                 historic_file = fcr_edi)
@@ -123,7 +123,7 @@ thermocline_depth <- generate_thermocline_depth(current_file = fcr_latest,
 ## Schmidt Stability
 print('Schmidt Stability')
 source('targets/target_functions/target_generation_SchmidtStability.R')
-fcr_files <- c("https://pasta.lternet.edu/package/data/eml/edi/271/8/fbb8c7a0230f4587f1c6e11417fe9dce",
+fcr_files <- c("https://pasta.lternet.edu/package/data/eml/edi/271/9/f23d27b67f71c25cb8e6232af739f986",
                "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv")
 
 schmidt_stability <- generate_schmidt.stability(current_file = fcr_files[2], historic_file = fcr_files[1])
