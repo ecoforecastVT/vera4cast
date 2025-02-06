@@ -1,6 +1,7 @@
 # Title: Generation of target files based on FluoroProbe data for VERA forecasts
 # Author: Mary Lofton
 # Date: 17Aug23
+# Updated: 06 Feb. 2025 with an if statement when there is no data in the L1 file
 
 # Description: Generates the following targets using FluoroProbe data:
 
@@ -51,7 +52,18 @@ target_generation_FluoroProbe <- function(current_file, historic_file){
 
   ## bind the two files using bind_rows()
   # need to double-check that columns match
-  fp <- bind_rows(edi_update, new_data) %>%
+  # ABP added an if statement because we haven't collected any samples in the new year after the data product is published
+  if(nrow(new_data)!=0){
+    fp <- bind_rows(edi_update, new_data)
+
+    print("Combined the data on EDI with the casts from the L1 file.")
+  }else{
+    fp <- edi_update
+    print("No new FP data for the current year. All data are in the EDI package.")
+  }
+
+  
+  fp <- fp |>
     rename(GreenAlgae_ugL_sample = GreenAlgae_ugL, Bluegreens_ugL_sample = Bluegreens_ugL, BrownAlgae_ugL_sample = BrownAlgae_ugL,
            MixedAlgae_ugL_sample = MixedAlgae_ugL, TotalConc_ugL_sample = TotalConc_ugL) |>
     filter(Reservoir %in% c("FCR","BVR") & Site == 50) %>%
