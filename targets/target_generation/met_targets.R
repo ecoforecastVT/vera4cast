@@ -15,7 +15,7 @@ column_names <- c("project_id", "site_id","datetime","duration", "depth_m","vari
 # MET TARGETS
 print('Met Targets')
 current_met <- 'https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-metstation-data-qaqc/FCRmet_L1.csv'
-historic_met <- 'https://pasta.lternet.edu/package/data/eml/edi/389/8/d4c74bbb3b86ea293e5c52136347fbb0'
+historic_met <- 'https://pasta.lternet.edu/package/data/eml/edi/389/9/62647ecf8525cdfc069b8aaee14c0478'
 
 source('targets/target_functions/meteorology/target_generation_met.R')
 
