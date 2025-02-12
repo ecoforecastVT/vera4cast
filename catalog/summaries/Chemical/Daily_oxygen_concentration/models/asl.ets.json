@@ -16,10 +16,10 @@
   "properties": {
     "title": "asl.ets",
     "description": "forecast::ets() function in R, fit individually at each site/depth",
-    "datetime": "2025-02-08",
-    "updated": "2025-02-09 08:28:35",
+    "datetime": "2025-02-10",
+    "updated": "2025-02-11 13:06:15",
     "start_datetime": "2024-03-12T00:00:00Z",
-    "end_datetime": "2025-03-15T00:00:00Z",
+    "end_datetime": "2025-03-17T00:00:00Z",
     "providers": [
       {
         "url": "https://github.com/abbylewis/vera_meteor_strike",
