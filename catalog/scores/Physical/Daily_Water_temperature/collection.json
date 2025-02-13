@@ -16,11 +16,6 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/asl.climate.window.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
       "href": "./models/asl.ets.json"
     },
     {
@@ -36,27 +31,17 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/asl.persistence.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/asl.tbats.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/asl.temp.lm.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
       "href": "./models/climatology.json"
     },
     {
       "rel": "item",
       "type": "application/json",
       "href": "./models/fableNNETAR.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "./models/fableNNETAR_focal.json"
     },
     {
       "rel": "item",
@@ -111,7 +96,22 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/fableNNETAR_focal.json"
+      "href": "./models/asl.climate.window.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "./models/asl.persistence.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "./models/asl.tbats.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "./models/asl.temp.lm.json"
     },
     {
       "rel": "parent",
