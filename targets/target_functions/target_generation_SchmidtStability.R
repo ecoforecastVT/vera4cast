@@ -202,9 +202,9 @@ generate_schmidt.stability <- function(current_file, historic_file) {
                          variable = 'SchmidtStability_Jm2_mean',
                          duration = "P1D",
                          project_id = 'vera4cast') |>
-    mutate(Reservoir = ifelse(unique(current_df$Reservoir) == 'FCR',
+    mutate(site_id = ifelse(site_id == 'FCR',
                               'fcre',
-                              ifelse(unique(current_df$Reservoir) == 'BVR',
+                              ifelse(site_id == 'BVR',
                                      'bvre', NA)))
   ## Match data to flare targets file
   return(final_ss)
