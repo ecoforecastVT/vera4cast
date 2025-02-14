@@ -117,8 +117,14 @@ source('targets/target_functions/generate_thermoclineD.R')
 fcr_latest <- "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv"
 fcr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/271/9/f23d27b67f71c25cb8e6232af739f986"
 
-thermocline_depth <- generate_thermocline_depth(current_file = fcr_latest,
-                                                historic_file = fcr_edi)
+thermocline_depth_fcr <- generate_thermocline_depth(current_file = fcr_latest,
+                                                    historic_file = fcr_edi)
+
+bvr_latest <- "https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-platform-data-qaqc/bvre-waterquality_L1.csv"
+bvr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/725/5/f649de0e8a468922b40dcfa34285055e"
+
+thermocline_depth_bvr <- generate_thermocline_depth(current_file = bvr_latest,
+                                                    historic_file = bvr_edi)
 
 ## Schmidt Stability
 print('Schmidt Stability')

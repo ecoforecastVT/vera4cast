@@ -34,7 +34,7 @@ find_depths <- function(data_file, # data_file = the file of most recent data ei
                   starts_with("RDO"),
                   starts_with("Lvl")) |>
     dplyr::rename("Depth_m" = contains("Depth")) |>
-    tidyr::pivot_longer(-c("Reservoir", "Site", "DateTime", "Depth_m"),
+    tidyr::pivot_longer(-any_of(c("Reservoir", "Site", "DateTime", "Depth_m")),
                         names_to = "variable",
                         values_to = "observation",
                         values_drop_na = FALSE) |>
