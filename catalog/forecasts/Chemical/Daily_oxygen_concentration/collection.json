@@ -51,12 +51,12 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/fableNNETAR.json"
+      "href": "./models/climatology.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/climatology.json"
+      "href": "./models/fableNNETAR.json"
     },
     {
       "rel": "item",
