@@ -82,7 +82,7 @@ eddy_flux <- generate_EddyFlux_ghg_targets_function(
   flux_current_data_file = "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-eddyflux-data-qaqc/EddyFlux_streaming_L1.csv",
   flux_edi_data_file = "https://pasta.lternet.edu/package/data/eml/edi/1061/4/311d766dd7275d578699380f8996f089",
   met_current_data_file = "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-metstation-data-qaqc/FCRmet_L1.csv",
-  met_edi_data_file = "https://pasta.lternet.edu/package/data/eml/edi/389/8/d4c74bbb3b86ea293e5c52136347fbb0")
+  met_edi_data_file = "https://pasta.lternet.edu/package/data/eml/edi/389/9/62647ecf8525cdfc069b8aaee14c0478")
 
 eddy_flux$datetime <- lubridate::as_datetime(eddy_flux$datetime)
 
