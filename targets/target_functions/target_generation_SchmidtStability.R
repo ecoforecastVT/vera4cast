@@ -1,17 +1,8 @@
 ## FO
 
-fcr_files <- c("https://pasta.lternet.edu/package/data/eml/edi/271/7/71e6b946b751aa1b966ab5653b01077f",
-               "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv")
-
-#latest <- "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv"
-#edi <- "https://pasta.lternet.edu/package/data/eml/edi/271/7/71e6b946b751aa1b966ab5653b01077f"
-
-# bvr_files <- c("https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-platform-data-qaqc/bvre-waterquality_L1.csv",
-#                "https://pasta.lternet.edu/package/data/eml/edi/725/3/a9a7ff6fe8dc20f7a8f89447d4dc2038")
-
 generate_schmidt.stability <- function(current_file, historic_file) {
 
-  source('R/find_depths.R')
+  source('targets/target_functions/find_depths.R')
   ## read in current data file
   # Github, Googlesheet, etc.
   current_df <- readr::read_csv(current_file, show_col_types = F) |>
@@ -145,12 +136,13 @@ generate_schmidt.stability <- function(current_file, historic_file) {
     dplyr::select(any_of(c('date', 'Reservoir', 'depth', 'observation', 'WaterLevel')))
 
   # Need bathymetry
-  infile <- tempfile()
+  infile2 <- tempfile()
   try(download.file("https://pasta.lternet.edu/package/data/eml/edi/1254/1/f7fa2a06e1229ee75ea39eb586577184",
-                    infile, method="curl"))
-  if (is.na(file.size(infile))) download.file(historic_file,infile,method="auto")
+                    infile2, method="curl"))
+  if (is.na(file.size(infile2))) download.file("https://pasta.lternet.edu/package/data/eml/edi/1254/1/f7fa2a06e1229ee75ea39eb586577184",
+                                               infile2,method="auto")
 
-  bathymetry <- readr::read_csv(infile, show_col_types = F)  |>
+  bathymetry <- readr::read_csv(infile2, show_col_types = F)  |>
     dplyr::select(Reservoir, Depth_m, SA_m2) |>
     # dplyr::rename(depths = Depth_m,
     #               areas = SA_m2) |>
@@ -209,7 +201,11 @@ generate_schmidt.stability <- function(current_file, historic_file) {
                          observation = schmidts,
                          variable = 'SchmidtStability_Jm2_mean',
                          duration = "P1D",
-                         project_id = 'vera4cast')
+                         project_id = 'vera4cast') |>
+    mutate(Reservoir = ifelse(unique(current_df$Reservoir) == 'FCR',
+                              'fcre',
+                              ifelse(unique(current_df$Reservoir) == 'BVR',
+                                     'bvre', NA)))
   ## Match data to flare targets file
   return(final_ss)
 }

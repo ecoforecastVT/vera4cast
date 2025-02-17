@@ -3,7 +3,7 @@ library(rLakeAnalyzer)
 
 generate_thermocline_depth <- function(current_file, historic_file) {
   options(dplyr.summarise.inform = FALSE)
-  source('R/find_depths.R')
+  source('targets/target_functions/find_depths.R')
 
   ## Read in current data
   # Github, Googlesheet, etc.
@@ -16,9 +16,9 @@ generate_thermocline_depth <- function(current_file, historic_file) {
     bvr_depths <- find_depths(data_file = current_file,
                               depth_offset = "https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-platform-data-qaqc/BVR_Depth_offsets.csv",
                               output = NULL,
-                              date_offset <- "2021-04-05",
-                              offset_column1<- "Offset_before_05APR21",
-                              offset_column2 <- "Offset_after_05APR21") |>
+                              date_offset = "2021-04-05",
+                              offset_column1 = "Offset_before_05APR21",
+                              offset_column2 = "Offset_after_05APR21") |>
       dplyr::filter(variable == 'ThermistorTemp') |>
       dplyr::select(Reservoir, DateTime, variable, depth_bin, Position)
 

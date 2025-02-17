@@ -117,16 +117,31 @@ source('targets/target_functions/generate_thermoclineD.R')
 fcr_latest <- "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv"
 fcr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/271/9/f23d27b67f71c25cb8e6232af739f986"
 
-thermocline_depth <- generate_thermocline_depth(current_file = fcr_latest,
-                                                historic_file = fcr_edi)
+thermocline_depth_fcr <- generate_thermocline_depth(current_file = fcr_latest,
+                                                    historic_file = fcr_edi)
 
+bvr_latest <- "https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-platform-data-qaqc/bvre-waterquality_L1.csv"
+bvr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/725/5/f649de0e8a468922b40dcfa34285055e"
+
+thermocline_depth_bvr <- generate_thermocline_depth(current_file = bvr_latest,
+                                                    historic_file = bvr_edi)
+
+thermocline_depth <- bind_rows(thermocline_depth_fcr, thermocline_depth_bvr)
 ## Schmidt Stability
 print('Schmidt Stability')
 source('targets/target_functions/target_generation_SchmidtStability.R')
 fcr_files <- c("https://pasta.lternet.edu/package/data/eml/edi/271/9/f23d27b67f71c25cb8e6232af739f986",
                "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv")
 
-schmidt_stability <- generate_schmidt.stability(current_file = fcr_files[2], historic_file = fcr_files[1])
+schmidt_stability_fcr <- generate_schmidt.stability(current_file = fcr_files[2], historic_file = fcr_files[1])
+
+bvr_files <- c("https://pasta.lternet.edu/package/data/eml/edi/725/5/f649de0e8a468922b40dcfa34285055e",
+               "https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-platform-data-qaqc/bvre-waterquality_L1.csv")
+
+schmidt_stability_bvr <- generate_schmidt.stability(current_file = bvr_files[2], historic_file = bvr_files[1])
+
+schmidt_stability <- bind_rows(schmidt_stability_fcr, schmidt_stability_bvr)
+
 
 ## combine the data and perform final adjustments (depth, etc.)
 
