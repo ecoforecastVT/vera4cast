@@ -56,11 +56,6 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/fableNNETAR_focal.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
       "href": "./models/flareGOTM.json"
     },
     {
@@ -71,12 +66,22 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "./models/glm_aed_flare_v3.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "./models/glm_aed_v1.json"
     },
     {
       "rel": "item",
       "type": "application/json",
       "href": "./models/historic_mean.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "./models/inflow_gefsClimAED.json"
     },
     {
       "rel": "item",
@@ -96,22 +101,17 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "./models/tmwb_inflow.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "./models/fableNNETAR.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/glm_aed_flare_v3.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/inflow_gefsClimAED.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/tmwb_inflow.json"
+      "href": "./models/fableNNETAR_focal.json"
     },
     {
       "rel": "parent",
