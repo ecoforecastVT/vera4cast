@@ -11,7 +11,7 @@
     "href": "performance.html#sec-performance",
     "title": "Forecast performance",
     "section": "Most recent forecasts",
-    "text": "Most recent forecasts\nForecasts submitted on 2025-02-16\n\nChlorophyll-aChlorophyll-a bloom probabilityWater temperatureDissolved oxygenAir temperaturefDOMSecchi depthDissolved methaneMethane FluxCO2 FluxInflow discharge"
+    "text": "Most recent forecasts\nForecasts submitted on 2025-02-17\n\nChlorophyll-aChlorophyll-a bloom probabilityWater temperatureDissolved oxygenAir temperaturefDOMSecchi depthDissolved methaneMethane FluxCO2 FluxInflow discharge"
   },
   {
     "objectID": "performance.html#forecast-analysis",
@@ -116,7 +116,7 @@
     "href": "index.html#why-a-forecasting-challenge",
     "title": "Forecasting Challenge",
     "section": "Why a forecasting challenge?",
-    "text": "Why a forecasting challenge?\nWe are using forecasts to compare the predictability of different physical, chemical, and biological variables across varying environmental conditions to identify the fundamental predictability of freshwater ecosystems.\nThe VERA forecasting challenge is one component of the Virginia Reservoirs LTREB project, which is monitoring two connected drinking water supply reservoirs with contrasting dissolved oxygen conditions to broadly advance our understanding of freshwater ecosystem processes.\n \n\n\n\n\n\n\n\n\n\nTotal forecasts submitted to the VERA Challenge\n9264\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMost recent data for model training\n2025-02-18\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of years of data for model training\n11.96\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of variables being forecasted\n39"
+    "text": "Why a forecasting challenge?\nWe are using forecasts to compare the predictability of different physical, chemical, and biological variables across varying environmental conditions to identify the fundamental predictability of freshwater ecosystems.\nThe VERA forecasting challenge is one component of the Virginia Reservoirs LTREB project, which is monitoring two connected drinking water supply reservoirs with contrasting dissolved oxygen conditions to broadly advance our understanding of freshwater ecosystem processes.\n \n\n\n\n\n\n\n\n\n\nTotal forecasts submitted to the VERA Challenge\n9270\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMost recent data for model training\n2025-02-18\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of years of data for model training\n11.96\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumber of variables being forecasted\n39"
   },
   {
     "objectID": "index.html#what-sites-are-being-forecasted",
