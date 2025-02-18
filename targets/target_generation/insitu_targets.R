@@ -138,10 +138,10 @@ schmidt_stability_fcr <- generate_schmidt.stability(current_file = fcr_files[2],
 bvr_files <- c("https://pasta.lternet.edu/package/data/eml/edi/725/5/f649de0e8a468922b40dcfa34285055e",
                "https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-platform-data-qaqc/bvre-waterquality_L1.csv")
 
-schmidt_stability_bvr <- generate_schmidt.stability(current_file = bvr_files[2], historic_file = bvr_files[1])
+#schmidt_stability_bvr <- generate_schmidt.stability(current_file = bvr_files[2], historic_file = bvr_files[1])
 
-schmidt_stability <- bind_rows(schmidt_stability_fcr, schmidt_stability_bvr)
-
+#schmidt_stability <- bind_rows(schmidt_stability_fcr, schmidt_stability_bvr)
+schmidt_stability <- schmidt_stability_fcr
 
 ## combine the data and perform final adjustments (depth, etc.)
 
