@@ -23,8 +23,8 @@ minioclient::mc_alias_set("s3_store",
 
 minioclient::mc_alias_set("submit",
              config$submissions_endpoint,
-             Sys.getenv("AWS_ACCESS_KEY_SUBMISSIONS"),
-             Sys.getenv("AWS_SECRET_ACCESS_KEY_SUBMISSIONS"))
+             Sys.getenv("AWS_ACCESS_KEY_ID_SUBMISSIONS_VERA"),
+             Sys.getenv("AWS_SECRET_ACCESS_KEY_SUBMISSIONS_VERA"))
 
 message(paste0("Starting Processing Submissions ", Sys.time()))
 
@@ -129,7 +129,8 @@ if(length(submissions) > 0){
         fs::file_copy(submissions[i], submission_timestamp)
         raw_bucket_object <- paste0("s3_store/",config$forecasts_bucket,"/raw/",basename(submission_timestamp))
 
-        minioclient::mc_cp(submission_timestamp, dirname(raw_bucket_object))
+        #minioclient::mc_cp(submission_timestamp, dirname(raw_bucket_object))
+        minioclient::mc_cp(submission_timestamp, raw_bucket_object)
 
         if(length(minioclient::mc_ls(raw_bucket_object)) > 0){
           minioclient::mc_rm(file.path("submit",config$submissions_bucket,curr_submission))
