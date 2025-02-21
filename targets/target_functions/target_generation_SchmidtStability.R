@@ -202,7 +202,7 @@ generate_schmidt.stability <- function(current_file, historic_file) {
                          variable = 'SchmidtStability_Jm2_mean',
                          duration = "P1D",
                          project_id = 'vera4cast') |>
-    mutate(site_id = ifelse(site_id == 'FCR',
+    dplyr::mutate(site_id = ifelse(site_id == 'FCR',
                               'fcre',
                               ifelse(site_id == 'BVR',
                                      'bvre', NA)))
