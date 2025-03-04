@@ -101,17 +101,17 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "./models/persistenceFO.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "./models/persistenceRW.json"
     },
     {
       "rel": "item",
       "type": "application/json",
       "href": "./models/tmwb_inflow.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
-      "href": "./models/persistenceFO.json"
     },
     {
       "rel": "parent",
