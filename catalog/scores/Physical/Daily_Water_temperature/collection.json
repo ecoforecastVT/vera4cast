@@ -56,11 +56,6 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/fableNNETAR.json"
-    },
-    {
-      "rel": "item",
-      "type": "application/json",
       "href": "./models/fableNNETAR_focal.json"
     },
     {
@@ -111,6 +106,11 @@
     {
       "rel": "item",
       "type": "application/json",
+      "href": "./models/fableNNETAR.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
       "href": "./models/tmwb_inflow.json"
     },
     {
@@ -156,7 +156,7 @@
       "interval": [
         [
           "2023-09-21T00:00:00Z",
-          "2025-03-03T00:00:00Z"
+          "2025-03-04T00:00:00Z"
         ]
       ]
     }
