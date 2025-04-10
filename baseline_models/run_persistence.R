@@ -111,7 +111,7 @@ site_var_combinations_productivity <- expand.grid(var = c(#'DeepChlorophyllMaxim
   site = c('fcre',
            'bvre'))
 
-climatology_insitu_productivity <- purrr::pmap_dfr(site_var_combinations_productivity,
+persistenceRW_insitu_productivity <- purrr::pmap_dfr(site_var_combinations_productivity,
                                                    .f = ~ generate_baseline_persistenceRW(targets = targets_insitu,
                                                                                         h = 35,
                                                                                         forecast_date = Sys.Date(),
