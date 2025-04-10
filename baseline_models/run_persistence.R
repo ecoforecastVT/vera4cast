@@ -56,7 +56,9 @@ site_var_combinations <- expand.grid(var = c('DO_mgL_mean',
                                              'Chla_ugL_mean',
                                              'Secchi_m_sample',
                                              'Temp_C_mean',
-                                             'fDOM_QSU_mean'),
+                                             'fDOM_QSU_mean',
+                                             'SpCond_uScm_mean',
+                                             'Turbidity_FNU_mean'),
                                              #'CH4_umolL_sample',
                                              #'CO2_umolL_sample'),
                                      # 'NH4_ugL_sample',
@@ -91,38 +93,67 @@ persistenceRW_ghg_insitu <- purrr::pmap_dfr(site_var_combinations_ghg_insitu,
                                                                           ...))
 
 ## Productivity variables
-site_var_combinations_productivity <- expand.grid(var = c('DeepChlorophyllMaximum_binary',
-                                                          'TotalConc_ugL_sample',
-                                                          'GreenAlgae_ugL_sample',
-                                                          'Bluegreens_ugL_sample',
-                                                          'BrownAlgae_ugL_sample',
-                                                          'MixedAlgae_ugL_sample',
-                                                          'TotalConcCM_ugL_sample',
-                                                          'GreenAlgaeCM_ugL_sample',
-                                                          'BluegreensCM_ugL_sample',
-                                                          'BrownAlgaeCM_ugL_sample',
-                                                          'MixedAlgaeCM_ugL_sample',
-                                                          'ChlorophyllMaximum_depth_sample',
-                                                          'MOM_binary_sample',
-                                                          'MOM_min_sample',
-                                                          'MOM_max_sample'),
-                                                  site = c('fcre',
-                                                           'bvre'))
+site_var_combinations_productivity <- expand.grid(var = c(#'DeepChlorophyllMaximum_binary',
+  'TotalConc_ugL_sample',
+  'GreenAlgae_ugL_sample',
+  'Bluegreens_ugL_sample',
+  'BrownAlgae_ugL_sample',
+  'MixedAlgae_ugL_sample'),
+  # 'TotalConcCM_ugL_sample',
+  # 'GreenAlgaeCM_ugL_sample',
+  # 'BluegreensCM_ugL_sample',
+  # 'BrownAlgaeCM_ugL_sample',
+  # 'MixedAlgaeCM_ugL_sample',
+  # 'ChlorophyllMaximum_depth_sample',
+  # 'MOM_binary_sample',
+  # 'MOM_min_sample',
+  # 'MOM_max_sample'),
+  site = c('fcre',
+           'bvre'))
 
-persistenceRW_insitu_productivity <- purrr::pmap_dfr(site_var_combinations_productivity,
-                                               .f = ~ generate_baseline_persistenceRW(targets = targets_insitu,
-                                                                                     h = 35,
-                                                                                     forecast_date = Sys.Date(),
-                                                                                     depth = 'target',
-                                                                                     ...))
+climatology_insitu_productivity <- purrr::pmap_dfr(site_var_combinations_productivity,
+                                                   .f = ~ generate_baseline_persistenceRW(targets = targets_insitu,
+                                                                                        h = 35,
+                                                                                        forecast_date = Sys.Date(),
+                                                                                        depth = 'target',
+                                                                                        ...))
 
+## CHLA maxiumum variables
+cmax_vars <- c('DeepChlorophyllMaximum_binary',
+               'TotalConcCM_ugL_sample',
+               'GreenAlgaeCM_ugL_sample',
+               'BluegreensCM_ugL_sample',
+               'BrownAlgaeCM_ugL_sample',
+               'MixedAlgaeCM_ugL_sample',
+               'ChlorophyllMaximum_depth_sample',
+               'MOM_binary_sample',
+               'MOM_min_sample',
+               'MOM_max_sample')
+
+targets_cmax <- targets_insitu |> dplyr::filter(variable %in% cmax_vars) |>
+  mutate(depth_m = NA)
+
+site_var_combinations_chla_max <- expand.grid(var = cmax_vars,
+                                              site = c('fcre',
+                                                       'bvre'))
+
+climatology_insitu_chla_max <- purrr::pmap_dfr(site_var_combinations_chla_max,
+                                               .f = ~ generate_baseline_persistenceRW(targets = targets_cmax,
+                                                                                    h = 35,
+                                                                                    forecast_date = Sys.Date(),
+                                                                                    depth = 'target',
+                                                                                    ...))
 ## CHEM variables
 site_var_combinations_chem <- expand.grid(var = c('TN_ugL_sample',
                                                   'TP_ugL_sample',
                                                   'SRP_ugL_sample',
                                                   'NO3NO2_ugL_sample',
                                                   'NH4_ugL_sample',
-                                                  'DOC_mgL_sample'),
+                                                  'DOC_mgL_sample',
+                                                  'DRSI_mgL_sample',
+                                                  'DIC_mgL_samlpe',
+                                                  'DC_mgL_sample',
+                                                  'DN_mgL_sample'),
                                           site = c('fcre',
                                                    'bvre'))
 
@@ -193,7 +224,8 @@ persistenceRW_insitu_binary <- purrr::pmap_dfr(binary_site_var_comb,
 
 # combine and submit
 combined_persistenceRW <- bind_rows(persistenceRW_inflow, persistenceRW_insitu, persistenceRW_met, persistenceRW_flux, persistenceRW_insitu_binary,
-                                    persistenceRW_ghg_insitu, persistenceRW_insitu_productivity, persistenceRW_insitu_chem, persistenceRW_insitu_physical, persistenceRW_insitu_metals)
+                                    persistenceRW_ghg_insitu, persistenceRW_insitu_productivity, persistenceRW_insitu_chem, persistenceRW_insitu_physical, persistenceRW_insitu_metals,
+                                    climatology_insitu_chla_max)
 
 # write forecast file
 file_date <- combined_persistenceRW$reference_datetime[1]

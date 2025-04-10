@@ -20,7 +20,7 @@ source("R/plot-utils.R")
 
 This page visualizes the forecasts and forecast performance for the focal target variables.
 
-## Most recent forecasts {#sec-performance}
+## Most recent forecasts for focal variables {#sec-performance}
 
 ```{r}
 config <- yaml::read_yaml("../challenge_configuration.yaml")
@@ -53,7 +53,7 @@ df <- arrow::open_dataset(s3) |>
   # dplyr::filter(duration == 'P1D') |>
   filter(str_detect(model_id, "example", negate = TRUE)) |>
   left_join(reference_datetimes, by = "variable") |> 
-  filter(reference_datetime == reference_datetime_max) |> 
+  filter(reference_datetime == reference_datetime_max) |>
   left_join(sites, by = "site_id") |> 
   filter(site_id %in% sites$site_id) |> 
   # mutate(reference_datetime = lubridate::as_datetime(reference_datetime),
@@ -218,6 +218,8 @@ df |>
 }
 ```
 :::
+Click [here](performance_variables.qmd) to view the baseline forecasts for the complete list of variables  
+
 
 ## Forecast analysis
 

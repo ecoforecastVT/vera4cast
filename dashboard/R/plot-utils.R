@@ -43,6 +43,24 @@ forecast_plots <- function(df, ncol = NULL, show.legend = TRUE, ylabel = 'predic
 }
 }
 
+forecast_plots_w_persistence <- function(df, ncol = NULL, show.legend = TRUE, ylabel = 'predicted', binary = FALSE) {
+
+  df <- df |> filter(model_id %in% c('persistenceRW', "climatology"))
+
+  if (nrow(df) == 0){
+    print('No scored forecasts are available for this period')
+  } else{
+    ggobj <- forecast_ggobj(df, ncol, show.legend, ylabel, binary = binary)
+    girafe(ggobj = ggobj,
+           width_svg = 8, height_svg = 4,
+           options = list(
+             opts_hover_inv(css = "opacity:0.20;"),
+             opts_hover(css = "stroke-width:2;"),
+             opts_zoom(max = 4)
+           ))
+
+  }
+}
 
 by_model_id <- function(df, show.legend = FALSE) {
   leaderboard <-
