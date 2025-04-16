@@ -1,6 +1,7 @@
 ##### inflow targets generation function
 ## author: Austin Delany
 ## last edited : 2023/10/11
+## edited: 15 April 2025 - added the current ghg df and included CO2
 
 library(tidyverse)
 ## files used in function
@@ -14,20 +15,17 @@ library(tidyverse)
 # historic_nutrients <- "https://pasta.lternet.edu/package/data/eml/edi/199/11/509f39850b6f95628d10889d66885b76"
 #
 # historic_ghg <- "https://pasta.lternet.edu/package/data/eml/edi/551/7/38d72673295864956cccd6bbba99a1a3"
+#
+# current_ghg <- "https://raw.githubusercontent.com/CareyLabVT/Reservoirs/master/Data/DataNotYetUploadedToEDI/Raw_GHG/L1_manual_GHG.csv"
 
 
-target_generation_inflows <- function(historic_inflow, current_inflow, historic_nutrients, historic_silica, historic_ghg){
+target_generation_inflows <- function(historic_inflow, current_inflow, historic_nutrients, historic_silica, historic_ghg, current_ghg){
 
   # current flow
   df_current_in <- read_csv(current_inflow)
 
-  # historic flow
-  inUrl1  <- historic_inflow
-  infile1 <- tempfile()
-  try(download.file(inUrl1,infile1,method="curl"))
-  if (is.na(file.size(infile1))) download.file(inUrl1,infile1,method="auto")
-
-  df_hist_in <- read_csv(infile1)
+  # read in historic inflow file
+  df_hist_in <- read_csv(historic_inflow)
 
   df_inflow <- bind_rows(df_current_in, df_hist_in) |>
     mutate(sampledate = as.Date(DateTime)) |>
@@ -48,12 +46,7 @@ target_generation_inflows <- function(historic_inflow, current_inflow, historic_
 
   #historic nutrients
 
-  inUrl2  <- historic_nutrients
-  infile2 <- tempfile()
-  try(download.file(inUrl2,infile2,method="curl"))
-  if (is.na(file.size(infile2))) download.file(inUrl2,infile2,method="auto")
-
-  df_hist_nutr <- read_csv(infile2) |>
+  df_hist_nutr <- read_csv(historic_nutrients) |>
     filter(Reservoir == 'FCR', Site == 100) |>
     mutate(sampledate = as.Date(DateTime)) |>
     select(3:14, sampledate, -Depth_m, -Rep, -DateTime) |>
@@ -79,15 +72,25 @@ target_generation_inflows <- function(historic_inflow, current_inflow, historic_
     select(sampledate, DRSI_mgL_sample)
 
   # GHG - ch4?
-  df_ghg <- read_csv(historic_ghg) |>
+  # include CO2 a well
+  df_ghg <- read_csv(c(historic_ghg, current_ghg)) |>
+    bind_rows()|>
     filter(Reservoir == 'FCR', Site == 100) |>
+    select(-Site,-starts_with("Flag"))|> # get rid of the columns we don't want
     mutate(sampledate = as.Date(DateTime)) |>
-    drop_na(CH4_umolL) |>
-    group_by(sampledate) |>
-    mutate(CH4_umolL_sample = mean(CH4_umolL, na.rm = TRUE)) |> # na.rm might be redundant here
-    ungroup() |>
-    distinct(sampledate, .keep_all = TRUE) |>
-    select(sampledate, CH4_umolL_sample)
+    drop_na() |>
+    group_by(Reservoir,Depth_m,sampledate)%>%
+    summarise_if(is.numeric, mean, na.rm = TRUE)%>% # average if there are reps taken at a depths
+    ungroup()|>
+      group_by(Reservoir,Depth_m,sampledate)%>% # average if there are more than one sample taken during that day
+      summarise_if(is.numeric, mean, na.rm = TRUE)%>%
+      ungroup()|>
+      select(-Rep)|>
+      rename(CO2_umolL_sample=CO2_umolL, # rename the columns for standard notation
+             CH4_umolL_sample=CH4_umolL)|>
+    distinct(sampledate, .keep_all = TRUE)|>
+        select(sampledate, CH4_umolL_sample, CO2_umolL_sample)
+
 
   # build df of nutrients that match daily sensor data
   df_add_nutr_si_ghg <- df_inflow |>
@@ -144,4 +147,5 @@ target_generation_inflows <- function(historic_inflow, current_inflow, historic_
 #                        current_inflow = current_inflow,
 #                        historic_nutrients = historic_nutrients,
 #                        historic_silica = historic_silica,
-#                        historic_ghg = historic_ghg)
+#                        historic_ghg = historic_ghg
+#                        current_ghg = current_ghg)

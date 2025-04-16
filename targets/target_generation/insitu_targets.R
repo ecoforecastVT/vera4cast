@@ -94,6 +94,13 @@ chem_data <- target_generation_chemistry_daily(current_data_file = NULL,
                                                historic_data_file = 'https://pasta.lternet.edu/package/data/eml/edi/199/12/a33a5283120c56e90ea414e76d5b7ddb')
 chem_data$datetime <- lubridate::as_datetime(chem_data$datetime)
 
+## SILICA
+print('Silica')
+source('targets/target_functions/target_generation_silica_daily.R')
+silica_data <- target_generation_silica_daily(current_data_file = NULL,
+                                              historic_data_file = "https://pasta.lternet.edu/package/data/eml/edi/542/1/791ec9ca0f1cb9361fa6a03fae8dfc95")
+silica_data$datetime <- lubridate::as_datetime(silica_data$datetime)
+
 
 ## GHG
 print('GHG')

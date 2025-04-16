@@ -25,12 +25,15 @@ historic_nutrients <- "https://pasta.lternet.edu/package/data/eml/edi/199/12/a33
 
 historic_ghg <- "https://pasta.lternet.edu/package/data/eml/edi/551/9/98f19e7acae8bea7d127c463b1bb5fbc"
 
+current_ghg <-  "https://raw.githubusercontent.com/CareyLabVT/Reservoirs/master/Data/DataNotYetUploadedToEDI/Raw_GHG/L1_manual_GHG.csv"
+
 
 inflow_daily <- target_generation_inflows(historic_inflow = historic_inflow,
                                           current_inflow = current_inflow,
                                           historic_nutrients = historic_nutrients,
                                           historic_silica = historic_silica,
-                                          historic_ghg = historic_ghg)
+                                          historic_ghg = historic_ghg,
+                                          current_ghg = current_ghg)
 
 inflow_daily <- inflow_daily |> select(column_names)
 

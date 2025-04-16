@@ -1,6 +1,8 @@
 # Function for generating the targets file for chemistry
 # Author: Adrienne Breef-Pilz
-# 17 Aug 2023
+# Written: 17 Aug 2023
+# Edited: 15 Apr 2025 - added in DIC, DN and DC
+
 
 target_generation_chemistry_daily <- function(current_data_file, historic_data_file){
 
@@ -14,7 +16,6 @@ target_generation_chemistry_daily <- function(current_data_file, historic_data_f
   # infile1 <- tempfile()
   # try(download.file(inUrl1,infile1,method="curl"))
   # if (is.na(file.size(infile1))) download.file(inUrl1,infile1,method="auto")
-
 
   dt2 <-read_csv(historic_data_file)
 
@@ -31,7 +32,7 @@ target_generation_chemistry_daily <- function(current_data_file, historic_data_f
     targets_df<-bind_rows(dt1,dt2)%>%
       filter(Reservoir=="FCR"|Reservoir=="BVR")%>%
       filter(Site==50)%>%
-      select(-Site,-starts_with("Flag"),-DIC_mgL,-DC_mgL,-DN_mgL)%>% # get rid of the columns we don't want
+      select(-Site,-starts_with("Flag"))%>% # get rid of the columns we don't want
       group_by(Reservoir,Depth_m,DateTime)%>%
       summarise_if(is.numeric, mean, na.rm = TRUE)%>% # average if there are reps taken at a depths
       ungroup()%>%
@@ -44,8 +45,8 @@ target_generation_chemistry_daily <- function(current_data_file, historic_data_f
              Reservoir=ifelse(Reservoir=="BVR",'bvre',Reservoir))%>%
       select(-Date, -Rep)%>%
       rename(site_id=Reservoir,
-             depth_m=Depth_m)%>%
-      pivot_longer(cols=c(TN_ugL:DOC_mgL),
+             depth_m=Depth_m)|>
+      pivot_longer(cols=c(TN_ugL:DN_mgL),
                    names_to='variable',
                    values_to='observation')%>%
       mutate(variable = paste0(variable,'_sample')) |>
