@@ -1,5 +1,5 @@
 ---
-title: "performance_variables"
+title: "All VERA Variables"
 format: html
 ---
 
@@ -20,7 +20,7 @@ source("R/plot-utils.R")
 
 ```
 
-This page visualizes the forecasts and forecast performance for the focal target variables.
+This page visualizes the baseline forecasts for all of the the VERA target variables.
 
 ## Most recent baseline forecasts for all variables {#sec-performance}
 
@@ -71,6 +71,154 @@ reference_date <- max(lubridate::as_date(df$reference_datetime) - lubridate::day
 
 Forecasts submitted on `r reference_date`
 
+## Physical Variables 
+
+::: panel-tabset
+### Water temperature
+
+```{r}
+df |> 
+  filter(variable == c("Temp_C_mean"), 
+         site_id != 'tubr')  |> 
+    mutate(observation = as.numeric(NA)) |> 
+  forecast_plots_w_persistence(ylabel = 'Temp (degC)')
+```
+
+### Dissolved oxygen
+
+```{r}
+if("DO_mgL_mean" %in% unique(df$variable)){
+df |> 
+  filter(variable == c("DO_mgL_mean"),
+         site_id != 'tubr') |> 
+    mutate(observation = as.numeric(NA)) |> 
+  forecast_plots_w_persistence(ylabel = 'DO (mgL)')
+}
+```
+
+### Dissolved oxygen saturation
+
+```{r}
+if("DOsat_percent_mean" %in% unique(df$variable)){
+df |> 
+  filter(variable == c("DOsat_percent_mean"),
+         site_id != 'tubr') |> 
+    mutate(observation = as.numeric(NA)) |> 
+  forecast_plots_w_persistence(ylabel = 'DO_sat (%)')
+}
+```
+
+### Secchi depth
+
+```{r}
+if("Secchi_m_sample" %in% unique(df$variable)){
+
+df |> 
+  filter(variable == c("Secchi_m_sample")) |>
+    #filter(!model_id == 'secchi_last3obs_mean') |> ## remove KKH secchi model for now
+    mutate(observation = as.numeric(NA)) |> 
+  forecast_plots_w_persistence(ylabel = 'Secchi Depth (m)')
+  
+}
+```
+
+### Inflow discharge
+
+```{r}
+if("Flow_cms_mean" %in% unique(df$variable)){
+df |> 
+  filter(variable == c("Flow_cms_mean"))  |> 
+    filter(!model_id == 'persistenceRW') |> ## uncertainty is too high -- remove for now
+    mutate(observation = as.numeric(NA)) |> 
+  forecast_plots_w_persistence(ylabel = 'Flow (cms)')
+}
+```
+
+### Conductivity
+
+```{r}
+if("SpCond_uScm_mean" %in% unique(df$variable)){
+df |> 
+  filter(variable == c("SpCond_uScm_mean"), 
+         site_id != 'tubr')  |> 
+    mutate(observation = as.numeric(NA)) |> 
+  forecast_plots_w_persistence(ylabel = 'Cond (uScm)')
+}
+```
+
+### Turbidity
+
+```{r}
+if("Turbidity_FNU_mean" %in% unique(df$variable)){
+df |> 
+  filter(variable == c("Turbidity_FNU_mean"), 
+         site_id != 'tubr')  |> 
+    mutate(observation = as.numeric(NA)) |> 
+  forecast_plots_w_persistence(ylabel = 'Turbidity (FNU)')
+}
+```
+
+### MOM binary
+
+```{r}
+if("MOM_binary_sample" %in% unique(df$variable)){
+ggobj_df <- df |> 
+filter(variable == c("MOM_binary_sample")) |> 
+  mutate(observation = as.numeric(NA))
+  
+if(nrow(ggobj_df) > 0){
+
+ggobj <- ggobj_df |> 
+ggplot(aes(x = datetime, y = mean, color = model_id)) + 
+  geom_line_interactive(aes(datetime, mean, col = model_id,
+                              tooltip = model_id, data_id = model_id),
+                        show.legend=TRUE) +
+  facet_wrap(~site_id) +
+  ylim(0,1) +
+  labs(y = "Predicted probability") +
+  theme_bw()
+
+girafe(ggobj = ggobj,
+         width_svg = 8, height_svg = 4,
+         options = list(
+           opts_hover_inv(css = "opacity:0.20;"),
+           opts_hover(css = "stroke-width:2;"),
+           opts_zoom(max = 4)
+         ))
+}
+  }
+```
+
+### ThermoclineDepth_m_mean
+
+```{r}
+if("ThermoclineDepth_m_mean" %in% unique(df$variable)){
+df |> 
+  filter(variable == c("ThermoclineDepth_m_mean"), 
+         site_id != 'tubr')  |> 
+    mutate(observation = as.numeric(NA)) |> 
+  forecast_plots_w_persistence(ylabel = 'Depth (m)')
+}
+```
+
+### SchmidtStability_Jm2_mean
+
+```{r}
+if("SchmidtStability_Jm2_mean" %in% unique(df$variable)){
+df |> 
+  filter(variable == c("SchmidtStability_Jm2_mean"), 
+         site_id != 'tubr')  |> 
+    mutate(observation = as.numeric(NA)) |> 
+  forecast_plots_w_persistence(ylabel = 'Stability (Jm2)')
+}
+```
+:::
+
+
+
+
+## Biological Variables
+
 ::: panel-tabset
 ### Chlorophyll-a
 
@@ -114,137 +262,6 @@ girafe(ggobj = ggobj,
            opts_zoom(max = 4)
          ))
 }
-}
-```
-
-### Water temperature
-
-```{r}
-df |> 
-  filter(variable == c("Temp_C_mean"), 
-         site_id != 'tubr')  |> 
-    mutate(observation = as.numeric(NA)) |> 
-  forecast_plots_w_persistence(ylabel = 'Temp (degC)')
-```
-
-### Dissolved oxygen
-
-```{r}
-if("DO_mgL_mean" %in% unique(df$variable)){
-df |> 
-  filter(variable == c("DO_mgL_mean"),
-         site_id != 'tubr') |> 
-    mutate(observation = as.numeric(NA)) |> 
-  forecast_plots_w_persistence(ylabel = 'DO (mgL)')
-}
-```
-
-### Dissolved oxygen saturation
-
-```{r}
-if("DOsat_percent_mean" %in% unique(df$variable)){
-df |> 
-  filter(variable == c("DOsat_percent_mean"),
-         site_id != 'tubr') |> 
-    mutate(observation = as.numeric(NA)) |> 
-  forecast_plots_w_persistence(ylabel = 'DO_sat (%)')
-}
-```
-
-### fDOM
-
-```{r}
-
-if("fDOM_QSU_mean" %in% unique(df$variable)){
-
-df |> 
-  filter(variable == c("fDOM_QSU_mean"))  |> 
-    mutate(observation = as.numeric(NA)) |> 
-  forecast_plots_w_persistence(ylabel = 'fDOM (QSU)')
-}
-```
-
-### Secchi depth
-
-```{r}
-if("Secchi_m_sample" %in% unique(df$variable)){
-
-df |> 
-  filter(variable == c("Secchi_m_sample")) |>
-    #filter(!model_id == 'secchi_last3obs_mean') |> ## remove KKH secchi model for now
-    mutate(observation = as.numeric(NA)) |> 
-  forecast_plots_w_persistence(ylabel = 'Secchi Depth (m)')
-  
-}
-```
-
-### Dissolved methane
-
-```{r}
-if("CH4_umolL_sample" %in% unique(df$variable)){
-df |> 
-  filter(variable == c("CH4_umolL_sample"),
-         site_id != 'tubr')  |> 
-    mutate(observation = as.numeric(NA)) |> 
-  forecast_plots_w_persistence(ylabel = 'CH4 (umolL)')
-}
-```
-
-### Methane Flux
-
-```{r}
-if("CH4flux_umolm2s_mean" %in% unique(df$variable)){
-df |> 
-  filter(variable == c("CH4flux_umolm2s_mean"))  |> 
-    #dplyr::mutate(duration = ifelse(model_id == 'persistenceRW', 'P1D', duration)) |> 
-    mutate(observation = as.numeric(NA)) |> 
-  forecast_plots_w_persistence(ylabel = 'CH4 Flux (umolm2s)')
-}
-```
-
-### CO2 Flux
-
-```{r}
-if("CO2flux_umolm2s_mean" %in% unique(df$variable)){
-df |> 
-  filter(variable == c("CO2flux_umolm2s_mean"))  |> 
-    mutate(observation = as.numeric(NA)) |> 
-  forecast_plots_w_persistence(ylabel = 'CO2 Flux (umolm2s)')
-}
-```
-### Inflow discharge
-
-```{r}
-if("Flow_cms_mean" %in% unique(df$variable)){
-df |> 
-  filter(variable == c("Flow_cms_mean"))  |> 
-    filter(!model_id == 'persistenceRW') |> ## uncertainty is too high -- remove for now
-    mutate(observation = as.numeric(NA)) |> 
-  forecast_plots_w_persistence(ylabel = 'Flow (cms)')
-}
-```
-
-### Conductivity
-
-```{r}
-if("SpCond_uScm_mean" %in% unique(df$variable)){
-df |> 
-  filter(variable == c("SpCond_uScm_mean"), 
-         site_id != 'tubr')  |> 
-    mutate(observation = as.numeric(NA)) |> 
-  forecast_plots_w_persistence(ylabel = 'Cond (uScm)')
-}
-```
-
-### Turbidity
-
-```{r}
-if("Turbidity_FNU_mean" %in% unique(df$variable)){
-df |> 
-  filter(variable == c("Turbidity_FNU_mean"), 
-         site_id != 'tubr')  |> 
-    mutate(observation = as.numeric(NA)) |> 
-  forecast_plots_w_persistence(ylabel = 'Turbidity (FNU)')
 }
 ```
 
@@ -296,7 +313,7 @@ df |>
 }
 ```
 
-### Green Algae CM
+### Green Algae DCM
 
 ```{r}
 if("GreenAlgaeCM_ugL_sample" %in% unique(df$variable)){
@@ -308,7 +325,7 @@ df |>
 }
 ```
 
-### Bluegreen Algae CM
+### Bluegreen Algae DCM
 
 ```{r}
 if("BluegreensCM_ugL_sample" %in% unique(df$variable)){
@@ -320,7 +337,7 @@ df |>
 }
 ```
 
-### Brown Algae CM
+### Brown Algae DCM
 
 ```{r}
 if("BrownAlgaeCM_ugL_sample" %in% unique(df$variable)){
@@ -332,7 +349,7 @@ df |>
 }
 ```
 
-### Mixed Algae CM
+### Mixed Algae DCM
 
 ```{r}
 if("MixedAlgaeCM_ugL_sample" %in% unique(df$variable)){
@@ -344,7 +361,7 @@ df |>
 }
 ```
 
-### Chla maximum depth
+### DCM depth
 
 ```{r}
 if("ChlorophyllMaximum_depth_sample" %in% unique(df$variable)){
@@ -356,51 +373,96 @@ df |>
 }
 ```
 
-### Chla maximum binary
+### DCM binary
 
 ```{r}
 if("ChlorophyllMaximum_depth_sample" %in% unique(df$variable)){
+# df |> 
+#   filter(variable == c("ChlorophyllMaximum_depth_sample"), 
+#          site_id != 'tubr')  |> 
+#     mutate(observation = as.numeric(NA)) |> 
+#   forecast_plots_w_persistence(ylabel = 'Predicted probability')
+
+ggobj_df <- df |> 
+filter(variable == c("ChlorophyllMaximum_depth_sample")) |> 
+  mutate(observation = as.numeric(NA))
+  
+if(nrow(ggobj_df) > 0){
+
+ggobj <- ggobj_df |> 
+ggplot(aes(x = datetime, y = mean, color = model_id)) + 
+  geom_line_interactive(aes(datetime, mean, col = model_id,
+                              tooltip = model_id, data_id = model_id),
+                        show.legend=TRUE) +
+  facet_wrap(~site_id) +
+  ylim(0,1) +
+  labs(y = "Predicted probability") +
+  theme_bw()
+
+girafe(ggobj = ggobj,
+         width_svg = 8, height_svg = 4,
+         options = list(
+           opts_hover_inv(css = "opacity:0.20;"),
+           opts_hover(css = "stroke-width:2;"),
+           opts_zoom(max = 4)
+         ))
+}
+  }
+  
+```
+:::
+
+
+
+
+## Chemical Variables
+::: panel-tabset
+
+### fDOM
+
+```{r}
+
+if("fDOM_QSU_mean" %in% unique(df$variable)){
+
 df |> 
-  filter(variable == c("ChlorophyllMaximum_depth_sample"), 
-         site_id != 'tubr')  |> 
+  filter(variable == c("fDOM_QSU_mean"))  |> 
     mutate(observation = as.numeric(NA)) |> 
-  forecast_plots_w_persistence(ylabel = 'Predicted probability')
+  forecast_plots_w_persistence(ylabel = 'fDOM (QSU)')
 }
 ```
 
-### MOM binary
+### Dissolved methane
 
 ```{r}
-if("MOM_binary_sample" %in% unique(df$variable)){
+if("CH4_umolL_sample" %in% unique(df$variable)){
 df |> 
-  filter(variable == c("MOM_binary_sample"), 
+  filter(variable == c("CH4_umolL_sample"),
          site_id != 'tubr')  |> 
     mutate(observation = as.numeric(NA)) |> 
-  forecast_plots_w_persistence(ylabel = 'Predicted probability')
+  forecast_plots_w_persistence(ylabel = 'CH4 (umolL)')
 }
 ```
 
-### ThermoclineDepth_m_mean
+### Methane Flux
 
 ```{r}
-if("ThermoclineDepth_m_mean" %in% unique(df$variable)){
+if("CH4flux_umolm2s_mean" %in% unique(df$variable)){
 df |> 
-  filter(variable == c("ThermoclineDepth_m_mean"), 
-         site_id != 'tubr')  |> 
+  filter(variable == c("CH4flux_umolm2s_mean"))  |> 
+    #dplyr::mutate(duration = ifelse(model_id == 'persistenceRW', 'P1D', duration)) |> 
     mutate(observation = as.numeric(NA)) |> 
-  forecast_plots_w_persistence(ylabel = 'Depth (m)')
+  forecast_plots_w_persistence(ylabel = 'CH4 Flux (umolm2s)')
 }
 ```
 
-### SchmidtStability_Jm2_mean
+### CO2 Flux
 
 ```{r}
-if("SchmidtStability_Jm2_mean" %in% unique(df$variable)){
+if("CO2flux_umolm2s_mean" %in% unique(df$variable)){
 df |> 
-  filter(variable == c("SchmidtStability_Jm2_mean"), 
-         site_id != 'tubr')  |> 
+  filter(variable == c("CO2flux_umolm2s_mean"))  |> 
     mutate(observation = as.numeric(NA)) |> 
-  forecast_plots_w_persistence(ylabel = 'Stability (Jm2)')
+  forecast_plots_w_persistence(ylabel = 'CO2 Flux (umolm2s)')
 }
 ```
 
