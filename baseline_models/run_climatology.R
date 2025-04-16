@@ -139,6 +139,16 @@ site_var_combinations_chem <- expand.grid(var = c('TN_ugL_sample',
                                                   site = c('fcre',
                                                            'bvre'))
 
+targets_insitu <- targets_insitu |>
+  mutate(depth_m = ifelse(variable %in% c('TN_ugL_sample',
+                                          'TP_ugL_sample',
+                                          'SRP_ugL_sample',
+                                          'NO3NO2_ugL_sample',
+                                          'NH4_ugL_sample',
+                                          'DOC_mgL_sample') & site_id == 'bvre',
+                          1.5,
+                          depth_m))
+
 climatology_insitu_chem <- purrr::pmap_dfr(site_var_combinations_chem,
                                                    .f = ~ generate_baseline_climatology(targets = targets_insitu,
                                                                                         h = 35,
@@ -212,19 +222,19 @@ forecast_file <- paste0(paste("daily", file_date, team_name, sep = "-"), ".csv.g
 
 write_csv(combined_climatology, forecast_file)
 
-combined_climatology %>%
-  filter(family == 'normal') |>
-  pivot_wider(names_from = parameter, values_from = prediction) |>
-  ggplot(aes(x = datetime, y = mu, fill = as_factor(depth_m))) +
-  geom_line() +
-  geom_ribbon(aes(ymax = mu+sigma, ymin = mu-sigma), alpha = 0.3, fill = 'blue') +
-  facet_grid(variable~site_id, scales = 'free')
+# combined_climatology %>%
+#   filter(family == 'normal') |>
+#   pivot_wider(names_from = parameter, values_from = prediction) |>
+#   ggplot(aes(x = datetime, y = mu, fill = as_factor(depth_m))) +
+#   geom_line() +
+#   geom_ribbon(aes(ymax = mu+sigma, ymin = mu-sigma), alpha = 0.3, fill = 'blue') +
+#   facet_grid(variable~site_id, scales = 'free')
 
-combined_climatology %>%
-  filter(family == 'bernoulli') |>
-  ggplot(aes(x = datetime, y = prediction, colour = as_factor(depth_m))) +
-  geom_line() +
-  facet_grid(variable~site_id, scales = 'free')
+# combined_climatology %>%
+#   filter(family == 'bernoulli') |>
+#   ggplot(aes(x = datetime, y = prediction, colour = as_factor(depth_m))) +
+#   geom_line() +
+#   facet_grid(variable~site_id, scales = 'free')
 
 vera4castHelpers::submit(forecast_file = forecast_file,
                          ask = FALSE,
