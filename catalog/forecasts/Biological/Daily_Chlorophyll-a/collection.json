@@ -11,7 +11,12 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/asl.auto.arima.json"
+      "href": "./models/asl.climate.window.json"
+    },
+    {
+      "rel": "item",
+      "type": "application/json",
+      "href": "./models/asl.met.lm.json"
     },
     {
       "rel": "item",
@@ -26,7 +31,7 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/asl.temp.lm.json"
+      "href": "./models/asl.ets.json"
     },
     {
       "rel": "item",
@@ -36,12 +41,12 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/asl.climate.window.json"
+      "href": "./models/asl.auto.arima.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/asl.ets.json"
+      "href": "./models/asl.temp.lm.json"
     },
     {
       "rel": "item",
@@ -51,7 +56,7 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/asl.met.lm.step.json"
+      "href": "./models/glm_aed_flare_v3.json"
     },
     {
       "rel": "item",
@@ -66,12 +71,12 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/glm_aed_flare_v3.json"
+      "href": "./models/glm_aed_v1.json"
     },
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/glm_aed_v1.json"
+      "href": "./models/historic_mean.json"
     },
     {
       "rel": "item",
@@ -81,7 +86,7 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/asl.met.lm.json"
+      "href": "./models/asl.met.lm.step.json"
     },
     {
       "rel": "item",
@@ -91,7 +96,7 @@
     {
       "rel": "item",
       "type": "application/json",
-      "href": "./models/historic_mean.json"
+      "href": "./models/LSTM.json"
     },
     {
       "rel": "parent",
@@ -136,7 +141,7 @@
       "interval": [
         [
           "2023-10-01T00:00:00Z",
-          "2024-11-09T00:00:00Z"
+          "2025-05-20T00:00:00Z"
         ]
       ]
     }
