@@ -60,8 +60,8 @@ df <- arrow::open_dataset(s3) |>
   filter(site_id %in% sites$site_id) |> 
   # mutate(reference_datetime = lubridate::as_datetime(reference_datetime),
   #        datetime = lubridate::as_datetime(datetime)) |> 
-  filter((depth_m == 1.6 & site_id == "fcre") | (depth_m == 1.5 & site_id == "bvre") | is.na(depth_m),
-         lubridate::as_date(datetime) > lubridate::as_date(reference_datetime)) |> 
+  filter((depth_m == 1.6 & site_id == "fcre") | (depth_m == 1.5 & site_id == "bvre") | is.na(depth_m) |
+         depth_m == 0.1, lubridate::as_date(datetime) > lubridate::as_date(reference_datetime)) |> 
   filter(model_id %in% c('climatology','persistenceRW')) |> 
   collect()
 
@@ -128,7 +128,7 @@ df |>
 if("Flow_cms_mean" %in% unique(df$variable)){
 df |> 
   filter(variable == c("Flow_cms_mean"))  |> 
-    filter(!model_id == 'persistenceRW') |> ## uncertainty is too high -- remove for now
+    #filter(!model_id == 'persistenceRW') |> ## uncertainty is too high -- remove for now
     mutate(observation = as.numeric(NA)) |> 
   forecast_plots_w_persistence(ylabel = 'Flow (cms)')
 }
