@@ -16,6 +16,8 @@ The catalog of submitted forecasts, evaluations of the forecasts ("scores"), and
 # 
 # model_type <- tidyr::unnest(d1[[3]], cols = names(d1[[3]]))$type
 
+minioclient::install_mc()
+
 minioclient::mc_alias_set("s3_store",
                           'renc.osn.xsede.org',
                           Sys.getenv("OSN_KEY"),
