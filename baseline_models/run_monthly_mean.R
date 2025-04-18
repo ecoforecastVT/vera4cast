@@ -151,6 +151,11 @@ targets_insitu <- targets_insitu |>
                           1.5,
                           depth_m))
 
+targets_insitu <- targets_insitu |>
+  mutate(depth_m = ifelse(variable == 'DRSI_mgL_sample' & depth_m %in% c(0.1, 4, 5),
+                          1.5,
+                          depth_m))
+
 monthly_insitu_chem <- purrr::pmap_dfr(site_var_combinations_chem,
                                         .f = ~ generate_baseline_monthly_mean(targets = targets_insitu,
                                                                       h = 35,
