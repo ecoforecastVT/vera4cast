@@ -165,7 +165,7 @@ targets_insitu <- targets_insitu |>
                                           'NH4_ugL_sample',
                                           'DOC_mgL_sample',
                                           'DC_mgL_sample',
-                                          'DN_mgL_mean') & site_id == 'bvre',
+                                          'DN_mgL_sample') & site_id == 'bvre',
                           1.5,
                           depth_m))
 
