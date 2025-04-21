@@ -107,7 +107,7 @@ historic_insitu_productivity <- purrr::pmap_dfr(site_var_combinations_productivi
                                                                                         ...))
 
 ## CHLA maxiumum variables
-cmax_vars <- c('DeepChlorophyllMaximum_binary',
+cmax_vars <- c('DeepChlorophyllMaximum_binary_sample',
                'TotalConcCM_ugL_sample',
                'GreenAlgaeCM_ugL_sample',
                'BluegreensCM_ugL_sample',
