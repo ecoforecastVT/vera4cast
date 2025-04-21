@@ -151,7 +151,7 @@ site_var_combinations_chem <- expand.grid(var = c('TN_ugL_sample',
                                                   'NH4_ugL_sample',
                                                   'DOC_mgL_sample',
                                                   'DRSI_mgL_sample',
-                                                  'DIC_mgL_samlpe',
+                                                  'DIC_mgL_sample',
                                                   'DC_mgL_sample',
                                                   'DN_mgL_sample'),
                                           site = c('fcre',
@@ -169,15 +169,15 @@ targets_insitu <- targets_insitu |>
                           1.5,
                           depth_m))
 
-targets_insitu <- targets_insitu |>
-  mutate(depth_m = ifelse(variable %in% c('TN_ugL_sample',
-                                          'TP_ugL_sample',
-                                          'SRP_ugL_sample',
-                                          'NO3NO2_ugL_sample',
-                                          'NH4_ugL_sample',
-                                          'DOC_mgL_sample') & site_id == 'bvre',
-                          1.5,
-                          depth_m))
+# targets_insitu <- targets_insitu |>
+#   mutate(depth_m = ifelse(variable %in% c('TN_ugL_sample',
+#                                           'TP_ugL_sample',
+#                                           'SRP_ugL_sample',
+#                                           'NO3NO2_ugL_sample',
+#                                           'NH4_ugL_sample',
+#                                           'DOC_mgL_sample') & site_id == 'bvre',
+#                           1.5,
+#                           depth_m))
 
 targets_insitu <- targets_insitu |>
   mutate(depth_m = ifelse(variable == 'DRSI_mgL_sample' & depth_m %in% c(0.1, 4, 5),
