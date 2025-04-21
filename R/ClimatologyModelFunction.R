@@ -25,11 +25,14 @@ generate_baseline_climatology <- function(targets, # a dataframe already read in
            depth_m %in% target_depths,
            site_id %in% site,
            datetime < forecast_date) %>%
-    mutate(doy = yday(datetime)) %>%
+    mutate(doy = yday(datetime),
+           observation = ifelse(is.nan(observation), NA, observation)) %>%
+    drop_na(observation) |>
     group_by(doy, site_id, variable, depth_m) %>%
     summarise(clim_mean = mean(observation, na.rm = TRUE),
               clim_sd = sd(observation, na.rm = TRUE),
               .groups = "drop") %>%
+    drop_na(clim_mean) |>
     full_join(variable_df, by = c('doy', 'site_id', 'variable')) |>
     arrange(doy) |>
     mutate(clim_mean = ifelse(is.nan(clim_mean), NA, clim_mean),
