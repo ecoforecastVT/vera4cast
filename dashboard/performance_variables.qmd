@@ -376,7 +376,7 @@ df |>
 ### DCM binary
 
 ```{r}
-if("ChlorophyllMaximum_depth_sample" %in% unique(df$variable)){
+if("DeepChlorophyllMaximum_binary_sample" %in% unique(df$variable)){
 # df |> 
 #   filter(variable == c("ChlorophyllMaximum_depth_sample"), 
 #          site_id != 'tubr')  |> 
@@ -384,7 +384,7 @@ if("ChlorophyllMaximum_depth_sample" %in% unique(df$variable)){
 #   forecast_plots_w_persistence(ylabel = 'Predicted probability')
 
 ggobj_df <- df |> 
-filter(variable == c("ChlorophyllMaximum_depth_sample")) |> 
+  filter(variable == "DeepChlorophyllMaximum_binary_sample") |> 
   mutate(observation = as.numeric(NA))
   
 if(nrow(ggobj_df) > 0){
