@@ -1,7 +1,7 @@
 challenge_long_name: Virginia Ecoforecast Reservoir Analysis
 project_id: vera4cast
-endpoint: renc.osn.xsede.org
-noaa_endpoint: renc.osn.xsede.org
+endpoint: amnh1.osn.mghpcc.org
+noaa_endpoint: amnh1.osn.mghpcc.org
 submissions_endpoint: submit.ltreb-reservoirs.org
 scores_bucket: bio230121-bucket01/vera4cast/scores
 forecasts_bucket: bio230121-bucket01/vera4cast/forecasts
@@ -27,11 +27,11 @@ challenge_url: https://www.ltreb-reservoirs.org/vera4cast/
 github_repo: LTREB-reservoirs/vera4cast
 target_groups:
   Insitu:
-    targets_file: "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-insitu-targets.csv.gz"
+    targets_file: "https://amnh1.osn.mghpcc.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-insitu-targets.csv.gz"
   Inflow:
-    targets_file: "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-inflow-targets.csv.gz"
+    targets_file: "https://amnh1.osn.mghpcc.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-inflow-targets.csv.gz"
   Met:
-    targets_file: "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-met-targets.csv.gz"
+    targets_file: "https://amnh1.osn.mghpcc.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-met-targets.csv.gz"
 noaa_forecast_groups: ['Pseudo','Stage1-stats','Stage1','Stage2','Stage3']
 noaa_forecast_group_paths: ['pseudo','stage1-stats','stage1','stage2','stage3']
 variable_groups:

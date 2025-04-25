@@ -1,7 +1,7 @@
 submit_met_forecast <- function(model_id){
 
   s3 <- arrow::s3_bucket(paste0("bio230121-bucket01/flare/drivers/met/ensemble_forecast/model_id=", model_id),
-                         endpoint_override = "renc.osn.xsede.org",
+                         endpoint_override = "amnh1.osn.mghpcc.org",
                          access_key = Sys.getenv("OSN_KEY"),
                          secret_key = Sys.getenv("OSN_SECRET"))
 
