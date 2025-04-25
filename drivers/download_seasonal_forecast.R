@@ -2,14 +2,14 @@
 download_seasonal_forecast <- function(){
 
   s3 <- arrow::s3_bucket(bucket = "bio230121-bucket01/flare",
-                         endpoint_override = "renc.osn.xsede.org",
+                         endpoint_override = "amnh1.osn.mghpcc.org",
                          access_key = Sys.getenv("OSN_KEY"),
                          secret_key = Sys.getenv("OSN_SECRET"))
 
   s3$CreateDir("drivers/met/ensemble_forecast")
 
   s3 <- arrow::s3_bucket("bio230121-bucket01/flare/drivers/met/seasonal_forecast",
-                         endpoint_override = "renc.osn.xsede.org",
+                         endpoint_override = "amnh1.osn.mghpcc.org",
                          access_key = Sys.getenv("OSN_KEY"),
                          secret_key = Sys.getenv("OSN_SECRET"))
 
