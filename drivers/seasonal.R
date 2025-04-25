@@ -4,7 +4,7 @@ library(tidyverse)
 download_seasonal_forecast()
 
 s3 <- arrow::s3_bucket("bio230121-bucket01/flare/drivers/met/seasonal_forecast/model_id=cfs",
-                       endpoint_override = "renc.osn.xsede.org",
+                       endpoint_override = "amnh1.osn.mghpcc.org",
                        access_key = Sys.getenv("OSN_KEY"),
                        secret_key = Sys.getenv("OSN_SECRET"))
 
