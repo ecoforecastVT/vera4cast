@@ -42,12 +42,13 @@ summaries_sites <- arrow::open_dataset(arrow::s3_bucket(paste0(config$forecasts_
   distinct(site_id) |>
   collect()
 
-summaries_date_range <- arrow::open_dataset(arrow::s3_bucket(paste0(config$forecasts_bucket,'/bundled-summaries'), endpoint_override = config$endpoint, anonymous = TRUE)) |>
-  summarize(across(all_of(c('datetime')), list(min = min, max = max))) |>
-  collect()
-#forecast_date_range <- forecast_data_df |> dplyr::summarise(min(date),max(date))
-summaries_min_date <- summaries_date_range$datetime_min
-summaries_max_date <- summaries_date_range$datetime_max
+summaries_duck_df <- duckdbfs::open_dataset(paste0('s3://',catalog_config$aws_download_path_summaries,'?endpoint_override=',config$endpoint), anonymous = TRUE)
+
+summaries_date_range <- summaries_duck_df |>
+  summarize(across(all_of(c('datetime')), list(min = min, max = max)))
+
+summaries_min_date <-  summaries_date_range |> pull(datetime_min)
+summaries_max_date <-  summaries_date_range |> pull(datetime_max)
 
 build_description <- paste0("Summaries are the forecasts statistics of the raw forecasts (i.e., mean, median, confidence intervals). You can access the summaries at the top level of the dataset where all models, variables, and dates that forecasts were produced (reference_datetime) are available. The code to access the entire dataset is provided as an asset. Given the size of the forecast catalog, it can be time-consuming to access the data at the full dataset level. For quicker access to the forecasts for a particular model (model_id), we also provide the code to access the data at the model_id level as an asset for each model.")
 
