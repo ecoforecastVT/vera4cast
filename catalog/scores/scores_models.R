@@ -40,7 +40,7 @@ scores_sites <- arrow::open_dataset(arrow::s3_bucket(paste0(config$scores_bucket
   distinct(site_id) |>
   collect()
 
-scores_date_range <- arrow::open_dataset(arrow::s3_bucket(paste0(config$forecasts_bucket,'/bundled-parquet'), endpoint_override = config$endpoint, anonymous = TRUE)) |>
+scores_date_range <- arrow::open_dataset(arrow::s3_bucket(paste0(config$scores_bucket,'/bundled-parquet'), endpoint_override = config$endpoint, anonymous = TRUE)) |>
   summarize(across(all_of(c('datetime')), list(min = min, max = max))) |>
   collect()
 scores_min_date <- scores_date_range$datetime_min
@@ -374,11 +374,19 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
 
   } ## end variable loop
 
+  group_date_range <- arrow::open_dataset(arrow::s3_bucket(paste0(config$scores_bucket,'/bundled-parquet'), endpoint_override = config$endpoint, anonymous = TRUE)) |>
+    filter(variable %in% names(config$variable_groups[[i]]$group_vars)) |> ## filter by
+    summarize(across(all_of(c('datetime')), list(min = min, max = max))) |>
+    collect()
+  group_min_date <- group_date_range$datetime_min
+  group_max_date <- group_date_range$datetime_max
+
+
   ## BUILD THE GROUP PAGES WITH UPDATED VAR/PUB INFORMATION
   stac4cast::build_group_variables(table_schema = scores_theme_df,
                                    table_description = scores_description_create,
-                                   start_date = scores_min_date,
-                                   end_date = scores_max_date,
+                                   start_date = group_min_date,
+                                   end_date = group_max_date,
                                    id_value = names(config$variable_groups)[i],
                                    description_string = group_description,
                                    about_string = catalog_config$about_string,
