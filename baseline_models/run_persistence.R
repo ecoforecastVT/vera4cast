@@ -137,7 +137,7 @@ site_var_combinations_chla_max <- expand.grid(var = cmax_vars,
                                               site = c('fcre',
                                                        'bvre'))
 
-climatology_insitu_chla_max <- purrr::pmap_dfr(site_var_combinations_chla_max,
+persistence_insitu_chla_max <- purrr::pmap_dfr(site_var_combinations_chla_max,
                                                .f = ~ generate_baseline_persistenceRW(targets = targets_cmax,
                                                                                     h = 35,
                                                                                     forecast_date = Sys.Date(),
@@ -252,7 +252,7 @@ persistenceRW_insitu_binary <- purrr::pmap_dfr(binary_site_var_comb,
 # combine and submit
 combined_persistenceRW <- bind_rows(persistenceRW_inflow, persistenceRW_insitu, persistenceRW_met, persistenceRW_flux, persistenceRW_insitu_binary,
                                     persistenceRW_ghg_insitu, persistenceRW_insitu_productivity, persistenceRW_insitu_chem, persistenceRW_insitu_physical, persistenceRW_insitu_metals,
-                                    climatology_insitu_chla_max)
+                                    persistence_insitu_chla_max)
 
 # write forecast file
 file_date <- combined_persistenceRW$reference_datetime[1]
