@@ -28,6 +28,10 @@ We provide [videos](https://youtube.com/playlist?list=PLOv0if66u2-h0dLXknHm9MHtZ
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/x8oQpod7db4?si=2NFWgY99iBHgaiIK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+#### Python Tutorial 
+
+Click [here](https://github.com/LTREB-reservoirs/vera4cast-example) an introductory tutorial for submitting to the Forecting Challenge using Python 
+
 ## Research from the Virginia Ecoforecast Reservoir Analysis team  
 
 Publications about [forecasting and modeling](https://www.ltreb-reservoirs.org/products/#publications-forecasting-and-modeling)
