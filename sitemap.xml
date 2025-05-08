@@ -1141,6 +1141,10 @@
       <lastmod>2025-04-03</lastmod>
    </url>
    <url>
+      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/summaries/Physical/Daily_Secchi/models/secchi_arimax.json</loc>
+      <lastmod>2025-04-03</lastmod>
+   </url>
+   <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/summaries/Physical/Daily_Secchi/models/secchi_last3obs_mean.json</loc>
       <lastmod>2025-04-03</lastmod>
    </url>
