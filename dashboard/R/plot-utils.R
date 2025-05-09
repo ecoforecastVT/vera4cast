@@ -113,7 +113,7 @@ by_reference_datetime <- function(df, show.legend = FALSE) {
     pivot_longer(cols = c(crps, logs), names_to="metric", values_to="score") |>
     filter(metric == "crps") |>
     ggplot(aes(x = reference_datetime, y= score,  col=model_id)) +
-    geom_line_interactive(aes(tooltip = model_id, data_id = model_id),
+    geom_point_interactive(aes(tooltip = model_id, data_id = model_id),
                            show.legend = FALSE) +
     scale_y_log10() +
     facet_wrap(~metric, scales='free') +
