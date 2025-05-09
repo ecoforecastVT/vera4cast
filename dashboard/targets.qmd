@@ -101,7 +101,7 @@ targets |>
 targets |> 
   distinct(variable, duration) |> 
   left_join(target_metadata, by = c("variable","duration")) |> 
-  filter(class == "chemical" & priority) |> 
+  filter(class == "chemical" & priority, variable != 'CO2_umolL_sample') |> 
   select(-class,-priority) |> 
   knitr::kable()
 ```
@@ -138,13 +138,13 @@ ghg_grab_df <- targets |>
 
 ghg_targets <- dplyr::bind_rows(ghg_flux_df, ghg_grab_df)
 
-ghg_co2 <- ghg_targets |> filter(variable %in% c('CO2flux_umolm2s_mean', 'CO2_umolL_sample'))
-ghg_ch4 <- ghg_targets |> filter(variable %in% c('CH4flux_umolm2s_mean', 'CH4_umolL_sample'))
+#ghg_co2 <- ghg_targets |> filter(variable %in% c('CO2flux_umolm2s_mean', 'CO2_umolL_sample'))
+ghg_ch4 <- ghg_targets |> filter(variable %in% c('CH4flux_umolm2s_mean','CH4_umolL_sample','CO2flux_umolm2s_mean'))
 
-ghg_co2 |> ggplot(aes(x = datetime, y = observation)) +
-  geom_point() +
-  facet_grid(variable~site_id, scales = "free_y") +
-  theme_bw()
+# ghg_co2 |> ggplot(aes(x = datetime, y = observation)) +
+#   geom_point() +
+#   facet_grid(variable~site_id, scales = "free_y") +
+#   theme_bw()
 ```
 ```{r, echo=FALSE, warning=FALSE}
 ghg_ch4 |> ggplot(aes(x = datetime, y = observation)) +
