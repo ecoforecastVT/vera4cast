@@ -62,7 +62,10 @@ jobs:
       OSN_KEY: ${{ secrets.OSN_KEY }}
       OSN_SECRET: ${{ secrets.OSN_SECRET }}
     #container: rocker/geospatial:latest
-    container: rocker/ml-verse
+    container:
+      #image: eco4cast/rocker-neon4cast:latest
+      image: rocker/ml-verse
+      options: --memory 15120m
     steps:
       - run: git config --system --add safe.directory '*'
 
@@ -104,7 +107,10 @@ jobs:
       OSN_KEY: ${{ secrets.OSN_KEY }}
       OSN_SECRET: ${{ secrets.OSN_SECRET }}
     #container: rocker/geospatial:latest
-    container: rocker/ml-verse
+    container:
+      #image: eco4cast/rocker-neon4cast:latest
+      image: rocker/ml-verse
+      options: --memory 15120m
     steps:
       - run: git config --system --add safe.directory '*'
 
@@ -146,7 +152,10 @@ jobs:
       OSN_KEY: ${{ secrets.OSN_KEY }}
       OSN_SECRET: ${{ secrets.OSN_SECRET }}
     #container: rocker/geospatial:latest
-    container: rocker/ml-verse
+    container:
+      #image: eco4cast/rocker-neon4cast:latest
+      image: rocker/ml-verse
+      options: --memory 15120m
     steps:
       - run: git config --system --add safe.directory '*'
 
@@ -188,7 +197,10 @@ jobs:
       OSN_KEY: ${{ secrets.OSN_KEY }}
       OSN_SECRET: ${{ secrets.OSN_SECRET }}
     #container: rocker/geospatial:latest
-    container: rocker/ml-verse
+    container:
+      #image: eco4cast/rocker-neon4cast:latest
+      image: rocker/ml-verse
+      options: --memory 15120m
     steps:
       - run: git config --system --add safe.directory '*'
 
@@ -230,7 +242,10 @@ jobs:
       OSN_KEY: ${{ secrets.OSN_KEY }}
       OSN_SECRET: ${{ secrets.OSN_SECRET }}
     #container: rocker/geospatial:latest
-    container: rocker/ml-verse
+    container:
+      #image: eco4cast/rocker-neon4cast:latest
+      image: rocker/ml-verse
+      options: --memory 15120m
     steps:
       - run: git config --system --add safe.directory '*'
 
@@ -272,7 +287,10 @@ jobs:
       OSN_KEY: ${{ secrets.OSN_KEY }}
       OSN_SECRET: ${{ secrets.OSN_SECRET }}
     #container: rocker/geospatial:latest
-    container: rocker/ml-verse
+    container:
+      #image: eco4cast/rocker-neon4cast:latest
+      image: rocker/ml-verse
+      options: --memory 15120m
     steps:
       - run: git config --system --add safe.directory '*'
 
