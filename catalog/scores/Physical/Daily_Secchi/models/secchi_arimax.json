@@ -4,26 +4,25 @@
     "https://stac-extensions.github.io/table/v1.2.0/schema.json"
   ],
   "type": "Feature",
-  "id": "asl.persistence_Chla_ugL_mean_P1D_scores",
-  "bbox": [-79.8372, 37.3032, -79.8159, 37.3129],
+  "id": "secchi_arimax_Secchi_m_sample_P1D_scores",
+  "bbox": [-79.8372, 37.3032, -79.8372, 37.3032],
   "geometry": {
     "type": "MultiPoint",
     "coordinates": [
-      [-79.8159, 37.3129],
       [-79.8372, 37.3032]
     ]
   },
   "properties": {
-    "title": "asl.persistence",
-    "description": "All scores for the Daily_Chlorophyll-a variable for the asl.persistence model. Information for the model is provided as follows: The random walk persistence model has massive uncertainty at long horizons, but you could instead re-fit the persistence model for every forecast horizon to get a more precise forecast (i.e., not dynamic). I did this for my work at SERC, and am submitting here in case it is helpful.\n                                    The model predicts this variable at the following sites: bvre, fcre.\n                                    Scores are metrics that describe how well forecasts compare to observations. The scores catalog includes are summaries of the forecasts (i.e., mean, median, confidence intervals), matched observations (if available), and scores (metrics of how well the model distribution compares to observations)",
+    "title": "secchi_arimax",
+    "description": "All scores for the Daily_Secchi variable for the secchi_arimax model. Information for the model is provided as follows: We used a Seasonal and Trend decomposition using Loess (STL) algorithm to find the seasonal trend and then ran Autoregressive integrated moving average (ARIMA) to forecast Secchi depth 30 days ahead. We used the precipitation with a lag of 23 days and air temperature as regressors..\n                                    The model predicts this variable at the following sites: fcre.\n                                    Scores are metrics that describe how well forecasts compare to observations. The scores catalog includes are summaries of the forecasts (i.e., mean, median, confidence intervals), matched observations (if available), and scores (metrics of how well the model distribution compares to observations)",
     "datetime": "2025-05-12",
     "updated": {},
-    "start_datetime": "2024-09-05T00:00:00Z",
-    "end_datetime": "2025-05-13T00:00:00Z",
+    "start_datetime": "2025-05-06T00:00:00Z",
+    "end_datetime": "2025-05-12T00:00:00Z",
     "providers": [
       {
-        "url": null,
-        "name": "Abigail Lewis",
+        "url": "https://github.com/choihelenh/SecchiARIMAX",
+        "name": "Dr. Mary Lofton",
         "roles": [
           "producer",
           "processor",
@@ -42,15 +41,13 @@
     "keywords": [
       "Scores",
       "vera4cast",
-      "Biological",
-      "asl.persistence",
-      "Chlorophyll-a",
-      "Chla_ugL_mean",
+      "Physical",
+      "secchi_arimax",
+      "Secchi",
+      "Secchi_m_sample",
       "Daily",
       "P1D",
-      "bvre",
-      "fcre",
-      "empirical"
+      "fcre"
     ],
     "table:columns": [
       {
@@ -156,7 +153,7 @@
       "rel": "collection",
       "href": "../collection.json",
       "type": "application/json",
-      "title": "asl.persistence"
+      "title": "secchi_arimax"
     },
     {
       "rel": "root",
@@ -168,29 +165,29 @@
       "rel": "parent",
       "href": "../collection.json",
       "type": "application/json",
-      "title": "asl.persistence"
+      "title": "secchi_arimax"
     },
     {
       "rel": "self",
-      "href": "asl.persistence.json",
+      "href": "secchi_arimax.json",
       "type": "application/json",
       "title": "Model Forecast"
     },
     {
       "rel": "item",
-      "href": null,
+      "href": "https://github.com/choihelenh/SecchiARIMAX",
       "type": "text/html",
       "title": "Link for Model Code"
     },
     {
       "rel": "item",
-      "href": "https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Biological/Daily_Chlorophyll-a/models/asl.persistence.json",
+      "href": "https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Physical/Daily_Secchi/models/secchi_arimax.json",
       "type": "text/html",
       "title": "Link for rendered STAC item"
     },
     {
       "rel": "item",
-      "href": "https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Biological/Daily_Chlorophyll-a/models/asl.persistence.json",
+      "href": "https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/scores/Physical/Daily_Secchi/models/secchi_arimax.json",
       "type": "text/html",
       "title": "Link for raw JSON file"
     }
@@ -199,26 +196,26 @@
     "1": {
       "type": "application/json",
       "title": "Model Metadata",
-      "href": "https://amnh1.osn.mghpcc.org/bio230121-bucket01/vera4cast/metadata/model_id/asl.persistence.json",
-      "description": "Use `jsonlite::fromJSON()` to download the model metadata JSON file. This R code will return metadata provided during the model registration.\n      \n\n### R\n\n```{r}\n# Use code below\n\nmodel_metadata <- jsonlite::fromJSON(\"https://amnh1.osn.mghpcc.org/bio230121-bucket01/vera4cast/metadata/model_id/asl.persistence.json\")\n\n"
+      "href": "https://amnh1.osn.mghpcc.org/bio230121-bucket01/vera4cast/metadata/model_id/secchi_arimax.json",
+      "description": "Use `jsonlite::fromJSON()` to download the model metadata JSON file. This R code will return metadata provided during the model registration.\n      \n\n### R\n\n```{r}\n# Use code below\n\nmodel_metadata <- jsonlite::fromJSON(\"https://amnh1.osn.mghpcc.org/bio230121-bucket01/vera4cast/metadata/model_id/secchi_arimax.json\")\n\n"
     },
     "2": {
       "type": "text/html",
       "title": "Link for Model Code",
-      "href": null,
+      "href": "https://github.com/choihelenh/SecchiARIMAX",
       "description": "The link to the model code provided by the model submission team"
     },
     "3": {
       "type": "text/plain",
       "title": "Model Sites",
       "href": "https://raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/vera4cast_field_site_metadata.csv",
-      "description": "bvre, fcre"
+      "description": "fcre"
     },
     "4": {
       "type": "application/x-parquet",
-      "title": "Database Access for Daily Chlorophyll-a",
-      "href": "s3://anonymous@bio230121-bucket01/vera4cast/scores/bundled-parquet/project_id=vera4cast/duration=P1D/variable=Chla_ugL_mean/model_id=asl.persistence?endpoint_override=amnh1.osn.mghpcc.org",
-      "description": "Use `R` or `Python` code for remote access to the database. This code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/scores/bundled-parquet/project_id=vera4cast/duration=P1D/variable=Chla_ugL_mean/model_id=asl.persistence?endpoint_override=amnh1.osn.mghpcc.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n### Python\n\n```{python}# Use code below\nimport ibis\ncon = ibis.duckdbf.connect()\ncon.raw_sql(f'''\nCREATE OR REPLACE SECRET secret (\nTYPE S3,\nENDPOINT 'amnh1.osn.mghpcc.org',\nURL_STYLE 'path'\n\n''');\npath = \"s3://bio230121-bucket01/vera4cast/scores/bundled-parquet/project_id=vera4cast/duration=P1D/variable=Chla_ugL_mean/model_id=asl.persistence\"\ncon.read_parquet(path + \"/**\")"
+      "title": "Database Access for Daily Secchi",
+      "href": "s3://anonymous@bio230121-bucket01/vera4cast/scores/bundled-parquet/project_id=vera4cast/duration=P1D/variable=Secchi_m_sample/model_id=secchi_arimax?endpoint_override=amnh1.osn.mghpcc.org",
+      "description": "Use `R` or `Python` code for remote access to the database. This code will return results for this variable and model combination.\n\n### R\n\n```{r}\n# Use code below\n\nall_results <- arrow::open_dataset(\"s3://anonymous@bio230121-bucket01/vera4cast/scores/bundled-parquet/project_id=vera4cast/duration=P1D/variable=Secchi_m_sample/model_id=secchi_arimax?endpoint_override=amnh1.osn.mghpcc.org\")\ndf <- all_results |> dplyr::collect()\n\n```\n       \n\nYou can use dplyr operations before calling `dplyr::collect()` to `summarise`, `select` columns, and/or `filter` rows prior to pulling the data into a local `data.frame`. Reducing the data that is pulled locally will speed up the data download speed and reduce your memory usage.\n\n\n### Python\n\n```{python}# Use code below\nimport ibis\ncon = ibis.duckdbf.connect()\ncon.raw_sql(f'''\nCREATE OR REPLACE SECRET secret (\nTYPE S3,\nENDPOINT 'amnh1.osn.mghpcc.org',\nURL_STYLE 'path'\n\n''');\npath = \"s3://bio230121-bucket01/vera4cast/scores/bundled-parquet/project_id=vera4cast/duration=P1D/variable=Secchi_m_sample/model_id=secchi_arimax\"\ncon.read_parquet(path + \"/**\")"
     }
   }
 }
