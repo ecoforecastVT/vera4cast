@@ -2,94 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
       <loc>https://www.ltreb-reservoirs.org/vera4cast//catalog.html</loc>
-      <lastmod>2025-05-12</lastmod>
+      <lastmod>2025-05-13</lastmod>
    </url>
    <url>
       <loc>https://www.ltreb-reservoirs.org/vera4cast//instructions.html</loc>
-      <lastmod>2025-05-12</lastmod>
+      <lastmod>2025-05-13</lastmod>
    </url>
    <url>
       <loc>https://www.ltreb-reservoirs.org/vera4cast//performance.html</loc>
-      <lastmod>2025-05-12</lastmod>
+      <lastmod>2025-05-13</lastmod>
    </url>
    <url>
       <loc>https://www.ltreb-reservoirs.org/vera4cast//index.html</loc>
-      <lastmod>2025-05-12</lastmod>
+      <lastmod>2025-05-13</lastmod>
    </url>
    <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/catalog.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Bloom_binary/collection.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Bloom_binary/models/asl.auto.arima.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Bloom_binary/models/asl.climate.window.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Bloom_binary/models/asl.ets.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Bloom_binary/models/asl.met.lm.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Bloom_binary/models/asl.met.lm.step.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Bloom_binary/models/asl.persistence.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Bloom_binary/models/asl.tbats.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Bloom_binary/models/asl.temp.lm.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Bloom_binary/models/climatology.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Bloom_binary/models/fableARIMA.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Bloom_binary/models/fableETS.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Bloom_binary/models/fableNNETAR.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Bloom_binary/models/glm_aed_flare_v3.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Bloom_binary/models/glm_aed_v1.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Bloom_binary/models/historic_mean.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Bloom_binary/models/monthly_mean.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Bloom_binary/models/persistenceRW.json</loc>
       <lastmod>2025-05-08</lastmod>
    </url>
    <url>
@@ -101,71 +29,11 @@
       <lastmod>2025-05-08</lastmod>
    </url>
    <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Chlorophyll-a/models/asl.auto.arima.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Chlorophyll-a/models/asl.climate.window.json</loc>
       <lastmod>2025-05-08</lastmod>
    </url>
    <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Chlorophyll-a/models/asl.ets.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Chlorophyll-a/models/asl.met.lm.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Chlorophyll-a/models/asl.met.lm.step.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Chlorophyll-a/models/asl.persistence.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Chlorophyll-a/models/asl.tbats.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Chlorophyll-a/models/asl.temp.lm.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Chlorophyll-a/models/climatology.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
       <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Chlorophyll-a/models/fableARIMA.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Chlorophyll-a/models/fableETS.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Chlorophyll-a/models/fableNNETAR.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Chlorophyll-a/models/glm_aed_flare_v3.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Chlorophyll-a/models/glm_aed_v1.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Chlorophyll-a/models/historic_mean.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Chlorophyll-a/models/monthly_mean.json</loc>
-      <lastmod>2025-05-08</lastmod>
-   </url>
-   <url>
-      <loc>https://radiantearth.github.io/stac-browser/#/external/raw.githubusercontent.com/LTREB-reservoirs/vera4cast/main/catalog/forecasts/Biological/Daily_Chlorophyll-a/models/persistenceRW.json</loc>
       <lastmod>2025-05-08</lastmod>
    </url>
    <url>
