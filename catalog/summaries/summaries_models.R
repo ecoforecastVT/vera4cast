@@ -311,6 +311,10 @@ for (i in 1:length(config$variable_groups)){ # LOOP OVER VARIABLE GROUPS -- BUIL
 
         idx = which(registered_model_id$model_id == m)
 
+        if(is.na(model_pub_date)){
+            model_pub_date <- model_reference_date
+          }
+
         model_description <- paste0("This page includes summaries for the ",
                                     var_formal_name,
                                     ' variable for the ',
