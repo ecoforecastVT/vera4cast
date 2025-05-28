@@ -141,14 +141,14 @@ Kernel density estimation uses the default bandwidth produced by the `bw.nrd` fu
 Here is an example of a forecast that has a normal distribution:
 
 ```{r}
-df <- readr::read_csv("https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/forecasts/raw/T20231001231345_daily-2023-10-01-climatology.csv.gz", show_col_types = FALSE)
+df <- readr::read_csv("https://amnh1.osn.mghpcc.org/bio230121-bucket01/vera4cast/forecasts/raw/T20231001231345_daily-2023-10-01-climatology.csv.gz", show_col_types = FALSE)
 dplyr::glimpse(df)
 ```
 
 For an ensemble (or sample) forecast, the `family` column uses the word `ensemble` to designate that it is an ensemble forecast and the parameter column is the ensemble member number (`1`, `2`, `3` ...)
 
 ```{r}
-df <- readr::read_csv("https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/forecasts/raw/T20231001231348_daily-2023-10-01-persistenceRW.csv.gz", show_col_types = FALSE)
+df <- readr::read_csv("https://amnh1.osn.mghpcc.org/bio230121-bucket01/vera4cast/forecasts/raw/T20231001231348_daily-2023-10-01-persistenceRW.csv.gz", show_col_types = FALSE)
 dplyr::glimpse(df)
 ```
 
