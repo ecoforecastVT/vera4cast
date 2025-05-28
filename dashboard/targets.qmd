@@ -12,11 +12,11 @@ For the VERA Challenge, we are forecasting a range of physical, chemical, and bi
 Daily time-step variables measured within the reservoirs:
 
 ```{r}
-url <- "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-insitu-targets.csv.gz"
+url <- "https://amnh1.osn.mghpcc.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-insitu-targets.csv.gz"
 ```
 
 ```{r}
-url_inflow <- "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-inflow-targets.csv.gz"
+url_inflow <- "https://amnh1.osn.mghpcc.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-inflow-targets.csv.gz"
 ```
 
 ```{r message=FALSE}
@@ -184,7 +184,7 @@ We are collecting many additional datasets in near-real time at the reservoirs t
 Daily time-step variables measured in the monitored stream (Tunnel Branch; site_id = tubr)
 
 ```{r}
-url2 <- "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-inflow-targets.csv.gz"
+url2 <- "https://amnh1.osn.mghpcc.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-inflow-targets.csv.gz"
 inflow_targets <- read_csv(url2, show_col_types = FALSE)
 ```
 ```{r echo = FALSE}
@@ -225,7 +225,7 @@ inflow_targets |>
 Daily time-step variables measured at the meteorological station (located on the dam at Falling Creek Reservoir)
 
 ```{r}
-url3 <- "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-met-targets.csv.gz"
+url3 <- "https://amnh1.osn.mghpcc.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-met-targets.csv.gz"
 met_targets <- read_csv(url3, show_col_types = FALSE)
 #glimpse(met_targets)
 ```
@@ -252,7 +252,7 @@ met_targets |>
 Hourly time-step variables measured at the meteorology station (located on the dam at Falling Creek Reservoir)
 
 ```{r}
-url3 <- "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=PT1H/hourly-met-targets.csv.gz"
+url3 <- "https://amnh1.osn.mghpcc.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=PT1H/hourly-met-targets.csv.gz"
 ```
 
 ### Other variables measured in the reservoirs

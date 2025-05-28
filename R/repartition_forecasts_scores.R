@@ -1,5 +1,5 @@
 minioclient::mc_alias_set("s3_store",
-                          "renc.osn.xsede.org",
+                          "amnh1.osn.mghpcc.org",
                           Sys.getenv("OSN_KEY"),
                           Sys.getenv("OSN_SECRET"))
 
@@ -8,7 +8,7 @@ minioclient::mc_mirror("s3_store/bio230121-bucket01/vera4cast/forecasts/parquet"
 
 
 s3 <- arrow::s3_bucket("bio230121-bucket01/vera4cast/forecasts/parquet",
-                       endpoint_override = "renc.osn.xsede.org",
+                       endpoint_override = "amnh1.osn.mghpcc.org",
                        access_key = Sys.getenv("OSN_KEY"),
                        secret_key = Sys.getenv("OSN_SECRET"))
 
@@ -32,12 +32,12 @@ d <- arrow::open_dataset(s3,schema = s)
 
 
 s3_2 <- arrow::s3_bucket("bio230121-bucket01/vera4cast/forecasts",
-                       endpoint_override = "renc.osn.xsede.org",
+                       endpoint_override = "amnh1.osn.mghpcc.org",
                        access_key = Sys.getenv("OSN_KEY"),
                        secret_key = Sys.getenv("OSN_SECRET"))
 
 s3_2 <- arrow::s3_bucket("bio230121-bucket01/vera4cast/forecasts/parquet",
-                         endpoint_override = "renc.osn.xsede.org",
+                         endpoint_override = "amnh1.osn.mghpcc.org",
                          access_key = Sys.getenv("OSN_KEY"),
                          secret_key = Sys.getenv("OSN_SECRET"))
 
@@ -51,7 +51,7 @@ d |> arrow::write_dataset(s3_2, format = 'parquet',
                                       "reference_date"))
 
 s3_2 <- arrow::s3_bucket("bio230121-bucket01/vera4cast/forecasts/parquet2",
-                         endpoint_override = "renc.osn.xsede.org",
+                         endpoint_override = "amnh1.osn.mghpcc.org",
                          access_key = Sys.getenv("OSN_KEY"),
                          secret_key = Sys.getenv("OSN_SECRET"))
 
@@ -66,7 +66,7 @@ minioclient::mc_mv("s3_store/bio230121-bucket01/vera4cast/forecasts/parquet2", "
 #####
 
 minioclient::mc_alias_set("s3_store",
-                          "renc.osn.xsede.org",
+                          "amnh1.osn.mghpcc.org",
                           Sys.getenv("OSN_KEY"),
                           Sys.getenv("OSN_SECRET"))
 
@@ -75,7 +75,7 @@ minioclient::mc_mirror("s3_store/bio230121-bucket01/vera4cast/scores/parquet", "
 minioclient::mc_rm("s3_store/bio230121-bucket01/vera4cast/scores/parquet", recursive = TRUE)
 
 s3 <- arrow::s3_bucket("temp_scores",
-                       endpoint_override = "renc.osn.xsede.org",
+                       endpoint_override = "amnh1.osn.mghpcc.org",
                        access_key = Sys.getenv("OSN_KEY"),
                        secret_key = Sys.getenv("OSN_SECRET"))
 
@@ -100,14 +100,14 @@ d <- arrow::open_dataset("temp_scores") |>
                 project_id = "vera4cast")
 
 s3 <- arrow::s3_bucket("bio230121-bucket01/vera4cast/scores",
-                       endpoint_override = "renc.osn.xsede.org",
+                       endpoint_override = "amnh1.osn.mghpcc.org",
                        access_key = Sys.getenv("OSN_KEY"),
                        secret_key = Sys.getenv("OSN_SECRET"))
 
 s3$CreateDir("parquet")
 
 s3 <- arrow::s3_bucket("bio230121-bucket01/vera4cast/scores/parquet",
-                       endpoint_override = "renc.osn.xsede.org",
+                       endpoint_override = "amnh1.osn.mghpcc.org",
                        access_key = Sys.getenv("OSN_KEY"),
                        secret_key = Sys.getenv("OSN_SECRET"))
 

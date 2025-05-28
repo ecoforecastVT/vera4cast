@@ -1,5 +1,5 @@
 s3 <- arrow::s3_bucket(bucket = "bio230121-bucket01/vera4cast/forecasts/parquet",
-                       endpoint_override = "renc.osn.xsede.org",
+                       endpoint_override = "amnh1.osn.mghpcc.org",
                        access_key = Sys.getenv("OSN_KEY"),
                        secret_key = Sys.getenv("OSN_SECRET"))
 
@@ -8,8 +8,8 @@ arrow::open_dataset(s3) |>
 
 df <- aws.s3::get_bucket_df(bucket = "bio230121-bucket01",
                             prefix = "vera4cast/forecasts/parquet",
-                            region =  "renc",
-                            base_url = "osn.xsede.org",
+                            region =  "amnh1",
+                            base_url = "osn.mghpcc.org",
                             key = Sys.getenv("OSN_KEY"),
                             secret = Sys.getenv("OSN_SECRET"))
 
@@ -17,8 +17,8 @@ for(i in 1:nrow(df)){
 
   aws.s3::delete_object(object = df$Key[i],
                         bucket = "bio230121-bucket01",
-                        region = "renc",
-                        base_url = "osn.xsede.org",
+                        region = "amnh1",
+                        base_url = "amnh1.osn.mghpcc.org",
                         key = Sys.getenv("OSN_KEY"),
                         secret = Sys.getenv("OSN_SECRET"))
 }
@@ -31,7 +31,7 @@ arrow::open_dataset("part-0.parquet") |>
 ###
 
 s3 <- arrow::s3_bucket(bucket = "bio230121-bucket01/vera4cast/scores/parquet",
-                       endpoint_override = "renc.osn.xsede.org",
+                       endpoint_override = "amnh1.osn.mghpcc.org",
                        access_key = Sys.getenv("OSN_KEY"),
                        secret_key = Sys.getenv("OSN_SECRET"))
 
@@ -39,8 +39,8 @@ arrow::open_dataset(s3) |> arrow::write_dataset(path = ".")
 
 df <- aws.s3::get_bucket_df(bucket = "bio230121-bucket01",
                             prefix = "vera4cast/scores/parquet",
-                            region =  "renc",
-                            base_url = "osn.xsede.org",
+                            region =  "amnh1",
+                            base_url = "osn.mghpcc.org",
                             key = Sys.getenv("OSN_KEY"),
                             secret = Sys.getenv("OSN_SECRET"))
 
@@ -48,8 +48,8 @@ for(i in 1:nrow(df)){
 
   aws.s3::delete_object(object = df$Key[i],
                         bucket = "bio230121-bucket01",
-                        region = "renc",
-                        base_url = "osn.xsede.org",
+                        region = "amnh1",
+                        base_url = "osn.mghpcc.org",
                         key = Sys.getenv("OSN_KEY"),
                         secret = Sys.getenv("OSN_SECRET"))
 }

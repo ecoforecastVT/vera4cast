@@ -32,7 +32,8 @@ Imports:
     gsheet, 
     readr, 
     RCurl, 
-    pacman
+    pacman,
+    gsheet
 Remotes: 
     github::eco4cast/score4cast,
     github::cboettig/minioclient,
