@@ -1,11 +1,3 @@
-# # fcr
-# latest <- "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv"
-# edi <- "https://pasta.lternet.edu/package/data/eml/edi/271/7/71e6b946b751aa1b966ab5653b01077f"
-#
-# # bvr
-# latest <- "https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-platform-data-qaqc/bvre-waterquality_L1.csv"
-# edi <-  "https://pasta.lternet.edu/package/data/eml/edi/725/3/a9a7ff6fe8dc20f7a8f89447d4dc2038"
-
 target_generation_ThermistorTemp_C_daily <- function(current_file, historic_file){
   source('targets/target_functions/find_depths.R')
   ## read in current data file
@@ -71,6 +63,7 @@ target_generation_ThermistorTemp_C_daily <- function(current_file, historic_file
       dplyr::select(-n)
   }
   message('Current file ready')
+  print(nrow(current_df_1))
 
   # read in historical data file
   # EDI
