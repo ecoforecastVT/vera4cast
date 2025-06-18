@@ -1,5 +1,5 @@
 target_generation_ThermistorTemp_C_hourly <- function(current_file, historic_file){
-  source('R/find_depths.R')
+  source('targets/target_functions/find_depths.R')
   ## read in current data file
   # Github, Googlesheet, etc.
   current_df <- readr::read_csv(current_file, show_col_types = F) |>
@@ -9,11 +9,11 @@ target_generation_ThermistorTemp_C_hourly <- function(current_file, historic_fil
 
   if (current_df$Reservoir[1] == 'BVR') {
     bvr_depths <- find_depths(data_file = current_file,
-                              depth_offset = "https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-platform-data-qaqc/BVR_Depth_offsets.csv",
-                              output <- NULL,
-                              date_offset <- "2021-04-05",
-                              offset_column1<- "Offset_before_05APR21",
-                              offset_column2 <- "Offset_after_05APR21") |>
+                                  depth_offset = "https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-platform-data-qaqc/BVR_Depth_offsets.csv",
+                                  output <- NULL,
+                                  date_offset <- "2021-04-05",
+                                  offset_column1<- "Offset_before_05APR21",
+                                  offset_column2 <- "Offset_after_05APR21") |>
       dplyr::filter(variable == 'ThermistorTemp') |>
       dplyr::select(Reservoir, DateTime, variable, depth_bin, Position)
 
