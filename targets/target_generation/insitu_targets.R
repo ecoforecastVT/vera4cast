@@ -176,3 +176,33 @@ if (nrow(combined_dup_check) != 0){
 }
 
 arrow::write_csv_arrow(combined_targets_deduped, sink = s3_daily$path("daily-insitu-targets.csv.gz"))
+
+
+
+## HOURLY INSITU (TEMPERATURE)
+source('targets/target_functions/target_generation_ThermistorTemp_C_hourly.R')
+
+#FCR
+print('Hourly Temperature')
+fcr_latest <- "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-catwalk-data-qaqc/fcre-waterquality_L1.csv"
+fcr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/271/9/f23d27b67f71c25cb8e6232af739f986"
+
+fcr_thermistor_temp_hourly <- target_generation_ThermistorTemp_C_hourly(current_file = fcr_latest, historic_file = fcr_edi)
+fcr_thermistor_temp_hourly$duration <- 'P1D'
+fcr_thermistor_temp_hourly$project_id <- 'vera4cast'
+
+
+# BVR
+print('BVR Thermistor')
+bvr_latest <- "https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-platform-data-qaqc/bvre-waterquality_L1.csv"
+bvr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/725/5/f649de0e8a468922b40dcfa34285055e"
+
+bvr_thermistor_temp_hourly <- target_generation_ThermistorTemp_C_hourly(current_file = bvr_latest, historic_file = bvr_edi)
+bvr_thermistor_temp_hourly$duration <- 'P1D'
+bvr_thermistor_temp_hourly$project_id <- 'vera4cast'
+
+
+s3_hourly <- arrow::s3_bucket("bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=PT1H", endpoint_override = "amnh1.osn.mghpcc.org")
+vera_hourly_thermistor_df <- dplyr::bind_rows(fcr_thermistor_temp_hourly, bvr_thermistor_temp_hourly)
+
+arrow::write_csv_arrow(vera_hourly_thermistor_df, sink = s3_hourly$path("hourly-insitu-targets.csv.gz"))
