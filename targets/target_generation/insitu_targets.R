@@ -198,7 +198,7 @@ bvr_latest <- "https://raw.githubusercontent.com/FLARE-forecast/BVRE-data/bvre-p
 bvr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/725/5/f649de0e8a468922b40dcfa34285055e"
 
 bvr_thermistor_temp_hourly <- target_generation_ThermistorTemp_C_hourly(current_file = bvr_latest, historic_file = bvr_edi)
-bvr_thermistor_temp_hourly$duration <- 'P1D'
+bvr_thermistor_temp_hourly$duration <- 'PT1H'
 bvr_thermistor_temp_hourly$project_id <- 'vera4cast'
 
 
