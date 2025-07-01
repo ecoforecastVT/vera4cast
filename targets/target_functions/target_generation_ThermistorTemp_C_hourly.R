@@ -147,6 +147,9 @@ target_generation_ThermistorTemp_C_hourly <- function(current_file, historic_fil
   final_df$depth_m <- ifelse(final_df$site_id == 'bvre' & final_df$depth_m == 2,
                            1.5,
                            final_df$depth_m)
+
+  final_df$depth_m <- as.numeric(final_df$depth_m)
+  final_df$depth <- NULL
   ## Match data to flare targets file
   # Use pivot_longer to create a long-format table
   # for time specific - use midnight UTC values for daily
