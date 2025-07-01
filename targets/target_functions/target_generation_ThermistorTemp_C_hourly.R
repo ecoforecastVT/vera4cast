@@ -137,8 +137,16 @@ target_generation_ThermistorTemp_C_hourly <- function(current_file, historic_fil
 
   ## bind the two files using row.bind()
   final_df <- dplyr::bind_rows(historic_df_1, current_df_1) |>
-    dplyr::mutate(variable = 'ThermistorTemp_C',
-                  depth = as.numeric(ifelse(depth == "surface", 0.1, depth)))
+    dplyr::mutate(variable = 'Temp_C_mean',
+                  depth_m = as.numeric(ifelse(depth == "surface", 0.1, depth)))
+
+  final_df$depth_m <- ifelse(final_df$site_id == 'fcre' & final_df$depth_m == 2,
+                           1.6,
+                           final_df$depth_m)
+
+  final_df$depth_m <- ifelse(final_df$site_id == 'bvre' & final_df$depth_m == 2,
+                           1.5,
+                           final_df$depth_m)
   ## Match data to flare targets file
   # Use pivot_longer to create a long-format table
   # for time specific - use midnight UTC values for daily
