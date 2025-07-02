@@ -188,7 +188,7 @@ fcr_latest <- "https://raw.githubusercontent.com/FLARE-forecast/FCRE-data/fcre-c
 fcr_edi <- "https://pasta.lternet.edu/package/data/eml/edi/271/9/f23d27b67f71c25cb8e6232af739f986"
 
 fcr_thermistor_temp_hourly <- target_generation_ThermistorTemp_C_hourly(current_file = fcr_latest, historic_file = fcr_edi)
-fcr_thermistor_temp_hourly$duration <- 'P1D'
+fcr_thermistor_temp_hourly$duration <- 'PT1H'
 fcr_thermistor_temp_hourly$project_id <- 'vera4cast'
 
 
