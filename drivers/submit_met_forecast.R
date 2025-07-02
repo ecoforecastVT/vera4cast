@@ -5,14 +5,20 @@ submit_met_forecast <- function(model_id){
                          access_key = Sys.getenv("OSN_KEY"),
                          secret_key = Sys.getenv("OSN_SECRET"))
 
-  df <- arrow::open_dataset(s3) |> dplyr::filter(site_id == "fcre") |> dplyr::collect()
+  df_dates <- arrow::open_dataset(s3) |>
+    dplyr::filter(site_id == "fcre") |>
+    dplyr::distinct(reference_date) |>
+    dplyr::collect()
 
-  max_reference_date <- max(df$reference_date)
+  max_reference_date <- max(df_dates$reference_date)
 
   filename <- paste0("drivers/", model_id, "-",max_reference_date,".csv.gz")
-  df <- df |> dplyr::filter(reference_date == max_reference_date) |>
+
+  df <- arrow::open_dataset(s3) |>
+    dplyr::filter(reference_date == max_reference_date) |>
     dplyr::mutate(date = lubridate::as_date(datetime)) |>
     dplyr::select(-unit) |>
+    dplyr::collect() |>
     tidyr::pivot_wider(names_from = variable, values_from = prediction)
 
   if(model_id == "ecmwf_ifs04"){
