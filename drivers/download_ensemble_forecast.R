@@ -13,6 +13,8 @@ download_ensemble_forecast <- function(model, forecast_horizon = 35, sites = NUL
                          access_key = Sys.getenv("OSN_KEY"),
                          secret_key = Sys.getenv("OSN_SECRET"))
 
+  print('Created s3 connections...')
+
   site_list <- readr::read_csv("https://raw.githubusercontent.com/FLARE-forecast/aws_noaa/master/site_list_v2.csv", show_col_types = FALSE)
 
   if(!is.null(sites)){
@@ -35,6 +37,8 @@ download_ensemble_forecast <- function(model, forecast_horizon = 35, sites = NUL
       dplyr::mutate(reference_date = lubridate::as_date(reference_datetime)) |>
       arrow::write_dataset(s3, format = 'parquet',
                            partitioning = c("model_id", "reference_date", "site_id"))
+
+    print(paste(site_list$site_id[i],"forecast saved..."))
     Sys.sleep(30)
 
   }
