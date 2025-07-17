@@ -15,7 +15,7 @@ jobs:
       OSN_KEY: ${{ secrets.OSN_KEY }}
       OSN_SECRET: ${{ secrets.OSN_SECRET }}
     container: rqthomas/vera-rocker:latest
-      steps:
+    steps:
       - uses: actions/checkout@v4
 
       - name: Install
