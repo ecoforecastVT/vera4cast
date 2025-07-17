@@ -15,16 +15,20 @@ jobs:
       OSN_KEY: ${{ secrets.OSN_KEY }}
       OSN_SECRET: ${{ secrets.OSN_SECRET }}
     container: rqthomas/vera-rocker:latest
-    steps:
+      steps:
       - uses: actions/checkout@v4
 
       - name: Install
         shell: Rscript {0}
         run: |
-          print(options("repos"))
-          remotes::install_deps(".", dep=TRUE)
+          remotes::install_deps(".", dep=TRUE, upgrade=TRUE)
 
-      - name: Generate bundles
+      - name: Bundle forecasts
         shell: Rscript {0}
         run: |
-          source("submission_processing/bundled-parquet.R")
+          source("submission_processing/bundled-forecasts.R")
+
+      - name: Bundle summaries
+        shell: Rscript {0}
+        run: |
+          source("submission_processing/bundled-summaries.R")

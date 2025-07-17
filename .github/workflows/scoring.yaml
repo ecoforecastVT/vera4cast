@@ -17,6 +17,12 @@ jobs:
       OSN_SECRET: ${{ secrets.OSN_SECRET }}
     container: rqthomas/vera-rocker:latest
     steps:
+
+      - name: cleanup disk space
+        run: |
+          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc
+          df -h
+
       - uses: actions/checkout@v4
 
       - name: Install
@@ -24,10 +30,14 @@ jobs:
         run: |
           remotes::install_deps(".", dep=TRUE)
 
-      - name: Generate scores
-        shell: Rscript {0}
-        run: |
-          source("scoring/scoring.R")
+      - name: install
+        run: R -e "install.packages(c('bench', 'duckdbfs', 'minioclient', 'callr')); remotes::install_github('eco4cast/score4cast')"
+
+      - name: scoring-prep
+        run: r scoring/prep-scoring.R
+
+      - name: scoring
+        run: r scoring/new-scoring.R
 
       - name: install curl
         run: |
