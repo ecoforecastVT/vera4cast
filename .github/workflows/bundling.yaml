@@ -22,9 +22,9 @@ jobs:
         shell: Rscript {0}
         run: |
           remotes::install_deps(".", dep=TRUE, upgrade=TRUE)
-          install.package('bench')
-          install.package('glue')
-          install.package('fs')
+          install.packages('bench')
+          install.packages('glue')
+          install.packages('fs')
 
       - name: Bundle forecasts
         shell: Rscript {0}
