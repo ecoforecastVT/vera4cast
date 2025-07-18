@@ -52,11 +52,11 @@ bench::bench_time({ # 18m w/ union, ~ 50 GB used at times
         print(path)
         readr::write_lines(path, "bundled.log", append=TRUE)
         if(length(fs::dir_ls(path)) > 0) {
-          new <- open_dataset(path, conn = con) |> select(-any_of(c("date", "reference_date", "...1")))  # (date is a short version of datetime from partitioning, drop it)
+          new <- open_dataset(path, conn = con, unify_schemas = TRUE) |> select(-any_of(c("date", "reference_date", "...1")))  # (date is a short version of datetime from partitioning, drop it)
 
           bundles <- glue("forecasts/bundled-parquet/project_id=vera4cast/{dur}{var}{model_id}")
           if (fs::dir_exists(bundles)) {
-            old <- open_dataset(bundles, conn = con) |>
+            old <- open_dataset(bundles, conn = con, unify_schemas = TRUE) |>
               select(-any_of(c("date", "reference_date", "...1"))) |>
               anti_join(new, by = by) # old not duplicated in new
             new <- union_all(old, new)
