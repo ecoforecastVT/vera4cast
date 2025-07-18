@@ -121,7 +121,7 @@ drop_f <- function(path) {
   else
     invisible(NULL)
 }
-parallel::mclapply(s3_drop_paths, drop_f, mc.cores = parallel::detectCores)
+parallel::mclapply(s3_drop_paths, drop_f, mc.cores = parallel::detectCores())
 
 ## We are done.
 
