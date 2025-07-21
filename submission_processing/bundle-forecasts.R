@@ -85,7 +85,7 @@ bundle_me <- function(path) {
   mc_mv(mc_path, dest_path, recursive = TRUE)
 
   # clears up empty folders (not necessary?)
-  #mc_rm(mc_path, recursive = TRUE)
+  mc_rm(mc_path, recursive = TRUE)
 
   duckdbfs::close_connection(con); gc()
 }
