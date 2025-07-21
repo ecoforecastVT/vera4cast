@@ -38,6 +38,41 @@ model_paths <-
   unique()
 
 
+
+remove_dir <- function(path) {
+  tryCatch(
+    {
+      minioclient::mc_rm(path, recursive = TRUE)
+      message('directory successfully removed...')
+    },
+    error = function(cond) {
+      message("The removal directory could not be found...")
+      message("Here's the original error message:")
+      message(conditionMessage(cond))
+      # Choose a return value in case of error
+      NA
+    },
+    warning = function(cond) {
+      message('Deleting the directory caused a warning...')
+      message("Here's the original warning message:")
+      message(conditionMessage(cond))
+      # Choose a return value in case of warning
+      NULL
+    },
+    finally = {
+      # NOTE:
+      # Here goes everything that should be executed at the end,
+      # regardless of success or error.
+      # If you want more than one expression to be executed, then you
+      # need to wrap them in curly brackets ({...}); otherwise you could
+      # just have written 'finally = <expression>'
+      message("Finished the delete portion...")
+    }
+  )
+}
+
+
+
 bundle_me <- function(path) {
 
   print(path)
@@ -85,7 +120,9 @@ bundle_me <- function(path) {
   mc_mv(mc_path, dest_path, recursive = TRUE)
 
   # clears up empty folders (not necessary?)
-  mc_rm(mc_path, recursive = TRUE)
+
+  #mc_rm(mc_path, recursive = TRUE)
+  remove_dir(mc_path)
 
   duckdbfs::close_connection(con); gc()
 }
