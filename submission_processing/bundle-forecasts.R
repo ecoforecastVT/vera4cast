@@ -72,6 +72,45 @@ remove_dir <- function(path) {
 }
 
 
+open_new_dataset <- function(path, con) {
+  tryCatch(
+    {
+      new <- open_dataset(path, conn = con) |>
+        filter( !is.na(model_id),
+                !is.na(parameter),
+                !is.na(prediction)) |>
+        select(-any_of(c("date", "reference_date", "...1")))  # (date is a short version of datetime from partitioning, drop it)
+    },
+    error = function(cond) {
+      message("Schema issue detected...Here's the original error message:")
+      message(conditionMessage(cond))
+      # Choose a return value in case of error
+
+      new <- open_dataset(path, conn = con, unify_schemas = TRUE) |>
+        filter( !is.na(model_id),
+                !is.na(parameter),
+                !is.na(prediction)) |>
+        select(-any_of(c("date", "reference_date", "...1")))  # (date is a short version of datetime from partitioning, drop it)
+
+    },
+    warning = function(cond) {
+      message('Warning caused by "open_dataset" new...Heres the original warning message:')
+      message(conditionMessage(cond))
+      # Choose a return value in case of warning
+      NULL
+    },
+    finally = {
+      # NOTE:
+      # Here goes everything that should be executed at the end,
+      # regardless of success or error.
+      # If you want more than one expression to be executed, then you
+      # need to wrap them in curly brackets ({...}); otherwise you could
+      # just have written 'finally = <expression>'
+      message("Finished the new dataset read...")
+    }
+  )
+}
+
 
 bundle_me <- function(path) {
 
@@ -79,11 +118,7 @@ bundle_me <- function(path) {
   con = duckdbfs::cached_connection(tempfile())
   duckdb_secrets(endpoint = "amnh1.osn.mghpcc.org", key = Sys.getenv("OSN_KEY"), secret = Sys.getenv("OSN_SECRET"), bucket = "bio230121-bucket01")
 
-  new <- open_dataset(path, conn = con) |>
-    filter( !is.na(model_id),
-            !is.na(parameter),
-            !is.na(prediction)) |>
-    select(-any_of(c("date", "reference_date", "...1")))  # (date is a short version of datetime from partitioning, drop it)
+  new <- open_new_dataset(path, con)
 
   new |> write_dataset("tmp_new.parquet")
 
