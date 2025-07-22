@@ -27,11 +27,7 @@ jobs:
           install.packages('fs')
 
       - name: Bundle forecasts
-        shell: Rscript {0}
-        run: |
-          source("submission_processing/bundle-forecasts.R")
+        run: r submission_processing/bundle-forecasts.R
 
-      - name: Bundle summaries
-        shell: Rscript {0}
-        run: |
-          source("submission_processing/bundle-summaries.R")
+      #- name: Bundle summaries
+       # run: r submission_processing/bundle-summaries.R
