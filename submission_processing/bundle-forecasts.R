@@ -1,6 +1,6 @@
 remotes::install_github("cboettig/duckdbfs", upgrade=FALSE)
 
-
+score4cast::ignore_sigpipe()
 
 
 library(tidyverse)
@@ -155,7 +155,40 @@ bundle_me <- function(path) {
   invisible(0)
 }
 
-try_bundles <- purrr::possibly(bundle_me)
+#try_bundles <- purrr::possibly(bundle_me)
+
+try_bundles <- function(path) {
+  tryCatch(
+    {
+      bundle_me(path)
+      message('bundling successful...')
+    },
+    error = function(cond) {
+      message("The removal directory could not be found...")
+      message("Here's the original error message:")
+      message(conditionMessage(cond))
+      # Choose a return value in case of error
+      NA
+    },
+    warning = function(cond) {
+      message('Deleting the directory caused a warning...')
+      message("Here's the original warning message:")
+      message(conditionMessage(cond))
+      # Choose a return value in case of warning
+      NULL
+    },
+    finally = {
+      # NOTE:
+      # Here goes everything that should be executed at the end,
+      # regardless of success or error.
+      # If you want more than one expression to be executed, then you
+      # need to wrap them in curly brackets ({...}); otherwise you could
+      # just have written 'finally = <expression>'
+      message("Finished the delete portion...")
+    }
+  )
+}
+
 
 bench::bench_time({
   out <- purrr::map(model_paths, try_bundles)
