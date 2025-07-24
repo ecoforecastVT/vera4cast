@@ -92,7 +92,7 @@ bundle_me <- function(path) {
   duckdb_secrets(endpoint = "amnh1.osn.mghpcc.org", key = Sys.getenv("OSN_KEY"), secret = Sys.getenv("OSN_SECRET"), bucket = "bio230121-bucket01")
   bundled_path <- path |> str_replace(fixed("forecasts/parquet"), "forecasts/bundled-parquet")
 
-  open_dataset(path, conn = con) |>
+  open_dataset(path, conn = con, unify_schemas = TRUE) |>
     filter( !is.na(model_id),
             !is.na(parameter),
             !is.na(prediction)) |>
@@ -199,17 +199,17 @@ bench::bench_time({
 
 
 # bundled count at end
-count <- open_dataset("s3://bio230014-bucket01/challenges/forecasts/bundled-parquet",
-                      s3_endpoint = "sdsc.osn.xsede.org",
+count <- open_dataset("s3://bio230121-bucket01/vera4cast/forecasts/bundled-parquet",
+                      s3_endpoint = "amnh1.osn.mghpcc.org",
                       anonymous = TRUE) |>
   count()
 print(count)
 
 
-open_dataset("s3://bio230014-bucket01/challenges/forecasts/bundled-parquet",
-             s3_endpoint = "sdsc.osn.xsede.org",
-             anonymous = TRUE) |>
-  filter()
+# open_dataset("s3://bio230014-bucket01/challenges/forecasts/bundled-parquet",
+#              s3_endpoint = "amnh1.osn.mghpcc.org",
+#              anonymous = TRUE) |>
+#   filter()
 
 # should we slice_max(pub_time) to ensure only most recent pub_time if duplicates submitted?
 # grouping <- c("model_id", "reference_datetime", "site_id", "datetime", "family", "variable", "duration", "project_id")
