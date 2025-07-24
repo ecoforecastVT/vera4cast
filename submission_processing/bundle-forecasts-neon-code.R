@@ -9,6 +9,10 @@ library(minioclient)
 library(bench)
 library(glue)
 library(fs)
+library(future.apply)
+library(progressr)
+handlers(global = TRUE)
+handlers("cli")
 
 install_mc()
 mc_alias_set("osn", "amnh1.osn.mghpcc.org", Sys.getenv("OSN_KEY"), Sys.getenv("OSN_SECRET"))
@@ -33,6 +37,19 @@ model_paths <-
   str_replace("^osn\\/", "s3://") |>
   unique()
 
+# bundled count at start
+count <- open_dataset("s3://bio230121-bucket01/vera4cast/forecasts/bundled-parquet",
+                      s3_endpoint = "amnh1.osn.mghpcc.org",
+                      anonymous = TRUE) |>
+  count()
+print(count)
+
+most_recent <- open_dataset("s3://bio230121-bucket01/vera4cast/forecasts/bundled-parquet",
+                            s3_endpoint = "amnh1.osn.mghpcc.org",
+                            anonymous = TRUE) |>
+  distinct(reference_datetime) |>
+  summarise(max(reference_datetime))
+print(most_recent)
 
 
 remove_dir <- function(path) {
@@ -83,7 +100,7 @@ bundle_me <- function(path) {
     write_dataset("tmp_new.parquet")
 
   # special filters should not be needed on bundled copy
-  open_dataset(bundled_path, conn = con) |>
+  open_dataset(bundled_path, conn = con, unify_schemas = TRUE) |>
     write_dataset("tmp_old.parquet")
 
   # these are both local, so we can stream back.
@@ -96,6 +113,14 @@ bundle_me <- function(path) {
   #  previous_n <- open_dataset("tmp_old.parquet") |> count() |> pull(n)
   #  stopifnot(previous_n - filtered_n == 0)
 
+  ## no partition levels left so we must write to an explicit .parquet
+  bundled_dir <- bundled_path |> str_replace(fixed("s3://"), "osn/") |> mc_ls(details = TRUE)
+  mc_bundled_path <- bundled_dir |> filter(!is_folder) |> pull(path)
+  stopifnot(length(mc_bundled_path) == 1)
+  bundled_path <- mc_bundled_path |> str_replace(fixed("osn/"), fixed("s3://"))
+
+  ## once running consistently we can "append" with union_all instead of union
+  # uses less RAM. since mc_rm / mc_mv removes anything we have already read
   union_all(old, new) |>
     write_dataset(bundled_path,
                   options = list("PER_THREAD_OUTPUT false"))
@@ -115,39 +140,78 @@ bundle_me <- function(path) {
   invisible(0)
 }
 
-try_bundles <- function(path) {
-  tryCatch(
-    {
-      bundle_me(path)
-      message('bundling successful...')
-    },
-    error = function(cond) {
-      message("Bundling failed with an error...")
-      message("Here's the original error message:")
-      message(conditionMessage(cond))
-      # Choose a return value in case of error
-      NA
-    },
-    warning = function(cond) {
-      message('Bundling ran into a warning...')
-      message("Here's the original warning message:")
-      message(conditionMessage(cond))
-      # Choose a return value in case of warning
-      NULL
-    },
-    finally = {
-      # NOTE:
-      # Here goes everything that should be executed at the end,
-      # regardless of success or error.
-      # If you want more than one expression to be executed, then you
-      # need to wrap them in curly brackets ({...}); otherwise you could
-      # just have written 'finally = <expression>'
-      message("Finished the delete portion...")
-    }
-  )
+#try_bundles <- purrr::possibly(bundle_me)
+#
+# try_bundles <- function(path) {
+#   tryCatch(
+#     {
+#       bundle_me(path)
+#       message('bundling successful...')
+#     },
+#     error = function(cond) {
+#       message("The removal directory could not be found...")
+#       message("Here's the original error message:")
+#       message(conditionMessage(cond))
+#       # Choose a return value in case of error
+#       NA
+#     },
+#     warning = function(cond) {
+#       message('Deleting the directory caused a warning...')
+#       message("Here's the original warning message:")
+#       message(conditionMessage(cond))
+#       # Choose a return value in case of warning
+#       NULL
+#     },
+#     finally = {
+#       # NOTE:
+#       # Here goes everything that should be executed at the end,
+#       # regardless of success or error.
+#       # If you want more than one expression to be executed, then you
+#       # need to wrap them in curly brackets ({...}); otherwise you could
+#       # just have written 'finally = <expression>'
+#       message("Finished the delete portion...")
+#     }
+#   )
+# }
+#
+#
+# bench::bench_time({
+#   out <- purrr::map(model_paths, try_bundles)
+# })
+
+
+# We use future_apply framework to show progress while being robust to OOM kils.
+# We are not actually running on multi-core, which would be RAM-inefficient
+future::plan(future::sequential)
+
+safe_bundles <- function(xs) {
+  p <- progressor(along = xs)
+  future_lapply(xs, function(x, ...) {
+    bundle_me(x)
+    p(sprintf("x=%s", x))
+  },  future.seed = TRUE)
 }
 
 
 bench::bench_time({
-  out <- purrr::map(model_paths, try_bundles)
+  safe_bundles(model_paths)
 })
+
+
+
+# bundled count at end
+count <- open_dataset("s3://bio230121-bucket01/vera4cast/forecasts/bundled-parquet",
+                      s3_endpoint = "amnh1.osn.mghpcc.org",
+                      anonymous = TRUE) |>
+  count()
+print(count)
+
+
+# open_dataset("s3://bio230014-bucket01/challenges/forecasts/bundled-parquet",
+#              s3_endpoint = "amnh1.osn.mghpcc.org",
+#              anonymous = TRUE) |>
+#   filter()
+
+# should we slice_max(pub_time) to ensure only most recent pub_time if duplicates submitted?
+# grouping <- c("model_id", "reference_datetime", "site_id", "datetime", "family", "variable", "duration", "project_id")
+
