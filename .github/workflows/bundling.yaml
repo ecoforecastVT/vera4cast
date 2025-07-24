@@ -8,13 +8,14 @@ on:
 name: bundling
 
 jobs:
-  scores:
+  bundle:
     runs-on:  ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       OSN_KEY: ${{ secrets.OSN_KEY }}
       OSN_SECRET: ${{ secrets.OSN_SECRET }}
-    container: ghcr.io/boettiger-lab/k8s@sha256:fd02edfb4318afe022f8a732a99d93df7127dadb2bb4e208e36a86f96c2f45c6
+    #container: ghcr.io/boettiger-lab/k8s@sha256:fd02edfb4318afe022f8a732a99d93df7127dadb2bb4e208e36a86f96c2f45c6
+    container: rqthomas/vera-rocker:latest
     steps:
       - uses: actions/checkout@v4
 
