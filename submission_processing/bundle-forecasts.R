@@ -96,6 +96,7 @@ bundle_me <- function(path) {
     filter( !is.na(model_id),
             !is.na(parameter),
             !is.na(prediction)) |>
+    select(-any_of(c("date", "reference_date", "...1"))) |>
     write_dataset("tmp_new.parquet")
 
   # special filters should not be needed on bundled copy
