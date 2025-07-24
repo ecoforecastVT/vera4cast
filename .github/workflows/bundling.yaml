@@ -22,7 +22,7 @@ jobs:
       - name: Install
         shell: Rscript {0}
         run: |
-          options(repos=list(CRAN="http://packagemanager.rstudio.com/all/__linux__/noble/latest"))
+          remotes::install_deps(".", dep=TRUE, upgrade=TRUE)
           install.packages(c("future.apply", "progressr", "minioclient", "bench", "glue", "fs"))
 
       - name: Bundle forecasts
