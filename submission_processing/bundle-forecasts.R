@@ -75,7 +75,7 @@ bundle_me <- function(path) {
   duckdb_secrets(endpoint = "amnh1.osn.mghpcc.org", key = Sys.getenv("OSN_KEY"), secret = Sys.getenv("OSN_SECRET"), bucket = "bio230121-bucket01")
   bundled_path <- path |> str_replace(fixed("forecasts/parquet"), "forecasts/bundled-parquet")
 
-  print('write new')
+  #print('write new')
   open_dataset(path, conn = con, unify_schemas = TRUE) |>
     filter( !is.na(model_id),
             !is.na(parameter),
@@ -84,15 +84,15 @@ bundle_me <- function(path) {
     #rename(pub_datetime = pub_date) |>
     write_dataset("tmp_new.parquet")
 
-  print('write old')
+  #print('write old')
   # special filters should not be needed on bundled copy
   open_dataset(bundled_path, conn = con, unify_schemas = TRUE) |>
     write_dataset("tmp_old.parquet")
 
   # these are both local, so we can stream back.
-  print('open new')
+  #print('open new')
   new <- open_dataset("tmp_new.parquet")
-  print('open old')
+  #print('open old')
   old <- open_dataset("tmp_old.parquet")
 
   ## We can just "append", we no longer face duplicates:
@@ -120,39 +120,39 @@ bundle_me <- function(path) {
   invisible(0)
 }
 
-try_bundles <- function(path) {
-  tryCatch(
-    {
-      bundle_me(path)
-      message('bundling successful...')
-    },
-    error = function(cond) {
-      message("Bundling failed with an error...")
-      message("Here's the original error message:")
-      message(conditionMessage(cond))
-      # Choose a return value in case of error
-      NA
-    },
-    warning = function(cond) {
-      message('Bundling ran into a warning...')
-      message("Here's the original warning message:")
-      message(conditionMessage(cond))
-      # Choose a return value in case of warning
-      NULL
-    },
-    finally = {
-      # NOTE:
-      # Here goes everything that should be executed at the end,
-      # regardless of success or error.
-      # If you want more than one expression to be executed, then you
-      # need to wrap them in curly brackets ({...}); otherwise you could
-      # just have written 'finally = <expression>'
-      message("Finished the delete portion...")
-    }
-  )
-}
+# try_bundles <- function(path) {
+#   tryCatch(
+#     {
+#       bundle_me(path)
+#       message('bundling successful...')
+#     },
+#     error = function(cond) {
+#       message("Bundling failed with an error...")
+#       message("Here's the original error message:")
+#       message(conditionMessage(cond))
+#       # Choose a return value in case of error
+#       NA
+#     },
+#     warning = function(cond) {
+#       message('Bundling ran into a warning...')
+#       message("Here's the original warning message:")
+#       message(conditionMessage(cond))
+#       # Choose a return value in case of warning
+#       NULL
+#     },
+#     finally = {
+#       # NOTE:
+#       # Here goes everything that should be executed at the end,
+#       # regardless of success or error.
+#       # If you want more than one expression to be executed, then you
+#       # need to wrap them in curly brackets ({...}); otherwise you could
+#       # just have written 'finally = <expression>'
+#       message("Finished the delete portion...")
+#     }
+#   )
+# }
 
 
 bench::bench_time({
-  out <- purrr::map(model_paths, try_bundles)
+  out <- purrr::map(model_paths, bundle_me)
 })
