@@ -75,19 +75,24 @@ bundle_me <- function(path) {
   duckdb_secrets(endpoint = "amnh1.osn.mghpcc.org", key = Sys.getenv("OSN_KEY"), secret = Sys.getenv("OSN_SECRET"), bucket = "bio230121-bucket01")
   bundled_path <- path |> str_replace(fixed("forecasts/parquet"), "forecasts/bundled-parquet")
 
+  print('write new')
   open_dataset(path, conn = con, unify_schemas = TRUE) |>
     filter( !is.na(model_id),
             !is.na(parameter),
             !is.na(prediction)) |>
     select(-any_of(c("date", "reference_date", "...1"))) |>
+    rename(pub_date = pub_datetime)
     write_dataset("tmp_new.parquet")
 
+  print('write old')
   # special filters should not be needed on bundled copy
   open_dataset(bundled_path, conn = con) |>
     write_dataset("tmp_old.parquet")
 
   # these are both local, so we can stream back.
+  print('open new')
   new <- open_dataset("tmp_new.parquet")
+  print('open old')
   old <- open_dataset("tmp_old.parquet")
 
   ## We can just "append", we no longer face duplicates:
