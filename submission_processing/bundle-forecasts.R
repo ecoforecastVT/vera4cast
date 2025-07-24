@@ -86,7 +86,7 @@ bundle_me <- function(path) {
 
   print('write old')
   # special filters should not be needed on bundled copy
-  open_dataset(bundled_path, conn = con) |>
+  open_dataset(bundled_path, conn = con, unify_schemas = TRUE) |>
     write_dataset("tmp_old.parquet")
 
   # these are both local, so we can stream back.
