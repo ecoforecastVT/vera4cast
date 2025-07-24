@@ -81,7 +81,7 @@ bundle_me <- function(path) {
             !is.na(parameter),
             !is.na(prediction)) |>
     select(-any_of(c("date", "reference_date", "...1"))) |>
-    rename(pub_date = pub_datetime)
+    rename(pub_date = pub_datetime) |>
     write_dataset("tmp_new.parquet")
 
   print('write old')
