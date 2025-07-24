@@ -80,8 +80,8 @@ bundle_me <- function(path) {
     filter( !is.na(model_id),
             !is.na(parameter),
             !is.na(prediction)) |>
-    select(-any_of(c("date", "reference_date", "...1"))) |>
-    rename(pub_datetime = pub_date) |>
+    select(-any_of(c("date", "reference_date", "...1", "pub_date"))) |>
+    #rename(pub_datetime = pub_date) |>
     write_dataset("tmp_new.parquet")
 
   print('write old')
