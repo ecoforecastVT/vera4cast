@@ -122,8 +122,8 @@ bundle_me <- function(path) {
     str_replace(fixed("forecasts/summaries"), "forecasts/archive-parquet-summaries")
   mc_mv(mc_path, dest_path, recursive = TRUE)
   # clears up empty folders
-  mc_rm(mc_path, recursive = TRUE)
-  #remove_dir(mc_path)
+  #mc_rm(mc_path, recursive = TRUE)
+  remove_dir(mc_path)
 
 
   duckdbfs::close_connection(con); gc()
