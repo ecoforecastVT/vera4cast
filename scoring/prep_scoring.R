@@ -29,6 +29,7 @@ duckdbfs::duckdb_secrets(endpoint = "amnh1.osn.mghpcc.org",
                          bucket = "bio230121-bucket01")
 
 
+print('read targets files...')
 
 target_files <-
   c("https://amnh1.osn.mghpcc.org/bio230121-bucket01/vera4cast/targets/project_id=vera4cast/duration=P1D/daily-insitu-targets.csv.gz",
@@ -43,10 +44,12 @@ targets <-
                format = "csv",
                parser_options = list(nullstr = "NA"),
                anonymous = TRUE,
+
   ) |>
   filter(project_id == {project},
          datetime > {cut_off_date},
-         !is.na(observation)
+         !is.na(observation),
+         depth_m != ''
   )
 
 
@@ -55,6 +58,7 @@ targets <-
 last_observed_date <- targets |> select(datetime) |> distinct() |>
   filter(datetime == max(datetime)) |> pull(datetime)
 
+print('read forecasts for scoring...')
 # Omit scoring of daily forecasts that have a horizon > 35
 forecasts <-
   open_dataset("s3://bio230121-bucket01/vera4cast/forecasts/bundled-parquet/",
