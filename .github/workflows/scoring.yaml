@@ -34,10 +34,10 @@ jobs:
         run: R -e "install.packages(c('bench', 'duckdbfs', 'minioclient', 'callr')); remotes::install_github('eco4cast/score4cast')"
 
       - name: scoring-prep
-        run: r scoring/prep-scoring.R
+        run: r scoring/prep_scoring.R
 
       - name: scoring
-        run: r scoring/new-scoring.R
+        run: r scoring/new_scoring.R
 
       - name: install curl
         run: |
