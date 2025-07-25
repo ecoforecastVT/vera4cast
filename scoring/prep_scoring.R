@@ -46,10 +46,12 @@ targets <-
                anonymous = TRUE,
 
   ) |>
+  mutate(
+    depth_m = as.numeric(depth_m)) |>
   filter(project_id == {project},
          datetime > {cut_off_date},
          !is.na(observation),
-         depth_m != ''
+         !is.na(depth_m)
   )
 
 
