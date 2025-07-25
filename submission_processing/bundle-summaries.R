@@ -1,5 +1,7 @@
 remotes::install_github("cboettig/duckdbfs", upgrade=FALSE)
 
+score4cast::ignore_sigpipe()
+
 library(tidyverse)
 library(duckdbfs)
 library(minioclient)
@@ -82,7 +84,6 @@ bundle_me <- function(path) {
   print(path)
   con = duckdbfs::cached_connection(tempfile())
   duckdb_secrets(endpoint = "amnh1.osn.mghpcc.org", key = Sys.getenv("OSN_KEY"), secret = Sys.getenv("OSN_SECRET"), bucket = "bio230121-bucket01")
-
 
   bundled_path <- path |>
     str_replace(fixed("forecasts/summaries"), "forecasts/bundled-summaries")
