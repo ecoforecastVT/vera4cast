@@ -46,6 +46,8 @@ model_paths <-
   str_replace("^osn\\/", "s3://") |>
   unique()
 
+print(model_paths)
+
 remove_dir <- function(path) {
   tryCatch(
     {
@@ -152,10 +154,10 @@ bench::bench_time({
 })
 
 
-# bundled count at end
-count <- open_dataset("s3://bio230121-bucket01/vera4cast/forecasts/bundled-summaries",
-                      s3_endpoint = "amnh1.osn.mghpcc.org",
-                      anonymous = TRUE) |>
-  count()
-
-print(count)
+# # bundled count at end
+# count <- open_dataset("s3://bio230121-bucket01/vera4cast/forecasts/bundled-summaries",
+#                       s3_endpoint = "amnh1.osn.mghpcc.org",
+#                       anonymous = TRUE) |>
+#   count()
+#
+# print(count)
