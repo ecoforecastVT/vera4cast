@@ -132,22 +132,24 @@ bundle_me <- function(path) {
 
 # We use future_apply framework to show progress while being robust to OOM kils.
 # We are not actually running on multi-core, which would be RAM-inefficient
-future::plan(future::sequential)
-
-safe_bundles <- function(xs) {
-  p <- progressor(along = xs)
-  future_lapply(xs, function(x, ...) {
-    bundle_me(x)
-    p(sprintf("x=%s", x))
-  },  future.seed = TRUE)
-}
-
+# future::plan(future::sequential)
+#
+# safe_bundles <- function(xs) {
+#   p <- progressor(along = xs)
+#   future_lapply(xs, function(x, ...) {
+#     bundle_me(x)
+#     p(sprintf("x=%s", x))
+#   },  future.seed = TRUE)
+# }
+#
+#
+# bench::bench_time({
+#   safe_bundles(model_paths)
+# })
 
 bench::bench_time({
-  safe_bundles(model_paths)
+  out <- purrr::map(model_paths, bundle_me)
 })
-
-
 
 
 # bundled count at end
