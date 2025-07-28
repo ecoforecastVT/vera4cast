@@ -48,4 +48,3 @@ jobs:
         shell: Rscript {0}
         run: |
           print('inventory temporarily disabled")
-          # source("scoring/build_score_inventory.R")
