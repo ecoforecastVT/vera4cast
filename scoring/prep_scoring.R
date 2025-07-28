@@ -42,7 +42,7 @@ targets <-
   open_dataset(target_files,
                recursive = FALSE,
                format = "csv",
-               parser_options = list(nullstr = "NA"),
+               #parser_options = list(nullstr = "NA"),
                anonymous = TRUE,
 
   ) |>
@@ -57,7 +57,9 @@ targets <-
 
 # No point in trying to score any forecasts still in future (relative to last observed)
 # (pull forces eval, can take a minute)
-last_observed_date <- targets |> select(datetime) |> distinct() |>
+last_observed_date <- targets |>
+  select(datetime) |>
+  distinct() |>
   filter(datetime == max(datetime)) |> pull(datetime)
 
 print('read forecasts for scoring...')
